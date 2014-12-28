@@ -233,7 +233,7 @@ void en::resize(int w, int h) {
 			height = IDEAL_HEIGHT;
 			world->resize();
 			glViewport(0,0,width,height);
-			glutReshapeWindow(width, height);
+			//glutReshapeWindow(width, height);
 		}
 		else
 		if ( w != IDEAL_WIDTH  ||  h != IDEAL_HEIGHT ) {
@@ -246,7 +246,7 @@ void en::resize(int w, int h) {
 
 void ap::timedresize() {
 	if ( timeresize  &&  dresize-dnow <= 0 ) {
-		glutReshapeWindow(width, en::height);
+		//glutReshapeWindow(width, en::height);
 		dresize = 0;
 		timeresize = false;
 	}

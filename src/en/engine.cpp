@@ -42,6 +42,7 @@ double en::delta = 0;
 std::string *en::extraction = nullptr;
 
 void en::window() {
+	/*
 	char *argv [1];
 	int argc=1;
 	argv [0]=strdup("Myappname/Apolune");
@@ -67,15 +68,15 @@ void en::window() {
 	glEnable(GL_TEXTURE_2D);
 	
 	// depreciated
-	/*for ( int i = 0; i < Group::COUNT; i ++ ) {
-		groups[i] = i * GROUP_SATURATION;
-	}*/
+	//for ( int i = 0; i < Group::COUNT; i ++ ) {
+	//	groups[i] = i * GROUP_SATURATION;
+	//}
 	
 	QueryPerformanceFrequency(&frequency);
 	dnow = (now.QuadPart) * 1000.0 / frequency.QuadPart;
 	
 	en::make();
-	glutMainLoop();
+	glutMainLoop();*/
 }
 
 void en::cleanup() {
@@ -83,7 +84,7 @@ void en::cleanup() {
     //DestroyVBO();
 }
 
-void en::glut(int argc, char* argv[]) {
+/*void en::glut(int argc, char* argv[]) {
 	glutInit(&argc, argv);
 	
 	glutInitContextVersion(2, 0);
@@ -124,7 +125,7 @@ void en::glut(int argc, char* argv[]) {
 	glutPassiveMotionFunc(passivemotion);
 	
 	glViewport(0, 0, width, height);
-}
+}*/
 
 /*void en::resize(int w, int h) {
 	ap::resize();
@@ -144,7 +145,7 @@ void en::click(int button, int state, int x, int y) {
 	mx = x;
 	my = y;
 	
-	if ( GLUT_DOWN == state ) {
+	/*if ( GLUT_DOWN == state ) {
 		pmx = x;
 		pmy = y;
 	}
@@ -155,7 +156,7 @@ void en::click(int button, int state, int x, int y) {
 		
 	} else if ( GLUT_RIGHT_BUTTON == button ) {
 		right = (Click) state;
-	}
+	}*/
 	
 	en::click();
 }
@@ -185,7 +186,7 @@ void en::down(unsigned char key, int x, int y) {
 }
 
 void en::idle(void) {
-    glutPostRedisplay();
+    //glutPostRedisplay();
 }
 
 void en::timer(int value) {
@@ -207,7 +208,7 @@ void en::timer(int value) {
     }*/
 	
 	// 17 good for 60
-	glutTimerFunc(17, en::timer, 1);
+	//glutTimerFunc(17, en::timer, 1);
 	//glutPostRedisplay();
 }
 
@@ -222,14 +223,14 @@ void en::render(void) {
 	
 	en::frame();
 	
-	if ( PRESSED == left ) left = STILL_PRESSED;
+	/*if ( PRESSED == left ) left = STILL_PRESSED;
 	if ( PRESSED == right ) right = STILL_PRESSED;
 	
 	if ( RELEASED == left ) left = IDLE;
-	if ( RELEASED == right ) right = IDLE;
+	if ( RELEASED == right ) right = IDLE;*/
 	
-	glutSwapBuffers();
-	glutPostRedisplay();
+	//glutSwapBuffers();
+	//glutPostRedisplay();
 }
 
 //delta

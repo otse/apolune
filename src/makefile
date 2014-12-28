@@ -11,7 +11,7 @@ APGUIO =  o/box.o o/element.o o/label.o o/button.o
 
 O = $(ENO) $(APO) $(APGUIO) $(DONTREBUILD)
 
-FLAGS = -DFREEGLUT_STATIC -DGLEW_STATIC -DAPOLUNE
+FLAGS = -DSFML_STATIC -DAPOLUNE
 eleven = -std=c++0x
 gnu = -std=gnu++0x
 stdoverride = $(gnu)
@@ -20,9 +20,9 @@ DEBUG = -g
 
 all: apolune.exe
 	
-
+	
 apolune.exe: $(O)
-	g++ $(DEBUG) $(O) -LQ:/built -lglew32s -lfreeglut_static -lglu32 -lopengl32 -lwinmm -lgdi32 -lphysfs -ljsoncpp -llua -lOpenAL32.dll -static-libgcc -static-libstdc++ -o ../bin/apolune -Wall
+	g++ $(DEBUG) $(O) -LQ:/built -LQ:/SFML-2.2/lib -lglew32s -lglu32 -lopengl32 -lwinmm -lgdi32 -lphysfs -ljsoncpp -llua -lOpenAL32.dll -static-libgcc -static-libstdc++ -o ../bin/apolune -Wall
 
 o/main.o: main.cpp h.h ap/shards/stats.cpp ap/shards/debugbox.cpp
 	g++ -c main.cpp -o o/main.o $(FLAGS) $(gnu) $(stdoverride)

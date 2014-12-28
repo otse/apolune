@@ -1,7 +1,7 @@
 #ifndef h_H
 #define h_H
 
-#warning building apolune
+//#warning building apolune
 
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 

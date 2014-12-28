@@ -46,10 +46,10 @@ void ap::debugbox::fscb(en::Button b, en::Click c) {
 	if ( en::Button::LEFT == b  &&  en::RELEASED == c ) {
 		if ( bfs ) {
 			fs->svalue("on");
-			glutReshapeWindow(en::width, en::height);
+			//glutReshapeWindow(en::width, en::height);
 		} else {
 			fs->svalue("off");
-			glutFullScreen();
+			//glutFullScreen();
 		}
 		
 		bfs = ! bfs;

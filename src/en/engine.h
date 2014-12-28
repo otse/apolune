@@ -10,7 +10,7 @@
 
 #include "Q:/glew-1.11.0/include/GL/glew.h"
 #include "Q:/glew-1.11.0/include/GL/wglew.h"
-#include "Q:/freeglut/include/GL/freeglut.h"
+//#include "Q:/freeglut/include/GL/freeglut.h"
 //#include "../../../DEPS/openal-soft-1.16.0-bin/include/AL/al.h"
 
 typedef long clock_t;
@@ -37,7 +37,7 @@ namespace en {
 	enum Group {GNONE = -1,GDEF = 0,GPLAYER,GGUI,GDUMP,COUNT};
 	
 	enum Button {LEFT,MIDDLE,RIGHT};
-	enum Click {PRESSED = GLUT_DOWN,RELEASED = GLUT_UP,STILL_PRESSED,DRAG,IDLE};
+	enum Click {PRESSED /*= GLUT_DOWN*/,RELEASED /*= GLUT_UP,STILL_PRESSED*/,DRAG,IDLE};
 	enum Hover {HOVER_IN,HOVER_OUT};
 	
 	// American Beauty VIP
