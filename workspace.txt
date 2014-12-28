@@ -1,0 +1,111 @@
+<NotepadPlus>
+    <Project name="Apolune">
+        <Folder name="ap">
+            <Folder name="ais">
+                <File name="src\ap\ais\chicken.cpp" />
+                <File name="src\ap\ais\chicken.h" />
+                <File name="src\ap\ais\tentacle.cpp" />
+                <File name="src\ap\ais\tentacle.h" />
+            </Folder>
+            <Folder name="craft">
+                <File name="src\ap\craft\craft.h" />
+                <File name="src\ap\craft\grid.cpp" />
+                <File name="src\ap\craft\grid.h" />
+            </Folder>
+            <Folder name="gui">
+                <File name="src\ap\gui\all.h" />
+                <File name="src\ap\gui\element.cpp" />
+                <File name="src\ap\gui\element.h" />
+                <File name="src\ap\gui\box.cpp" />
+                <File name="src\ap\gui\box.h" />
+                <File name="src\ap\gui\label.cpp" />
+                <File name="src\ap\gui\label.h" />
+            </Folder>
+            <Folder name="net">
+                <File name="src\ap\net\conn.cpp" />
+                <File name="src\ap\net\conn.h" />
+            </Folder>
+            <Folder name="objects">
+                <File name="src\ap\objects\chair.cpp" />
+                <File name="src\ap\objects\chair.h" />
+                <File name="src\ap\objects\console.cpp" />
+                <File name="src\ap\objects\console.h" />
+                <File name="src\ap\objects\table.cpp" />
+                <File name="src\ap\objects\table.h" />
+            </Folder>
+            <Folder name="shaders">
+                <File name="src\ap\shaders\FontFragmentShader.txt" />
+                <File name="src\ap\shaders\FontVertexShader.txt" />
+                <File name="src\ap\shaders\FragmentShader.txt" />
+                <File name="src\ap\shaders\VertexShader.txt" />
+            </Folder>
+            <Folder name="shards">
+                <File name="src\ap\shards\intro.cpp" />
+                <File name="src\ap\shards\stats.cpp" />
+            </Folder>
+            <File name="src\ap\ai.cpp" />
+            <File name="src\ap\ai.h" />
+            <File name="src\ap\asteroid.cpp" />
+            <File name="src\ap\asteroid.h" />
+            <File name="src\ap\bulk.cpp" />
+            <File name="src\ap\context.cpp" />
+            <File name="src\ap\context.h" />
+            <File name="src\ap\def.cpp" />
+            <File name="src\ap\def.h" />
+            <File name="src\ap\emitter.cpp" />
+            <File name="src\ap\emitter.h" />
+            <File name="src\ap\light.cpp" />
+            <File name="src\ap\light.h" />
+            <File name="src\ap\lua.cpp" />
+            <File name="src\ap\lua.h" />
+            <File name="src\ap\mothership.cpp" />
+            <File name="src\ap\mothership.h" />
+            <File name="src\ap\mover.cpp" />
+            <File name="src\ap\mover.h" />
+            <File name="src\ap\object.cpp" />
+            <File name="src\ap\object.h" />
+            <File name="src\ap\planet.cpp" />
+            <File name="src\ap\planet.h" />
+            <File name="src\ap\ply.cpp" />
+            <File name="src\ap\ply.h" />
+            <File name="src\ap\ship.cpp" />
+            <File name="src\ap\ship.h" />
+            <File name="src\ap\sprite.cpp" />
+            <File name="src\ap\sprite.h" />
+            <File name="src\ap\start.cpp" />
+            <File name="src\ap\start.h" />
+            <File name="src\ap\world.h" />
+            <File name="src\ap\world.cpp" />
+            <File name="src\ap\loader.h" />
+            <File name="src\ap\loader.cpp" />
+        </Folder>
+        <Folder name="en">
+            <Folder name="shaders">
+                <File name="src\en\shaders\FontFragmentShader.txt" />
+                <File name="src\en\shaders\FontVertexShader.txt" />
+                <File name="src\en\shaders\FragmentShader.txt" />
+                <File name="src\en\shaders\VertexShader.txt" />
+            </Folder>
+            <File name="src\en\anim.cpp" />
+            <File name="src\en\anim.h" />
+            <File name="src\en\draws.cpp" />
+            <File name="src\en\draws.h" />
+            <File name="src\en\engine.cpp" />
+            <File name="src\en\engine.h" />
+            <File name="src\en\fbo.cpp" />
+            <File name="src\en\fbo.h" />
+            <File name="src\en\font.cpp" />
+            <File name="src\en\font.h" />
+            <File name="src\en\shader.cpp" />
+            <File name="src\en\shader.h" />
+            <File name="src\en\text.cpp" />
+            <File name="src\en\text.h" />
+            <File name="src\en\texture.cpp" />
+            <File name="src\en\texture.h" />
+        </Folder>
+        <File name="src\makefile" />
+        <File name="src\main.cpp" />
+        <File name="src\boilerplate.h" />
+        <File name="src\h.h" />
+    </Project>
+</NotepadPlus>
