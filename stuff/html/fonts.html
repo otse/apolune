@@ -1,0 +1,150 @@
+<html>
+<head>
+
+<style>
+html {
+	-webkit-user-select: none;
+}
+
+body {
+	padding: 40px;
+}
+
+om\:font {
+	display: block;
+	white-space: nowrap;
+	
+	/* no subpixel: */
+	x-webkit-transform: translateZ(0px);
+}
+
+om\:font row {
+	display: block;
+	margin-bottom: 1px;
+}
+
+om\:font letter {
+	display: inline-block;
+	padding: 0 2px;
+	margin-left: 1px;
+}
+
+om\:font letter span {
+	display: inline;
+}
+
+om\:font[stat] {
+	font-family: Segoe UI;
+	font-size: 11px;
+	xletter-spacing: 1px;
+	color: rgb(88, 88, 88);
+	
+	text-shadow: 1px 1px white;
+}
+
+om\:font[stat] letter {
+	background: rgb(235, 235, 235);
+}
+
+om\:font[statvalue] {
+	display: block;
+	font-family: Courier New;
+	font-size: 11px;
+	color: #3E83C0;
+	text-shadow: 1px 1px white;
+}
+
+om\:font[statvalue] letter {
+	background: rgb(245, 245, 245);
+}
+
+om\:font[notice] {
+	font-family: Courier;
+	font-style: italic;
+	font-size: 11px;
+	color: white;
+}
+
+om\:font[notice] letter {
+	background: rgb(58, 94, 136);
+}
+
+om\:font[launcher] {
+	font-family: Georgia;
+	color: rgb(245, 245, 245);
+	font-size: 17px;
+	font-style: italic;
+}
+
+om\:font[launcher] letter {
+	background: rgb(51, 103, 161);
+}
+
+
+</style>
+
+<script src="jquery-2.1.1.min.js"></script>
+
+<script>
+glyphs = [
+		['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+		['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+		['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+		[' ', '.', ',', '\'', '"']
+];
+jQuery(document).ready(function() {
+	$( "om\\:font" ).each(function() {
+		var textarea = $('<textarea>')
+		var bulk = ''
+		
+		console.log( "inside font" )
+		for ( var i = 0; i < glyphs.length; i ++ ) {
+			var x = 1
+			row = $( '<row>' );
+			bulk += '{\'\\0\'},\n'
+			for ( var j = 0; j < glyphs[i].length; j ++ ) {
+				var c = glyphs[i][j];
+				bulk += '{\''+c+'\', '
+				var letter = $( "<letter>" )
+				var span = $( "<span>" )
+				letter.append(span)
+				if ( 0 == j )
+					letter.css('margin-left', 0)
+				if ( ' ' == c )
+					c = '&nbsp;'
+				span.html( c )
+				$(this).append( letter );
+				var w = letter.width()
+				var h = letter.height()
+				bulk += x + ', '
+				var y = (h * i);
+				if ( y )
+					y += i
+				bulk += y + ', '
+				bulk += w+2 + ', '
+				bulk += 0 + ', '
+				bulk += 1 + '},'
+				bulk += '\n'
+				x = 3
+			}
+			$(this).append( row );
+			bulk += '\n'
+		}
+		
+		textarea.val(bulk)
+		$(this).append(textarea);
+	})
+});
+
+</script>
+
+</head>
+<body>
+	<div style="font-family: Segoe UI; font-size: 11px; color: rgb(88, 88, 88); background: rgb(235, 235, 235); text-shadow: 1px 1px white;">pack my box with five dozen liquor jugs</div>
+	<om:font stat></om:font>
+	<om:font statvalue></om:font>
+	<om:font notice></om:font>
+	<om:font launcher></om:font>
+	
+</body>
+</html>

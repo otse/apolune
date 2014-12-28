@@ -1,0 +1,72 @@
+<html>
+<head>
+
+<style>
+html {
+	x-webkit-user-select: none;
+}
+
+body {
+	background: white;
+	padding: 100px;
+}
+
+om\:window {
+	display: block;
+	width: 500px;
+	height: 250px;
+	background: rgb(37, 68, 165);
+    position: relative;
+}
+
+om\:cmd {
+	display: block;
+	width: inherit;
+	padding: 10px;
+	height: 100%;
+	
+	font-family: Courier;
+	font-size: 11px;
+	color: whitesmoke;
+	
+	box-sizing: border-box;
+	background: rgb(10, 10, 10);
+}
+
+om\:cmd om\:line {
+	display: block;
+}
+
+om\:cmd om\:url {}
+
+om\:cmd om\:line[art] {
+	xtext-transform: uppercase;
+	xcolor: rgb(212, 167, 84);
+}
+
+om\:cmd om\:line[system] { xcolor: rgb(187, 187, 187); }
+om\:cmd om\:line[news] { xcolor: orange; }
+
+om\:cmd om\:line om\:block {
+	display: inline-block;
+	margin-left: 3px;
+	background: whitesmoke;
+}
+
+</style>
+</head>
+<body>
+	<om:window>
+		<om:cmd>
+			<om:line art><!-- --=~. -->~-~ apolune launcher ~-~<!-- .~=- --></om:line>
+			<!--<om:line news># Hello from <om:url>http://apolune.ak.fm</om:url></om:line>-->
+			<om:line>&nbsp;</om:line>
+			<om:line system>envvar JAVA_HOME found</om:line>
+			<om:line system>testing Java... OK</om:line>
+			<!--<om:line system>envvar APPDATA: C:\Users\Petrus\AppData\Roaming\.apolune</om:line>
+			<om:line system>about to start have fun</om:line>-->
+			<!-- <om:line input>><om:block>&nbsp;<om:/block></om:line> -->
+		</om:cmd>
+	</om:window>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<html>
+<head>
+
+<style>
+html {
+	-webkit-user-select: none;
+}
+
+body {
+	background: white;
+	padding: 100px;
+}
+
+om\:window {
+	display: block;
+    position: relative;
+	
+	xpadding: 10px;
+	width: 500px;
+	xheight: 200px;
+	font-family: Courier;
+	color: #111;
+	font-size: 11px;
+	
+	text-shadow: 1px 1px 0 whitesmoke;
+	
+	box-sizing: border-box;
+}
+
+om\:loader {
+	position: relative;
+	display: block;
+	padding: 30px;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+	background: gainsboro;
+	xletter-spacing: 3px;
+}
+
+om\:loader om\:text {
+    display: block;
+    position: absolute;
+}
+
+om\:loader om\:progress {
+    display: block;
+    padding: inherit;
+    width: 100px;
+	border-radius: 3px;
+	
+	box-sizing: border-box;
+	background: rgb(73, 165, 73);
+    background: url('stars.png');
+	xbackground-position: 50% 50%;
+	top: 0;
+	left: 0;
+	
+    position: absolute;
+	overflow: hidden;
+	white-space: nowrap;
+	
+	color: white;
+	color: rgb(224, 224, 224);
+	xletter-spacing: 1px;
+	xtext-transform: uppercase;
+	text-shadow: 1px 1px 0 black;
+}
+
+om\:loader om\:button {
+	position: absolute;
+	display: inline-block;
+	padding: inherit;
+	xbackground: rgb(226, 226, 226);
+	color: rgb(171, 171, 171);
+	top: 0;
+	right: 0;
+}
+
+om\:url {
+    
+}
+
+om\:content {
+	display: block;
+	background: rgb(65, 115, 205);
+	padding: 10px;
+	color: white;
+	font-size: 9px;
+	text-shadow: none;
+	/* path */
+}
+</style>
+<script src="jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<om:window>
+		<om:content>downloading http://apolune.ak.fm/bases.7z</om:content>
+		<om:loader>	
+			<om:button>ready</om:button>
+			<om:text><!--<img src="inlineteacup.png" />&nbsp;-->moored in space 0km/h</om:text>
+			<om:progress>moored in space 0km/h</om:progress>
+			&nbsp;
+		</om:loader>
+	</om:window>
+
+	<script>
+		function progress() {
+			$('om\\:progress').animate({width: "500px"}, 1000)
+		}
+	</script>
+	
+	<p>
+	<input type="button" value="animate" onclick="progress()">
+
+</body>
+</html>
