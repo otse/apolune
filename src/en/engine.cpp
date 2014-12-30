@@ -49,7 +49,7 @@ void en::window() {
 	
 	glut(argc, argv);
 	*/
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(width*2, height*2), APOLUNESTR);
 	
 	GLenum GlewInitResult;
 	GlewInitResult = glewInit();
@@ -79,7 +79,22 @@ void en::window() {
 	dnow = (now.QuadPart) * 1000.0 / frequency.QuadPart;
 	
 	en::make();
-	//glutMainLoop();
+	
+	while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+		
+        //window.clear();
+		render();
+        //window.draw(shape);
+        window.display();
+    }
 }
 
 void en::cleanup() {

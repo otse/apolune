@@ -231,7 +231,7 @@ void ap::World::load() {
 	// don't add; we render the backdrop last, manually
 	
 	mom = new Mothership();
-	mom->nodraw = true;
+	//mom->nodraw = true;
 	this->add( mom );
 	
 	//cursorlight = new Light(lights::CURSOR, en::mx, en::my);
@@ -293,7 +293,7 @@ void ap::World::load() {
     ply = new Ply();
 	ply->sx((1400-911)*2);
 	ply->sy((828-527-33)*2);
-	ply->nodraw = true;
+	//ply->nodraw = true;
 	this->add( ply ); // tiny willy
 
 	for ( int i = 0; i < 0; i ++ ) {

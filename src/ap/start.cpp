@@ -23,7 +23,8 @@ ap::start::Menu::Menu() :
 	
 	loader->remove = true;
 	loader = nullptr;
-	
+	ap::launchworld();
+	return;
 	stars = new en::Draws(GDEF, &textures::backdrop, &regions::backdrop);
 	
 	/*wit = new en::Text(&monospace, &en::WHITE, "moored in space 0km/h");
