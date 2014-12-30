@@ -1,6 +1,10 @@
 #ifndef enengine_H
 #define enengine_H
 
+extern "C" {
+  //#include <jpeglib.h>
+}
+
 //#define FREEGLUT_STATIC
 //#define GLEW_STATIC
 #include <iostream>
@@ -10,6 +14,7 @@
 
 #include "Q:/glew-1.11.0/include/GL/glew.h"
 #include "Q:/glew-1.11.0/include/GL/wglew.h"
+#include <SFML/Graphics.hpp>
 //#include "Q:/freeglut/include/GL/freeglut.h"
 //#include "../../../DEPS/openal-soft-1.16.0-bin/include/AL/al.h"
 

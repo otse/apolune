@@ -48,6 +48,9 @@ void en::window() {
 	argv [0]=strdup("Myappname/Apolune");
 	
 	glut(argc, argv);
+	*/
+	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	
 	GLenum GlewInitResult;
 	GlewInitResult = glewInit();
 	
@@ -76,7 +79,7 @@ void en::window() {
 	dnow = (now.QuadPart) * 1000.0 / frequency.QuadPart;
 	
 	en::make();
-	glutMainLoop();*/
+	//glutMainLoop();
 }
 
 void en::cleanup() {

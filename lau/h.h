@@ -5,7 +5,7 @@
 
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 
-#include "../../DEPS/jsoncpp-master/include/json/json.h"
+#include "Q:/jsoncpp-master/include/json/json.h"
 #include <C:/Program Files (x86)/Java/jdk1.8.0_20/include/jni.h>
 
 

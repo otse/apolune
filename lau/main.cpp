@@ -14,8 +14,7 @@
 #include <en/font.h>
 #include <en/text.h>
 
-#include "../../DEPS/physfs-2.0.3/physfs.h"
-#include "../../DEPS/jsoncpp-master/include/json/json.h"
+#include "Q:/physfs-2.0.3/physfs.h"
 
 double lau::dresize = 0.D;
 bool lau::timeresize = false;
@@ -142,7 +141,7 @@ void en::resize(int w, int h) {
 		width = IDEAL_WIDTH;
 		height = IDEAL_HEIGHT;
 		glViewport(0,0,width,height);
-		glutReshapeWindow(width, height);
+		//glutReshapeWindow(width, height);
 	}
 	else
 	if ( w != IDEAL_WIDTH  ||  h != IDEAL_HEIGHT ) {
@@ -154,7 +153,7 @@ void en::resize(int w, int h) {
 
 void lau::timedresize() {
 	if ( timeresize  &&  dresize-en::dnow <= 0 ) {
-		glutReshapeWindow(en::width, en::height);
+		//glutReshapeWindow(en::width, en::height);
 		dresize = 0;
 		timeresize = false;
 	}

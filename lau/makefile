@@ -14,12 +14,14 @@ gnu = -std=gnu++0x
 stdoverride = $(gnu)
 
 DEBUG = -g
-INC = -I../src/ -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/win32"
+INC = -IQ:\SFML-2.2\include -I../src/ -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/win32"
 
 all: launcher.exe
 
+SFML = -lsfml-system-s -lsfml-window-s
+
 launcher.exe: $(O)
-	g++ $(O) -L../../BUILT -ljvm -lglew32s -lfreeglut_static -lglu32 -lopengl32 -lwinmm -lgdi32 -lphysfs -ljsoncpp -llua -lOpenAL32.dll -static-libgcc -static-libstdc++ -o ../bin/launcher -Wall
+	g++ $(O) -LQ:/built -LQ:/SFML-2.2/lib -ljvm -lglew32s -lglu32 -lopengl32 -lwinmm -lgdi32 $(SFML) -lphysfs -ljsoncpp -llua -lOpenAL32.dll -static-libgcc -static-libstdc++ -o ../bin/launcher -Wall
 
 o/main.o: main.cpp h.h
 	g++ $(INC) -c main.cpp -o o/main.o $(FLAGS) $(gnu) $(stdoverride)
