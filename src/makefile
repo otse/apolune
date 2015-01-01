@@ -8,8 +8,7 @@ APGUIO =  o/box.o o/element.o o/label.o o/button.o
 
 O = $(ENO) $(APO) $(APGUIO) $(DONTREBUILD)
 
-FLAGS = -DGLEW_STATIC -DSFML_STATIC -DUNICODE -DAPOLUNE -std-c++0x
-eleven = -std=c++0x #std=gnu++0x
+FLAGS = -DGLEW_STATIC -DSFML_STATIC -DUNICODE -DAPOLUNE -std=gnu++0x
 
 xDEBUG = -g
 INC = -IQ:/SFML-2.2/include -I../src/ -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/win32"

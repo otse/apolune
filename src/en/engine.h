@@ -151,6 +151,9 @@ namespace en {
 	} \
 	}
 
+
+// ### INCLUDED FOR LOGGING PREPROCESSOR
+// ### AND ALSO FOR SOME ENGINE DEFINES
 #ifdef APOLUNE
 #include "../h.h"
 #else

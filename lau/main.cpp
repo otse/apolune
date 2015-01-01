@@ -54,6 +54,7 @@ int main(int argc, const char* argv[]) {
 	return 0;
 }
 
+/*
 JNIEnv *lau::jvm() {
 	using namespace std;
 	const char *a = getenv("JAVA_HOME");
@@ -87,7 +88,7 @@ JNIEnv *lau::jvm() {
 	
 	JNI_CreateJavaVM(&jvm, (void **)&env, &args);
 	return env;
-}
+}*/
 
 void lau::roaming() {
 	PHYSFS_init(0);
@@ -125,7 +126,7 @@ void lau::rm(en::Draws *s) {
 
 void en::make() {
 	lau::roaming();
-	lau::jvm();
+	//lau::jvm();
 	
 	//glutSetWindowTitle("Apolune Launcher");
 	//textures::normal1.load();
@@ -220,9 +221,3 @@ void en::frame() {
 	
 	return;
 }
-
-/*
-void kill() {
-	
-}
-*/

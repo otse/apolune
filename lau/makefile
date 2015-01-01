@@ -8,7 +8,7 @@ LAUO = o/main.o o/static.o
 
 O = $(LAUO) $(ENO) $(DONTREBUILD)
 
-FLAGS = -DGLEW_STATIC -DSFML_STATIC -DUNICODE -std=c++0x
+FLAGS = -DGLEW_STATIC -DSFML_STATIC -DUNICODE -std=gnu++0x
 
 xDEBUG = -g
 INC = -IQ:/SFML-2.2/include -I../src/ -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/win32"

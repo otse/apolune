@@ -341,9 +341,3 @@ void en::frame() {
 	
 	return;
 }
-
-/*
-void kill() {
-	
-}
-*/
