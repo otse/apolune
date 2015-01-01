@@ -1,12 +1,10 @@
-xDONTREBUILD = o/stb_image.o
-
 ENO = o/engine.o o/texture.o o/shader.o o/fbo.o o/font.o o/text.o o/draws.o o/anim.o
 
 APO = o/main.o o/loader.o o/lua.o o/start.o o/files.o o/def.o o/bulk.o o/context.o o/world.o o/sprite.o o/emitter.o o/object.o o/chair.o o/table.o o/console.o o/light.o o/mover.o o/ai.o o/chicken.o o/tentacle.o o/ply.o o/planet.o o/asteroid.o o/ship.o o/mothership.o
 
 APGUIO =  o/box.o o/element.o o/label.o o/button.o
 
-O = $(ENO) $(APO) $(APGUIO) $(DONTREBUILD)
+O = $(ENO) $(APO) $(APGUIO)
 
 FLAGS = -DGLEW_STATIC -DSFML_STATIC -DUNICODE -DAPOLUNE -std=gnu++0x
 

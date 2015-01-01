@@ -1,12 +1,10 @@
-xDONTREBUILD = $(B)o/stb_image.o
-
 B = ../src/
 
 ENO = $(B)o/engine.o $(B)o/texture.o $(B)o/shader.o $(B)o/fbo.o $(B)o/font.o $(B)o/text.o $(B)o/draws.o $(B)o/anim.o
 
 LAUO = o/main.o o/static.o
 
-O = $(LAUO) $(ENO) $(DONTREBUILD)
+O = $(LAUO) $(ENO)
 
 FLAGS = -DGLEW_STATIC -DSFML_STATIC -DUNICODE -std=gnu++0x
 

@@ -43,16 +43,7 @@ void en::Font::addglyph(bool absolute, glyph &g) {
 }
 
 const en::glyph &en::Font::getglyph(char c) const {
-	/*if ( glyphs.count(c) ) {
-		//glyph *g = nullptr;
-		auto g = glyphs.find(c);
-		//if ( glyphs.end() != g )
-			//return nullptr;
-		return g->second;
-	}*/
 	return glyphs[c];
-	
-	//else return badglyph;
 }
 
 void en::Font::draw() {
