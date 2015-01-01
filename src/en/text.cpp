@@ -40,13 +40,21 @@ en::Text::~Text() {
 	std::for_each( this->draws.begin(), this->draws.end(), DeleteVector<Draws*>() );
 }
 
+//bool shouldwrap(const Text &, const glyph &);
 void en::Text::position() {
 	width = 0;
 	
 	//LOG("positioning " << q)
 	int l = draws.size();
+	//std::vector<const &glyph> word;
 	for( int i = 0; i < l; i++) {
 		char c = q[i];
+		bool space = ' ' == q[i];
+		
+		if ( ! space ) {
+			
+		}
+		
 		const glyph &g = f.getglyph(c);
 		Draws *d = this->draws[i];
 		
@@ -58,12 +66,20 @@ void en::Text::position() {
 		d->sw(g.w*scale);
 		d->sh(f.gh()*scale);
 		
+		if ( space ) {
+			
+		}
+		
 		width += g.w-g.sb-g.sf;
 		//std::cout << "text Draws glyph '" << c << "', x: " << d->gx() << std::endl;
 	}
 	
 	sw(width * scale);
 	sh(f.gh() * scale);
+}
+
+inline shouldwrap(const Text &t, const glyph &g) {
+	LOG("test")
 }
 
 //@override
@@ -81,3 +97,4 @@ void en::Text::draw() {
    ########################### */
 int en::Text::gtextw() { return width; }
 const char *en::Text::gquote() { return q; }
+//void en::Text::smaxw(int i) { maxw = i; }

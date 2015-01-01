@@ -37,7 +37,8 @@ namespace en {
 		Texture &texture;
 		int baseline;
 		int height;
-		std::map<char, glyph> glyphs;
+		glyph glyphs[255] = {};
+		//std::map<char, glyph> glyphs;
 		//void move();
 	};
 }

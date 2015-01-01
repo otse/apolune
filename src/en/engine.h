@@ -1,9 +1,6 @@
 #ifndef enengine_H
 #define enengine_H
 
-extern "C" {
-  //#include <jpeglib.h>
-}
 
 //#define FREEGLUT_STATIC
 //#define GLEW_STATIC

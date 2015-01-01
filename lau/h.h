@@ -18,7 +18,9 @@
 
 #define LOG(A) std::cout << A << std::endl;
 
-#define EN_WINDOWNAME "downloading launcher files"
+#define EN_WINDOWNAME "Apolune launcher"
+#define EN_SFSTYLE sf::Style::None
+
 #include "../src/en/engine.h"
 
 #define APOLUNESTR "launcher"

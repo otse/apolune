@@ -17,6 +17,7 @@ namespace en {
 		
 		void position();
 		int gtextw();
+		//int smaxw();
 		const char *gquote();
 		double scale;
 	private:

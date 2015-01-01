@@ -14,6 +14,7 @@
 #include <random>
 
 #define EN_WINDOWNAME "Apolune"
+#define EN_SFSTYLE sf::Style::Titlebar | sf::Style::Close
 #include "en/engine.h"
 
 #define APOLUNESTR "apolune"

@@ -49,7 +49,9 @@ void en::window() {
 	
 	glut(argc, argv);
 	*/
-	sf::RenderWindow window(sf::VideoMode(width*2, height*2), APOLUNESTR);
+	
+	using namespace sf;
+	RenderWindow window(VideoMode(width*2, height*2), EN_WINDOWNAME, EN_SFSTYLE);
 	
 	GLenum GlewInitResult;
 	GlewInitResult = glewInit();
@@ -80,21 +82,19 @@ void en::window() {
 	
 	en::make();
 	
-	while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+	while ( window.isOpen() ) {
+		sf::Event event;
 
-		
-        //window.clear();
+		while ( window.pollEvent(event) ) {
+			if ( event.type == sf::Event::Closed )
+			window.close();
+		}
+
+		//window.clear();
 		render();
-        //window.draw(shape);
-        window.display();
-    }
+		//window.draw(shape);
+		window.display();
+	}
 }
 
 void en::cleanup() {

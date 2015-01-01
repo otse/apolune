@@ -81,21 +81,30 @@ om\:url {
 
 om\:content {
 	display: block;
-	background: rgb(65, 115, 205);
+	background: rgb(24, 62, 90);
 	font-family: Segoe UI;
 	font-size: 14px;
+	letter-spacing: 1px;
+	text-transform: lowercase;
 	padding: 10px;
 	color: white;
-	font-size: 9px;
 	text-shadow: none;
+	height: 90px;
 	/* path */
+}
+
+om\:emphasis {
+	border-bottom: 1px dashed whitesmoke;
 }
 </style>
 <script src="jquery-2.1.1.min.js"></script>
 </head>
 <body>
 	<om:window>
-		<om:content>did you know you can salvage rocket fuel from condensors?</om:content>
+		<om:content>
+			#TIP 3<br />
+			did you know you can salvage <om:emphasis>rocket fuel</om:emphasis> from <om:emphasis>condensors</om:emphasis>?
+		</om:content>
 		<om:loader>	
 			<om:button>faster than light</om:button>
 			<om:text><!--<img src="inlineteacup.png" />&nbsp;-->moored in space 0km/h</om:text>
