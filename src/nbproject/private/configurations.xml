@@ -116,8 +116,6 @@
         <in>stb_image.c</in>
         <in>stb_image.h</in>
       </df>
-      <df name="o">
-      </df>
       <in>boilerplate.h</in>
       <in>h.h</in>
       <in>main.cpp</in>
