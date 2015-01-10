@@ -25,7 +25,10 @@ en::List<en::Draws *> lau::draws;
 PHYSFS_File *lau::base;
 Json::Value lau::midrash;
 
-en::Texture lau::texturefontlauncher("fontlauncher.png");
+en::Texture lau::bg("laubg.png");
+en::Region lau::rbg = {0, 0, 500, 74};
+
+en::Texture lau::tfontback("laufontback.png");
 
 #include <boilerplate.h>
 
@@ -128,8 +131,21 @@ void en::make() {
 	lau::roaming();
 	//lau::jvm();
 	
+	using namespace lau;
 	//glutSetWindowTitle("Apolune Launcher");
-	//textures::normal1.load();
+	tfontback.load();
+	bg.load();
+	
+	Draws *bgdraws = new Draws(GDEF, &bg, &rbg);
+	add(bgdraws);
+	
+	Text *text = new Text(GDEF, fontback, &WHITE, "moored in space 0km/h");
+	text->sx(30);
+	text->sy(30);
+	
+	text->position();
+	
+	add(text);
 	//textures::spread.load();
 }
 

@@ -70,14 +70,14 @@ om\:font[notice] letter {
 }
 
 om\:font[launcher] {
-	font-family: Georgia;
-	color: rgb(245, 245, 245);
-	font-size: 17px;
-	font-style: italic;
+	font-family: Courier;
+	color: #111;
+	font-size: 11px;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 om\:font[launcher] letter {
-	background: rgb(51, 103, 161);
+	background: gainsboro;
 }
 
 
@@ -90,7 +90,7 @@ glyphs = [
 		['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
 		['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
 		['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
-		[' ', '.', ',', '\'', '"']
+		[' ', '.', ',', '/', '\\', '\'', '"']
 ];
 jQuery(document).ready(function() {
 	$( "om\\:font" ).each(function() {
@@ -123,7 +123,7 @@ jQuery(document).ready(function() {
 				bulk += y + ', '
 				bulk += w+2 + ', '
 				bulk += 0 + ', '
-				bulk += 1 + '},'
+				bulk += 2 + '},' // sb
 				bulk += '\n'
 				x = 3
 			}
