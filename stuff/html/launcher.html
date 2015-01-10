@@ -15,7 +15,9 @@ om\:window {
 	display: block;
     position: relative;
 	
-	xpadding: 10px;
+	padding: 10px;
+	background: rgb(249, 249, 249);
+
 	width: 500px;
 	xheight: 200px;
 	font-family: Courier;
@@ -33,6 +35,7 @@ om\:loader {
 	padding: 30px;
 	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
 	background: gainsboro;
+	border-radius: 3px;
 	xletter-spacing: 3px;
 }
 
@@ -80,17 +83,27 @@ om\:url {
 }
 
 om\:content {
-	display: block;
-	background: rgb(24, 62, 90);
+	display: table;
+	display: none;
+	width: 100%;
+	background: rgb(44, 103, 147);
+	background: rgb(147, 48, 44);
 	font-family: Segoe UI;
 	font-size: 14px;
-	letter-spacing: 1px;
-	text-transform: lowercase;
-	padding: 10px;
+	xletter-spacing: 1px;
+	xtext-transform: lowercase;
+	
 	color: white;
 	text-shadow: none;
-	height: 90px;
+	xheight: 100px;
 	/* path */
+}
+
+om\:inside {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 50px;
+	text-align: center;
 }
 
 om\:emphasis {
@@ -102,11 +115,12 @@ om\:emphasis {
 <body>
 	<om:window>
 		<om:content>
-			#TIP 3<br />
-			did you know you can salvage <om:emphasis>rocket fuel</om:emphasis> from <om:emphasis>condensors</om:emphasis>?
+			<om:inside>
+				Did you know you can salvage <om:emphasis>rocket fuel</om:emphasis> from <om:emphasis>your heart</om:emphasis>?
+			</om:inside>
 		</om:content>
 		<om:loader>	
-			<om:button>faster than light</om:button>
+			<om:button>go</om:button>
 			<om:text><!--<img src="inlineteacup.png" />&nbsp;-->moored in space 0km/h</om:text>
 			<om:progress>moored in space 0km/h</om:progress>
 			&nbsp;

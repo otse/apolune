@@ -85,6 +85,8 @@
         <in>world.h</in>
       </df>
       <df name="en">
+        <df name="o">
+        </df>
         <df name="shaders">
           <in>FontFragmentShader.txt</in>
           <in>FontVertexShader.txt</in>
@@ -115,6 +117,8 @@
         <in>load.h</in>
         <in>stb_image.c</in>
         <in>stb_image.h</in>
+      </df>
+      <df name="o">
       </df>
       <in>boilerplate.h</in>
       <in>h.h</in>
@@ -162,6 +166,7 @@
         <runcommand>"${OUTPUT_PATH}"</runcommand>
         <rundir>../bin</rundir>
         <buildfirst>false</buildfirst>
+        <console-type>2</console-type>
         <terminal-type>0</terminal-type>
         <remove-instrumentation>0</remove-instrumentation>
         <environment>

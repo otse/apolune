@@ -78,9 +78,9 @@ void en::Text::position() {
 	sh(f.gh() * scale);
 }
 
-inline shouldwrap(const Text &t, const glyph &g) {
+/*inline shouldwrap(const Text &t, const glyph &g) {
 	LOG("test")
-}
+}*/
 
 //@override
 void en::Text::draw() {
