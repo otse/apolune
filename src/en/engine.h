@@ -48,9 +48,11 @@ namespace en {
 		extern Click *active;
 #define MOUISLEFT &en::mou::left == en::mou::active
 #define MOUISRIGHT &en::mou::right == en::mou::active
+#define MOUPRESSED en::mou::PRESSED == *en::mou::active
 #define MOURELEASED en::mou::RELEASED == *en::mou::active
+#define MOUISIDLE nullptr==en::mou::active
 		
-		void mice();
+		void mice(const sf::RenderWindow &);
 		
 		extern int pmx;
 		extern int pmy;
@@ -78,12 +80,10 @@ namespace en {
 	extern int WindowHandle;
 	
 	void window();
-	void glut(int, char*[]);
 	void resize(int, int);
-	void render(void);
-	void timer(int);
-	void cleanup(void);
-	void idle(void);
+	void render();
+	void cleanup();
+	void idle();
 	
 	extern bool twdd;
 	void s2d();

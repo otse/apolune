@@ -93,7 +93,7 @@ void en::window() {
 			window.close();
 		}
 
-		mou::mice();
+		mou::mice(window);
 		//window.clear();
 		render();
 		//window.draw(shape);
@@ -101,34 +101,56 @@ void en::window() {
 	}
 }
 
-void en::mou::mice() {
+void en::mou::mice(const sf::RenderWindow &a) {
 	using namespace sf;
 	
-	pos = Mouse::getPosition();
+	pos = Mouse::getPosition(a);
 	mx = pos.x;
 	my = pos.y;
 	
-	if (Mouse::isButtonPressed(Mouse::Left)) {
+	bool l = Mouse::isButtonPressed(Mouse::Left);
+	bool r = Mouse::isButtonPressed(Mouse::Right);
+	
+	if (l) {
+		if (PRESSED==left) {
+			left = DRAG;
+			return;
+		} else if (DRAG==left)
+			return;
+			
 		left = PRESSED;
 		active = &left;
 		pmx = mx;
-		pmx = my;
-		if ( )
-	} else if (PRESSED==left) {
+		pmy = my;
+		LOG("pressed left at " << mx << ", " << my)
+	} else if (PRESSED==left||DRAG==left) {
 		left = RELEASED;
-	} else {
+		LOG("released left")
+	} else if (IDLE!=left) {
 		left = IDLE;
+		LOG("idled left")
 	}
 	
-	if (Mouse::isButtonPressed(Mouse::Right)) {
+	else if (r) {
+		if (PRESSED==right) {
+			right = DRAG;
+			return;
+		} else if (DRAG==right)
+			return;
+		
 		right = PRESSED;
 		active = &right;
 		pmx = mx;
-		pmx = my;
-	} else if (PRESSED==right) {
+		pmy = my;
+	} else if (PRESSED==right||DRAG==right) {
 		right = RELEASED;
-	} else {
+	} else if (IDLE!=right) {
 		right = IDLE;
+	}
+	
+	else if (nullptr!=active) {
+		LOG("mouse to null")
+		active = nullptr;
 	}
 }
 
@@ -159,35 +181,6 @@ void en::cleanup() {
 	else if ( DOWN == keys[key] )
 		keys[key] = STILL_DOWN;
 */
-
-void en::idle(void) {
-    //glutPostRedisplay();
-}
-
-void en::timer(int value) {
-	/*if (0 != Value) {
-        char* TempString = (char*)
-            malloc(512 + strlen(APOLUNESTR));
-		
-        sprintf(
-            TempString,
-            "%s: %d Frames Per Second @ %d x %d",
-            APOLUNESTR,
-            fps,
-            WIDTH,
-            HEIGHT
-        );
- 
-        glutSetWindowTitle(TempString);
-        free(TempString);
-    }*/
-	
-	// 17 good for 60
-	//glutTimerFunc(17, en::timer, 1);
-	//glutPostRedisplay();
-}
-
-// shard
 
 void en::render(void) {
 	s2d();

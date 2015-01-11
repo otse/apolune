@@ -214,16 +214,14 @@ void en::Draws::mousetrigger() {
 	
 	using namespace mou;
 	
-	if ( held &&
-		 RELEASED == left ||
-		 RELEASED == right )
+	//LOG("we come this far!")
+		
+	if (held&&MOURELEASED)
 		held = false;
 	
 	if (
-		(PRESSED == left ||
-		 RELEASED == left ||
-		 PRESSED == right ||
-		 RELEASED == right) &&
+		!(MOUISIDLE) &&
+		(MOUPRESSED||MOURELEASED) &&
 		
 		pmx >= gscrx() && pmx <= gscrx() + gw() &&
 		pmy >= gscry() && pmy <= gscry() + gh() &&
@@ -232,11 +230,12 @@ void en::Draws::mousetrigger() {
 		my >= gscry() && my < gscry() + gh()
 		) {
 		
-		if ( PRESSED == left  ||  PRESSED == right )
+		if ( MOUPRESSED )
 			held = true;
 		
-		if ( RELEASED == left  ||  RELEASED == right )
+		if ( MOURELEASED )
 			held = false;
+		
 		
 		if (IDLE!=left||IDLE!=right)
 			click();
