@@ -16,6 +16,14 @@
 #include <cstdlib>
 #include <random>
 
+#include <en/engine.h>
+#include <en/draws.h>
+#include <en/font.h>
+#include <en/fbo.h>
+#include <en/text.h>
+
+#include "bar.h"
+
 #define LOG(A) std::cout << A << std::endl;
 
 #define EN_WINDOWNAME "Apolune launcher"
@@ -41,12 +49,23 @@ namespace en {
 }
 
 namespace lau {
-	extern const en::Font fontback;
-	extern en::Texture tfontback;
-	extern en::Texture bar;
+	class Bar;
+	
+	extern const en::Font backfont;
+	extern const en::Font barfont;
+	extern en::Texture tbackfont;
+	extern en::Texture tbarfont;
+	extern en::Texture starssides;
 	
 	extern en::Texture bg;
+	extern en::Texture stars;
+	
 	extern en::Region rbg;
+	extern en::Region rstars;
+	extern en::Region rstarsl;
+	extern en::Region rstarsr;
+	extern Bar *bar;
+	
 	
 	extern unsigned char clifontwhitedata[];
 	extern unsigned char clifontwhitedata[];

@@ -2,7 +2,7 @@ B = ../src/
 
 ENO = $(B)o/engine.o $(B)o/texture.o $(B)o/shader.o $(B)o/fbo.o $(B)o/font.o $(B)o/text.o $(B)o/draws.o $(B)o/anim.o
 
-LAUO = o/main.o o/static.o
+LAUO = o/main.o o/static.o o/bar.o
 
 O = $(LAUO) $(ENO)
 
@@ -14,11 +14,11 @@ INC = -IQ:/SFML-2.2/include -I../src/ -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/i
 all: launcher.exe
 
 
-SFML = -lsfml-graphics-s -lsfml-window-s -lsfml-system-s
+SFML = -lsfml-graphics-s -lsfml-window-s -lsfml-network-s -lsfml-system-s
 LGCC = -static-libgcc -static-libstdc++
 
 launcher.exe: $(O)
-	g++ $(O) -LQ:/built -LQ:/SFML-2.2/lib $(SFML) $(LGCC) -ljvm -ljpeg -lfreetype -lglew32s -lglu32 -lopengl32 -lwinmm -lgdi32 -lphysfs -ljsoncpp -llua -o ../bin/launcher -Wall
+	g++ $(O) -LQ:/built -LQ:/SFML-2.2/lib $(SFML) $(LGCC) -lws2_32 -ljvm -ljpeg -lfreetype -lglew32s -lglu32 -lopengl32 -lwinmm -lgdi32 -lphysfs -ljsoncpp -llua -o ../bin/launcher -Wall
 
 
 o/main.o: main.cpp h.h
@@ -26,6 +26,9 @@ o/main.o: main.cpp h.h
 
 o/static.o: static.cpp h.h
 	g++ $(INC) -c static.cpp -o o/static.o $(FLAGS)
+	
+o/bar.o: bar.cpp bar.h
+	g++ $(INC) -c bar.cpp -o o/bar.o $(FLAGS)
 	
 $(B)o/engine.o: $(B)en/engine.cpp $(B)en/engine.h h.h
 	g++ -c $(INC) $(B)en/engine.cpp -o $(B)o/engine.o $(FLAGS)

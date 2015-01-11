@@ -9,11 +9,6 @@
 
 #include "h.h"
 
-#include <en/engine.h>
-#include <en/draws.h>
-#include <en/font.h>
-#include <en/text.h>
-
 #include "Q:/physfs-2.0.3/physfs.h"
 
 double lau::dresize = 0.D;
@@ -25,10 +20,19 @@ en::List<en::Draws *> lau::draws;
 PHYSFS_File *lau::base;
 Json::Value lau::midrash;
 
-en::Texture lau::bg("laubg.png");
-en::Region lau::rbg = {0, 0, 500, 74};
+en::Texture lau::tbackfont("laufontback.png");
+en::Texture lau::tbarfont("laufontbar.png");
 
-en::Texture lau::tfontback("laufontback.png");
+en::Texture lau::bg("laubg.png");
+en::Texture lau::stars("stars.png");
+en::Texture lau::starssides("starssides.png");
+
+en::Region lau::rbg = {0, 0, 500, 74};
+en::Region lau::rstars = {0, 0, 500, 74};
+en::Region lau::rstarsl = {0, 0, 2, 74};
+en::Region lau::rstarsr = {2, 0, 2, 74};
+
+lau::Bar *lau::bar;
 
 #include <boilerplate.h>
 
@@ -133,20 +137,17 @@ void en::make() {
 	
 	using namespace lau;
 	//glutSetWindowTitle("Apolune Launcher");
-	tfontback.load();
+	tbackfont.load();
+	tbarfont.load();
 	bg.load();
+	stars.load();
+	starssides.load();
 	
 	Draws *bgdraws = new Draws(GDEF, &bg, &rbg);
 	add(bgdraws);
 	
-	Text *text = new Text(GDEF, fontback, &WHITE, "moored in space 0km/h");
-	text->sx(30);
-	text->sy(30);
-	
-	text->position();
-	
-	add(text);
-	//textures::spread.load();
+	bar = new Bar();
+	add(bar);
 }
 
 #define IDEAL_WIDTH 500

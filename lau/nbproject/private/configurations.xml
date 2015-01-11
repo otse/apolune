@@ -4,6 +4,8 @@
     <df root="." name="0">
       <df name="o">
       </df>
+      <in>bar.cpp</in>
+      <in>bar.h</in>
       <in>h.h</in>
       <in>main.cpp</in>
       <in>static.cpp</in>
