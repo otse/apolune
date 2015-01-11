@@ -106,8 +106,8 @@ ap::start::Button::~Button() {
 	
 }
 
-void ap::start::Button::click(en::Button b, en::Click c) {
-	if ( en::RELEASED == c ) {
+void ap::start::Button::click(mou::Button b, mou::Click c) {
+	if ( mou::RELEASED == c ) {
 		switch (action) {
 			case PLAY :
 				menu->remove = true;
@@ -123,8 +123,8 @@ void ap::start::Button::click(en::Button b, en::Click c) {
 	}
 }
 
-void ap::start::Button::hover(en::Hover h) {
-	if ( en::HOVER_IN == h ) {
+void ap::start::Button::hover(mou::Hover h) {
+	if ( mou::HOVER_IN == h ) {
 		scolor(&colors::YELLOW);
 		scale = 5;
 		position();

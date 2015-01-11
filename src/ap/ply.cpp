@@ -61,16 +61,16 @@ void ap::Ply::key() {
 	} else
 		useing = false;*/
 		
-	if ( en::DOWN == en::keys['e'] ) {
+	if ( oar::DOWN == oar::keys['e'] ) {
 		use = true;
 	} else use = false;
 	
 	//if ( use ) LOG("use")
 	
-	bool a = en::keys['a'] != en::UP;
-	bool d = en::keys['d'] != en::UP;
-	bool w = en::keys['w'] != en::UP;
-	bool s = en::keys['s'] != en::UP;
+	bool a = oar::keys[sf::Keyboard::A] != oar::UP;
+	bool d = oar::keys[sf::Keyboard::D] != oar::UP;
+	bool w = oar::keys[sf::Keyboard::W] != oar::UP;
+	bool s = oar::keys[sf::Keyboard::S] != oar::UP;
 	
 	if ( !(a&&d)&&(a||d) ) {
 		cycle();

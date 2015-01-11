@@ -5,12 +5,14 @@
 #include "../en/draws.h"
 #include "world.h"
 
+using namespace en;
+
 namespace ap {
 
 	/**
 	 * a sprite is the most basic 'visual object' in the game-world
 	 */
-	class Sprite : public en::Draws {
+	class Sprite : public Draws {
 	public:
 		struct Hitbox {
 			int x;
@@ -19,11 +21,11 @@ namespace ap {
 			int h;
 		};
 		
-		Sprite(en::Group, en::Texture *, en::Region *);
+		Sprite(Group, Texture *, Region *);
 		virtual ~Sprite();
 		
-		virtual void click(en::Button, en::Click);
-		virtual void hover(en::Hover);
+		virtual void click(mou::Button, mou::Click);
+		virtual void hover(mou::Hover);
 		
 		virtual void step();
 		virtual void draw();

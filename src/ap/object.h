@@ -6,6 +6,8 @@
 #include "mover.h"
 #include "sprite.h"
 
+using namespace en;
+
 namespace ap {
 	/**
 	 * An Object is a Sprite that can be activated,
@@ -18,8 +20,8 @@ namespace ap {
 		Object(en::Group, en::Texture *, en::Region *);
 		~Object();
 		
-		virtual void click(en::Button, en::Click);
-		virtual void hover(en::Hover);
+		virtual void click(mou::Button, mou::Click);
+		virtual void hover(mou::Hover);
 		
 		const char *tip;
 		

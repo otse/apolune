@@ -1,7 +1,7 @@
 #ifndef h_H
 #define h_H
 
-#warning building launcher
+//#warning building launcher
 
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 

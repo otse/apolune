@@ -43,6 +43,7 @@
             <standard>8</standard>
             <incDir>
               <pElem>../src</pElem>
+              <pElem>Q:/SFML-2.2/include</pElem>
             </incDir>
           </ccTool>
         </makeTool>

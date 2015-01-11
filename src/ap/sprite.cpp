@@ -61,8 +61,8 @@ void ap::Sprite::sworld(bool b) {
 double ap::Sprite::gax() const { return ax; }
 double ap::Sprite::gay() const { return ay; }
 
-void ap::Sprite::click(en::Button, en::Click) {};
-void ap::Sprite::hover(en::Hover) {};
+void ap::Sprite::click(mou::Button, mou::Click) {};
+void ap::Sprite::hover(mou::Hover) {};
 
 void ap::Sprite::sx(double p) { ax = p; Draws::sx(int(ax)); }
 void ap::Sprite::sy(double p) { ay = p; Draws::sy(int(ay)); }

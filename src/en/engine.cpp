@@ -16,14 +16,15 @@ en::Region en::regfluke = {0,0,0,0};
 Color en::BLACK = {0, 0, 0};
 Color en::WHITE = {1, 1, 1};
 
-int en::mx = 0;
-int en::my = 0;
-int en::pmx = 0;
-int en::pmy = 0;
-Click en::left = IDLE;
-Click en::right = IDLE;
+int mou::mx = 0;
+int mou::my = 0;
+int mou::pmx = 0;
+int mou::pmy = 0;
+mou::Click mou::left = IDLE;
+mou::Click mou::right = IDLE;
+sf::Vector2i mou::pos;
 
-KEY_STATE en::keys[255] = { UP };
+oar::KEY_STATE oar::keys[sf::Keyboard::KeyCount] = { oar::UP };
 
 const int en::GROUP_SATURATION = 100;
 bool en::twdd = false;
@@ -91,6 +92,7 @@ void en::window() {
 			window.close();
 		}
 
+		mou::pos = Mouse::getPosition();
 		//window.clear();
 		render();
 		//window.draw(shape);
@@ -102,49 +104,6 @@ void en::cleanup() {
 
     //DestroyVBO();
 }
-
-/*void en::glut(int argc, char* argv[]) {
-	glutInit(&argc, argv);
-	
-	glutInitContextVersion(2, 0);
-	glutInitContextFlags(GLUT_FORWARD_COMPATIBLE);
-	glutInitContextProfile(GLUT_CORE_PROFILE);
-
-	glutSetOption(
-		GLUT_ACTION_ON_WINDOW_CLOSE,
-		GLUT_ACTION_GLUTMAINLOOP_RETURNS
-	);
-	
-	glutInitWindowSize(width, height);
-	
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_ALPHA);
-	
-	WindowHandle = glutCreateWindow(EN_WINDOWNAME);
-	
-	glutKeyboardFunc(en::down);
-	glutKeyboardUpFunc(en::up);
-	
-	if(WindowHandle < 1) {
-		fprintf(
-			stderr,
-			"ERROR: Could not create a new rendering window.\n"
-		);
-		exit(EXIT_FAILURE);
-	}
-	
-	glutReshapeFunc(resize);
-	glutDisplayFunc(render);
-	
-	glutIdleFunc(idle);
-	glutTimerFunc(0, timer, 0);
-	glutCloseFunc(cleanup);
-	
-	glutMouseFunc(click);
-	glutMotionFunc(motion);
-	glutPassiveMotionFunc(passivemotion);
-	
-	glViewport(0, 0, width, height);
-}*/
 
 /*void en::resize(int w, int h) {
 	ap::resize();
@@ -160,49 +119,19 @@ void en::cleanup() {
 	glViewport(0,0, en::width, en::height);
 }*/
 
-void en::click(int button, int state, int x, int y) {
-	mx = x;
-	my = y;
-	
-	/*if ( GLUT_DOWN == state ) {
-		pmx = x;
-		pmy = y;
-	}
-	
-	if ( GLUT_LEFT_BUTTON == button ) {
-		left = (Click) state;
-	} else if ( GLUT_MIDDLE_BUTTON == button ) {
-		
-	} else if ( GLUT_RIGHT_BUTTON == button ) {
-		right = (Click) state;
-	}*/
+void en::click() {
 	
 	en::click();
 }
 
-void en::motion(int x, int y) {
-	en::mx = x;
-	en::my = y;
-	//LOG("drag");
-}
-
-void en::passivemotion(int x, int y) {
-	en::mx = x;
-	en::my = y;
-}
-
-
-void en::up(unsigned char key, int x, int y) {
+/*
 	keys[key] = UP;
-	//LOG("up " << key << ", keys[key] is " << ((lau::keys[key]) ? "true" : "false") )
-}
 
-void en::down(unsigned char key, int x, int y) {
 	if ( UP == keys[key] )
 		keys[key] = DOWN;
 	else if ( DOWN == keys[key] )
 		keys[key] = STILL_DOWN;
-}
+*/
 
 void en::idle(void) {
     //glutPostRedisplay();

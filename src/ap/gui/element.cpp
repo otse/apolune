@@ -31,5 +31,5 @@ void ap::gui::Element::reposition() {
 
 void ap::gui::Element::draw() {}
 
-void ap::gui::Element::click(en::Button b, en::Click c) {}
-void ap::gui::Element::hover(en::Hover h) {}
+void ap::gui::Element::click(mou::Button b, mou::Click c) {}
+void ap::gui::Element::hover(mou::Hover h) {}

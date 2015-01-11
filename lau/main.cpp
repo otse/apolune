@@ -37,17 +37,6 @@ lau::Bar *lau::bar;
 #include <boilerplate.h>
 
 
-/*int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
-{
-    lau::dresize = en::dnow;
-	
-	en::window();
-    
-	exit(EXIT_SUCCESS);
-	
-	return 0;
-}*/
-
 int main(int argc, const char* argv[]) {
 	lau::dresize = en::dnow;
 	
@@ -150,51 +139,23 @@ void en::make() {
 	add(bar);
 }
 
-#define IDEAL_WIDTH 500
-#define IDEAL_HEIGHT 34
-
-void en::resize(int w, int h) {
-	using namespace en;
-	if ( width != IDEAL_WIDTH ) {
-		width = IDEAL_WIDTH;
-		height = IDEAL_HEIGHT;
-		glViewport(0,0,width,height);
-		//glutReshapeWindow(width, height);
-	}
-	else
-	if ( w != IDEAL_WIDTH  ||  h != IDEAL_HEIGHT ) {
-		lau::dresize = en::dnow + 1000;
-		lau::timeresize = true;
-		//dnow
-	}
-}
-
-void lau::timedresize() {
-	if ( timeresize  &&  dresize-en::dnow <= 0 ) {
-		//glutReshapeWindow(en::width, en::height);
-		dresize = 0;
-		timeresize = false;
-	}
-}
-
-void lau::secondpass() {
-	
-}
-
 void en::click() {
 	
 }
 
 void lau::keyhandler() {
+	using namespace sf;
+	using bird = Keyboard;
 	
+	if ( bird::isKeyPressed( bird::Escape ) ) {
+		bar->rewit("pressed esc... quitting...");
+		sleep( seconds(.5) );
+		exit(0);
+	}
 }
 
 void en::frame() {
 	using namespace lau;
-	//draws.resort = true;
-	//draws.sort();
-	
-	timedresize();
 		
 	keyhandler();
 	

@@ -18,8 +18,8 @@ namespace ap {
 			virtual void step();
 			virtual void draw();
 			
-			virtual void click(en::Button, en::Click);
-			virtual void hover(en::Hover);
+			virtual void click(en::mou::Button, en::mou::Click);
+			virtual void hover(en::mou::Hover);
 			
 			virtual void rebuild();
 			virtual void reposition();

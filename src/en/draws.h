@@ -48,8 +48,8 @@ namespace en {
 		
 		void mousetrigger();
 		
-		virtual void click(en::Button, en::Click);
-		virtual void hover(en::Hover);
+		virtual void click(mou::Button, mou::Click);
+		virtual void hover(mou::Hover);
 		
 		virtual void step();
 		virtual void draw();

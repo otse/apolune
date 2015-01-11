@@ -96,14 +96,14 @@ void ap::gui::Button::draw() {
 	tvalue->draw();
 }
 
-void ap::gui::Button::click(en::Button b, en::Click c) {
-	if ( en::LEFT == b ) {
-		if ( en::Click::PRESSED == c ) {
+void ap::gui::Button::click(mou::Button b, mou::Click c) {
+	if ( mou::LEFT == b ) {
+		if ( mou::PRESSED == c ) {
 			bleft->sregion(&regions::buttonlpressed);
 			bmiddle->sregion(&regions::buttonmpressed);
 			bright->sregion(&regions::buttonrpressed);
 		}
-		else if ( en::Click::RELEASED == c ) {
+		else if ( mou::RELEASED == c ) {
 			if ( nullptr != this->onclick )
 				this->onclick(b, c);
 			
@@ -114,10 +114,10 @@ void ap::gui::Button::click(en::Button b, en::Click c) {
 	}
 }
 
-void ap::gui::Button::hover(en::Hover h) {
+void ap::gui::Button::hover(mou::Hover h) {
 	Element::hover(h);
 	
-	if ( en::HOVER_IN == h ) {
+	if ( mou::HOVER_IN == h ) {
 		if ( ! held ) {
 			bleft->sregion(&regions::buttonlhover);
 			bmiddle->sregion(&regions::buttonmhover);

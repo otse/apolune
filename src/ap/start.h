@@ -5,6 +5,8 @@
 #include "../en/draws.h"
 #include "../en/text.h"
 
+using namespace en;
+
 namespace ap {
 	namespace start {
 		// fwds
@@ -48,8 +50,8 @@ namespace ap {
 			
 			Action action;
 			
-			virtual void click(en::Button, en::Click);
-			virtual void hover(en::Hover);
+			virtual void click(mou::Button, mou::Click);
+			virtual void hover(mou::Hover);
 			
 			//int (Button::*pt2ConstMember)(void) const = NULL;
 			

@@ -105,6 +105,7 @@
         <in>font.h</in>
         <in>shader.cpp</in>
         <in>shader.h</in>
+        <in>stltempl.h</in>
         <in>text.cpp</in>
         <in>text.h</in>
         <in>texture.cpp</in>

@@ -40,10 +40,10 @@ void ap::Object::activate() {
 	//
 }
 
-void ap::Object::click(en::Button b, en::Click c) { /*Sprite::left();*/ }
+void ap::Object::click(mou::Button b, mou::Click c) { /*Sprite::left();*/ }
 
-void ap::Object::hover(en::Hover h) {
-	if ( en :: HOVER_IN == h ) { 
+void ap::Object::hover(mou::Hover h) {
+	if ( mou::HOVER_IN == h ) { 
 		scolor(&colors::OBJECTHOVER);
 	} else {
 		scolor(&en::WHITE);

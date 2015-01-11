@@ -54,6 +54,7 @@
         <in>fbo.cpp</in>
         <in>font.cpp</in>
         <in>shader.cpp</in>
+        <in>stltempl.h</in>
         <in>text.cpp</in>
         <in>texture.cpp</in>
       </df>
@@ -98,6 +99,9 @@
           </cTool>
           <ccTool>
             <standard>8</standard>
+            <incDir>
+              <pElem>Q:/SFML-2.2/include</pElem>
+            </incDir>
           </ccTool>
         </makeTool>
       </makefileType>
@@ -264,6 +268,8 @@
       <item path="en/font.cpp" ex="false" tool="1" flavor2="4">
       </item>
       <item path="en/shader.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="en/stltempl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="en/text.cpp" ex="false" tool="1" flavor2="4">
       </item>

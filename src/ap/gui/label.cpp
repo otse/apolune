@@ -141,8 +141,8 @@ void ap::gui::Label::draw() {
 	tvalue->draw();
 }
 
-void ap::gui::Label::click(en::Button b, en::Click c) {}
-void ap::gui::Label::hover(en::Hover h) {
+void ap::gui::Label::click(mou::Button b, mou::Click c) {}
+void ap::gui::Label::hover(mou::Hover h) {
 	Draws::hover(h);
 }
 

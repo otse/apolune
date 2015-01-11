@@ -1,6 +1,8 @@
 #include "../gui/all.h"
 #include "../ais/chicken.h"
 
+using namespace en;
+
 namespace ap {
 	namespace debugbox {
 		extern gui::Box *box;
@@ -8,11 +10,11 @@ namespace ap {
 		
 		extern bool bpet;
 		extern gui::Button *pet;
-		void petcb(en::Button b, en::Click c);
+		void petcb(mou::Button b, mou::Click c);
 		
 		extern bool bfs;
 		extern gui::Button *fs;
-		void fscb(en::Button b, en::Click c);
+		void fscb(mou::Button b, mou::Click c);
 		
 	}
 }
@@ -26,9 +28,9 @@ gui::Button *ap::debugbox::fs;
 bool ap::debugbox::bfs = false;
 
 // XxX_BakrexzzDE11IGHTZZ4201337_Xx
-void ap::debugbox::petcb(en::Button b, en::Click c) {
+void ap::debugbox::petcb(mou::Button b, mou::Click c) {
 	LOG("pet cb")
-	if ( en::Button::LEFT == b  &&  en::RELEASED == c ) {
+	if ( mou::Button::LEFT == b  &&  mou::RELEASED == c ) {
 		if ( bpet ) {
 			chicken->remove = true;
 			pet->svalue("off");
@@ -42,8 +44,8 @@ void ap::debugbox::petcb(en::Button b, en::Click c) {
 	}
 }
 
-void ap::debugbox::fscb(en::Button b, en::Click c) {
-	if ( en::Button::LEFT == b  &&  en::RELEASED == c ) {
+void ap::debugbox::fscb(mou::Button b, mou::Click c) {
+	if ( mou::Button::LEFT == b  &&  mou::RELEASED == c ) {
 		if ( bfs ) {
 			fs->svalue("on");
 			//glutReshapeWindow(en::width, en::height);

@@ -6,7 +6,7 @@
 #include "../../en/draws.h"
 
 
-//using namespace en;
+using namespace en;
 
 namespace ap {
 	namespace gui {
@@ -21,10 +21,10 @@ namespace ap {
 			virtual void rebuild();
 			virtual void reposition();
 			
-			virtual void click(en::Button, en::Click);
-			virtual void hover(en::Hover);
+			virtual void click(mou::Button, mou::Click);
+			virtual void hover(mou::Hover);
 			
-			typedef void (*t_click)(en::Button b, en::Click c);
+			typedef void (*t_click)(en::mou::Button b, en::mou::Click c);
 			
 			//bool reposition;
 		protected:

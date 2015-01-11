@@ -38,31 +38,27 @@ namespace en {
 	
 	enum Group {GNONE = -1,GDEF = 0,GPLAYER,GGUI,GDUMP,COUNT};
 	
-	enum Button {LEFT,MIDDLE,RIGHT};
-	enum Click {PRESSED /*= GLUT_DOWN*/,RELEASED /*= GLUT_UP,STILL_PRESSED*/,DRAG,IDLE};
-	enum Hover {HOVER_IN,HOVER_OUT};
+	namespace mou {
+		enum Button {LEFT,MIDDLE,RIGHT};
+		enum Click {PRESSED /*= GLUT_DOWN*/,RELEASED /*= GLUT_UP,STILL_PRESSED*/,DRAG,IDLE};
+		enum Hover {HOVER_IN,HOVER_OUT};
+		
+
+		extern Click left;
+		extern Click right;
+
+		extern int pmx;
+		extern int pmy;
+		extern int mx;
+		extern int my;
+
+		extern sf::Vector2i pos;
+	}
 	
-	// American Beauty VIP
-	
-	extern en::Region regfluke;
-	
-	extern Click left;
-	extern Click right;
-	
-	extern int pmx;
-	extern int pmy;
-	extern int mx;
-	extern int my;
-	
-	void click(int, int, int, int);
-	void motion(int, int);
-	void passivemotion(int, int);
-	
-	void down(unsigned char, int, int);
-	void up(unsigned char, int, int);
-	
-	enum KEY_STATE {UP, DOWN, STILL_DOWN};
-	extern KEY_STATE keys[];
+	namespace oar {
+		enum KEY_STATE {UP, DOWN, STILL_DOWN};
+		extern KEY_STATE keys[];
+	}
 	
 	extern const int GROUP_SATURATION;
 	extern Draws *groups[];
@@ -87,6 +83,7 @@ namespace en {
 	extern bool twdd;
 	void s2d();
 	void s3d();
+	extern en::Region regfluke;
 	
 	extern std::string *extraction;
 	extern LARGE_INTEGER frequency;
@@ -98,47 +95,7 @@ namespace en {
 	void mdelta();
 	extern double delta;
 	
-	template<class T> struct Reorder;
-	
-	template<class T> struct Vector {
-	public:
-		std::vector<T> v;
-		bool resort = false;
-		void sort() {
-			if ( resort ) {
-				std::sort(v.begin(), v.end(), en::Reorder<T>());
-				
-				resort = false;
-			}
-		}
-	};
-	
-	template<class T> struct List {
-	public:
-		std::list<T> l;
-		bool resort = false;
-	};
-	
-	template<typename T> struct Reorder
-	{
-		bool operator()(const T a, const T b) const {
-		   return a->order < b->order;
-		}
-	};
-	
-	// Functor for deleting pointers in vector.
-	template<class T> class DeleteVector
-	{
-		public:
-		// Overloaded () operator.
-		// This will be called by for_each() function.
-		bool operator()(T x) const
-		{
-			// Delete pointer.
-			delete x;
-			return true;
-		}
-	};
+#include "stltempl.h"
 }
 
 #define PL_GL_TELL_ERROR(QUOTE) \

@@ -207,21 +207,23 @@ void en::Draws::draw() {
 	glPopMatrix();
 }
 
-void en::Draws::click(en::Button b, en::Click c) { }
-void en::Draws::hover(en::Hover) { }
+void en::Draws::click(mou::Button b, mou::Click c) { }
+void en::Draws::hover(mou::Hover) { }
 
 void en::Draws::mousetrigger() {
 	
+	using namespace mou;
+	
 	if ( held &&
-		 en::RELEASED == en::left ||
-		 en::RELEASED == en::right )
+		 RELEASED == left ||
+		 RELEASED == right )
 		held = false;
 	
 	if (
-		(en::PRESSED == en::left ||
-		 en::RELEASED == en::left ||
-		 en::PRESSED == en::right ||
-		 en::RELEASED == en::right) &&
+		(PRESSED == left ||
+		 RELEASED == left ||
+		 PRESSED == right ||
+		 RELEASED == right) &&
 		
 		pmx >= gscrx() && pmx <= gscrx() + gw() &&
 		pmy >= gscry() && pmy <= gscry() + gh() &&
@@ -230,16 +232,16 @@ void en::Draws::mousetrigger() {
 		my >= gscry() && my < gscry() + gh()
 		) {
 		
-		if ( en::PRESSED == en::left  ||  en::PRESSED == en::right )
+		if ( PRESSED == left  ||  PRESSED == right )
 			held = true;
 		
-		if ( en::RELEASED == en::left  ||  en::RELEASED == en::right )
+		if ( RELEASED == left  ||  RELEASED == right )
 			held = false;
 		
-		if ( en::IDLE != en::left )
-			click(en::LEFT, en::left);
-		else if ( en::IDLE != en::right )
-			click(en::RIGHT, en::right);
+		if ( IDLE != left )
+			click(LEFT, left);
+		else if ( IDLE != right )
+			click(RIGHT, right);
 		
 	}
 	else if (
