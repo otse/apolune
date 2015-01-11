@@ -256,17 +256,11 @@ void secondpass() {
 	stats::rebuild();
 }
 
-void en::click() {
-	/*if ( oar::keys['x'] ) {
-		LOG(ply->gx() -xof+ en::mx << "," << ply->gy() -yof+ en::my)
-	}*/
-}
-
 void ap::react() {
 	if ( ply )
 		ply->key();
 	
-	if (nullptr!=world  &&  oar::DOWN==oar::keys[(int)sf::Keyboard::Escape] /* ESC */ ) {
+	if (nullptr!=world  &&  oar::DOWN==oar::keys[sf::Keyboard::Escape] /* ESC */ ) {
 		
 	}
 }

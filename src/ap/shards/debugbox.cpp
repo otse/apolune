@@ -10,11 +10,11 @@ namespace ap {
 		
 		extern bool bpet;
 		extern gui::Button *pet;
-		void petcb(mou::Button b, mou::Click c);
+		void petcb();
 		
 		extern bool bfs;
 		extern gui::Button *fs;
-		void fscb(mou::Button b, mou::Click c);
+		void fscb();
 		
 	}
 }
@@ -28,9 +28,9 @@ gui::Button *ap::debugbox::fs;
 bool ap::debugbox::bfs = false;
 
 // XxX_BakrexzzDE11IGHTZZ4201337_Xx
-void ap::debugbox::petcb(mou::Button b, mou::Click c) {
+void ap::debugbox::petcb() {
 	LOG("pet cb")
-	if ( mou::Button::LEFT == b  &&  mou::RELEASED == c ) {
+	if ( MOUISLEFT  &&  mou::RELEASED == *mou::active ) {
 		if ( bpet ) {
 			chicken->remove = true;
 			pet->svalue("off");
@@ -44,8 +44,8 @@ void ap::debugbox::petcb(mou::Button b, mou::Click c) {
 	}
 }
 
-void ap::debugbox::fscb(mou::Button b, mou::Click c) {
-	if ( mou::Button::LEFT == b  &&  mou::RELEASED == c ) {
+void ap::debugbox::fscb() {
+	if ( MOUISLEFT  &&  mou::RELEASED == *mou::active ) {
 		if ( bfs ) {
 			fs->svalue("on");
 			//glutReshapeWindow(en::width, en::height);

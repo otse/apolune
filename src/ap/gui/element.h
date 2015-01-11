@@ -21,10 +21,10 @@ namespace ap {
 			virtual void rebuild();
 			virtual void reposition();
 			
-			virtual void click(mou::Button, mou::Click);
+			virtual void click();
 			virtual void hover(mou::Hover);
 			
-			typedef void (*t_click)(en::mou::Button b, en::mou::Click c);
+			typedef void (*t_click)();
 			
 			//bool reposition;
 		protected:

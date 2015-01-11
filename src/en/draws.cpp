@@ -207,7 +207,7 @@ void en::Draws::draw() {
 	glPopMatrix();
 }
 
-void en::Draws::click(mou::Button b, mou::Click c) { }
+void en::Draws::click() { }
 void en::Draws::hover(mou::Hover) { }
 
 void en::Draws::mousetrigger() {
@@ -238,11 +238,8 @@ void en::Draws::mousetrigger() {
 		if ( RELEASED == left  ||  RELEASED == right )
 			held = false;
 		
-		if ( IDLE != left )
-			click(LEFT, left);
-		else if ( IDLE != right )
-			click(RIGHT, right);
-		
+		if (IDLE!=left||IDLE!=right)
+			click();
 	}
 	else if (
 		mx >= gscrx() && mx < gscrx() + gw() &&

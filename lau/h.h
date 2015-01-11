@@ -45,7 +45,6 @@ namespace en {
 	void resize(int, int);
 	void make();
 	void frame();
-	void click();
 }
 
 namespace lau {

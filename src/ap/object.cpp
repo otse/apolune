@@ -40,7 +40,7 @@ void ap::Object::activate() {
 	//
 }
 
-void ap::Object::click(mou::Button b, mou::Click c) { /*Sprite::left();*/ }
+void ap::Object::click() { /*Sprite::left();*/ }
 
 void ap::Object::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) { 

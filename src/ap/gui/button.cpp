@@ -96,16 +96,16 @@ void ap::gui::Button::draw() {
 	tvalue->draw();
 }
 
-void ap::gui::Button::click(mou::Button b, mou::Click c) {
-	if ( mou::LEFT == b ) {
-		if ( mou::PRESSED == c ) {
+void ap::gui::Button::click() {
+	if ( &mou::left == mou::active ) {
+		if ( mou::PRESSED == *mou::active ) {
 			bleft->sregion(&regions::buttonlpressed);
 			bmiddle->sregion(&regions::buttonmpressed);
 			bright->sregion(&regions::buttonrpressed);
 		}
-		else if ( mou::RELEASED == c ) {
+		else if ( mou::RELEASED == *mou::active ) {
 			if ( nullptr != this->onclick )
-				this->onclick(b, c);
+				this->onclick();
 			
 			bleft->sregion(&regions::buttonlhover);
 			bmiddle->sregion(&regions::buttonmhover);

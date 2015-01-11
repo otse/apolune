@@ -20,7 +20,7 @@ namespace ap {
 		Object(en::Group, en::Texture *, en::Region *);
 		~Object();
 		
-		virtual void click(mou::Button, mou::Click);
+		virtual void click();
 		virtual void hover(mou::Hover);
 		
 		const char *tip;

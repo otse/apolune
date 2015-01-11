@@ -106,8 +106,10 @@ ap::start::Button::~Button() {
 	
 }
 
-void ap::start::Button::click(mou::Button b, mou::Click c) {
-	if ( mou::RELEASED == c ) {
+void ap::start::Button::click() {
+	LOG("pressed button")
+		
+	if ( MOURELEASED ) {
 		switch (action) {
 			case PLAY :
 				menu->remove = true;

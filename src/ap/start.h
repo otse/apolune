@@ -50,7 +50,7 @@ namespace ap {
 			
 			Action action;
 			
-			virtual void click(mou::Button, mou::Click);
+			virtual void click();
 			virtual void hover(mou::Hover);
 			
 			//int (Button::*pt2ConstMember)(void) const = NULL;

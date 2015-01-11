@@ -40,13 +40,18 @@ namespace en {
 	
 	namespace mou {
 		enum Button {LEFT,MIDDLE,RIGHT};
-		enum Click {PRESSED /*= GLUT_DOWN*/,RELEASED /*= GLUT_UP,STILL_PRESSED*/,DRAG,IDLE};
+		enum Click {PRESSED,RELEASED,DRAG,IDLE};
 		enum Hover {HOVER_IN,HOVER_OUT};
 		
-
 		extern Click left;
 		extern Click right;
-
+		extern Click *active;
+#define MOUISLEFT &en::mou::left == en::mou::active
+#define MOUISRIGHT &en::mou::right == en::mou::active
+#define MOURELEASED en::mou::RELEASED == *en::mou::active
+		
+		void mice();
+		
 		extern int pmx;
 		extern int pmy;
 		extern int mx;

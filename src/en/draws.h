@@ -48,7 +48,7 @@ namespace en {
 		
 		void mousetrigger();
 		
-		virtual void click(mou::Button, mou::Click);
+		virtual void click();
 		virtual void hover(mou::Hover);
 		
 		virtual void step();

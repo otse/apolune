@@ -20,8 +20,9 @@ int mou::mx = 0;
 int mou::my = 0;
 int mou::pmx = 0;
 int mou::pmy = 0;
-mou::Click mou::left = IDLE;
-mou::Click mou::right = IDLE;
+mou::Click mou::left = mou::IDLE;
+mou::Click mou::right = mou::IDLE;
+mou::Click *mou::active = nullptr;
 sf::Vector2i mou::pos;
 
 oar::KEY_STATE oar::keys[sf::Keyboard::KeyCount] = { oar::UP };
@@ -92,11 +93,42 @@ void en::window() {
 			window.close();
 		}
 
-		mou::pos = Mouse::getPosition();
+		mou::mice();
 		//window.clear();
 		render();
 		//window.draw(shape);
 		window.display();
+	}
+}
+
+void en::mou::mice() {
+	using namespace sf;
+	
+	pos = Mouse::getPosition();
+	mx = pos.x;
+	my = pos.y;
+	
+	if (Mouse::isButtonPressed(Mouse::Left)) {
+		left = PRESSED;
+		active = &left;
+		pmx = mx;
+		pmx = my;
+		if ( )
+	} else if (PRESSED==left) {
+		left = RELEASED;
+	} else {
+		left = IDLE;
+	}
+	
+	if (Mouse::isButtonPressed(Mouse::Right)) {
+		right = PRESSED;
+		active = &right;
+		pmx = mx;
+		pmx = my;
+	} else if (PRESSED==right) {
+		right = RELEASED;
+	} else {
+		right = IDLE;
 	}
 }
 
@@ -118,11 +150,6 @@ void en::cleanup() {
 	
 	glViewport(0,0, en::width, en::height);
 }*/
-
-void en::click() {
-	
-	en::click();
-}
 
 /*
 	keys[key] = UP;
