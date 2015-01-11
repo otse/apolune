@@ -42,17 +42,36 @@ void lau::Bar::rewit(const char *q) {
 }
 
 void lau::Bar::step() {
-	
+	static bool starting = false;
+	static int wait = 0;
 	// make progress
-	progress += 2;
 	
-	if ( progress > 500 ) {
-		progress = 500;
-		rewit("running apolune.exe");
-		system("apolune.exe");
+	if ( progress < 500 )
+		progress += 2;
+	
+	if (1==wait) {
+		using namespace sf;
+		
+		sleep( seconds(.5) );
+		
+		spawnl(P_NOWAIT, "apolune.exe", "apolune.exe", NULL, 0, NULL);
+		
+		sleep( seconds(1) );
+		
+		wait = 2;
 		
 		exit(0);
 	}
+	
+	if (!starting && progress >= 500) {
+		progress = 500;
+		rewit("launching game");
+		//system("apolune.exe &");
+		wait = 1;
+		starting = true;
+	}
+	
+	
 	
 	// set bar	
 	starsr->sx( progress -2);
