@@ -14,7 +14,6 @@
 #include <random>
 
 #define EN_WINDOWNAME "Apolune"
-#define EN_SFSTYLE sf::Style::Titlebar | sf::Style::Close
 #include "en/engine.h"
 
 #define APOLUNESTR "apolune"
@@ -40,13 +39,12 @@
 
 typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
 
-namespace en {
+namespace envars {
 	void resize(int, int);
 	void make();
 	void frame();
-	void down(unsigned char, int, int);
-	void up(unsigned char, int, int);
-	void click();
+	extern const char *windowname;
+	extern int /*sf::Style*/ windowstyle;
 }
 
 namespace ap {

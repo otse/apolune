@@ -38,6 +38,8 @@ int ap::fps = 0;
 int ap::frameCount = 0;
 
 std::ofstream ap::log;
+const char *envars::windowname = "Ap";
+int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close;
 
 double ap::dresize = 0.D;
 bool ap::timeresize = false;
@@ -211,7 +213,7 @@ void ap::rm(en::Draws *s) {
 	}
 }
 
-void en::make() {
+void envars::make() {
 	loader = new Loader();
 	add(loader);
 }
@@ -279,7 +281,7 @@ bool second() {
 	return false;
 }
 
-void en::frame() {
+void envars::frame() {
 	//draws.resort = true;
 	//draws.sort();
 	

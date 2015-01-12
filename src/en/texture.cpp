@@ -91,7 +91,7 @@ bool en::Texture::load() {
 	remove(tmp.c_str()); // destroy "tmp file"
 	
 	if ( ! data ) {
-		LOG("stbi data err");
+		//LOG("stbi data err");
 		return false;
 	}
 	

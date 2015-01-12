@@ -34,6 +34,9 @@ en::Region lau::rstarsr = {2, 0, 2, 74};
 
 lau::Bar *lau::bar;
 
+const char *envars::windowname = "Ap";
+int envars::windowstyle = sf::Style::None;
+
 #include <boilerplate.h>
 
 
@@ -120,10 +123,11 @@ void lau::rm(en::Draws *s) {
 	}
 }
 
-void en::make() {
+void envars::make() {
 	lau::roaming();
 	//lau::jvm();
 	
+	using namespace en;
 	using namespace lau;
 	//glutSetWindowTitle("Apolune Launcher");
 	tbackfont.load();
@@ -139,10 +143,6 @@ void en::make() {
 	add(bar);
 }
 
-void en::click() {
-	
-}
-
 void lau::keyhandler() {
 	using namespace sf;
 	using bird = Keyboard;
@@ -154,7 +154,8 @@ void lau::keyhandler() {
 	}
 }
 
-void en::frame() {
+void envars::frame() {
+	using namespace en;
 	using namespace lau;
 		
 	keyhandler();

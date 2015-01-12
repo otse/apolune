@@ -26,7 +26,8 @@ en::FBO::FBO(Color *c, Region &r) : en::Texture(r.w, r.h) ,
 	if (
 			GL_FRAMEBUFFER_COMPLETE_EXT !=
 			glCheckFramebufferStatusEXT(GL_FRAMEBUFFER_EXT) ) {
-		LOG("fbo error")
+		//LOG("fbo error")
+		std::cout << "fbo error" << std::endl;
 	}
 	
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);

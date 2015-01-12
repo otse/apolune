@@ -53,7 +53,7 @@ void en::window() {
 	*/
 	
 	using namespace sf;
-	RenderWindow window(VideoMode(width, height), EN_WINDOWNAME, EN_SFSTYLE);
+	RenderWindow window(VideoMode(width, height), envars::windowname, envars::windowstyle);
 	window.setVerticalSyncEnabled(true);
 	
 	GLenum GlewInitResult;
@@ -83,7 +83,7 @@ void en::window() {
 	QueryPerformanceFrequency(&frequency);
 	dnow = (now.QuadPart) * 1000.0 / frequency.QuadPart;
 	
-	en::make();
+	envars::make();
 	
 	while ( window.isOpen() ) {
 		sf::Event event;
@@ -122,13 +122,13 @@ void en::mou::mice(const sf::RenderWindow &a) {
 		active = &left;
 		pmx = mx;
 		pmy = my;
-		LOG("pressed left at " << mx << ", " << my)
+		//LOG("pressed left at " << mx << ", " << my)
 	} else if (PRESSED==left||DRAG==left) {
 		left = RELEASED;
-		LOG("released left")
+		//LOG("released left")
 	} else if (IDLE!=left) {
 		left = IDLE;
-		LOG("idled left")
+		//LOG("idled left")
 	}
 	
 	else if (r) {
@@ -149,7 +149,7 @@ void en::mou::mice(const sf::RenderWindow &a) {
 	}
 	
 	else if (nullptr!=active) {
-		LOG("mouse to null")
+		//LOG("mouse to null")
 		active = nullptr;
 	}
 }
@@ -189,7 +189,7 @@ void en::render(void) {
 	
 	cdelta();
 	
-	en::frame();
+	envars::frame();
 	
 	/*if ( PRESSED == left ) left = STILL_PRESSED;
 	if ( PRESSED == right ) right = STILL_PRESSED;

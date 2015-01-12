@@ -26,7 +26,6 @@
 
 #define LOG(A) std::cout << A << std::endl;
 
-#define EN_WINDOWNAME "Apolune launcher"
 #define EN_SFSTYLE sf::Style::None
 
 #include "../src/en/engine.h"
@@ -41,10 +40,12 @@
 typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
 
 
-namespace en {
+namespace envars {
 	void resize(int, int);
 	void make();
 	void frame();
+	extern const char *windowname;
+	extern int /*sf::Style*/ windowstyle;
 }
 
 namespace lau {

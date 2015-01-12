@@ -85,8 +85,6 @@
         <in>world.h</in>
       </df>
       <df name="en">
-        <df name="o">
-        </df>
         <df name="shaders">
           <in>FontFragmentShader.txt</in>
           <in>FontVertexShader.txt</in>

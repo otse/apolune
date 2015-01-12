@@ -11,7 +11,7 @@ namespace boilerplate {
 	
 	inline basefile gbasefile(const char *n) {
 		if ( ! PHYSFS_exists(n) ) {
-			LOG("'"<<n<<"' not found in archive");
+			std::cout << "'"<<n<<"' not found in archive" << std::endl;
 			return {nullptr,0,0};
 		}
 		
@@ -21,7 +21,7 @@ namespace boilerplate {
 		char *buf = new char[len];
 		PHYSFS_sint64 read = PHYSFS_read(file, buf, 1, len);
 		if ( ! read ) {
-			LOG("'"<<n<<"' couldn't be read");
+			std::cout << "'"<<n<<"' couldn't be read" << std::endl;
 			return {nullptr,len,read};
 		}
 		

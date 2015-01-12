@@ -9,7 +9,8 @@ O = $(LAUO) $(ENO)
 FLAGS = -DGLEW_STATIC -DSFML_STATIC -DUNICODE -std=gnu++0x
 
 xDEBUG = -g
-INC = -IQ:/SFML-2.2/include -I../src/ -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/win32"
+INC = -I../src/ -IQ:/SFML-2.2/include
+SUP = -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/win32"
 
 all: launcher.exe
 
@@ -30,14 +31,14 @@ o/static.o: static.cpp h.h
 o/bar.o: bar.cpp bar.h
 	g++ $(INC) -c bar.cpp -o o/bar.o $(FLAGS)
 	
-$(B)o/engine.o: $(B)en/engine.cpp $(B)en/engine.h h.h
-	g++ -c $(INC) $(B)en/engine.cpp -o $(B)o/engine.o $(FLAGS)
+#$(B)o/engine.o: $(B)en/engine.cpp $(B)en/engine.h h.h
+#	g++ -c $(INC) $(B)en/engine.cpp -o $(B)o/engine.o $(FLAGS)
 	
-$(B)o/texture.o: $(B)en/texture.cpp $(B)en/texture.h h.h
-	g++ $(INC) -c $(B)en/texture.cpp -o $(B)o/texture.o $(FLAGS)
+#$(B)o/texture.o: $(B)en/texture.cpp $(B)en/texture.h h.h
+#	g++ $(INC) -c $(B)en/texture.cpp -o $(B)o/texture.o $(FLAGS)
 	
-$(B)o/fbo.o: $(B)en/fbo.cpp $(B)en/fbo.h h.h
-	g++ $(INC) -c $(B)en/fbo.cpp -o $(B)o/fbo.o $(FLAGS)
+#$(B)o/fbo.o: $(B)en/fbo.cpp $(B)en/fbo.h h.h
+#	g++ $(INC) -c $(B)en/fbo.cpp -o $(B)o/fbo.o $(FLAGS)
 
 #/ap/gui
 #o/box.o: ap/gui/box.cpp ap/gui/box.h
