@@ -39,15 +39,6 @@
 
 typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
 
-
-namespace envars {
-	void resize(int, int);
-	void make();
-	void frame();
-	extern const char *windowname;
-	extern int /*sf::Style*/ windowstyle;
-}
-
 namespace lau {
 	class Bar;
 	

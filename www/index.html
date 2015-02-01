@@ -3,33 +3,95 @@
 		<title>Apolune</title>
 		
 		<style>
+			@font-face {
+				font-family: 'inconsolata';
+				src: url('Inconsolata-Regular.woff') format('woff');
+				font-weight: normal;
+				font-style: normal;
+			}
+
 			body {
 				background: black;
 				color: whitesmoke;
 				font-family: Segoe UI;
 				
 				background: rgb(24, 62, 90);
+				background: rgb(20, 28, 34);
+				background: rgb(30, 96, 145);
 				padding: 160px;
 			}
 			
 			#logo {
+				font-family: Times New Roman, Georgia;
 				font-size: 20px;
 				letter-spacing: 20px;
 				margin-bottom: 40px;
 				padding-left: 20px;
-				text-transform: lowercase;
+				text-transform: uppercase;
 			}
 			
 			#content {
 				font-family: Segoe UI;
 				font-size: 14px;
+				
+				width: 600px;
+				xtransform: skew(5deg);
+				xbackground: rgb(20, 28, 34);
+			}
+			
+			#text {
+				xtext-transform: lowercase;
 				letter-spacing: 1px;
-				text-transform: lowercase;
+				padding: 10px;
 			}
 			
 			span.emphasis {
 				xtext-decoration: underline;
 				border-bottom: 1px dashed whitesmoke;
+			}
+			
+			#downloadout {
+				text-align: right;
+				padding: 5px;
+			}
+			
+			#download {
+				display: inline-block;
+				background: rgba(0, 211, 255, 0.22);
+				padding: 1px;
+				xborder-radius: 2px;
+			}
+			
+			#downloadb {
+				display: inline-block;
+				border-radius: 3px;
+				background: rgba(0, 0, 0, 0.22);
+				padding: 1px;
+			}
+			
+			#downloada {
+				display: inline-block;
+				text-transform: lowercase;
+				letter-spacing: 1px;
+				xfont-style: italic;
+				color: rgb(235, 244, 235);
+				color: rgb(194, 223, 179);
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5)
+				background: green;
+				text-decoration: none;
+				padding: 10px;
+				border-radius: 3px;
+				border: 1px solid rgba(82, 166, 80, 1);
+				border-right-color: #1D6F1D;
+				border-bottom-color: #1D6F1D;
+				border-left-color: #1D6F1D;
+				background-repeat: no-repeat;
+				background: green;
+				background-image: linear-gradient(to bottom, #1F871F 0%, #135213 100%);
+			}
+			
+			#downloada:hover {
+				background-image: none;
 			}
 		</style>
 	</head>
@@ -40,11 +102,17 @@
 		</div>
 		
 		<div id="content">
-			<p>A sandbox game with <span class="emphasis">spacecrafts</span>. It focuses on <span class="emphasis">co-op</span> and <span class="emphasis">crafting</span>.
-			<p>
-			<div id="implemented">
-				<div class="implemented_item">
+			<div id="text">
+				A sandbox game with <span class="emphasis">spacecrafts</span>. It focuses on <span class="emphasis">co-op</span> and <span class="emphasis">crafting</span>.
+			</div>
+			
+			<div id="downloadout">
+				<div id="download"><div id="downloadb"><a href="Apolune Launcher.exe" id="downloada">Download Game</a></div></div>
 				
+				<div id="implemented">
+					<div class="implemented_item">
+					
+					</div>
 				</div>
 			</div>
 		</div>

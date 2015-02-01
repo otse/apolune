@@ -17,6 +17,14 @@
 
 typedef long clock_t;
 
+namespace envars {
+	void resize(int, int);
+	void make();
+	void frame();
+	extern const char *windowname;
+	extern int /*sf::Style*/ windowstyle;
+}
+
 namespace en {
 
 	class FBO;
