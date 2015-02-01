@@ -154,6 +154,20 @@ void en::mou::mice(const sf::RenderWindow &a) {
 	}
 }
 
+void en::oar::poll() {
+	for(int i=0; i<sf::Keyboard::KeyCount; i++) {
+	   sf::Keyboard::Key e = (sf::Keyboard::Key) i;
+	   if (sf::Keyboard::isKeyPressed(e)) {
+		   if ( KEY_STATE::UP==keys[e] )
+				keys[e] = KEY_STATE::DOWN;
+		   else
+			   keys[e] = KEY_STATE::STILL_DOWN;
+	   }
+	   else
+		   keys[e] = KEY_STATE::UP;
+	}
+}
+
 void en::cleanup() {
 
     //DestroyVBO();

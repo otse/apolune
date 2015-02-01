@@ -292,6 +292,7 @@ void envars::frame() {
 		
 	frameCount ++;
 	
+	oar::poll();
 	react();
 	
 	if ( world )

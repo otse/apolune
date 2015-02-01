@@ -63,6 +63,7 @@ namespace en {
 	}
 	
 	namespace oar {
+		void poll();
 		enum KEY_STATE {UP, DOWN, STILL_DOWN};
 		extern KEY_STATE keys[];
 	}

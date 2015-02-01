@@ -19,6 +19,7 @@ namespace ap {
 		
 		void key(void);
 		virtual void step();
+		
 	//protected:
 		virtual void translate();
 		
