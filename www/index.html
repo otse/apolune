@@ -32,6 +32,7 @@
 			}
 			
 			#content {
+				position: relative;
 				font-family: Segoe UI;
 				font-size: 16px;
 				
@@ -48,7 +49,7 @@
 			
 			span.emphasis {
 				xtext-decoration: underline;
-				border-bottom: 1px dashed white;
+				xborder-bottom: 1px dashed white;
 				
 				background: rgba(255, 194, 0, 1);
 				text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
@@ -97,15 +98,62 @@
 			#downloada:hover {
 				background-image: none;
 			}
+			
+			.tospace {
+				display: block;
+				position: absolute;
+				right: -36px;
+				width: 0;
+				height: 100%;
+				border-right: 1px dashed rgb(81, 81, 81);
+				border-left: 1px dashed black;
+			}
+			
+			.tospace .button{
+				display: table;
+				position: absolute;
+				right: -19px;
+				top: 50%;
+				margin-top: -17px;
+				width: 36px;
+				height: 36px;
+				background: rgb(249, 249, 249);
+				border-radius: 100%;
+				border: 2px dashed gainsboro;
+			}
+			
+			.tospace .button .in {
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+				color: black;
+			}
+			
+			.tospace .button .tooltip {
+				position: absolute;
+				display: inline-block;
+				left: 40px;
+				margin-left: 1em;
+				color: white;
+				white-space: nowrap;
+			}
 		</style>
 	</head>
 	
-	<body>
-		<div id="logo">
-			Apolune
-		</div>
-		
+	<body>		
 		<div id="content">
+		
+			<div class="tospace">
+				<div class="button" title="Browse servers">
+					<div class="in">
+						>
+						<div class="tooltip">scroll to Space Chart</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="logo">Apolune</div>
+		
 			<div id="text">
 				A sandbox game about <span class="emphasis">spacecrafts</span>. It focuses on <span class="emphasis">co-op</span> and <span class="emphasis">spacecrafts</span>.
 			</div>
