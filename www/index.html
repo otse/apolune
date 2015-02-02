@@ -59,7 +59,7 @@
 			}
 			
 			#downloadout {
-				text-align: right;
+				xtext-align: right;
 				padding: 10px;
 			}
 			
@@ -105,8 +105,8 @@
 				right: -36px;
 				width: 0;
 				height: 100%;
-				border-right: 1px dashed rgb(81, 81, 81);
-				border-left: 1px dashed black;
+				xborder-right: 1px dashed rgb(81, 81, 81);
+				xborder-left: 1px dashed black;
 			}
 			
 			.tospace .button{
@@ -118,15 +118,16 @@
 				width: 36px;
 				height: 36px;
 				background: rgb(249, 249, 249);
-				border-radius: 100%;
-				border: 2px dashed gainsboro;
+				border-radius: 50%;
+				border: 2px dashed lightgrey;
 			}
 			
 			.tospace .button .in {
 				display: table-cell;
 				vertical-align: middle;
 				text-align: center;
-				color: black;
+				text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+				color: rgb(21, 21, 21);
 			}
 			
 			.tospace .button .tooltip {
@@ -135,6 +136,7 @@
 				left: 40px;
 				margin-left: 1em;
 				color: white;
+				text-shadow: none;
 				white-space: nowrap;
 			}
 		</style>
