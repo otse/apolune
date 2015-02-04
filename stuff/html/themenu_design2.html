@@ -30,15 +30,15 @@ om\:holder {
 
 om\:section {
 	display: inline-block;
-	width: 175px;
-	text-align: right;
-	xborder-right: 1px solid rgba(255,255,255,.14);
+	width: 200px;
+	text-align: center;
+	border-right: 1px solid rgba(255,255,255,.2);
 	border-bottom: 1px solid rgba(255,255,255,.05);
 }
 
 om\:section.inactive {
 	position: absolute;
-	margin-left: -176px;
+	margin-left: -151px;
 	opacity: .25;
 }
 
@@ -51,14 +51,17 @@ om\:section om\:button:hover {
 }
 
 om\:section om\:button {
-	display: inline-block;
+	display: block;
 	color: white;
 	font-family: Courier;
-	text-shadow: 1px 1px 0 lightblue;
+	xtext-shadow: 1px 1px 0 orange;
 	font-size: 11px;
 	letter-spacing: 1px;
-	margin: 16px;
 	text-transform: lowercase;
+	margin-bottom: 1px;
+	margin-right: 1px;
+	padding: 10px;
+	background: rgba(255,255,255,.1);
 }
 
 om\:buttons om\:button.slide:after {
@@ -142,7 +145,7 @@ function makesection(depth) {
 		var label = o.label
 		
 		$s.append( $b )
-		$s.append( '<br />' )
+		//$s.append( '<br />' )
 		
 		if ( o.expands ) {
 			label += " >"
