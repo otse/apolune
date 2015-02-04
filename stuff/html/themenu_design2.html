@@ -31,9 +31,9 @@ om\:holder {
 om\:section {
 	display: inline-block;
 	width: 200px;
-	text-align: center;
-	border-right: 1px solid rgba(255,255,255,.2);
-	border-bottom: 1px solid rgba(255,255,255,.05);
+	text-align: left;
+	border: 1px solid rgba(255,255,255,.1);
+	padding: 1px 1px 0 1px;
 }
 
 om\:section.inactive {
@@ -54,14 +54,13 @@ om\:section om\:button {
 	display: block;
 	color: white;
 	font-family: Courier;
-	xtext-shadow: 1px 1px 0 orange;
+	text-shadow: 1px 1px 0 white;
 	font-size: 11px;
 	letter-spacing: 1px;
 	text-transform: lowercase;
 	margin-bottom: 1px;
-	margin-right: 1px;
 	padding: 10px;
-	background: rgba(255,255,255,.1);
+	background: rgba(255,255,255,.05);
 }
 
 om\:buttons om\:button.slide:after {
@@ -148,7 +147,7 @@ function makesection(depth) {
 		//$s.append( '<br />' )
 		
 		if ( o.expands ) {
-			label += " >"
+			label += " .."
 			
 			var depths = depth.slice(0)
 			depths.push(i)
