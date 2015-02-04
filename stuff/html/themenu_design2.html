@@ -1,0 +1,193 @@
+<html>
+<head>
+
+<style>
+html {
+	-webkit-user-select: none;
+}
+
+body {
+	background: rgb(24, 62, 90);
+	xpadding: 40px;
+	cursor: default;
+}
+
+om\:window {
+	position: relative;
+	display: table;
+	background: rgb(20, 28, 34);
+	background: rgb(23, 69, 105);
+	width: 800px;
+	height: 600px;
+}
+
+om\:holder {
+	display: table-cell;
+	padding: 100px;
+	xvertical-align: middle;
+	text-align: center;
+}
+
+om\:section {
+	display: inline-block;
+	width: 175px;
+	text-align: right;
+	xborder-right: 1px solid rgba(255,255,255,.14);
+	border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+om\:section.inactive {
+	position: absolute;
+	margin-left: -176px;
+	opacity: .25;
+}
+
+om\:section.inactive om\:button {
+	xmargin: 0;
+}
+
+om\:section om\:button:hover {
+	color: orange;
+}
+
+om\:section om\:button {
+	display: inline-block;
+	color: white;
+	font-family: Courier;
+	text-shadow: 1px 1px 0 lightblue;
+	font-size: 11px;
+	letter-spacing: 1px;
+	margin: 16px;
+	text-transform: lowercase;
+}
+
+om\:buttons om\:button.slide:after {
+	content: ">";
+}
+</style>
+
+<script src="jquery-2.1.1.min.js"></script>
+<script>
+var sections =
+[
+	{
+		label: "Main",
+		expands:
+		[	{
+				label: "Play",
+				expands: 
+				[	{
+						label: "New"
+					},
+					
+					{
+						label: "Load"
+					}
+				]
+			},
+			
+			{
+				label: "Options",
+				expands: 
+				[	{
+						label: "Video"
+					},
+					
+					{
+						label: "Sound"
+					}
+				]
+			},
+			
+			{
+				label: "Quit"
+			}
+		]
+	}
+];
+
+$(document).ready( function() {
+	
+	holder = $("om\\:holder")
+	$sections = []
+	
+	makesection( [0] )
+})
+
+function makesection(depth) {
+	console.log(depth)
+	
+	var $s = $("<om\:section>")
+	$sections.push( $s )
+	
+	var section = sections
+	
+	console.log(section)
+	
+	for (var d in depth)
+		if ( d != depth.length-1 )
+			section = section[ depth[d] ].expands
+		else
+			section = section[ depth[d] ]
+	
+	console.log('making section ' + section.label)
+	
+	var expands = section.expands
+	
+	for (var i=0;i<expands.length;i++) {
+		var o = expands[i]
+		
+		var $b = $("<om\:button>")
+		
+		var label = o.label
+		
+		$s.append( $b )
+		$s.append( '<br />' )
+		
+		if ( o.expands ) {
+			label += " >"
+			
+			var depths = depth.slice(0)
+			depths.push(i)
+			var string = ""
+			
+			for(var j in depths) {
+				if (j>0)
+					string+=','
+				string += depths[j]
+			}
+			
+			$b.attr('depth', string)
+			
+			$b.click( function() {
+				var depth = $(this).attr('depth').split(',')
+				makesection( depth )
+			})
+			
+		}
+		$b.html( label )
+	}
+	
+	if ( $sections.length > 1 ) {
+		for ( var i=$sections.length-2;i>-1;i--) {
+			console.log(i)
+			$sections[i].addClass('inactive')
+		}
+		//$section.addClass('inactive')
+	}
+	
+	holder.append( $s )
+}
+</script>
+
+</head>
+
+<body>
+	<om:window>
+		<om:holder>
+			
+		</om:holder>
+	</om:window>
+</body>
+
+</html>

@@ -20,7 +20,7 @@ en::Texture textures::noticefont("fonts/noticefont.png");
 
 en::Texture textures::guipieces("guipieces.png");
 
-en::Texture textures::hangar("scenes/hangar.png");
+en::Texture textures::hangar("scenes/hangar_dark.png");
 en::Texture textures::hangarlight("lights/hangarlight.png");
 
 en::Texture textures::sheet("sheet.png");

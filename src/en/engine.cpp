@@ -54,7 +54,7 @@ void en::window() {
 	
 	using namespace sf;
 	RenderWindow window(VideoMode(width, height), envars::windowname, envars::windowstyle);
-	window.setVerticalSyncEnabled(true);
+	//window.setVerticalSyncEnabled(true);
 	
 	GLenum GlewInitResult;
 	GlewInitResult = glewInit();

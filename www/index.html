@@ -19,6 +19,8 @@
 				background: rgb(30, 96, 145);
 				background: rgb(20, 28, 34);
 				padding: 160px;
+				margin: 0;
+				overflow: hidden;
 			}
 			
 			#logo {
@@ -31,7 +33,7 @@
 				text-transform: uppercase;
 			}
 			
-			#content {
+			.content {
 				position: relative;
 				font-family: Segoe UI;
 				font-size: 16px;
@@ -41,10 +43,14 @@
 				xbackground: rgb(20, 28, 34);
 			}
 			
-			#text {
+			.text {
 				xtext-transform: lowercase;
 				letter-spacing: 1px;
 				padding: 10px;
+			}
+			
+			.text a {
+				color: white;
 			}
 			
 			span.emphasis {
@@ -63,21 +69,21 @@
 				padding: 10px;
 			}
 			
-			#download {
+			.download {
 				display: inline-block;
 				background: rgba(0, 211, 255, 0.22);
 				padding: 1px;
 				xborder-radius: 2px;
 			}
 			
-			#downloadb {
+			.download .in {
 				display: inline-block;
 				border-radius: 3px;
 				background: rgba(0, 0, 0, 0.22);
 				padding: 1px;
 			}
 			
-			#downloada {
+			.download a {
 				display: inline-block;
 				text-decoration: none;
 				text-transform: lowercase;
@@ -85,7 +91,7 @@
 				xfont-style: italic;
 				color: rgb(235, 244, 235);
 				xcolor: rgb(194, 223, 179);
-				xtext-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.17);
 				padding: 8px 16px;
 				border-radius: 3px;
 				border: 1px solid rgba(41, 136, 39, 1);
@@ -115,19 +121,20 @@
 				right: -19px;
 				top: 50%;
 				margin-top: -17px;
-				width: 36px;
-				height: 36px;
+				width: 40px;
+				height: 40px;
 				background: rgb(249, 249, 249);
 				border-radius: 50%;
-				border: 2px dashed lightgrey;
+				xborder: 2px dashed lightgrey;
 			}
 			
-			.tospace .button .in {
+			.tospace .button a {
 				display: table-cell;
 				vertical-align: middle;
 				text-align: center;
-				text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
+				text-shadow: 1px 1px 0 rgba(255, 255, 255, 1);
 				color: rgb(21, 21, 21);
+				text-decoration: none; /* asd */
 			}
 			
 			.tospace .button .tooltip {
@@ -139,29 +146,59 @@
 				text-shadow: none;
 				white-space: nowrap;
 			}
-		</style>
+			
+			span.version {
+				display: block;
+				text-align: right;
+				font-family: Inconsolata;
+				font-size: 11px;
+			}
+			
+			.spacechart {
+				display: block;
+				position: absolute;
+				right: -900;
+				top: -160px;
+				xbackground: black;
+				width: 800px;
+				height: 600px;
+			}
+			</style>
 	</head>
 	
 	<body>		
-		<div id="content">
+		<div class="content">
 		
+			<div class="spacechart">
+				
+			</div>
+			
 			<div class="tospace">
 				<div class="button" title="Browse servers">
-					<div class="in">
+					<a class="in" href="goto">
 						>
 						<div class="tooltip">scroll to Space Chart</div>
-					</div>
+					</a>
 				</div>
 			</div>
 			
 			<div id="logo">Apolune</div>
 		
-			<div id="text">
-				A sandbox game about <span class="emphasis">spacecrafts</span>. It focuses on <span class="emphasis">co-op</span> and <span class="emphasis">spacecrafts</span>.
+			<div class="text">
+				A sandbox game about <span class="emphasis">spacecrafts</span>. It focuses on <span class="emphasis">co-op</span> and <span class="emphasis">tech</span>.
+				
+				Read the <a href="wiki">wiki</a> and <a href="http://forum.ak.fm">the forum</a>.
 			</div>
 			
 			<div id="downloadout">
-				<div id="download"><div id="downloadb"><a href="Apolune Launcher.exe" id="downloada">Download Game</a></div></div>
+				<div class="download">
+					<div class="in">
+						<a href="Apolune Launcher.exe">
+						put me on your desktop
+						<br>
+						<span class="version">0.25 Pre-alpha</span></a>
+					</div>
+				</div>
 				
 				<div id="implemented">
 					<div class="implemented_item">

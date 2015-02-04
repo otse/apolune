@@ -231,21 +231,21 @@ void ap::World::load() {
 	// don't add; we render the backdrop last, manually
 	
 	mom = new Mothership();
-	mom->nodraw = true;
+	//mom->nodraw = true;
 	this->add( mom );
 	
 	//cursorlight = new Light(lights::CURSOR, en::mx, en::my);
 	//cursorlight->sworld(false);
 	//cursorlight->light->sworld(false);
 	
-	//Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
-	//Light *light2 = new Light(lights::FLUOTUBE, 1307-911, 754-527);
-	//Light *light3 = new Light(lights::FLUOTUBE, 1379-911, 754-527);
+	Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
+	Light *light2 = new Light(lights::FLUOTUBE, 1307-911, 754-527);
+	Light *light3 = new Light(lights::FLUOTUBE, 1379-911, 754-527);
 	//Light *light4 = new Light(lights::FLUOTUBE, 1194/2, 402/2);
 	//Light *light4 = new Light(lights::FLUOTUBE, 1283, 772);
 	//Light *light5 = new Light(lights::FLUOTUBE, 1364, 772);
 	
-    /*Emitter *ventfume1 = new Emitter(Emitter::ventfume);
+    Emitter *ventfume1 = new Emitter(Emitter::ventfume);
     ventfume1->sx(673);
     ventfume1->sy(540);
     this->add(ventfume1);
@@ -258,7 +258,7 @@ void ap::World::load() {
     Emitter *ventfume3 = new Emitter(Emitter::ventfume);
     ventfume3->sx(958);
     ventfume3->sy(540);
-    this->add(ventfume3);*/
+    this->add(ventfume3);
     
     /*Sprite *mist = new Sprite(en::GDEF, &textures::groundmist, &regions::groundmist);
     mist->sx(900);
