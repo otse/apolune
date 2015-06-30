@@ -26,6 +26,8 @@ mou::Click mou::right = mou::IDLE;
 mou::Click *mou::active = nullptr;
 sf::Vector2i mou::pos;
 
+int mou::wheel = 0;
+
 oar::KEY_STATE oar::keys[sf::Keyboard::KeyCount] = { oar::UP };
 
 const int en::GROUP_SATURATION = 100;
@@ -98,6 +100,9 @@ void en::window() {
 			if ( event.type == sf::Event::Closed )
 				window.close();
 
+			if (event.type == sf::Event::MouseWheelMoved)
+				mou::wheel = event.mouseWheel.delta;
+
 			if (event.type == sf::Event::GainedFocus)
 				focus = true;
 
@@ -110,7 +115,7 @@ void en::window() {
 		//window.clear();
 
 		render();
-		
+
 		//window.draw(shape);
 
 		window.display();

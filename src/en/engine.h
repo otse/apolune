@@ -69,6 +69,8 @@ namespace en {
 		extern int mx;
 		extern int my;
 
+		extern int wheel;
+
 		extern sf::Vector2i pos;
 	}
 	
