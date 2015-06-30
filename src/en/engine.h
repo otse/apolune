@@ -132,7 +132,7 @@ namespace en {
 	const GLubyte *err; \
 	if ( GL_NO_ERROR != e ) { \
 		err = gluErrorString(e); \
-		LOG("err: " << err << " @'" << QUOTE << "':" << __LINE__ << " in " << __FILE__) \
+		//LOG("err: " << err << " @'" << QUOTE << "':" << __LINE__ << " in " << __FILE__) \
 	} \
 	}
 

@@ -205,7 +205,7 @@ void en::drawsstep() {
 	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
 		Draws *d = *it;
 		if ( d->remove ) {
-			LOG("removing Draws in remove loop ")
+			//LOG("removing Draws in remove loop ")
 			it = draws.l.erase(it);
 			d->remove = false;
 			if ( d->delete_ )
@@ -307,7 +307,12 @@ void en::cdelta() {
 	
 	dnow = (now.QuadPart) * 1000.0 / frequency.QuadPart;
 	
-	en::delta = (dnow-last)/1000;
+	delta = (dnow-last)/1000;
+
+	// todo: improve spike prevention
+	if ( delta > 0.005 )
+		delta = 0.005;
+
 	last = dnow;
 	
 }

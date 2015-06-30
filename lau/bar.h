@@ -32,7 +32,7 @@ namespace lau {
 		en::Draws *starsl;
 		en::Draws *starsr;
 		
-		int progress;
+		float progress;
 	};
 }
 

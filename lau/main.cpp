@@ -96,7 +96,7 @@ void lau::roaming() {
 	en::extraction->append("\\.apolune");
 	mkdir(en::extraction->c_str());
 	
-	LOG("extraction path is " << en::extraction->c_str() );
+	// LOG("extraction path is " << en::extraction->c_str() );
 }
 
 void envars::make() {

@@ -21,9 +21,7 @@ lau::Bar::Bar() : en::Draws(GDEF, nullptr, &en::regfluke) ,
 	
 }
 
-lau::Bar::~Bar() {
-	
-}
+lau::Bar::~Bar() {}
 
 void lau::Bar::rewit(const char *q) {
 	wit.assign(q);
@@ -47,8 +45,13 @@ void lau::Bar::step() {
 	// make progress
 	
 	// this needs delta timing looooool
-	if ( progress < 500 )
-		progress += 2;
+	if ( progress < 500 ) {
+		progress += en::delta;
+		std::cout << "delta:" << std::endl;
+		std::cout << en::delta << std::endl;
+	}
+
+
 	
 	if (1==wait) {
 		using namespace sf;
@@ -73,9 +76,8 @@ void lau::Bar::step() {
 	}
 	
 	
-	
 	// set bar	
-	starsr->sx( progress -2);
+	starsr->sx( (int) progress -2);
 	barfbo->gdraws().sw( progress );
 	rbar.w = progress;
 }
