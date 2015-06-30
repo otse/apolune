@@ -23,7 +23,10 @@ om\:window {
 om\:box {
 	display: inline-block;
 	padding: 1px;
-	background: rgb(42, 42, 42);
+	xbackground: rgb(42, 42, 42);
+
+  font-family: Segoe UI;
+  font-size: 12px;
 }
 
 om\:label {}
@@ -35,14 +38,10 @@ om\:label[title] {
 
 om\:stat {
   display: block;
-  font-family: Courier New;
-  font-size: 11px;
-  font-family: Segoe UI;
-  font-size: 12px;
   letter-spacing: 2px;
-  padding: 8px;
-  color: rgb(203, 203, 203);
-  background: rgb(42, 42, 42);
+  padding: 5px;
+  color: rgb(205, 205, 205);
+  /* background: rgb(31, 31, 31); */
 }
 
 om\:stat:hover {
@@ -60,27 +59,13 @@ om\:stat[button] {
 
 om\:value {
   display: inline-block;
-  font-family: Courier New;
-  font-size: 11px;
-  letter-spacing: normal;
-  color: #81A5C5;
-  padding: 1px 2px;
+  color: rgb(205, 205, 205);
   border-radius: 3px;
-  margin-left: 4px;
-  border: 1px solid rgba(0, 0, 0, 0);
-}
-
-om\:stat[changeable] om\:value {
-
-}
-
-om\:stat[changeable] om\:value:hover {
-	background: rgb(255, 255, 255);
+  margin-left: 1ex;
 }
 
 om\:stat[button] om\:value {
 	/* padding: 4px 4px; */
-	
 }
 
 om\:stat[button] om\:value:hover {
@@ -100,11 +85,6 @@ om\:stat[button] om\:value:active span {
 	/* margin: 1px -1px -1px 1px; */
 }
 
-
-om\:label[bool] {
-	
-}
-
 om\:bool {
 	display: inline-block;
 	font-family: Courier New;
@@ -115,71 +95,16 @@ om\:bool {
 	border: 1px solid rgba(215, 215, 215, 0.25);
 	background: rgb(255, 255, 255);
 }
-
-om\:bool knob {
-	display: inline-block;
-	border-radius: 0;
-	min-width: 10px;
-	text-align: center;
-	letter-spacing: normal;
-	height: 14px;
-	padding: 1px 2px;
-	border: 1px solid rgb(215, 215, 215);
-	background: rgb(255, 255, 255);
-	font-family: Courier New;
-	font-size: 11px;
-	margin: -1px;
-	color: #3E83C0;
-}
-
-om\:bool[on] {
-	padding-left: 8px;
-	background: #22A32E;
-	color: #22A32E;
-	border: 1px solid #22A32E;
-}
-
-om\:bool[off] {
-	padding-right: 8px;
-	background: rgb(186, 32, 32);
-	color: rgb(186, 32, 32);
-	border: 1px solid rgb(186, 32, 32);
-}
-
-om\:bool[on] knob {
-	
-}
-
-om\:bool[on] knob:before {
-	xcontent: "\00a0";
-}
-
-om\:bool[off] knob:before {
-	xcontent: "\00a0";
-}
-
-om\:slider {
-	display: inline-block;
-}
-
-om\:fold {
-	display: block;
-	font-family: Courier, Segoe UI;
-	font-size: 11px;
-	text-shadow: none;
-}
 </style>
 </head>
 <body>
 <om:window>
 	<om:box style="margin: 204px 228px;">
 		<!--<om:label title>stats</om:label>-->
-		<om:stat style="margin-top: 0em;"><span>fps</span><om:value><span>100</span></om:value></om:stat>
-		<om:stat><span>delta</span><om:value><span>0.003432</span></om:value></om:stat>
-		<om:stat><span>draws</span><om:value><span>118</span></om:value></om:stat>
+		<om:stat style="margin-top: 0em;"><span>enter space</span></om:stat>
+		<om:stat><span>ship values</span><om:value><span>verygay</span></om:value></om:stat>
+		<om:stat><span>inventory</span><om:value><span>< i ></span></om:value></om:stat>
 		<om:stat><span>sprites</span><om:value><span>12</span></om:value></om:stat>
-		
-		<om:stat changeable style="xmargin-top: 10px"><span>variable</span><om:value><span>12</span></om:value></om:stat>
 		<om:stat button><span>pet</span><om:value><span>on</span></om:value></om:stat>
 	</om:box>
 	
