@@ -46,9 +46,7 @@ void lau::Bar::step() {
 	
 	// this needs delta timing looooool
 	if ( progress < 500 ) {
-		progress += en::delta;
-		std::cout << "delta:" << std::endl;
-		std::cout << en::delta << std::endl;
+		progress += en::delta * 60;
 	}
 
 
