@@ -179,20 +179,6 @@ void ap::timedresize() {
 	}
 }
 
-void secondpass() {
-	stats::rebuild();
-}
-
-void ap::react() {
-	if ( ply )
-		ply->key();
-	
-	if (nullptr!=world  &&  oar::DOWN==oar::keys[sf::Keyboard::Escape] /* ESC */ ) {
-		
-	}
-}
-
-
 bool second() {
 	static double dsecond = 0.;
 	
@@ -205,6 +191,9 @@ bool second() {
 	
 	return false;
 }
+
+
+void secondpass();
 
 void envars::frame() {
 	//draws.resort = true;
@@ -228,4 +217,17 @@ void envars::frame() {
 	en::drawsstep();
 	
 	return;
+}
+
+void secondpass() {
+	stats::rebuild();
+}
+
+void ap::react() {
+	if ( ply )
+		ply->key();
+	
+	if (nullptr!=world  &&  oar::DOWN==oar::keys[sf::Keyboard::Escape] /* ESC */ ) {
+		
+	}
 }

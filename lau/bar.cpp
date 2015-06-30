@@ -46,6 +46,7 @@ void lau::Bar::step() {
 	static int wait = 0;
 	// make progress
 	
+	// this needs delta timing looooool
 	if ( progress < 500 )
 		progress += 2;
 	
