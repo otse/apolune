@@ -14,9 +14,6 @@
 double lau::dresize = 0.D;
 bool lau::timeresize = false;
 
-en::Vector<en::Draws *> lau::late;
-en::List<en::Draws *> lau::draws;
-
 PHYSFS_File *lau::base;
 Json::Value lau::midrash;
 
@@ -102,27 +99,6 @@ void lau::roaming() {
 	LOG("extraction path is " << en::extraction->c_str() );
 }
 
-void lau::add(en::Draws *p) {
-	draws.l.push_back(p);
-}
-
-void lau::later(en::Draws *p) {
-	late.v.push_back(p);
-}
-
-void lau::rm(en::Draws *s) {
-	if ( nullptr == s )
-		return;
-	
-	std::list<en::Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
-		if ( *it == s ) {
-			draws.l.erase(it);
-			break;
-		}
-	}
-}
-
 void envars::make() {
 	lau::roaming();
 	//lau::jvm();
@@ -137,10 +113,10 @@ void envars::make() {
 	starssides.load();
 	
 	Draws *bgdraws = new Draws(GDEF, &bg, &rbg);
-	add(bgdraws);
+	en::add(bgdraws);
 	
 	bar = new Bar();
-	add(bar);
+	en::add(bar);
 }
 
 void lau::keyhandler() {
@@ -162,41 +138,7 @@ void envars::frame() {
 	
 	dnow = (now.QuadPart) * 1000.0 / frequency.QuadPart;
 	
-	// step
-	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
-		Draws *d = *it;
-		d->step();
-	}}
-	
-	// remove
-	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
-		Draws *d = *it;
-		if ( d->remove ) {
-			LOG("removing Draws in remove loop ")
-			it = draws.l.erase(it);
-			d->remove = false;
-			if ( d->delete_ )
-				delete d;
-		}
-	}}
-	
-	// add late
-	{std::vector<Draws *>::iterator it;
-	for ( it = late.v.begin(); it < late.v.end(); it ++) {
-		Draws *d = *it;
-		d->step();
-		add(d);
-	}}
-	late.v.clear();
-	
-	// draw
-	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
-		Draws *d = *it;
-		d->draw();
-	}}
+	en::drawsstep();
 	
 	return;
 }

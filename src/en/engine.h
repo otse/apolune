@@ -81,6 +81,7 @@ namespace en {
 	extern const int GROUP_SATURATION;
 	extern Draws *groups[];
 
+	extern bool focus;
 	extern List<Draws*> draws;
 	void drawsstep();
 	void add(Draws *);

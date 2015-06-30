@@ -9,7 +9,7 @@ O = $(ENO) $(APO) $(APGUIO)
 FLAGS = -DGLEW_STATIC -DSFML_STATIC -DUNICODE -DAPOLUNE -std=gnu++0x
 
 xDEBUG = -g
-INC = -IQ:/SFML-2.2/include -I../src/ -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/win32"
+INC = -IQ:/SFML-2.2/include -IQ:/Box2D -I../src/ -I"$(JAVA_HOME)/include" -I"$(JAVA_HOME)/include/win32"
 	
 all: apolune.exe
 

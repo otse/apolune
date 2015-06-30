@@ -33,6 +33,7 @@ bool en::twdd = false;
 int en::width = 800;
 int en::height = 600;
 int en::WindowHandle = 0;
+bool en::focus = true;
 Draws *en::groups[en::Group::COUNT] = { nullptr };
 
 Vector<Draws *> en::late;
@@ -95,13 +96,23 @@ void en::window() {
 
 		while ( window.pollEvent(event) ) {
 			if ( event.type == sf::Event::Closed )
-			window.close();
+				window.close();
+
+			if (event.type == sf::Event::GainedFocus)
+				focus = true;
+
+			if (event.type == sf::Event::LostFocus)
+				focus = false;
 		}
 
 		mou::mice(window);
+
 		//window.clear();
+
 		render();
+		
 		//window.draw(shape);
+
 		window.display();
 	}
 }
@@ -160,6 +171,9 @@ void en::mou::mice(const sf::RenderWindow &a) {
 }
 
 void en::oar::poll() {
+	if ( ! focus )
+		return;
+
 	for(int i=0; i<sf::Keyboard::KeyCount; i++) {
 	   sf::Keyboard::Key e = (sf::Keyboard::Key) i;
 	   if (sf::Keyboard::isKeyPressed(e)) {

@@ -297,20 +297,20 @@ void ap::World::load() {
 	this->add( ply ); // tiny willy
 
 	for ( int i = 0; i < 0; i ++ ) {
-		{
 		en::Region *r = new (en::Region) { 565, 503, 220, 100 };
 		ais::Tentacle *tentacle = new ais::Tentacle(r);
 		tentacle->sx((1500-1111)*2);
 		tentacle->sy((828-527-38)*2);
 		this->add(tentacle);
-		}
 	}
 	
-	chicken = new ais::Chicken(chickreg);
-	chicken->sx((1500-911)*2);
-	chicken->sy((828-527-17)*2);
-	chicken->delete_ = false;
-	this->add(chicken);
+	for ( int i = 0; i < 1; i ++ ) {
+		chicken = new ais::Chicken(chickreg);
+		chicken->sx((1500-911)*2);
+		chicken->sy((828-527-17)*2);
+		chicken->delete_ = false;
+		this->add(chicken);
+	}
             
 	/*Sprite *radio = new Sprite(
 			en::GDEFAULT,

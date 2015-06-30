@@ -68,9 +68,6 @@ namespace lau {
 	void timedresize();
 	void secondpass();
 	
-	extern en::Vector<en::Draws*> late;
-	extern en::List<en::Draws*> draws;
-	
 	void roaming();
 	//JNIEnv *jvm();
 	extern PHYSFS_File *base;
