@@ -101,8 +101,7 @@ namespace ap {
 	
 	extern double dresize;
 	
-	extern en::Vector<en::Draws*> late;
-	extern en::List<en::Draws*> draws;
+	
 	extern en::FBO *foreground;
 	extern en::FBO *lightmap;
 	extern en::FBO *stars;
@@ -113,10 +112,6 @@ namespace ap {
 	extern PHYSFS_File *base;
 	bool commentary();
 	extern Json::Value midrash;
-	
-	void add(en::Draws *);
-	void later(en::Draws *);
-	void rm(en::Draws *);
 	
 	extern World *world;
 	extern Ply *ply;

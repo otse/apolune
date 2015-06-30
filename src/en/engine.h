@@ -43,6 +43,8 @@ namespace en {
 		double time;
 		bool reverse;
 	};
+
+	#include "stltempl.h"
 	
 	enum Group {GNONE = -1,GDEF = 0,GPLAYER,GGUI,GDUMP,COUNT};
 	
@@ -78,6 +80,15 @@ namespace en {
 	
 	extern const int GROUP_SATURATION;
 	extern Draws *groups[];
+
+	extern List<Draws*> draws;
+	void drawsstep();
+	void add(Draws *);
+	void rm(Draws *);
+
+	extern Vector<Draws*> late;
+	void later(Draws *);
+
 	typedef int order_t;
 
 	extern Color BLACK;
@@ -109,7 +120,7 @@ namespace en {
 	void mdelta();
 	extern double delta;
 	
-#include "stltempl.h"
+
 }
 
 #define PL_GL_TELL_ERROR(QUOTE) \

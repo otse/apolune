@@ -23,6 +23,7 @@ template<class T> struct Reorder;
 		}
 	};
 	
+	// Situations where you want to insert a lot of items into the middle of a sequence repeatedly.
 	template<class T> struct List {
 	public:
 		std::list<T> l;

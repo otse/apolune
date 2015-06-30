@@ -4,6 +4,7 @@
 #include <windows.h>
 
 #include "engine.h"
+#include "draws.h"
 #include "texture.h"
 #include "../ll/stb_image.h"
 
@@ -33,6 +34,10 @@ int en::width = 800;
 int en::height = 600;
 int en::WindowHandle = 0;
 Draws *en::groups[en::Group::COUNT] = { nullptr };
+
+Vector<Draws *> en::late;
+List<Draws *> en::draws;
+
 
 LARGE_INTEGER en::frequency;
 LARGE_INTEGER en::deltatime;
@@ -165,6 +170,66 @@ void en::oar::poll() {
 	   }
 	   else
 		   keys[e] = KEY_STATE::UP;
+	}
+}
+
+void en::drawsstep() {
+	// step
+	{std::list<Draws *>::iterator it;
+	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
+		Draws *d = *it;
+		d->step();
+	}}
+	
+	// remove
+	{std::list<Draws *>::iterator it;
+	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
+		Draws *d = *it;
+		if ( d->remove ) {
+			LOG("removing Draws in remove loop ")
+			it = draws.l.erase(it);
+			d->remove = false;
+			if ( d->delete_ )
+				delete d;
+		}
+	}}
+	
+	// add late
+	{std::vector<Draws *>::iterator it;
+	for ( it = late.v.begin(); it < late.v.end(); it ++) {
+		Draws *d = *it;
+		d->step();
+		add(d);
+	}}
+	late.v.clear();
+	
+	// draw
+	{std::list<Draws *>::iterator it;
+	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
+		Draws *d = *it;
+		d->draw();
+	}}
+}
+
+
+void en::add(Draws *p) {
+	draws.l.push_back(p);
+}
+
+void en::later(Draws *p) {
+	late.v.push_back(p);
+}
+
+void en::rm(Draws *s) {
+	if ( nullptr == s )
+		return;
+	
+	std::list<Draws *>::iterator it;
+	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
+		if ( *it == s ) {
+			draws.l.erase(it);
+			break;
+		}
 	}
 }
 

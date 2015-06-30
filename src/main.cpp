@@ -49,8 +49,6 @@ Lua *ap::lua;
 World *ap::world = nullptr;
 Ply *ap::ply = nullptr;
 
-en::Vector<en::Draws *> ap::late;
-en::List<en::Draws *> ap::draws;
 
 PHYSFS_File *ap::base;
 Json::Value ap::midrash;
@@ -140,82 +138,9 @@ void ap::launchworld() {
 	ap::debugbox::init();
 }
 
-void ap::add(en::Draws *p) {
-
-	//int pos = group * GROUP_SATURATION;
-	
-	/*if ( ++ en::groups[group] ==  )
-		en::groups[group] = group * GROUP_SATURATION;*/
-		
-	//order = en::groups[group];
-	
-	//en::List(
-	//std::vector<Draws *>::iterator it;
-	//it = draws.v.at(pos);
-	
-	//draws.v.insert(pos, p);
-	//std::list<Draws *>::iterator it;
-	//it = it + en::groups[p->group];
-	
-	draws.l.push_back(p);
-	
-	return;
-	
-	LOG("inserting at group " << p->group)
-	Draws *o = nullptr;
-	if ( nullptr == en::groups[p->group] ) {
-		for ( int i = en::Group::COUNT-1; i >= 0; i-- ) {
-			if ( nullptr != en::groups[i] )
-				o = en::groups[i];
-			else
-				LOG("group " << i << " is nullptr")
-		}
-	}
-	
-	if ( nullptr != o ) {
-		std::list<Draws *>::iterator it;
-		int i = 0;
-		for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
-			i++;
-			if ( o == *it ) {
-				LOG("inserting after " << i)
-				draws.l.insert(++it, p);
-				break;
-			} else {
-				
-			}
-		}
-	}
-	else
-		draws.l.push_back(p);
-		
-	en::groups[p->group] = p;
-	
-	LOG("-----")
-	
-	//draws.l.push_back(p);
-}
-
-void ap::later(en::Draws *p) {
-	late.v.push_back(p);
-}
-
-void ap::rm(en::Draws *s) {
-	if ( nullptr == s )
-		return;
-	
-	std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
-		if ( *it == s ) {
-			draws.l.erase(it);
-			break;
-		}
-	}
-}
-
 void envars::make() {
 	loader = new Loader();
-	add(loader);
+	en::add(loader);
 }
 
 #define IDEAL_WIDTH 800
@@ -300,41 +225,7 @@ void envars::frame() {
 	
 	dnow = (now.QuadPart) * 1000.0 / frequency.QuadPart;
 	
-	// step
-	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
-		Draws *d = *it;
-		d->step();
-	}}
-	
-	// remove
-	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
-		Draws *d = *it;
-		if ( d->remove ) {
-			LOG("removing Draws in remove loop ")
-			it = draws.l.erase(it);
-			d->remove = false;
-			if ( d->delete_ )
-				delete d;
-		}
-	}}
-	
-	// add late
-	{std::vector<Draws *>::iterator it;
-	for ( it = late.v.begin(); it < late.v.end(); it ++) {
-		Draws *d = *it;
-		d->step();
-		add(d);
-	}}
-	late.v.clear();
-	
-	// draw
-	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
-		Draws *d = *it;
-		d->draw();
-	}}
+	en::drawsstep();
 	
 	return;
 }

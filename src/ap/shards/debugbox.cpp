@@ -65,7 +65,7 @@ void ap::debugbox::init() {
 	box->sx(50);
 	box->sy(100);
 	
-	add(box);
+	en::add(box);
 	
 	stats::fps = new Label(box, "fps", "60");
 	stats::delta = new Label(box, "delta", "0.003234");

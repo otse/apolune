@@ -57,7 +57,7 @@ bool ap::Loader::explain(const char *q) {
 	wit->sy( (en::height/2) - (f.gh()/2) + 25 );
 	wit->position();
 	
-	//later(wit);
+	//en::later(wit);
 	flush = false;
 	
 	return true;
@@ -143,8 +143,8 @@ void ap::Loader::step() {
 				spread->sw(en::width);
 				spread->sh(en::height);
 				
-				later(spread);
-				later(teacup);
+				en::later(spread);
+				en::later(teacup);
 				
 				top = new en::Text(en::GGUI, normal1, &colors::BLUEISH, "This might take a whi-- Never mind.");
 				top->position();
@@ -152,7 +152,7 @@ void ap::Loader::step() {
 				top->sy( (en::height/2) - (normal2.gh()/2) - 25 );
 				top->position();
 				
-				later(top);
+				en::later(top);
 			}
 			
 			if ( flush ) {
@@ -185,7 +185,7 @@ void ap::Loader::step() {
 
 		case LUA :
 			if ( explain("lua...") ) {
-				later(wit);
+				en::later(wit);
 				return;
 			}
 				
@@ -226,7 +226,7 @@ void ap::Loader::step() {
 			spread->remove = true;
 			
 			menu = new start::Menu();
-			later(menu);
+			en::later(menu);
 			
 			flush = true;
 			state = COUNT;

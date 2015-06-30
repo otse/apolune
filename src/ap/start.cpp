@@ -36,11 +36,11 @@ ap::start::Menu::Menu() :
 	
 	wit->position();*/
 	
-	later(stars);
+	en::later(stars);
 	//ap::add(wit);
 	
-	later( play = new Button("play", 0, Button::PLAY, nullptr) );
-	later( quit = new Button("quit", 1, Button::QUIT, nullptr) );
+	en::later( play = new Button("play", 0, Button::PLAY, nullptr) );
+	en::later( quit = new Button("quit", 1, Button::QUIT, nullptr) );
 	
 	//this->decals();
 	
@@ -82,7 +82,7 @@ void ap::start::Menu::decals() {
 	for ( int i = 0; i < 50; i ++ ) {
 		Asteroid *o = new Asteroid();
 		roids.push_back(o);
-		later(o);
+		en::later(o);
 	}
 }
 
