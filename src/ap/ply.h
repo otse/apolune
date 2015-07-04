@@ -37,7 +37,8 @@ namespace ap {
 		bool useing;
 		HEADING heading;
 		int hp;
-		void move();
+
+		void move(); // ?
 		//speed_ps inline floor();
 	};
 }

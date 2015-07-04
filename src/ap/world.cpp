@@ -147,7 +147,7 @@ void ap::World::step() {
 	glClearColor(1, 0, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	//stars->gdraws().rotate += en::delta * .5d;
+	stars->gdraws().rotate += en::delta * .5d;
 	stars->gdraws().draw();
 	
 	// draw foreground

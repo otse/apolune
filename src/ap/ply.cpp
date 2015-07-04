@@ -39,33 +39,18 @@ void ap::Ply::step() {
 }
 
 void ap::Ply::translate() {
-	glTranslatef(xof, yof, 0);
+	glTranslatef(xof, yof, 0); // xof and yof are idiots
 }
 
 void ap::Ply::move() {
 	
 }
 
-//ap::speed_ps inline ap::Ply::spd() {
-//	return speed * en::delta;
-//}
-
 void ap::Ply::key() {
-	/*if ( use )
-		use = false;
-	
-	if ( DOWN == ap::keys['e'] ) {
-		if ( ! useing )
-			use = true;
-		useing = true;
-	} else
-		useing = false;*/
-		
 	if ( oar::DOWN == oar::keys[sf::Keyboard::E] ) {
 		use = true;
 	} else use = false;
 	
-	//if ( use ) LOG("use")
 	
 	bool a = oar::keys[sf::Keyboard::A] != oar::UP;
 	bool d = oar::keys[sf::Keyboard::D] != oar::UP;
