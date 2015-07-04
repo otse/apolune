@@ -23,6 +23,7 @@ void ap::Object::step() {
 }
 
 void ap::Object::tryactivate() {
+
 	int px = ply->gx();
 	int py = ply->gy();
 	int pw = ply->gw();
@@ -32,12 +33,12 @@ void ap::Object::tryactivate() {
 		gx() >= px && gx() < px+pw &&
 		gy() >= py && gy() < py+ph
 	) {
-		LOG("activating")
+		activate();
 	}
 }
 
 void ap::Object::activate() {
-	//
+	// loooooool
 }
 
 void ap::Object::click() { /*Sprite::left();*/ }

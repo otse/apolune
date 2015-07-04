@@ -34,6 +34,7 @@ en::Texture textures::apexradio("objects/apexradio.png");
 en::Texture textures::apexconsole("objects/apexconsole.png");
 en::Texture textures::apexbrainjar("objects/apexbrainjar.png");
 en::Texture textures::bonetable("objects/bonetable.png");
+en::Texture textures::tier3switch("objects/tier3switch.png");
 
 en::Texture textures::chicken("ais/chicken.png");
 en::Texture textures::tentacle("ais/tentacle.png");
@@ -76,6 +77,7 @@ en::Region regions::apexradio = {0,0,16,16};
 en::Region regions::apexconsole = {0,0,40,16};
 en::Region regions::apexbrainjar = {0,0,12,16};
 en::Region regions::bonetable = {0,0,40,16};
+en::Region regions::tier3switch = {0,0,24,16};
 
 en::Region regions::groundmist = {0,0,40,32};
 en::Region regions::fireswirl = {0,0,20,20};
@@ -349,6 +351,7 @@ void ap::loadtex() {
 	textures::apexradio.load();
 	textures::apexconsole.load();
 	textures::apexbrainjar.load();
+	textures::tier3switch.load();
 	
 	textures::chicken.load();
 	textures::tentacle.load();

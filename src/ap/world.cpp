@@ -271,10 +271,10 @@ void ap::World::load() {
 	chair->sy((828-527-18)*2);
 	this->add(chair);
 	
-	/*Console *console = new Console();
-	console->sx(343*2);
-	console->sy(144*2);
-	add(console);*/
+	Console *console = new Console();
+	console->sx((1452-970)*2);
+	console->sy((828-544)*2);
+	add(console);
 	
 	Table *table = new Table(Table::apexcool);
 	table->sx((1450-910)*2);
@@ -296,7 +296,7 @@ void ap::World::load() {
 	//ply->nodraw = true;
 	this->add( ply ); // tiny willy
 
-	for ( int i = 0; i < 0; i ++ ) {
+	for ( int i = 0; i < 1; i ++ ) {
 		en::Region *r = new (en::Region) { 565, 503, 220, 100 };
 		ais::Tentacle *tentacle = new ais::Tentacle(r);
 		tentacle->sx((1500-1111)*2);
@@ -304,13 +304,15 @@ void ap::World::load() {
 		this->add(tentacle);
 	}
 	
-	for ( int i = 0; i < 1; i ++ ) {
+	for ( int i = 0; i < 10; i ++ ) {
 		chicken = new ais::Chicken(chickreg);
 		chicken->sx((1500-911)*2);
 		chicken->sy((828-527-17)*2);
 		chicken->delete_ = false;
 		this->add(chicken);
 	}
+
+
             
 	/*Sprite *radio = new Sprite(
 			en::GDEFAULT,

@@ -13,10 +13,12 @@ namespace ap {
 			Console();
 			virtual ~Console();
 			
-			const en::Anim &anim;
+			//const en::Anim &anim;
 			
 			virtual void step();
-			//virtual void activate();
+			
+		protected:
+			virtual void activate();
 		};
 		
 	}

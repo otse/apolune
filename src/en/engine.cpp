@@ -310,8 +310,8 @@ void en::cdelta() {
 	delta = (dnow-last)/1000;
 
 	// todo: improve spike prevention
-	if ( delta > 0.005 )
-		delta = 0.005;
+	//if ( delta > 0.005 )
+		//delta = 0.005;
 
 	last = dnow;
 	

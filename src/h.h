@@ -82,7 +82,7 @@ namespace ap {
 	extern double zoom;
 	extern double zoomto;
 	extern double zoomspeed;
-	extern bool pointingcoords;
+	extern bool pointingcoords; // niy
 	
 	extern bool timeresize;
 	void timedresize();

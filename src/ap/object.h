@@ -28,7 +28,6 @@ namespace ap {
 		virtual void step();
 		
 		void tryactivate();
-		bool inrange();
 		
 		//virtual void tooltipping();
 	protected:

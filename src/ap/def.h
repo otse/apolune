@@ -52,6 +52,7 @@ namespace ap {
 		extern en::Texture apexconsole;
 		extern en::Texture apexbrainjar;
 		extern en::Texture bonetable;
+		extern en::Texture tier3switch;
 		
 		extern en::Texture chicken;
 		extern en::Texture tentacle;
@@ -102,6 +103,7 @@ namespace ap {
 		extern en::Region apexconsole;
 		extern en::Region apexbrainjar;
 		extern en::Region bonetable;
+		extern en::Region tier3switch;
 		
 		extern en::Region chicken;
 		extern en::Region tentacle;

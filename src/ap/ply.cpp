@@ -61,7 +61,7 @@ void ap::Ply::key() {
 	} else
 		useing = false;*/
 		
-	if ( oar::DOWN == oar::keys['e'] ) {
+	if ( oar::DOWN == oar::keys[sf::Keyboard::E] ) {
 		use = true;
 	} else use = false;
 	
