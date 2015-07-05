@@ -67,12 +67,12 @@ bool en::Texture::load() {
 	
 	unsigned char *data;
 	
-	const char *fole = strrchr(file, '/');
-	fole = (fole) ? fole+1 : file;
+	const char *basename = strrchr(this->file, '/');
+	basename = (basename) ? basename+1 : file;
 	
-	//LOG("fole is " << fole)
+	//LOG("basename is " << basename)
 	
-	std::string tmp = *extraction + '\\' + fole;
+	std::string tmp = *extraction + '\\' + basename;
 	
 	// write to a temporary file
 	std::ofstream myfile;

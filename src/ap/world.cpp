@@ -271,11 +271,11 @@ void ap::World::load() {
 	chair->sy((828-527-18)*2);
 	this->add(chair);
 	
-	Console *console = new Console();
+	/*Console *console = new Console();
 	console->sx((1452-970)*2);
 	console->sy((828-544)*2);
-	add(console);
-	
+	add(console);*/
+
 	Table *table = new Table(Table::apexcool);
 	table->sx((1450-910)*2);
 	table->sy((828-527-16)*2);
@@ -312,8 +312,6 @@ void ap::World::load() {
 		this->add(chicken);
 	}
 
-
-            
 	/*Sprite *radio = new Sprite(
 			en::GDEFAULT,
 			&textures::apexradio,
