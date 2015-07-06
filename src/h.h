@@ -42,8 +42,6 @@ typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
 
 
 namespace ap {
-	void react();
-
 	class Loader;
 	class Menu;
 	class Lua;

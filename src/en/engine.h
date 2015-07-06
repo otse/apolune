@@ -56,6 +56,7 @@ namespace en {
 		extern Click left;
 		extern Click right;
 		extern Click *active;
+		
 #define MOUISLEFT &en::mou::left == en::mou::active
 #define MOUISRIGHT &en::mou::right == en::mou::active
 #define MOUPRESSED en::mou::PRESSED == *en::mou::active

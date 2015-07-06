@@ -6,6 +6,14 @@
 #include "light.h"
 #include "def.h"
 
+#include "ais/chicken.h"
+#include "ais/tentacle.h"
+#include "objects/chair.h"
+#include "objects/table.h"
+#include "objects/console.h"
+
+#include "craft/craft.h"
+
 
 ap::Mothership::Mothership()
 	: ap::Mover::Mover(
@@ -14,9 +22,11 @@ ap::Mothership::Mothership()
 		&textures::hangar,
 		&regions::hangar
 		) ,
-	cock(0)
+	asd(0),
+	grid()
 	{
 		//dim(0, 0, textures::orpheus.gw(), textures::orpheus.gh());
+
 		sorder(2);
 		post();
 	}
@@ -25,28 +35,59 @@ ap::Mothership::~Mothership() { // dtor
 	
 }
 
+void ap::Mothership::step() {
+	grid->step();
+}
+
 void ap::Mothership::post() {
-	clawbase = new Sprite(
+	
+	Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
+	Light *light2 = new Light(lights::FLUOTUBE, 1307-911, 754-527);
+	Light *light3 = new Light(lights::FLUOTUBE, 1379-911, 754-527);
+	//Light *light4 = new Light(lights::FLUOTUBE, 1194/2, 402/2);
+	//Light *light4 = new Light(lights::FLUOTUBE, 1283, 772);
+	//Light *light5 = new Light(lights::FLUOTUBE, 1364, 772);
+	
+	Emitter *ventfume1 = new Emitter(Emitter::ventfume);
+	ventfume1->sx(673);
+	ventfume1->sy(540);
+	ap::world->add(ventfume1);
+	
+	Emitter *ventfume2 = new Emitter(Emitter::ventfume);
+	ventfume2->sx(816);
+	ventfume2->sy(540);
+	ap::world->add(ventfume2);
+	
+	Emitter *ventfume3 = new Emitter(Emitter::ventfume);
+	ventfume3->sx(958);
+	ventfume3->sy(540);
+	ap::world->add(ventfume3);
+
+	using namespace objects;
+
+	Chair *chair = new Chair(Chair::apexcool);
+	chair->sx((1432-910)*2);
+	chair->sy((828-527-18)*2);
+	ap::world->add(chair);
+	
+	/*Console *console = new Console();
+	console->sx((1452-970)*2);
+	console->sy((828-544)*2);
+	add(console);*/
+
+	Table *table = new Table(Table::apexcool);
+	table->sx((1450-910)*2);
+	table->sy((828-527-16)*2);
+	ap::world->add(table);
+	
+	Simpleanim *teacup = new Simpleanim(
 			en::GDEF,
-			&textures::sheet,
-			&regions::clawbase
-	);
-	//clawbase->dim(0, 0, regions::clawbase.w, regions::clawbase.h);
-	
-	/*Sprite *hangarlight = new Sprite(en::GDEF, &textures::hangarlight, &regions::hangarlight);
-	hangarlight->sx((1514-911)*2);
-	hangarlight->sy((705-527)*2);
-	ap::world->lights.v.push_back(hangarlight);*/
-	
-	//clawbase->sworld(false);
-	//ap::world->sprites.push_back(clawbase);
-	
-	/*Sprite *mom2 = new Sprite(
-			&ap::textures::orpheus,
-			const_cast<en::region_t *>(&ap::regions::orpheus)
-	);
-	mom2->sx(ap::regions::orpheus.w*2);
-	ap::world->sprites.push_back(mom2);*/
+			&textures::teacup,
+			&regions::teacup,
+			anims::teacup);
+	teacup->sx(1088);
+	teacup->sy(570-16);
+	add(teacup);
 }
 
 /* ###########################
@@ -59,3 +100,21 @@ void ap::Mothership::post() {
 //float ap::Ply::gy() {
 //	return .0;
 //}
+
+//old mothership post
+	
+	/*clawbase = new Sprite(
+			en::GDEF,
+			&textures::sheet,
+			&regions::clawbase
+	);*/
+
+	//clawbase->dim(0, 0, regions::clawbase.w, regions::clawbase.h);
+	
+	/*Sprite *hangarlight = new Sprite(en::GDEF, &textures::hangarlight, &regions::hangarlight);
+	hangarlight->sx((1514-911)*2);
+	hangarlight->sy((705-527)*2);
+	ap::ap::world->lights.v.push_back(hangarlight);*/
+	
+	//clawbase->sap::world(false);
+	//ap::ap::world->sprites.push_back(clawbase);

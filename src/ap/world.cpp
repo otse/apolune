@@ -73,11 +73,12 @@ void ap::World::step() {
 	
 	//this->steroids(); // Asteroid
 	//sprites.sort();
+
+	// todo: sprites need a late-add vector
 	
 	{std::list<Sprite *>::iterator it;
 	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
 		Sprite *s = *it;
-		s->mousetrigger();
 		s->step();
 	}}
 	
@@ -177,6 +178,7 @@ void ap::World::fbos() {
 	lightmap = new en::FBO(&en::BLACK, fboreg);
 }
 
+// `rough gem`
 void ap::World::makestars() {
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, stars->gfbid() );
 	
@@ -211,7 +213,7 @@ void ap::World::makestars() {
 }
 
 void ap::World::lighting() {
-	glBlendFunc(GL_ZERO, GL_ONE_MINUS_SRC_ALPHA); // lights blending, white creates holes
+	glBlendFunc(GL_ZERO, GL_ONE_MINUS_SRC_ALPHA); // lights blending, white creates 'holes' in darkmap
 	
 	std::vector<Sprite *>::iterator it;
 	for ( it = lights.v.begin(); it < lights.v.end(); it ++) {
@@ -238,59 +240,12 @@ void ap::World::load() {
 	//cursorlight->sworld(false);
 	//cursorlight->light->sworld(false);
 	
-	Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
-	Light *light2 = new Light(lights::FLUOTUBE, 1307-911, 754-527);
-	Light *light3 = new Light(lights::FLUOTUBE, 1379-911, 754-527);
-	//Light *light4 = new Light(lights::FLUOTUBE, 1194/2, 402/2);
-	//Light *light4 = new Light(lights::FLUOTUBE, 1283, 772);
-	//Light *light5 = new Light(lights::FLUOTUBE, 1364, 772);
+	/*Sprite *mist = new Sprite(en::GDEF, &textures::groundmist, &regions::groundmist);
+	mist->sx(900);
+	mist->sy(539);
+	this->add(mist);*/
 	
-    Emitter *ventfume1 = new Emitter(Emitter::ventfume);
-    ventfume1->sx(673);
-    ventfume1->sy(540);
-    this->add(ventfume1);
-    
-    Emitter *ventfume2 = new Emitter(Emitter::ventfume);
-    ventfume2->sx(816);
-    ventfume2->sy(540);
-    this->add(ventfume2);
-    
-    Emitter *ventfume3 = new Emitter(Emitter::ventfume);
-    ventfume3->sx(958);
-    ventfume3->sy(540);
-    this->add(ventfume3);
-    
-    /*Sprite *mist = new Sprite(en::GDEF, &textures::groundmist, &regions::groundmist);
-    mist->sx(900);
-    mist->sy(539);
-    this->add(mist);*/
-    
-	using namespace objects;
-	Chair *chair = new Chair(Chair::apexcool);
-	chair->sx((1432-910)*2);
-	chair->sy((828-527-18)*2);
-	this->add(chair);
-	
-	/*Console *console = new Console();
-	console->sx((1452-970)*2);
-	console->sy((828-544)*2);
-	add(console);*/
-
-	Table *table = new Table(Table::apexcool);
-	table->sx((1450-910)*2);
-	table->sy((828-527-16)*2);
-	this->add(table);
-    
-	Simpleanim *teacup = new Simpleanim(
-			en::GDEF,
-            &textures::teacup,
-            &regions::teacup,
-            anims::teacup);
-	teacup->sx(1088);
-	teacup->sy(570-16);
-    add(teacup);
-    
-    ply = new Ply();
+	ply = new Ply();
 	ply->sx((1400-911)*2);
 	ply->sy((828-527-33)*2);
 	//ply->nodraw = true;
@@ -304,7 +259,7 @@ void ap::World::load() {
 		this->add(tentacle);
 	}
 	
-	for ( int i = 0; i < 10; i ++ ) {
+	for ( int i = 0; i < 1000; i ++ ) {
 		chicken = new ais::Chicken(chickreg);
 		chicken->sx((1500-911)*2);
 		chicken->sy((828-527-17)*2);

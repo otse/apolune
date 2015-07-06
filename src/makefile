@@ -3,8 +3,9 @@ ENO = o/engine.o o/texture.o o/shader.o o/fbo.o o/font.o o/text.o o/draws.o o/an
 APO = o/main.o o/loader.o o/lua.o o/start.o o/files.o o/def.o o/bulk.o o/context.o o/world.o o/sprite.o o/emitter.o o/object.o o/chair.o o/table.o o/console.o o/light.o o/mover.o o/ai.o o/chicken.o o/tentacle.o o/ply.o o/planet.o o/asteroid.o o/ship.o o/mothership.o
 
 APGUIO =  o/box.o o/element.o o/label.o o/button.o
+APCRAFTO =  o/grid.o
 
-O = $(ENO) $(APO) $(APGUIO)
+O = $(ENO) $(APO) $(APGUIO) $(APCRAFTO)
 
 FLAGS = -DGLEW_STATIC -DSFML_STATIC -DUNICODE -DAPOLUNE -std=gnu++0x
 
@@ -110,6 +111,9 @@ o/label.o: ap/gui/label.cpp ap/gui/label.h
 o/button.o: ap/gui/button.cpp ap/gui/button.h
 	g++ $(INC) -c ap/gui/button.cpp -o o/button.o $(FLAGS)
 
+#/ap/craft
+o/grid.o: ap/craft/grid.cpp ap/craft/grid.h
+	g++ $(INC) -c ap/craft/grid.cpp -o o/grid.o $(FLAGS)
 
 #/ll
 o/stb_image.o: ll/stb_image.c

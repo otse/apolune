@@ -194,6 +194,7 @@ bool second() {
 
 
 void secondpass();
+void react();
 
 void envars::frame() {
 	//draws.resort = true;
@@ -212,8 +213,6 @@ void envars::frame() {
 	if ( world )
 		world->step();
 	
-	dnow = (now.QuadPart) * 1000.0 / frequency.QuadPart;
-	
 	en::drawsstep();
 	
 	return;
@@ -223,7 +222,7 @@ void secondpass() {
 	stats::rebuild();
 }
 
-void ap::react() {
+void react() {
 	if ( ply )
 		ply->key();
 	

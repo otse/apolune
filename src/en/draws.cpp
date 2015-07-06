@@ -27,7 +27,7 @@ en::Draws::Draws(Group g, Texture *t, Region *r) :
 	color(&en::WHITE),
 	a(1.f),
 	rotate(0),
-    xflip(false),
+	xflip(false),
 	yflip(false),
 	name(nullptr),
 	hovering(false),
@@ -113,8 +113,8 @@ void en::Draws::draw() {
 		
 		if ( program )
 			glUseProgram(*program);
-        
-        glColor4f(color->r, color->g, color->b, a);
+		
+		glColor4f(color->r, color->g, color->b, a);
 		
 		if ( rotate ) {
 			glTranslatef(w/2, h/2, 0);
@@ -178,7 +178,7 @@ void en::Draws::draw() {
 		
 		glEnd();
 		
-        glColor4f(1, 1, 1, 1);
+		glColor4f(1, 1, 1, 1);
 			
 		if ( program )
 			glUseProgram(0);
@@ -188,7 +188,7 @@ void en::Draws::draw() {
 			
 	} else { // no texture
 		glDisable(GL_TEXTURE_2D);
-        glColor4f(color->r, color->g, color->b, a);
+		glColor4f(color->r, color->g, color->b, a);
 			
 		glBegin(GL_QUADS);
 		
@@ -198,8 +198,8 @@ void en::Draws::draw() {
 		glVertex2d(0, h);
 		
 		glEnd();
-        
-        glColor4f(1, 1, 1, 1);
+		
+		glColor4f(1, 1, 1, 1);
 			
 		glEnable(GL_TEXTURE_2D);
 	}

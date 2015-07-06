@@ -1,16 +1,9 @@
 #ifndef apcraftcraft_H
 #define apcraftcraft_H
 
-/**
- * includes most crafting classes
- */
+// bit of a useless file atm
 
-namespace ap {
-	namespace craft {
-		class Grid;
-		
-		
-	}
-}
+#include "grid.h"
+
 
 #endif

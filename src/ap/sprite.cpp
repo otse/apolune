@@ -30,10 +30,8 @@ void ap::Sprite::translate() {
 		glTranslatef(gx(), gy(), 0);
 }
 
-void ap::Sprite::step() { // ಠ __ ಠ
-	// tiny willy 2.0
-	// dick
-	// cock
+void ap::Sprite::step() {
+	
 }
 
 void ap::Sprite::draw() {

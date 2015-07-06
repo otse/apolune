@@ -4,7 +4,9 @@
 #include "../h.h"
 #include "mover.h"
 
+#include "craft/craft.h"
 
+// todo remove mover depend
 namespace ap {
 
 	class Mothership : public Mover {
@@ -12,28 +14,16 @@ namespace ap {
 		Mothership();
 		~Mothership();
 		
-		
-		//void late();
-		//void key(void);
-	//protected:
-		//virtual void translate();
-		
-		//speed_ps speed;
+		virtual void step();
 		void post();
-	private:
-		int cock;
-		//const char *name;
+		craft::Grid grid;
+
+	protected:
+		int asd;
+
+
 		Sprite *clawbase;
-		
-		Light *light1;
-		Light *light2;
-		
-		Light *light3;
-		Light *light4;
-		Light *light5;
-		//int hp;
-		//void move();
-		//speed_ps inline spd();
+
 	};
 }
 #endif
