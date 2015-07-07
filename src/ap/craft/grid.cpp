@@ -1,7 +1,7 @@
 #include "grid.h"
 
 
-ap::craft::Grid::Grid() : ap::Sprite(en::GDEF, NULL, &en::regfluke ) ,
+ap::craft::Grid::Grid() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	asd(0)
 	{
 	//LOG("planet ctor")
