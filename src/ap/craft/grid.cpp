@@ -1,7 +1,7 @@
 #include "grid.h"
 
 
-ap::craft::Grid::Grid() :
+ap::craft::Grid::Grid() : ap::Sprite(en::GDEF, NULL, &en::regfluke ) ,
 	asd(0)
 	{
 	//LOG("planet ctor")
@@ -13,7 +13,7 @@ ap::craft::Grid::~Grid() {}
 //void ap::craft::Grid::size() {}
 
 void ap::craft::Grid::step() {
-	;
+	// check mice things
 }
 
 

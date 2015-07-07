@@ -36,7 +36,7 @@ ap::Mothership::~Mothership() { // dtor
 }
 
 void ap::Mothership::step() {
-	grid->step();
+	grid.step();
 }
 
 void ap::Mothership::post() {

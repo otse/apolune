@@ -3,15 +3,17 @@
 
 #include "../../h.h"
 
+#include "../sprite.h"
+
 namespace ap {
 	
 	namespace craft {
-		class Grid {
+		class Grid : public Sprite {
 		public:
 			Grid();
 			~Grid();
 
-			void step();
+			virtual void step();
 
 		protected:
 			int asd;
