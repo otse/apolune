@@ -143,7 +143,7 @@ void ap::gui::Label::draw() {
 
 void ap::gui::Label::click() {}
 void ap::gui::Label::hover(mou::Hover h) {
-	Draws::hover(h);
+	//Draws::hover(h);
 }
 
 

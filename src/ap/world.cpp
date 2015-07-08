@@ -76,12 +76,14 @@ void ap::World::step() {
 
 	// todo: sprites need a late-add vector
 	
+	// step
 	{std::list<Sprite *>::iterator it;
 	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
 		Sprite *s = *it;
 		s->step();
 	}}
 	
+	// remove
 	{std::list<Sprite *>::iterator it;
 	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
 		Sprite *s = *it;

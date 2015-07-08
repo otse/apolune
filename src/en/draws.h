@@ -16,10 +16,6 @@ namespace en {
 	class Anim;
 	struct animinstance;
 	
-	/**
-	 * represents an 'interactable' 2d image
-	 * @see dominoes it's a great game
-	 */
 	class Draws {
 	public:
 		struct Model {
@@ -74,6 +70,7 @@ namespace en {
 		void stexture(Texture *);
 		void sregion(Region *);
 		void sa(float);
+		void sscale(double);
 		//void sxflip(bool);
 		//void syflip(bool);
 		void scolor(Color *);
@@ -86,13 +83,13 @@ namespace en {
 		bool yflip;
 		
 		float rotate;
+		double scale;
 	protected:
 		bool hovering;
 		bool held;
 		
 		Region *r;
 		
-		double scale;
 		en::Color *color;
 		
 		double x;
