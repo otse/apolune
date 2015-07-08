@@ -11,7 +11,7 @@ ap::Object::Object(en::Group g, en::Texture *t, en::Region *r) :
 	thovering(0),
 	tip(nullptr)
 	{
-		
+
 }
 
 ap::Object::~Object() {
@@ -63,16 +63,17 @@ void ap::Object::hover(mou::Hover h) {
 		rm(tooltip);
 		delete tooltip;
 		tooltip = nullptr;
-		LOG("destroyed tooltip");
 	}
 }
 
 void ap::Object::tooltipping() {
+	if ( tip == nullptr )
+		return;
+
 	thovering += en::delta;
 	
 	if ( thovering >= 0.35 ) {
 		if ( ! tooltip ) {
-			LOG("making tooltip")
 			tooltip = new en::Text(en::GDUMP, monospace2, &en::WHITE, tip);
 			tooltip->scale = 2;
 			tooltip->position();
