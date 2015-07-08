@@ -8,9 +8,10 @@ ap::Object::Object(en::Group g, en::Texture *t, en::Region *r) :
 	ap::Sprite::Sprite(g, t, r) ,
 	activaterange(0),
 	tooltip(nullptr),
-	thovering(0)
+	thovering(0),
+	tip(nullptr)
 	{
-	tip = "It's an object";
+		
 }
 
 ap::Object::~Object() {
@@ -19,6 +20,9 @@ ap::Object::~Object() {
 
 void ap::Object::step() {
 	Sprite::step();
+
+	if ( hovering )
+		tooltipping();
 
 	if ( ply->guse() )
 		tryactivate();
@@ -46,22 +50,20 @@ void ap::Object::activate() {
 void ap::Object::click() { /*Sprite::left();*/ }
 
 void ap::Object::hover(mou::Hover h) {
-	LOG("HOO")
 	
 	if ( mou::HOVER_IN == h ) { 
 		scolor(&colors::OBJECTHOVER);
-		tooltipping();
 	} else {
 		scolor(&en::WHITE);
+	}
+
+	thovering = 0;
 	
-		thovering = 0;
-		
-		if ( tooltip ) {
-			rm(tooltip);
-			delete tooltip;
-			tooltip = nullptr;
-			LOG("destroyed tooltip");
-		}
+	if ( tooltip ) {
+		rm(tooltip);
+		delete tooltip;
+		tooltip = nullptr;
+		LOG("destroyed tooltip");
 	}
 }
 

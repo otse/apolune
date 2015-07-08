@@ -60,7 +60,7 @@ double ap::Sprite::gax() const { return ax; }
 double ap::Sprite::gay() const { return ay; }
 
 void ap::Sprite::click(mou::Button, mou::Click) {};
-void ap::Sprite::hover(mou::Hover) { LOG("HOVER") };
+void ap::Sprite::hover(mou::Hover) { };
 
 void ap::Sprite::sx(double p) { ax = p; Draws::sx(int(ax)); }
 void ap::Sprite::sy(double p) { ay = p; Draws::sy(int(ay)); }
@@ -69,7 +69,7 @@ double ap::Sprite::gx() const { return Draws::gx(); }
 double ap::Sprite::gy() const { return Draws::gy(); }
 double ap::Sprite::gw() const { return Draws::gw(); }
 double ap::Sprite::gh() const { return Draws::gh(); }
-int ap::Sprite::gscrx() const { return Draws::gx() + ap::xof - ply->gx(); } // for hover
+int ap::Sprite::gscrx() const { return Draws::gx() + ap::xof - ply->gx(); }
 int ap::Sprite::gscry() const { return Draws::gy() + ap::yof - ply->gy(); }
 
 
