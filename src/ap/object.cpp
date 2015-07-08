@@ -18,6 +18,8 @@ ap::Object::~Object() {
 }
 
 void ap::Object::step() {
+	Sprite::step();
+
 	if ( ply->guse() )
 		tryactivate();
 }
