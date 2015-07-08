@@ -235,6 +235,7 @@ void ap::World::load() {
 	mom = new Mothership();
 	//mom->nodraw = true;
 	this->add( mom );
+	mom->post();
 	
 	//cursorlight = new Light(lights::CURSOR, en::mx, en::my);
 	//cursorlight->sworld(false);
@@ -259,7 +260,7 @@ void ap::World::load() {
 		this->add(tentacle);
 	}
 	
-	for ( int i = 0; i < 1000; i ++ ) {
+	for ( int i = 0; i < 1; i ++ ) {
 		chicken = new ais::Chicken(chickreg);
 		chicken->sx((1500-911)*2);
 		chicken->sy((828-527-17)*2);

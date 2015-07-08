@@ -7,8 +7,8 @@
 ap::Object::Object(en::Group g, en::Texture *t, en::Region *r) :
 	ap::Sprite::Sprite(g, t, r) ,
 	activaterange(0)//,
-	//tooltip(nullptr),
-	//thovering(0)
+	tooltip(nullptr),
+	thovering(0)
 	{
 	//tip = "It's an object";
 }
@@ -51,17 +51,16 @@ void ap::Object::hover(mou::Hover h) {
 	}
 	
 	
-	/*thovering = 0;
+	thovering = 0;
 	
 	if ( tooltip ) {
 		rm(tooltip);
 		delete tooltip;
 		tooltip = nullptr;
 		//LOG("destroyed tooltip");
-	}*/
+	}
 }
 
-/*
 void ap::Object::tooltipping() {
 	thovering += en::delta;
 	
@@ -69,11 +68,15 @@ void ap::Object::tooltipping() {
 		if ( ! tooltip ) {
 			//LOG("making tooltip");
 			tooltip = new en::Text(&monospace, &en::WHITE, tip);
-			tooltip->sscale(2.D);
+			tooltip->position();
+
+			tooltip->sw( tooltip->gw() * 2 );
+			tooltip->sh( tooltip->gw() * 2 );
+			
 			tooltip->sx( gscrx() + (monospace.gh()) );
 			tooltip->sy( gscry() - (monospace.gh()*2) );
 			tooltip->position();
-			ap::add( tooltip );
+			add( tooltip );
 		}
 		else {
 			tooltip->sx( gscrx() + (monospace.gh()) );
@@ -82,4 +85,3 @@ void ap::Object::tooltipping() {
 		}
 	}
 }
-*/

@@ -28,7 +28,6 @@ ap::Mothership::Mothership()
 		//dim(0, 0, textures::orpheus.gw(), textures::orpheus.gh());
 
 		sorder(2);
-		post();
 	}
 
 ap::Mothership::~Mothership() { // dtor
@@ -87,7 +86,7 @@ void ap::Mothership::post() {
 			anims::teacup);
 	teacup->sx(1088);
 	teacup->sy(570-16);
-	add(teacup);
+	ap::world->add(teacup);
 }
 
 /* ###########################

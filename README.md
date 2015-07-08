@@ -6,7 +6,9 @@ Classes of /src/ap:
 
 `World` aka game. this class acts like a singleton. it renders the different fbos. it is rather bloated. also, it renders sprites like /src/en renders draws
 
-`Sprite` is an extended `/en/Draws` meant to show in-world
+`Sprite` is an extended `/en/Draws` meant to show in-world.
+
+`Objects` extends `Sprite`. this is a base for game-object, or very dormant game objects.
 
 `Mover` is a destination for physics. Niy
 

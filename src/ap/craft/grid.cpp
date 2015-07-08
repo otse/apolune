@@ -4,16 +4,19 @@
 ap::craft::Grid::Grid() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	asd(0)
 	{
+	sx(264);
+	sy(213);
+
+	
 	//LOG("planet ctor")
 	//this->world = true;
 }
 
 ap::craft::Grid::~Grid() {}
 
-//void ap::craft::Grid::size() {}
 
 void ap::craft::Grid::step() {
-	// check mice things
+	
 }
 
 

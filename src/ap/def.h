@@ -45,6 +45,7 @@ namespace ap {
 		extern en::Texture sheet;
 		extern en::Texture guy;
 		extern en::Texture backdrop;
+		extern en::Texture craftgrid;
 		
 		extern en::Texture apexcoolchair;
 		extern en::Texture apexcooltable;
@@ -84,6 +85,9 @@ namespace ap {
 		extern en::Region fluotube;
 		extern en::Region fluotubelight;
 		extern en::Region cursorlight;
+
+		extern en::Region crafttile;
+		extern en::Region crafttileover;
 		
 		extern en::Region dust;
 		extern en::Region groundmist;

@@ -69,7 +69,7 @@ double ap::Sprite::gx() const { return Draws::gx(); }
 double ap::Sprite::gy() const { return Draws::gy(); }
 double ap::Sprite::gw() const { return Draws::gw(); }
 double ap::Sprite::gh() const { return Draws::gh(); }
-int ap::Sprite::gscrx() const { return Draws::gx() + ap::xof - ply->gx(); }
+int ap::Sprite::gscrx() const { return Draws::gx() + ap::xof - ply->gx(); } // for tooltipping
 int ap::Sprite::gscry() const { return Draws::gy() + ap::yof - ply->gy(); }
 
 

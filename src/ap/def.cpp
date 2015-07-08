@@ -26,6 +26,7 @@ en::Texture textures::hangarlight("lights/hangarlight.png");
 en::Texture textures::sheet("sheet.png");
 en::Texture textures::guy("guy.png");
 en::Texture textures::backdrop("earth.png");
+en::Texture textures::craftgrid("craft/grid.png");
 
 en::Texture textures::teacup("objects/teacup1.png");
 en::Texture textures::apexcoolchair("objects/apexcoolchair.png");
@@ -70,6 +71,9 @@ en::Region regions::ventfume = {0,0,40,40};
 en::Region regions::chicken = {18,0,18,18};
 en::Region regions::tentacle = {40,0,40,48};
 en::Region regions::tentaclepopped = {0,48*2,40,48};
+
+en::Region regions::crafttile = {0,0,32,32};
+en::Region regions::crafttileover = {32,0,32,32};
 
 en::Region regions::apexcoolchair = {0,0,15,18};
 en::Region regions::apexcooltable = {0,0,40,16};

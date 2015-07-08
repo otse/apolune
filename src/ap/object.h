@@ -9,12 +9,6 @@
 using namespace en;
 
 namespace ap {
-	/**
-	 * An Object is a Sprite that can be activated,
-	 * or interacted with.
-	 * @terrublyAbstract
-	 * @PowerPuffGirls
-	 */
 	class Object : public Sprite {
 	public:
 		Object(en::Group, en::Texture *, en::Region *);
@@ -29,9 +23,9 @@ namespace ap {
 		
 		void tryactivate();
 		
-		//virtual void tooltipping();
+		virtual void tooltipping();
 	protected:
-		//en::Text *tooltip;
+		en::Text *tooltip;
 		int activaterange;
 		double thovering;
 		
