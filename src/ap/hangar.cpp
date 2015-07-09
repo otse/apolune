@@ -38,8 +38,8 @@ void ap::Hangar::step() {
 
 void ap::Hangar::post() {
 
-	grid = new craft::Grid(11, 5);
-	grid->sx(264*2);
+	grid = new craft::Grid(14, 5);
+	grid->sx(264*2+64);
 	grid->sy(213*2);
 	grid->table();
 	
