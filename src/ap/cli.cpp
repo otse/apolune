@@ -22,9 +22,8 @@ ap::CLI::CLI() : en::Draws(en::GDUMP, nullptr, &en::regfluke) ,
 }
 
 ap::CLI::~CLI() {
-
 	pane->remove = true;
-
+	
 	{std::vector<Text *>::iterator it;
 	for ( it = texts.begin(); it != texts.end(); it ++) {
 		Text *t = *it;
