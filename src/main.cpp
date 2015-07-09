@@ -11,6 +11,8 @@
 #include "en/text.h"
 
 #include "ap/gui/all.h"
+
+#include "ap/cli.h"
 #include "ap/loader.h"
 #include "ap/lua.h"
 #include "ap/start.h"
@@ -44,6 +46,7 @@ int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close;
 double ap::dresize = 0.D;
 bool ap::timeresize = false;
 
+CLI *ap::cli = nullptr;
 Loader *ap::loader;
 Lua *ap::lua;
 World *ap::world = nullptr;
@@ -65,7 +68,6 @@ std::uniform_real_distribution<double> ap::randy(.0D, 1.D);
 ais::Chicken *ap::chicken;
 
 using namespace en;
-Text *ap::overlay;
 
 
 #include "boilerplate.h"
@@ -228,5 +230,16 @@ void react() {
 	
 	if (nullptr!=world  &&  oar::DOWN==oar::keys[sf::Keyboard::Escape] /* ESC */ ) {
 		
+	}
+
+	if ( oar::DOWN==oar::keys[sf::Keyboard::Tilde] ) {
+		if ( nullptr == cli ) {
+			cli = new CLI();
+			add(cli);
+		}
+		else {
+			cli->remove = true;
+			cli = nullptr;
+		}
 	}
 }

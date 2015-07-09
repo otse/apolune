@@ -9,9 +9,6 @@ using namespace en;
 
 namespace ap {
 
-	/**
-	 * a sprite is the most basic 'visual object' in the game-world
-	 */
 	class Sprite : public Draws {
 	public:
 		struct Hitbox {

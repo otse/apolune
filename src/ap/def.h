@@ -21,6 +21,7 @@ namespace ap {
 	extern const en::Font valuefont;
 	extern const en::Font valuefontchangeable;
 	extern const en::Font noticefont;
+	extern const en::Font clifont;
 	
 	namespace textures {
 		extern en::Texture spread;
@@ -34,6 +35,7 @@ namespace ap {
 		extern en::Texture valuefont;
 		extern en::Texture valuefontchangeable;
 		extern en::Texture noticefont;
+		extern en::Texture clifont;
 		
 		extern en::Texture guipieces;
 		
@@ -75,6 +77,7 @@ namespace ap {
 		extern en::Region hangar;
 		extern en::Region hangarlight;
 		
+		extern en::Region clipane;
 		extern en::Region ply;
 		extern en::Region backdrop;
 		
@@ -168,6 +171,8 @@ namespace ap {
 		extern en::Color GREEN;
 		extern en::Color BLUE;
 		extern en::Color YELLOW;
+		
+		extern en::Color CLIPANE;
 		
 		extern en::Color BLUEISH;
 		extern en::Color MENUGREY;

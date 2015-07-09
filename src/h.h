@@ -42,6 +42,7 @@ typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
 
 
 namespace ap {
+	class CLI;
 	class Loader;
 	class Menu;
 	class Lua;
@@ -95,6 +96,7 @@ namespace ap {
 	extern std::uniform_real_distribution<double> randy;
 	inline float ilrand() { return randy(rng); }
 	
+	extern CLI *cli;
 	extern Loader *loader;
 	extern start::Menu *menu;
 	
@@ -117,7 +119,6 @@ namespace ap {
 	
 	extern int frameCount;
 	extern int fps;
-	extern en::Text *overlay;
 	
 	void loadtex();
 	void bulk();

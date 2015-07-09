@@ -27,8 +27,6 @@ void ap::craft::Tile::click() {
 
 
 void ap::craft::Tile::hover(mou::Hover h) {
-
-	LOG("CALL 9 1 1 NOW")
 	
 	if ( mou::HOVER_IN == h ) {
 		sregion(&regions::crafttileover);

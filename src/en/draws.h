@@ -18,7 +18,7 @@ namespace en {
 	
 	class Draws {
 	public:
-		struct Model {
+		struct Model { // todo: remove, never catched on
 			Texture *t;
 			Region *r;
 		};

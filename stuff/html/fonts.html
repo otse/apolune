@@ -1,6 +1,8 @@
 <html>
 <head>
 
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
 <style>
 html {
 	-webkit-user-select: none;
@@ -90,18 +92,42 @@ om\:font[bar] letter {
 	background: black;
 }
 
+om\:font[cli] {
+	font-family: Source Code Pro;
+	color: whitesmoke;
+	font-size: 12px;
+}
+
+om\:font[cli] letter {
+	background: rgb(30, 41, 65);
+}
+
 </style>
 
 <script src="jquery-2.1.1.min.js"></script>
 
 <script>
+
+/*
+this page needs some explanation
+you need to set the last two bulk values to the sf and sb
+which mean set front and set back.
+sf is the amount detracted from the next character.
+sb is the amount detracted towards the previous character.
+
+that may be a bit hard to visualize, but that's the best way to put it
+for example, the j often has a setback, because it has a deep curl to the left,
+so other characters then shift towards it. :)
+*/
+
 glyphs = [
 		['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
 		['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
 		['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
 		[' ', '.', ',', '/', '\\', '\'', '"']
 ];
-jQuery(document).ready(function() {
+
+foo = function() {
 	$( "om\\:font" ).each(function() {
 		var textarea = $('<textarea>')
 		var bulk = ''
@@ -131,7 +157,7 @@ jQuery(document).ready(function() {
 					y += i
 				bulk += y + ', '
 				bulk += w+2 + ', '
-				bulk += 0 + ', '
+				bulk += 2 + ', '
 				bulk += 2 + '},' // sb
 				bulk += '\n'
 				x = 3
@@ -139,10 +165,15 @@ jQuery(document).ready(function() {
 			$(this).append( row );
 			bulk += '\n'
 		}
-		
+		bulk = 'font\n' + bulk
+
 		textarea.val(bulk)
 		$(this).append(textarea);
 	})
+}
+jQuery(document).ready(function() {
+	foo()
+	//setTimeout(foo, 500);
 });
 
 </script>
@@ -151,10 +182,11 @@ jQuery(document).ready(function() {
 <body>
 	<div style="font-family: Segoe UI; font-size: 11px; color: rgb(88, 88, 88); background: rgb(235, 235, 235); text-shadow: 1px 1px white;">pack my box with five dozen liquor jugs</div>
 	<!--<om:font stat></om:font>
-	<om:font statvalue></om:font>
-	<om:font notice></om:font>-->
+	<om:font notice></om:font>
 	<om:font launcher></om:font>
-	<om:font bar></om:font>
+	<om:font bar></om:font>-->
+	<om:font statvalue></om:font>
+	<om:font cli></om:font>
 	
 </body>
 </html>

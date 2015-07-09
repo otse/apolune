@@ -2,10 +2,10 @@
 
 using namespace ap;
 
-// #fonts
+// # fonts
 // look in ap/bulk.cpp
 
-// #textures
+// # textures
 en::Texture textures::spread("spread.png");
 
 en::Texture textures::normal1("fonts/normal1.png");
@@ -17,6 +17,7 @@ en::Texture textures::statfont("fonts/statfont.png");
 en::Texture textures::valuefont("fonts/valuefont.png");
 en::Texture textures::valuefontchangeable("fonts/valuefontchangeable.png");
 en::Texture textures::noticefont("fonts/noticefont.png");
+en::Texture textures::clifont("fonts/clifont.png");
 
 en::Texture textures::guipieces("guipieces.png");
 
@@ -50,8 +51,8 @@ en::Texture textures::playerdeath("effects/playerdeath.png");
 en::Texture textures::sparkle1("effects/sparkle1.png");
 en::Texture textures::bubbles("effects/bubbles.png");
 
-// #regions
-//en::Region regions::ply = {1,278,43,43};
+// # regions
+en::Region regions::clipane = {0,0,800,160};
 en::Region regions::spread = {0,0,512,512};
 en::Region regions::teacup = {0,0,8,8};
 
@@ -60,6 +61,7 @@ en::Region regions::hangarlight = {0,0,145,123};
 
 en::Region regions::ply = {0,0,26,34};
 en::Region regions::backdrop = {560,390,1920,1029};
+
 en::Region regions::clawbase = {0,323,26,22};
 en::Region regions::asteroid = {0,0,46,49};
 en::Region regions::masteroid = {0,321,46,49};
@@ -129,6 +131,8 @@ en::Color colors::GREEN = {0,1,0};
 en::Color colors::BLUE = {0,0,1};
 en::Color colors::YELLOW = {1,1,0};
 
+en::Color colors::CLIPANE = {30/255.f, 41/255.f, 65/255.f};
+
 en::Color colors::BLUEISH = {73/255.f, 83/255.f, 92/255.f};
 en::Color colors::MENUGREY = {31/255.f,31/255.f,31/255.f};
 en::Color colors::TEXTOFF = {170/255.f, 170/255.f, 170/255.f};
@@ -136,7 +140,7 @@ en::Color colors::OBJECTHOVER = {.7f, .7f, 1};
 en::Color colors::TOOLTIP = {.8f, .8f, .8};
 en::Color colors::GUIGRAY = {240/255.f, 240/255.f, 240/255.f};
 
-// #lights
+// # lights
 const Light::Model lights::CURSOR = {
 		Light::CURSOR,
 		{0},
@@ -149,7 +153,7 @@ const Light::Model lights::FLUOTUBE = {
 		regions::fluotubelight
 };
 
-// #animations
+// # animations
 const en::Anim ap::anims::teacup(nullptr, .2D, false,
 		(en::Region[]) {
 				{0, 0, 8, 8},
@@ -340,6 +344,7 @@ void ap::loadtex() {
 	textures::statfont.load();
 	textures::valuefont.load();
 	textures::valuefontchangeable.load();
+	textures::clifont.load();
 	
 	textures::guipieces.load();
 	
