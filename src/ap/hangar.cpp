@@ -14,6 +14,8 @@
 
 #include "craft/craft.h"
 
+en::Region *chickreg = new (en::Region) { 991, 503, 320, 100 };
+
 
 ap::Hangar::Hangar()
 	: ap::Mover::Mover(
@@ -37,6 +39,11 @@ void ap::Hangar::step() {
 }
 
 void ap::Hangar::post() {
+
+	Sprite *hangarlight = new Sprite(en::GDEF, &textures::hangarlight, &regions::hangarlight);
+	hangarlight->sx((1514-911)*2);
+	hangarlight->sy((705-527)*2);
+	ap::world->lights.v.push_back(hangarlight);
 
 	grid = new craft::Grid(14, 5);
 	grid->sx(264*2+64);
@@ -90,6 +97,30 @@ void ap::Hangar::post() {
 	teacup->sx(1088);
 	teacup->sy(570-16);
 	ap::world->add(teacup);
+
+	/*for ( int i = 0; i < 1; i ++ ) {
+		en::Region *r = new (en::Region) { 565, 503, 220, 100 };
+		ais::Tentacle *tentacle = new ais::Tentacle(r);
+		tentacle->sx((1500-1111)*2);
+		tentacle->sy((828-527-38)*2);
+		this->add(tentacle);
+	}*/
+	
+	for ( int i = 0; i < 1; i ++ ) {
+		chicken = new ais::Chicken(chickreg);
+		chicken->sx((1500-911)*2);
+		chicken->sy((828-527-17)*2);
+		chicken->delete_ = false;
+		ap::world->add(chicken);
+	}
+
+	/*Sprite *radio = new Sprite(
+			en::GDEFAULT,
+			&textures::apexradio,
+			&regions::apexradio);
+	radio->sx((1500-911)*2);
+	radio->sy((828-527-17)*2);
+	add(radio);*/
 }
 
 /* ###########################
@@ -113,10 +144,7 @@ void ap::Hangar::post() {
 
 	//clawbase->dim(0, 0, regions::clawbase.w, regions::clawbase.h);
 	
-	/*Sprite *hangarlight = new Sprite(en::GDEF, &textures::hangarlight, &regions::hangarlight);
-	hangarlight->sx((1514-911)*2);
-	hangarlight->sy((705-527)*2);
-	ap::ap::world->lights.v.push_back(hangarlight);*/
+	/**/
 	
 	//clawbase->sap::world(false);
 	//ap::ap::world->sprites.push_back(clawbase);

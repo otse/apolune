@@ -207,7 +207,7 @@ void en::drawsstep() {
 		if ( d->remove ) {
 			//LOG("removing Draws in remove loop ")
 			it = draws.l.erase(it);
-			d->remove = false;
+			d->remove = false; // ?
 			if ( d->delete_ )
 				delete d;
 		}

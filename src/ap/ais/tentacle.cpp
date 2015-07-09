@@ -12,7 +12,7 @@ ap::ais::Tentacle::Tentacle(en::Region *b) :
 	next(UNPOP),
 	current(CURRENT_NONE)
 	{
-	tip = "Wrmhgnn";
+	tip = "Hrmhnnn";
 	timetonext = en::dnow + 1000;
 }
 

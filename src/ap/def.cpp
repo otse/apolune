@@ -21,7 +21,7 @@ en::Texture textures::clifont("fonts/clifont.png");
 
 en::Texture textures::guipieces("guipieces.png");
 
-en::Texture textures::hangar("scenes/hangar_dark.png");
+en::Texture textures::hangar("scenes/hangar.png");
 en::Texture textures::hangarlight("lights/hangarlight.png");
 
 en::Texture textures::sheet("sheet.png");
@@ -131,7 +131,7 @@ en::Color colors::GREEN = {0,1,0};
 en::Color colors::BLUE = {0,0,1};
 en::Color colors::YELLOW = {1,1,0};
 
-en::Color colors::CLIPANE = {30/255.f, 41/255.f, 65/255.f};
+en::Color colors::CLIPANE = {30/255.f, 33/255.f, 37/255.f};
 
 en::Color colors::BLUEISH = {73/255.f, 83/255.f, 92/255.f};
 en::Color colors::MENUGREY = {31/255.f,31/255.f,31/255.f};

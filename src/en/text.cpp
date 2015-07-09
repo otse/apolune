@@ -1,8 +1,11 @@
 #include <algorithm>
 
+#include "draws.h"
+#include "font.h"
 #include "text.h"
+
 //#include "shaders.h"
-#include "../ap/def.h"
+//#include "../ap/def.h" // ?
 
 using namespace en;
 

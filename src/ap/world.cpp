@@ -12,19 +12,12 @@
 #include "emitter.h"
 #include "asteroid.h"
 
-#include "ais/chicken.h"
-#include "ais/tentacle.h"
-#include "objects/chair.h"
-#include "objects/table.h"
-#include "objects/console.h"
-
 #include "def.h"
 
 
 #include "shaders/FontVertexShader.txt"
 
 en::Region starsreg = (en::Region) { 0, 0, (int) (en::width), (int) (en::height) };
-en::Region *chickreg = new (en::Region) { 991, 503, 320, 100 };
 en::Region *leasurearea = new (en::Region) { 980, 242, 1190-980, 602-242 };
 //std::vector<en::Draws> stars;
 
@@ -150,7 +143,7 @@ void ap::World::step() {
 	glClearColor(1, 0, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	stars->gdraws().rotate += en::delta * .5d;
+	//stars->gdraws().rotate += en::delta * .5d;
 	stars->gdraws().draw();
 	
 	// draw foreground
@@ -193,7 +186,7 @@ void ap::World::makestars() {
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
 	
-	for ( int i = 0; i < 2500; i ++ ) {
+	for ( int i = 0; i < 500; i ++ ) {
 		int x = ilrand() * stars->gw();
 		int y = ilrand() * stars->gh();
 		
@@ -254,29 +247,7 @@ void ap::World::load() {
 	//ply->nodraw = true;
 	this->add( ply ); // tiny willy
 
-	for ( int i = 0; i < 1; i ++ ) {
-		en::Region *r = new (en::Region) { 565, 503, 220, 100 };
-		ais::Tentacle *tentacle = new ais::Tentacle(r);
-		tentacle->sx((1500-1111)*2);
-		tentacle->sy((828-527-38)*2);
-		this->add(tentacle);
-	}
-	
-	for ( int i = 0; i < 1; i ++ ) {
-		chicken = new ais::Chicken(chickreg);
-		chicken->sx((1500-911)*2);
-		chicken->sy((828-527-17)*2);
-		chicken->delete_ = false;
-		this->add(chicken);
-	}
 
-	/*Sprite *radio = new Sprite(
-			en::GDEFAULT,
-			&textures::apexradio,
-			&regions::apexradio);
-	radio->sx((1500-911)*2);
-	radio->sy((828-527-17)*2);
-	add(radio);*/
 	
 	//LOG(ply->D->designation)
 	

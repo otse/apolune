@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	background: rgb(24, 62, 90);
+	background: black;
 	xpadding: 40px;
 	cursor: default;
 }
@@ -249,15 +249,23 @@ om\:cmd {
 	position: absolute;
 	bottom: 0;
   background: rgb(30, 41, 65);
+  background: rgb(102, 29, 29);
+  background: rgb(81, 29, 14);
+  background: rgb(30, 33, 37);
 	box-sizing: border-box;
 
 	font-family: Source Code Pro;
 	font-size: 12px;
+
+	color: whitesmoke;
 }
 
 om\:cmd om\:line {
-	display: block;
-	color: whitesmoke;
+  border-left: .5ch solid whitesmoke;
+  display: inline-block;
+  padding: 0 .5ch;
+  /* border-radius: 3px; */
+  margin-bottom: 1px;
 }
 
 om\:cmd om\:line[note] {
@@ -298,8 +306,8 @@ om\:cmd om\:line om\:block {
 	</om:notice>
 	
 	<om:cmd>
-		<om:line note>-~=\ cli /=~-</om:line>
-		<om:line>running world</om:line>
+		<om:line note>-~=\ cli /=~-</om:line><br />
+		<om:line>running world</om:line><br />
 		<om:line input><om:block>&nbsp;<om:/block></om:line>
 	</om:cmd>
 	

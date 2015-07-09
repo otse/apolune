@@ -4,6 +4,9 @@
 #include "../h.h"
 #include "../en/draws.h"
 
+#include <string>
+
+
 using namespace en;
 
 
@@ -17,6 +20,7 @@ namespace ap {
 		~CLI();
 
 		void mention(const char *);
+		void slide();
 	private:
 		Draws *pane;
 		

@@ -10,14 +10,15 @@
 ap::CLI::CLI() : en::Draws(en::GDUMP, nullptr, &en::regfluke) ,
 	pane(nullptr)
 	{
-	sy(440);
+	sy(600-regions::clipane.h);
+	sh(regions::clipane.h);
 	pane = new Draws(en::GDUMP, nullptr, &regions::clipane);
 	pane->scolor(&colors::CLIPANE);
 	pane->sy(gy());
 	add(pane);
 
-	mention("cli");
-	mention("did i mention you were pretty? loooooool");
+	mention( "| -~=\\ cli /=~-" );
+	mention( "| running world" );
 }
 
 ap::CLI::~CLI() {
@@ -31,11 +32,18 @@ ap::CLI::~CLI() {
 	}}
 }
 
+void ap::CLI::slide() {
+
+}
+
 void ap::CLI::mention(const char *q) {
+	std::string* str = new std::string(q);
+
 	const Font &f = clifont; // alias
 
-	Text *t = new en::Text(en::GDUMP, f, &en::WHITE, q);
-	t->sy(gy()+10+(texts.size()*f.gh()));
+	Text *t = new en::Text(en::GDUMP, f, &en::WHITE, str->c_str());
+	int l = texts.size();
+	t->sy(gy()+10+(l*f.gh())+l);
 	t->sx(10);
 	t->position();
 	add(t);

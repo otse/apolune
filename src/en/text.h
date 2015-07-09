@@ -2,8 +2,6 @@
 #define entext_H
 
 #include "engine.h"
-#include "font.h"
-#include "draws.h"
 
 
 namespace en {	
