@@ -2,7 +2,7 @@
 
 #include "../h.h"
 #include "world.h"
-#include "mothership.h"
+#include "hangar.h"
 #include "light.h"
 #include "def.h"
 
@@ -15,7 +15,7 @@
 #include "craft/craft.h"
 
 
-ap::Mothership::Mothership()
+ap::Hangar::Hangar()
 	: ap::Mover::Mover(
 		MOTHERSHIP,
 		en::GDEF,
@@ -28,15 +28,15 @@ ap::Mothership::Mothership()
 		sorder(2);
 	}
 
-ap::Mothership::~Mothership() { // dtor
+ap::Hangar::~Hangar() { // dtor
 	
 }
 
-void ap::Mothership::step() {
+void ap::Hangar::step() {
 	grid->step();
 }
 
-void ap::Mothership::post() {
+void ap::Hangar::post() {
 
 	grid = new craft::Grid(11, 5);
 	grid->sx(264*2);
@@ -103,7 +103,7 @@ void ap::Mothership::post() {
 //	return .0;
 //}
 
-//old mothership post
+//old hangar post
 	
 	/*clawbase = new Sprite(
 			en::GDEF,

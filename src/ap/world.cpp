@@ -8,7 +8,7 @@
 //#include "planet.h"
 #include "light.h"
 #include "ply.h"
-#include "mothership.h"
+#include "hangar.h"
 #include "emitter.h"
 #include "asteroid.h"
 
@@ -234,7 +234,7 @@ void ap::World::load() {
 			&regions::backdrop);
 	// don't add; we render the backdrop last, manually
 	
-	mom = new Mothership();
+	mom = new Hangar();
 	//mom->nodraw = true;
 	this->add( mom );
 	mom->post();

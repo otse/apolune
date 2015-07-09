@@ -1,5 +1,5 @@
-#ifndef apmothership_H
-#define apmothership_H
+#ifndef aphangar_H
+#define aphangar_H
 
 #include "../h.h"
 #include "mover.h"
@@ -9,10 +9,10 @@
 // todo remove mover depend
 namespace ap {
 
-	class Mothership : public Mover {
+	class Hangar : public Mover {
 	public:
-		Mothership();
-		~Mothership();
+		Hangar();
+		~Hangar();
 		
 		virtual void step();
 		void post();

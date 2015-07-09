@@ -65,8 +65,8 @@
         <in>loader.h</in>
         <in>lua.cpp</in>
         <in>lua.h</in>
-        <in>mothership.cpp</in>
-        <in>mothership.h</in>
+        <in>hangar.cpp</in>
+        <in>hangar.h</in>
         <in>mover.cpp</in>
         <in>mover.h</in>
         <in>object.cpp</in>

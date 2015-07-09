@@ -37,7 +37,7 @@
         <in>light.cpp</in>
         <in>loader.cpp</in>
         <in>lua.cpp</in>
-        <in>mothership.cpp</in>
+        <in>hangar.cpp</in>
         <in>mover.cpp</in>
         <in>object.cpp</in>
         <in>planet.cpp</in>
@@ -180,7 +180,7 @@
           </incDir>
         </ccTool>
       </item>
-      <item path="ap/mothership.cpp" ex="false" tool="1" flavor2="4">
+      <item path="ap/hangar.cpp" ex="false" tool="1" flavor2="4">
         <ccTool>
           <incDir>
             <pElem>ap</pElem>

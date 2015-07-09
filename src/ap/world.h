@@ -11,7 +11,7 @@
 namespace ap {
 
 	class Asteroid;
-	class Mothership;
+	class Hangar;
 
 	class World {
 	public:		
@@ -51,8 +51,7 @@ namespace ap {
 		void steroids();
 		en::Draws *backdrop;
 		
-		Mothership *mom;
-		Mothership *mom2;
+		Hangar *mom;
 		//void asd;
 	};
 }
