@@ -18,15 +18,17 @@ ap::craft::Tile::~Tile() {
 
 
 void ap::craft::Tile::step() {
-
+	Sprite::step();
 }
 
-void ap::craft::Tile::click(mou::Button, mou::Click) {
+void ap::craft::Tile::click() {
 
 }
 
 
 void ap::craft::Tile::hover(mou::Hover h) {
+
+	LOG("CALL 9 1 1 NOW")
 	
 	if ( mou::HOVER_IN == h ) {
 		sregion(&regions::crafttileover);

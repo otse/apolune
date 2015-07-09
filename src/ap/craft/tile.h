@@ -13,7 +13,7 @@ namespace ap {
 			Tile();
 			~Tile();
 
-			virtual void click(mou::Button, mou::Click);
+			virtual void click();
 			virtual void hover(mou::Hover h);
 
 			virtual void step();

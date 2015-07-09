@@ -71,7 +71,7 @@ void ap::Object::tooltipping() {
 
 	thovering += en::delta;
 	
-	const Font &f = monospace1; // alias
+	const Font &f = normal2; // alias
 
 	if ( thovering >= 0.35 ) {
 		if ( ! tooltip ) {
