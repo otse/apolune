@@ -75,6 +75,7 @@ namespace ap {
 	
 	namespace craft {
 		class Grid;
+		class Tile;
 	}
 	
 	extern double zoom;

@@ -12,7 +12,7 @@ ap::ais::Tentacle::Tentacle(en::Region *b) :
 	next(UNPOP),
 	current(CURRENT_NONE)
 	{
-	tip = "It's a monster.";
+	tip = "Wrmhgnn";
 	timetonext = en::dnow + 1000;
 }
 

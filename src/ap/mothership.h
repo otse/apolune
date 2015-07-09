@@ -16,11 +16,11 @@ namespace ap {
 		
 		virtual void step();
 		void post();
-		craft::Grid grid;
+
+		craft::Grid *grid;
 
 	protected:
 		int asd;
-
 
 		Sprite *clawbase;
 

@@ -24,7 +24,7 @@ namespace ap {
 		Sprite(Group, Texture *, Region *);
 		virtual ~Sprite();
 		
-		virtual void click(mou::Button, mou::Click);
+		virtual void click();
 		virtual void hover(mou::Hover);
 		
 		virtual void step();

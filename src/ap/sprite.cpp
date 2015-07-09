@@ -59,7 +59,7 @@ void ap::Sprite::sworld(bool b) {
 double ap::Sprite::gax() const { return ax; }
 double ap::Sprite::gay() const { return ay; }
 
-void ap::Sprite::click(mou::Button, mou::Click) {};
+void ap::Sprite::click() {};
 void ap::Sprite::hover(mou::Hover) { };
 
 void ap::Sprite::sx(double p) { ax = p; Draws::sx(int(ax)); }

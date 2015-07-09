@@ -22,11 +22,9 @@ ap::Mothership::Mothership()
 		&textures::hangar,
 		&regions::hangar
 		) ,
-	asd(0),
-	grid()
+	asd(0)
 	{
 		//dim(0, 0, textures::orpheus.gw(), textures::orpheus.gh());
-
 		sorder(2);
 	}
 
@@ -35,10 +33,15 @@ ap::Mothership::~Mothership() { // dtor
 }
 
 void ap::Mothership::step() {
-	grid.step();
+	grid->step();
 }
 
 void ap::Mothership::post() {
+
+	grid = new craft::Grid(11, 5);
+	grid->sx(264*2);
+	grid->sy(213*2);
+	grid->table();
 	
 	Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
 	Light *light2 = new Light(lights::FLUOTUBE, 1307-911, 754-527);

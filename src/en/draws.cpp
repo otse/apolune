@@ -213,8 +213,6 @@ void en::Draws::hover(mou::Hover) { }
 void en::Draws::mousetrigger() {
 	
 	using namespace mou;
-	
-	//LOG("we come this far!")
 		
 	if (held&&MOURELEASED)
 		held = false;

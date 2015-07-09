@@ -32,6 +32,12 @@ namespace ap {
 	protected:
 		Emitter *breath;
 		Emitter *spawnplosion;
+
+		double tbulb;
+		void bulb();
+		void muse();
+		en::Text *wisdom = nullptr;
+
 	private:
 		bool use;
 		bool useing;

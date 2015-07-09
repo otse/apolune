@@ -4,6 +4,7 @@
 #include "../h.h"
 #include "../en/engine.h"
 #include "../en/anim.h"
+#include "../en/text.h"
 #include "ply.h"
 
 
@@ -15,17 +16,18 @@ ap::Ply::Ply()
 		&regions::ply
 		) ,
 		heading(HEADING_RIGHT),
-		use(false)
+		use(false),
+		tbulb(0)
 	{
 	LOG("ply ctor")
 	//dim(0, 0, 14, 38);
 	sworld(false);
-	
+
 	spawnplosion = new Emitter(Emitter::spawnplosion);
     ap::world->add(spawnplosion);
 	
-	//breath = new Emitter(Emitter::breathbubbles);
-    //ap::world->add(breath);
+	breath = new Emitter(Emitter::breathbubbles);
+    ap::world->add(breath);
 }
 
 ap::Ply::~Ply() { // dtor
@@ -35,7 +37,13 @@ ap::Ply::~Ply() { // dtor
 void ap::Ply::step() {
 	Mover::step();
 	
-	if ( use ) use = false;
+	if ( use )
+		use = false;
+	
+	if ( tbulb > 10 ) {
+		wisdom->remove = true;
+		wisdom = nullptr;
+	}
 }
 
 void ap::Ply::translate() {
@@ -101,6 +109,28 @@ void ap::Ply::key() {
 	if ( a||d||w||s ) {
 		//LOG("x y " << x << ", " << y);
 	}
+}
+
+void ap::Ply::muse() {
+	/*thovering += en::delta;
+	
+	if ( thovering >= 0.35 ) {
+		if ( ! tooltip ) {
+			tooltip = new en::Text(en::GDUMP, monospace2, &en::WHITE, tip);
+			tooltip->scale = 2;
+			tooltip->position();
+
+			tooltip->sx( gscrx() + (monospace2.gh()) );
+			tooltip->sy( gscry() - (monospace2.gh()*2) );
+			tooltip->position();
+			add( tooltip );
+		}
+		else {
+			tooltip->sx( gscrx() + (monospace2.gh()) );
+			tooltip->sy( gscry() -(monospace2.gh()*2) );
+			tooltip->position();
+		}
+	}*/
 }
 
 /* ###########################

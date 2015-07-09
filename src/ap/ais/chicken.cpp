@@ -12,7 +12,7 @@ ap::ais::Chicken::Chicken(en::Region *b) :
 	next(IDLE),
 	current(NONE)
 	{
-	tip = "It's your pet. Sorry.";
+	tip = "Biological inmate";
 	//feathers = new Emitter(Emitter::feathers);
 	//ap::add(feathers);
 }

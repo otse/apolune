@@ -60,8 +60,7 @@ void ap::Object::hover(mou::Hover h) {
 	thovering = 0;
 	
 	if ( tooltip ) {
-		rm(tooltip);
-		delete tooltip;
+		tooltip->remove = true;
 		tooltip = nullptr;
 	}
 }
@@ -72,20 +71,23 @@ void ap::Object::tooltipping() {
 
 	thovering += en::delta;
 	
+	const Font &f = monospace1; // alias
+
 	if ( thovering >= 0.35 ) {
 		if ( ! tooltip ) {
-			tooltip = new en::Text(en::GDUMP, monospace2, &en::WHITE, tip);
-			tooltip->scale = 2;
+
+			tooltip = new en::Text(en::GDUMP, f, &en::WHITE, tip);
+			//tooltip->scale = 2;
 			tooltip->position();
 
-			tooltip->sx( gscrx() + (monospace2.gh()) );
-			tooltip->sy( gscry() - (monospace2.gh()*2) );
+			tooltip->sx( gscrx() + (f.gh()) );
+			tooltip->sy( gscry() - (f.gh()*2) );
 			tooltip->position();
 			add( tooltip );
 		}
 		else {
-			tooltip->sx( gscrx() + (monospace2.gh()) );
-			tooltip->sy( gscry() -(monospace2.gh()*2) );
+			tooltip->sx( gscrx() + (f.gh()) );
+			tooltip->sy( gscry() -(f.gh()*2) );
 			tooltip->position();
 		}
 	}

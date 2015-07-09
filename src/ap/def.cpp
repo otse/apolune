@@ -346,8 +346,9 @@ void ap::loadtex() {
 	textures::hangar.load();
 	textures::hangarlight.load();
 	
-	textures::backdrop.load();
 	textures::guy.load();
+	textures::backdrop.load();
+	textures::craftgrid.load();
 	
 	textures::apexcoolchair.load();
 	textures::apexcooltable.load();

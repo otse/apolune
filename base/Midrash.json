@@ -1,0 +1,11 @@
+{
+	"version": "0.12",
+
+	"pangram": "pack my box with five dozen liquor jugs",
+	"PANGRAM": "PACK MY BOX WITH FIVE DOZEN LIQUOR JUGS",
+
+	"monolog": [
+		"I'm terrubly conscious of the space.",
+		"I'm awkwardly aware of the copious spaciousness."
+	]
+}
