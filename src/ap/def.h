@@ -89,6 +89,7 @@ namespace ap {
 		extern en::Region fluotubelight;
 		extern en::Region cursorlight;
 
+		extern en::Region crafttilenew;
 		extern en::Region crafttile;
 		extern en::Region crafttileover;
 		

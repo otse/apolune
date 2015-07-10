@@ -74,6 +74,7 @@ en::Region regions::chicken = {18,0,18,18};
 en::Region regions::tentacle = {40,0,40,48};
 en::Region regions::tentaclepopped = {0,48*2,40,48};
 
+en::Region regions::crafttilenew = {64,0,32,32};
 en::Region regions::crafttile = {0,0,32,32};
 en::Region regions::crafttileover = {32,0,32,32};
 

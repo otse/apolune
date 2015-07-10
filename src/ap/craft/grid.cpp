@@ -19,10 +19,11 @@ ap::craft::Grid::~Grid() {
 
 void ap::craft::Grid::table() {
 
+	int i = 50;
 	for ( int y = 0; y < rows; y ++ ) {
 		for ( int x = 0; x < cols; x ++ ) {
-
-			Tile *t = new Tile();
+			i ++;
+			Tile *t = new Tile(i);
 			t->sx(gx() + (x*32));
 			t->sy(gy() + (y*32));
 			tiles.v.push_back(t);

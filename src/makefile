@@ -3,7 +3,7 @@ ENO = o/engine.o o/texture.o o/shader.o o/fbo.o o/font.o o/text.o o/draws.o o/an
 APO = o/main.o o/loader.o o/lua.o o/start.o o/files.o o/def.o o/cli.o o/bulk.o o/context.o o/world.o o/sprite.o o/emitter.o o/object.o o/chair.o o/table.o o/console.o o/light.o o/mover.o o/ai.o o/chicken.o o/tentacle.o o/ply.o o/planet.o o/asteroid.o o/ship.o o/hangar.o
 
 APGUIO =  o/box.o o/element.o o/label.o o/button.o
-APCRAFTO =  o/grid.o o/tile.o
+APCRAFTO =  o/grid.o o/tile.o o/part.o
 
 O = $(ENO) $(APO) $(APGUIO) $(APCRAFTO)
 
@@ -120,6 +120,9 @@ o/grid.o: ap/craft/grid.cpp ap/craft/grid.h
 
 o/tile.o: ap/craft/tile.cpp ap/craft/tile.h
 	g++ $(INC) -c ap/craft/tile.cpp -o o/tile.o $(FLAGS)
+
+o/part.o: ap/craft/part.cpp ap/craft/part.h
+	g++ $(INC) -c ap/craft/part.cpp -o o/part.o $(FLAGS)
 
 #/ll
 o/stb_image.o: ll/stb_image.c

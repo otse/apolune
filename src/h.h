@@ -26,9 +26,11 @@
 
 #ifdef LOGGING
 	#define LOG(QUOTE) \
+	{ \
 	std::cout << QUOTE << std::endl; \
 	ap::log << QUOTE << LFCR; \
-	ap::log.flush();
+	ap::log.flush(); \
+	}
 #else
 	#define LOG(QUOTE) ;
 #endif
@@ -77,6 +79,7 @@ namespace ap {
 	namespace craft {
 		class Grid;
 		class Tile;
+		class Part;
 	}
 	
 	extern double zoom;

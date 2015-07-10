@@ -8,10 +8,10 @@
 namespace ap {
 	
 	namespace craft {
-		class Tile : public Sprite {
+		class Part : public Sprite {
 		public:
-			Tile(int);
-			~Tile();
+			Part(int);
+			~Part();
 
 			virtual void click();
 			virtual void hover(mou::Hover h);

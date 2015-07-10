@@ -134,17 +134,17 @@ void ap::World::step() {
 	
 	// draw backdrop onto default buffer
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
-	/*backdrop->sx(x);
-	backdrop->sy(y);
-	backdrop->sw(w);
-	backdrop->sh(h);*/
-	//backdrop->draw();
-	
+	//backdrop->sx(x);
+	//backdrop->sy(y);
+	//backdrop->sw(w);
+	//backdrop->sh(h);
+
 	glClearColor(1, 0, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	//stars->gdraws().rotate += en::delta * .5d;
-	stars->gdraws().draw();
+	//stars->gdraws().draw();
+	backdrop->draw();
 	
 	// draw foreground
 	en::Draws &d = foreground->gdraws();
@@ -246,7 +246,6 @@ void ap::World::load() {
 	ply->sy((828-527-33)*2);
 	//ply->nodraw = true;
 	this->add( ply ); // tiny willy
-
 
 	
 	//LOG(ply->D->designation)

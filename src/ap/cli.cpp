@@ -17,8 +17,10 @@ ap::CLI::CLI() : en::Draws(en::GDUMP, nullptr, &en::regfluke) ,
 	pane->sy(gy());
 	add(pane);
 
-	mention( "| -~=\\ cli /=~-" );
+	mention( ";" );
+	mention( "-~=\\ cli /=~-" );
 	mention( "| running world" );
+	mention( "| doing tsuff..." );
 }
 
 ap::CLI::~CLI() {
@@ -42,8 +44,9 @@ void ap::CLI::mention(const char *q) {
 
 	Text *t = new en::Text(en::GDUMP, f, &en::WHITE, str->c_str());
 	int l = texts.size();
+	int s = (str->at(0)=='|')?11:0;
 	t->sy(gy()+10+(l*f.gh())+l);
-	t->sx(10);
+	t->sx(7+s);
 	t->position();
 	add(t);
 

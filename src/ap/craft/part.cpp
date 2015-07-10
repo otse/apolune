@@ -1,27 +1,22 @@
-#include "tile.h"
+#include "part.h"
 
 #include "../def.h"
 
 
-ap::craft::Tile::Tile(int i) :
+ap::craft::Part::Part(int i) :
 	ap::Sprite(en::GDEF, &textures::craftgrid, &regions::crafttile) ,
-	n(i),
-	spawned(0),
 	asd(0)
 	{
 	//nodraw = true;
-	scale = 1;
 
-	sw(r->w);
-	sh(r->h);
 }
 
-ap::craft::Tile::~Tile() {
+ap::craft::Part::~Part() {
 	
 }
 
 
-void ap::craft::Tile::step() {
+void ap::craft::Part::step() {
 	Sprite::step();
 
 	if (spawned != -1 ) {
@@ -32,25 +27,23 @@ void ap::craft::Tile::step() {
 		}
 		else if ( spawned > (double) n/20 ) {
 			//nodraw = false;
-			sregion(&regions::crafttileover);
+			sregion(&regions::crafttilenew);
 		}
 	}
 		//LOG("WHAT")
 }
 
-void ap::craft::Tile::click() {
+void ap::craft::Part::click() {
 
 }
 
 
-void ap::craft::Tile::hover(mou::Hover h) {
-	
+void ap::craft::Part::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {
-		sregion(&regions::crafttileover);
+		
 	} else {
-		sregion(&regions::crafttile);
-	}
 
+	}
 }
 
 
