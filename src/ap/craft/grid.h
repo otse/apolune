@@ -21,6 +21,8 @@ namespace ap {
 
 			en::Vector<Tile *> tiles;
 
+			Craft *gcraft();
+
 		protected:
 			Craft *craft;
 			

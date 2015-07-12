@@ -1,13 +1,15 @@
 #include "tile.h"
+#include "all.h"
 
 #include "../def.h"
 
 
-ap::craft::Tile::Tile(int i) :
+ap::craft::Tile::Tile(Grid &grid, int i) :
 	ap::Sprite(en::GDEF, &textures::craftgrid, &regions::craft::tile) ,
 	n(i),
-	spawned(0),
-	asd(0)
+	grid(grid),
+	part(nullptr),
+	spawned(0)
 	{
 	//nodraw = true;
 	scale = 1;
@@ -39,9 +41,21 @@ void ap::craft::Tile::step() {
 }
 
 void ap::craft::Tile::click() {
+	if ( nullptr != part )
+		return;
 
+	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
+		Part *p = new Part();
+		p->sx(gx());
+		p->sx(gy());
+		grid.gcraft()->add(p);
+		attach(p);
+	}
 }
 
+void ap::craft::Tile::attach(Part *p) {
+	part = p;
+}
 
 void ap::craft::Tile::hover(mou::Hover h) {
 	

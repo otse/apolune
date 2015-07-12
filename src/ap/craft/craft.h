@@ -17,7 +17,9 @@ namespace ap {
 			virtual void hover(mou::Hover h);
 
 			virtual void step();
+			virtual void draw();
 
+			void add(Part *);
 		protected:
 			en::Region r;
 			en::FBO *ship;

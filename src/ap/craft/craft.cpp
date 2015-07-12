@@ -15,6 +15,11 @@ ap::craft::Craft::~Craft() {
 }
 
 void ap::craft::Craft::step() {
+
+}
+
+
+void ap::craft::Craft::draw() {
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ship->gfbid() );
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -29,17 +34,15 @@ void ap::craft::Craft::step() {
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 }
 
-void ap::craft::Craft::click() {}
+void ap::craft::Craft::add(Part *p) {
+	parts.v.push_back(p);
 
-void ap::craft::Craft::hover(mou::Hover h) {
-	
-	if ( mou::HOVER_IN == h ) {
-		//sregion(&regions::craft::tileover);
-	} else {
-		//sregion(&regions::craft::tile);
-	}
-
+	LOG(parts.v.size())
 }
+
+
+void ap::craft::Craft::click() {}
+void ap::craft::Craft::hover(mou::Hover h) {}
 
 
 /* ###########################

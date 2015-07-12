@@ -3,10 +3,11 @@
 #include "../def.h"
 
 
-ap::craft::Part::Part(int i) :
+ap::craft::Part::Part() :
 	ap::Sprite(en::GDEF, &textures::craftgrid, &en::regfluke) ,
-	asd(0)
+	x(0)
 	{
+	LOG("new part")
 	//nodraw = true;
 
 }
@@ -23,7 +24,7 @@ void ap::craft::Part::step() {
 }
 
 void ap::craft::Part::click() {
-
+	
 }
 
 

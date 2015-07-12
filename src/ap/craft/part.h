@@ -10,7 +10,7 @@ namespace ap {
 	namespace craft {
 		class Part : public Sprite {
 		public:
-			Part(int);
+			Part();
 			~Part();
 
 			virtual void click();
@@ -19,13 +19,8 @@ namespace ap {
 			virtual void step();
 
 		protected:
-			int n;
-			double spawned;
-
 			int x;
 			int y;
-
-			int asd;
 		};
 	}
 }
