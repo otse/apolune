@@ -1,5 +1,5 @@
-#ifndef apcrafttile_H
-#define apcrafttile_H
+#ifndef apcraftpart_H
+#define apcraftpart_H
 
 #include "../../h.h"
 

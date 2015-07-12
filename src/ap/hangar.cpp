@@ -47,7 +47,7 @@ void ap::Hangar::post() {
 	ap::world->lights.v.push_back(hangarlight);
 
 	craft = new craft::Craft();
-	//add(craft);
+	add(craft);
 
 	grid = new craft::Grid(craft, 14, 5);
 	grid->sx(264*2+64);

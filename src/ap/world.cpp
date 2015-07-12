@@ -1,7 +1,6 @@
 #include <algorithm>
 
 #include "../h.h"
-#include "../en/engine.h"
 #include "../en/fbo.h"
 
 #include "world.h"
@@ -82,13 +81,14 @@ void ap::World::step() {
 		}
 	}}
 	
-	//cursorlight->sx(en::mx);
-	//cursorlight->sy(en::my);
+	cursorlight->sx(en::mou::mx);
+	cursorlight->sy(en::mou::my);
 	
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
+	// draw
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::list<Sprite *>::iterator it;
 	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
@@ -231,9 +231,9 @@ void ap::World::load() {
 	this->add( hangar );
 	hangar->post();
 	
-	//cursorlight = new Light(lights::CURSOR, en::mx, en::my);
-	//cursorlight->sworld(false);
-	//cursorlight->light->sworld(false);
+	cursorlight = new Light(lights::CURSOR, en::mou::mx, en::mou::my);
+	cursorlight->sworld(false);
+	cursorlight->light->sworld(false);
 	
 	/*Sprite *mist = new Sprite(en::GDEF, &textures::groundmist, &regions::groundmist);
 	mist->sx(900);

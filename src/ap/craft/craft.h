@@ -19,6 +19,9 @@ namespace ap {
 			virtual void step();
 
 		protected:
+			en::Region r;
+			en::FBO *ship;
+
 			en::Vector<Part *> parts;
 
 			int asd;
