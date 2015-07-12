@@ -12,7 +12,7 @@
 #include "objects/table.h"
 #include "objects/console.h"
 
-#include "craft/craft.h"
+#include "craft/all.h"
 
 en::Region *chickreg = new (en::Region) { 991, 503, 320, 100 };
 
@@ -24,7 +24,8 @@ ap::Hangar::Hangar()
 		&textures::hangar,
 		&regions::hangar
 		) ,
-	asd(0)
+	asd(0),
+	craft(nullptr)
 	{
 		//dim(0, 0, textures::orpheus.gw(), textures::orpheus.gh());
 		sorder(2);
@@ -45,10 +46,15 @@ void ap::Hangar::post() {
 	hangarlight->sy((705-527)*2);
 	ap::world->lights.v.push_back(hangarlight);
 
-	grid = new craft::Grid(14, 5);
+	craft = new craft::Craft();
+	//add(craft);
+
+	grid = new craft::Grid(craft, 14, 5);
 	grid->sx(264*2+64);
 	grid->sy(213*2);
 	grid->table();
+
+	//grid.attach(craft);
 	
 	Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
 	Light *light2 = new Light(lights::FLUOTUBE, 1307-911, 754-527);

@@ -4,8 +4,8 @@
 #include "tile.h"
 
 
-ap::craft::Grid::Grid(int c, int r) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
-	asd(0),
+ap::craft::Grid::Grid(Craft *o, int c, int r) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
+	craft(o),
 	cols(c),
 	rows(r)
 	{

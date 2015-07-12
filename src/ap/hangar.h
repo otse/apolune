@@ -4,8 +4,6 @@
 #include "../h.h"
 #include "mover.h"
 
-#include "craft/craft.h"
-
 // todo remove mover depend
 namespace ap {
 
@@ -17,6 +15,7 @@ namespace ap {
 		virtual void step();
 		void post();
 
+		craft::Craft *craft;
 		craft::Grid *grid;
 
 	protected:

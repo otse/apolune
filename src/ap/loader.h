@@ -3,7 +3,6 @@
 
 #include "../h.h"
 
-#include "start.h"
 #include "../en/draws.h"
 
 namespace ap {

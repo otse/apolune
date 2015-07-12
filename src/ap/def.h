@@ -84,14 +84,17 @@ namespace ap {
 		extern en::Region clawbase;
 		extern en::Region asteroid;
 		extern en::Region masteroid;
+
+		namespace craft {
+			extern en::Region tilenew;
+			extern en::Region tile;
+			extern en::Region tileover;
+		};
 		
 		extern en::Region fluotube;
 		extern en::Region fluotubelight;
 		extern en::Region cursorlight;
 
-		extern en::Region crafttilenew;
-		extern en::Region crafttile;
-		extern en::Region crafttileover;
 		
 		extern en::Region dust;
 		extern en::Region groundmist;

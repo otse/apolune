@@ -1,18 +1,22 @@
 #include <stdio.h>
 #include <iostream>
 #include <time.h> // clock_t, clock, CLOCKS_PER_SEC
+#include <direct.h> // for mkdir
 #include <windows.h>
 
 #include "engine.h"
 #include "draws.h"
 #include "texture.h"
 #include "../ll/stb_image.h"
+#include "Q:/physfs-2.0.3/physfs.h"
+
 
 //#include "string.h"
 
 // https://github.com/otse/cpph/tree/master/planets/src/gl/opengl.cpp
 
 using namespace en;
+PHYSFS_File *base;
 en::Region en::regfluke = {0,0,0,0};
 Color en::BLACK = {0, 0, 0};
 Color en::WHITE = {1, 1, 1};
@@ -50,6 +54,19 @@ double en::delta = 0;
 
 
 std::string *en::extraction = nullptr;
+
+void en::roaming() {
+	PHYSFS_init(0);
+	PHYSFS_setSaneConfig("w/e", "apolune", "7z", 0, 0);
+	PHYSFS_addToSearchPath("base", 0);
+	
+	char *appdata = getenv("APPDATA");
+	extraction = new std::string(appdata);
+	extraction->append("\\.apolune");
+	mkdir(extraction->c_str());
+	
+	LOG("extraction path is " << extraction->c_str() );
+}
 
 void en::window() {
 	/*

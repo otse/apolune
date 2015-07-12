@@ -18,9 +18,7 @@
 
 #define APOLUNESTR "apolune"
 #define LOGFILE "log.txt"
-#define BASESTR "base"
 #define LFCR "\r\n"
-#define DEBUGBUILD
 #define LOGGING
 //#define JSON_DLL
 
@@ -38,9 +36,6 @@
 
 #define RANDRANGE(base, var) \
 	((ap::ilrand() * var) + base) \
-
-typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
-
 
 
 namespace ap {
@@ -79,13 +74,10 @@ namespace ap {
 	namespace craft {
 		class Grid;
 		class Tile;
+		class Craft;
 		class Part;
 	}
 	
-	extern double zoom;
-	extern double zoomto;
-	extern double zoomspeed;
-	extern bool pointingcoords; // niy
 	
 	extern bool timeresize;
 	void timedresize();
@@ -105,15 +97,9 @@ namespace ap {
 	
 	extern double dresize;
 	
-	
-	extern en::FBO *foreground;
-	extern en::FBO *lightmap;
-	extern en::FBO *stars;
-	
 	extern Lua *lua;
 	char const VERSION[] = "0.12";
-	void roaming();
-	extern PHYSFS_File *base;
+	
 	bool commentary();
 	extern Json::Value midrash;
 	
@@ -122,6 +108,11 @@ namespace ap {
 	
 	extern int frameCount;
 	extern int fps;
+
+	extern double zoom;
+	extern double zoomto;
+	extern double zoomspeed;
+	extern bool pointingcoords; // niy
 	
 	void loadtex();
 	void bulk();

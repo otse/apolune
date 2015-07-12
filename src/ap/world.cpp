@@ -24,18 +24,11 @@ en::Region *leasurearea = new (en::Region) { 980, 242, 1190-980, 602-242 };
 ap::World::World() :
 	//resort(true),
 	backdrop(nullptr),
-	mom(nullptr),
+	hangar(nullptr),
 	
 	fboreg( (en::Region) {0,0,en::width,en::height} )
 	{
 	LOG("world ctor")
-	
-	stars = new en::FBO(&en::BLACK, starsreg);
-	
-	en::Draws &d = stars->gdraws();
-	
-	d.sx( -(( d.gw() - en::width ) / 2) );
-	d.sy( -(( d.gh() - en::height ) / 2) );
 	
 	fbos();
 	
@@ -160,7 +153,7 @@ void ap::World::resize() {
 	ap::xof = (en::width/2)-(ply->gw()/2);
 	ap::yof = (en::height/2)-(ply->gh()/2)+100;
 	
-	//delete stars;
+	delete stars;
 	delete foreground;
 	delete lightmap;
 	
@@ -168,7 +161,13 @@ void ap::World::resize() {
 }
 
 void ap::World::fbos() {
-	//stars = new en::FBO(&en::BLACK, starsreg);
+	stars = new en::FBO(&en::BLACK, starsreg);
+	
+	en::Draws &d = stars->gdraws();
+	
+	d.sx( -(( d.gw() - en::width ) / 2) );
+	d.sy( -(( d.gh() - en::height ) / 2) );
+
 	foreground = new en::FBO(&en::BLACK, fboreg);
 	lightmap = new en::FBO(&en::BLACK, fboreg);
 }
@@ -227,10 +226,10 @@ void ap::World::load() {
 			&regions::backdrop);
 	// don't add; we render the backdrop last, manually
 	
-	mom = new Hangar();
-	//mom->nodraw = true;
-	this->add( mom );
-	mom->post();
+	hangar = new Hangar();
+	//hangar->nodraw = true;
+	this->add( hangar );
+	hangar->post();
 	
 	//cursorlight = new Light(lights::CURSOR, en::mx, en::my);
 	//cursorlight->sworld(false);
@@ -271,6 +270,8 @@ void ap::World::load() {
 	// set world offsets
 	ap::xof = (en::width/2)-(ply->gw()/2);
 	ap::yof = (en::height/2)-(ply->gh()/2)+100;
+
+	LOG("ok")
 }
 
 void ap::World::add(Sprite *p) {

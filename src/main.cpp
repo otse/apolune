@@ -4,26 +4,18 @@
 
 #include "h.h"
 
-#include "en/engine.h"
-#include "en/fbo.h"
-#include "en/draws.h"
-#include "en/font.h"
-#include "en/text.h"
-
-#include "ap/gui/all.h"
-
 #include "ap/cli.h"
 #include "ap/loader.h"
 #include "ap/lua.h"
 #include "ap/start.h"
-#include "ap/world.h"
+
+//#include "ap/world.h"
 #include "ap/ply.h"
 #include "ap/def.h"
 
 #include "ap/gui/all.h"
 
 
-#include "Q:/physfs-2.0.3/physfs.h"
 #include "Q:/jsoncpp-master/include/json/json.h"
 
 #include <sstream> // for json, stats
@@ -32,16 +24,17 @@
 
 
 using namespace ap;
+
+std::ofstream ap::log;
+const char *envars::windowname = "Ap";
+int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close;
+
 double ap::zoom = 3.d;
 double ap::zoomto = 1;
 double ap::zoomspeed = 1;
 
 int ap::fps = 0;
 int ap::frameCount = 0;
-
-std::ofstream ap::log;
-const char *envars::windowname = "Ap";
-int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close;
 
 double ap::dresize = 0.D;
 bool ap::timeresize = false;
@@ -53,13 +46,9 @@ World *ap::world = nullptr;
 Ply *ap::ply = nullptr;
 
 
-PHYSFS_File *ap::base;
 Json::Value ap::midrash;
 
 start::Menu *ap::menu;
-en::FBO *ap::foreground;
-en::FBO *ap::lightmap;
-en::FBO *ap::stars;
 std::random_device ap::rd;
 std::default_random_engine ap::e1(ap::rd());
 std::mt19937 ap::rng(ap::rd());
@@ -94,18 +83,6 @@ int main(int argc, const char* argv[]) {
 	return 0;
 }
 
-void ap::roaming() {
-	PHYSFS_init(0);
-	PHYSFS_setSaneConfig("w/e", "apolune", "7z", 0, 0);
-	PHYSFS_addToSearchPath(BASESTR, 0);
-	
-	char *appdata = getenv("APPDATA");
-	extraction = new std::string(appdata);
-	extraction->append("\\.apolune");
-	mkdir(extraction->c_str());
-	
-	LOG("extraction path is " << extraction->c_str() );
-}
 
 bool ap::commentary() {
 	

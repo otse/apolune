@@ -7,15 +7,11 @@
 #include "loader.h"
 
 #include "../en/engine.h"
-#include "../en/fbo.h"
-#include "../en/draws.h"
 #include "../en/font.h"
 #include "../en/text.h"
 
 #include "lua.h"
 #include "start.h"
-#include "world.h"
-#include "ply.h"
 #include "def.h"
 
 
@@ -114,7 +110,7 @@ void ap::Loader::step() {
 		case BEGIN :
 			if ( flush ) {
 				
-				roaming();
+				en::roaming();
 				
 				if ( ! commentary() ) {
 					state = ERR;

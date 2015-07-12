@@ -4,7 +4,7 @@
 
 
 ap::craft::Tile::Tile(int i) :
-	ap::Sprite(en::GDEF, &textures::craftgrid, &regions::crafttile) ,
+	ap::Sprite(en::GDEF, &textures::craftgrid, &regions::craft::tile) ,
 	n(i),
 	spawned(0),
 	asd(0)
@@ -27,12 +27,12 @@ void ap::craft::Tile::step() {
 	if (spawned != -1 ) {
 		spawned += delta;
 		if ( spawned > ((double) n/20)+0.2 ) {
-			sregion(&regions::crafttile);
+			sregion(&regions::craft::tile);
 			spawned = -1;
 		}
 		else if ( spawned > (double) n/20 ) {
 			//nodraw = false;
-			sregion(&regions::crafttileover);
+			sregion(&regions::craft::tileover);
 		}
 	}
 		//LOG("WHAT")
@@ -46,9 +46,9 @@ void ap::craft::Tile::click() {
 void ap::craft::Tile::hover(mou::Hover h) {
 	
 	if ( mou::HOVER_IN == h ) {
-		sregion(&regions::crafttileover);
+		sregion(&regions::craft::tileover);
 	} else {
-		sregion(&regions::crafttile);
+		sregion(&regions::craft::tile);
 	}
 
 }

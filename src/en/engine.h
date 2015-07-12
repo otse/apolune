@@ -2,8 +2,6 @@
 #define enengine_H
 
 
-//#define FREEGLUT_STATIC
-//#define GLEW_STATIC
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -16,6 +14,7 @@
 //#include "../../../DEPS/openal-soft-1.16.0-bin/include/AL/al.h"
 
 typedef long clock_t;
+typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
 
 namespace envars {
 	void resize(int, int);
@@ -36,7 +35,7 @@ namespace en {
 	class Anim;
 	
 	struct Region {int x, y, w, h;};
-	struct Color {float r;float g;float b;};
+	struct Color {float r, g, b;};
 	
 	struct animinstance {
 		int pos;
@@ -83,6 +82,9 @@ namespace en {
 	
 	extern const int GROUP_SATURATION;
 	extern Draws *groups[];
+
+	void roaming();
+	extern PHYSFS_File *base;
 
 	extern bool focus;
 	extern List<Draws*> draws;

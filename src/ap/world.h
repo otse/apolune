@@ -1,11 +1,8 @@
 #ifndef apworld_H
 #define apworld_H
 
-#include <vector>
 
 #include "../h.h"
-#include "../en/draws.h"
-#include "../en/shader.h"
 
 
 namespace ap {
@@ -29,18 +26,18 @@ namespace ap {
 		void lighting();
 		void makestars();
 		
-		//void rm(Sprite *);
-		//en::FBO *stars;
+		en::FBO *foreground;
+		en::FBO *lightmap;
+		en::FBO *stars;
 		
 		Light *cursorlight;
 		
-		en::Vector<Sprite *> lights;
+
 		std::vector<std::list<Sprite *>::iterator> group;
 		en::List<Sprite *> sprites;
+		en::Vector<Sprite *> lights;
 		
 		en::Shader *lightshader;
-		//bool resort;
-		//void sort();
 	
 	protected:
 		en::Region fboreg;
@@ -51,7 +48,7 @@ namespace ap {
 		void steroids();
 		en::Draws *backdrop;
 		
-		Hangar *mom;
+		Hangar *hangar;
 		//void asd;
 	};
 }
