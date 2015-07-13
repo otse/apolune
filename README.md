@@ -8,7 +8,7 @@ Classes of /src/ap:
 
 `Sprite` is an extended `/en/Draws` meant to show in-world.
 
-`Objects` extends `Sprite`. this is a base for game-object, or very dormant game objects.
+`Objects` extends `Sprite`. this is a base for game-object, or very dormant game objects that need a tooltip
 
 `Mover` is a destination for physics. Niy
 
