@@ -17,7 +17,7 @@ ap::CLI::CLI() : en::Draws(en::GDUMP, nullptr, &en::regfluke) ,
 	pane->sy(gy());
 	add(pane);
 
-	mention( "-~=\\ cli /=~-        ;" );
+	mention( "-~=\\ cli /=~-" );
 	mention( "| running world" );
 	mention( "| doing uff..." );
 }

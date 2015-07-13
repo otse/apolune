@@ -12,7 +12,7 @@ Classes of /src/ap:
 
 `Mover` is a destination for physics. Niy
 
-`Mothership` the hangar. also hangar-related apparatus
+`Hangar` the hangar. also hangar-related apparatus
 
 `Ship` todo: refactor move to craft?
 

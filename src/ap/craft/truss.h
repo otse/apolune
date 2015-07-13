@@ -1,17 +1,19 @@
-#ifndef apcraftpart_H
-#define apcraftpart_H
+#ifndef apcrafttruss_H
+#define apcrafttruss_H
 
 #include "../../h.h"
 
-#include "../sprite.h"
+#include "part.h"
 
 namespace ap {
 	
 	namespace craft {
-		class Part : public Sprite {
+		class Truss : public Part {
 		public:
-			Part(const Model);
-			~Part();
+			Truss(const Model m);
+			~Truss();
+
+			
 
 			virtual void click();
 			virtual void hover(mou::Hover h);

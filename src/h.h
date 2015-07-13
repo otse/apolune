@@ -76,6 +76,7 @@ namespace ap {
 		class Tile;
 		class Craft;
 		class Part;
+		class Truss;
 	}
 	
 	
