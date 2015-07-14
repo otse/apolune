@@ -27,7 +27,8 @@ namespace en {
 		//Draws(void);
 		Draws(Group, Texture *, Region *);
 		virtual ~Draws();
-		
+
+		FBO *fbo;		
 		animinstance animi;
 		
 		bool nodraw;

@@ -1,5 +1,6 @@
 #include "../h.h"
 #include "draws.h"
+#include "fbo.h"
 
 #define ZERO 0
 
@@ -36,7 +37,8 @@ en::Draws::Draws(Group g, Texture *t, Region *r) :
 	order(0),
 	remove(false),
 	delete_(true),
-	nodraw(false)
+	nodraw(false),
+	fbo(nullptr)
 	{
 		//stackorder();
 		COUNT ++;
@@ -62,7 +64,12 @@ void en::Draws::stackorder() {
 }
 
 void en::Draws::translate() {
-	glTranslatef(x, y, 0);
+	if ( nullptr == fbo ) {
+		glTranslatef(x, y, 0);
+	} else {
+		LOG("zupa speciale")
+		glTranslatef(x, en::height - fbo->gr().h + y, 0);
+	}
 }
 
 void en::Draws::sall(double x, double y, double w, double h) {

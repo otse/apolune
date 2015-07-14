@@ -61,8 +61,15 @@ void en::FBO::reset() {
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
+/* ###########################
+   ## Getters & Setters
+   ########################### */
 GLuint en::FBO::gfbid() { return fb; }
 
 en::Draws &en::FBO::gdraws() {
 	return draws;
+}
+
+en::Region &en::FBO::gr() {
+	return region;
 }

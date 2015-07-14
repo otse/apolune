@@ -26,7 +26,7 @@ void ap::Sprite::translate() {
 			gx() + ap::xof - ply->gx(),
 			gy() + ap::yof - ply->gy(), 0.f);
 	else
-		glTranslatef(gx(), gy(), 0);
+		Draws::translate();
 }
 
 void ap::Sprite::step() { Draws::step(); }

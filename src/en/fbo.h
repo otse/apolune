@@ -18,8 +18,10 @@ namespace en {
 		//virtual void bind();
 		//virtual void unbind();
 		
+		Region &gr();
 		GLuint gfbid();
 		Draws &gdraws();
+
 	private:
 		Region &region;
 		Draws draws;
