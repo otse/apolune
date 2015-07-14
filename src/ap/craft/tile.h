@@ -10,7 +10,7 @@ namespace ap {
 	namespace craft {
 		class Tile : public Sprite {
 		public:
-			Tile(Grid &, int);
+			Tile(Grid &, int, int, int);
 			~Tile();
 
 			virtual void click();

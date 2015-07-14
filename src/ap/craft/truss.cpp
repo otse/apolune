@@ -9,6 +9,12 @@ const Truss::Model Truss::metal = {
 			&regions::craft::trussmetal
 		}, /* strength */ 100, /* weight */ 100};
 
+const Truss::Model Truss::angledmetal = {
+		(en::Draws::Model) {
+			&textures::truss,
+			&regions::craft::trussangledmetal
+		}, 100, 100};
+
 
 ap::craft::Truss::Truss(const Model m) : Part(m.m) ,
 	x(0)

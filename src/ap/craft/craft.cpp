@@ -5,16 +5,16 @@
 
 
 ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
-	r({0,0,256,256})
+	r({0,0,300,568})
 	{
 	ship = new en::FBO(&en::BLACK, ap::world->fboreg);
 
-	sprite = new Sprite(en::GDEF, ship, &ap::world->fboreg);
+	sprite = new Sprite(en::GDEF, ship, &r);
 	sprite->yflip = true;
 	sprite->scale = 1;
 
-	sprite->sw(ap::world->fboreg.w);
-	sprite->sh(ap::world->fboreg.h);
+	sprite->sw(r.w);
+	sprite->sh(r.h);
 	pose();
 }
 
@@ -31,7 +31,7 @@ void ap::craft::Craft::pose() {
 
 void ap::craft::Craft::draw() {
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ship->gfbid() );
-	glClearColor(255, 0, 255, 255);
+	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);

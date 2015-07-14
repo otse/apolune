@@ -6,11 +6,10 @@ int ap::Sprite::COUNT = 0;
 
 ap::Sprite::Sprite(en::Group g, en::Texture *t, en::Region *r)
 	: en::Draws(g, t, r) ,
-	world(true),
-	ax(0),
-	ay(0)
+	world(true)
 	{
 	COUNT ++;
+
 	scale = 2;
 	sw(gw()*scale);
 	sh(gh()*scale);
@@ -30,13 +29,8 @@ void ap::Sprite::translate() {
 		glTranslatef(gx(), gy(), 0);
 }
 
-void ap::Sprite::step() {
-	Draws::step();
-}
-
-void ap::Sprite::draw() {
-	Draws::draw();
-}
+void ap::Sprite::step() { Draws::step(); }
+void ap::Sprite::draw() { Draws::draw(); }
 
 bool ap::Sprite::isinside(en::Region *t) {
 	if ( gx() >= t->x &&
@@ -48,20 +42,14 @@ bool ap::Sprite::isinside(en::Region *t) {
 	return false;
 }
 
+void ap::Sprite::click() {};
+void ap::Sprite::hover(mou::Hover) { };
+
 
 /* ###########################
    ## Getters & Setters
    ########################### */
-void ap::Sprite::sworld(bool b) {
-	world = b;
-}
-
-double ap::Sprite::gax() const { return ax; }
-double ap::Sprite::gay() const { return ay; }
-
-void ap::Sprite::click() {};
-void ap::Sprite::hover(mou::Hover) { };
-
+void ap::Sprite::sworld(bool b) { world = b; }
 void ap::Sprite::sx(double p) { ax = p; Draws::sx(int(ax)); }
 void ap::Sprite::sy(double p) { ay = p; Draws::sy(int(ay)); }
 

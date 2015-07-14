@@ -39,8 +39,8 @@ namespace ap {
 		
 		en::Shader *lightshader;
 	
-	protected:
 		en::Region fboreg;
+	protected:
 	
 	private:
 		//inline void sresort() { resort = true; }

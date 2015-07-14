@@ -232,8 +232,8 @@ void ap::World::load() {
 	hangar->post();
 	
 	cursorlight = new Light(lights::CURSOR, en::mou::mx, en::mou::my);
-	cursorlight->sworld(false);
-	cursorlight->light->sworld(false);
+	cursorlight->world = false;
+	cursorlight->light->world = false;
 	
 	/*Sprite *mist = new Sprite(en::GDEF, &textures::groundmist, &regions::groundmist);
 	mist->sx(900);

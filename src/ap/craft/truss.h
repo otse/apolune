@@ -17,6 +17,7 @@ namespace ap {
 			};
 
 			static const Model metal;
+			static const Model angledmetal;
 
 			Truss(const Model m);
 			~Truss();			
