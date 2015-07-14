@@ -4,10 +4,10 @@
 
 
 ap::craft::Part::Part(const Model m) :
-	ap::Sprite(en::GDEF, &textures::craftgrid, &en::regfluke) ,
+	ap::Sprite(en::GDEF, m.t, m.r) ,
 	x(0)
 	{
-	LOG("new part")
+	world = false;
 	//nodraw = true;
 
 }
@@ -19,8 +19,6 @@ ap::craft::Part::~Part() {
 
 void ap::craft::Part::step() {
 	Sprite::step();
-
-
 }
 
 void ap::craft::Part::click() {

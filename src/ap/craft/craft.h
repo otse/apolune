@@ -19,10 +19,13 @@ namespace ap {
 			virtual void step();
 			virtual void draw();
 
+			void pose();
+
 			void add(Part *);
 		protected:
 			en::Region r;
 			en::FBO *ship;
+			Sprite *sprite;
 
 			en::Vector<Part *> parts;
 

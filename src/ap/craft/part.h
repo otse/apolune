@@ -9,9 +9,12 @@ namespace ap {
 	
 	namespace craft {
 		class Part : public Sprite {
-		public:
+		protected:
+		// abstract
 			Part(const Model);
 			~Part();
+
+		public:
 
 			virtual void click();
 			virtual void hover(mou::Hover h);

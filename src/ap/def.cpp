@@ -28,6 +28,7 @@ en::Texture textures::sheet("sheet.png");
 en::Texture textures::guy("guy.png");
 en::Texture textures::backdrop("earth.png");
 en::Texture textures::craftgrid("craft/grid.png");
+en::Texture textures::truss("craft/truss.png");
 
 en::Texture textures::teacup("objects/teacup1.png");
 en::Texture textures::apexcoolchair("objects/apexcoolchair.png");
@@ -77,6 +78,9 @@ en::Region regions::tentaclepopped = {0,48*2,40,48};
 en::Region regions::craft::tilenew = {64,0,32,32};
 en::Region regions::craft::tile = {0,0,32,32};
 en::Region regions::craft::tileover = {32,0,32,32};
+
+en::Region regions::craft::trussmetal = {0,0,16,16};
+en::Region regions::craft::trussangledmetal = {16,0,16,16};
 
 en::Region regions::apexcoolchair = {0,0,15,18};
 en::Region regions::apexcooltable = {0,0,40,16};
@@ -355,6 +359,7 @@ void ap::loadtex() {
 	textures::guy.load();
 	textures::backdrop.load();
 	textures::craftgrid.load();
+	textures::truss.load();
 	
 	textures::apexcoolchair.load();
 	textures::apexcooltable.load();

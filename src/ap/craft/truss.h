@@ -10,10 +10,16 @@ namespace ap {
 	namespace craft {
 		class Truss : public Part {
 		public:
-			Truss(const Model m);
-			~Truss();
+			struct Model {
+				Draws::Model m;
+				int strength;
+				int weight;
+			};
 
-			
+			static const Model metal;
+
+			Truss(const Model m);
+			~Truss();			
 
 			virtual void click();
 			virtual void hover(mou::Hover h);

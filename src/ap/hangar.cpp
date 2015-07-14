@@ -27,9 +27,9 @@ ap::Hangar::Hangar()
 	asd(0),
 	craft(nullptr)
 	{
-		//dim(0, 0, textures::orpheus.gw(), textures::orpheus.gh());
-		sorder(2);
-	}
+	//dim(0, 0, textures::orpheus.gw(), textures::orpheus.gh());
+	sorder(2);
+}
 
 ap::Hangar::~Hangar() { // dtor
 	
@@ -47,7 +47,7 @@ void ap::Hangar::post() {
 	ap::world->lights.v.push_back(hangarlight);
 
 	craft = new craft::Craft();
-	add(craft);
+	ap::world->add(craft);
 
 	grid = new craft::Grid(craft, 14, 5);
 	grid->sx(264*2+64);

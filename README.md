@@ -20,3 +20,5 @@ Classes of /src/ap:
 
 Folders of /src/ap
 `/craft` this folder means both spacecraft and literal craft. this contains shipbuilding
+
+`Craft` le spacecraft. its a sprite, so that it gets posed, rendered and stepped. has its own draw routine into an fbo.

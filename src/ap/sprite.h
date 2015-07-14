@@ -19,6 +19,7 @@ namespace ap {
 		};
 		
 		Sprite(Group, Texture *, Region *);
+		//Sprite(const Model);
 		virtual ~Sprite();
 		
 		virtual void click();
@@ -40,8 +41,7 @@ namespace ap {
 		virtual void sx(double);
 		virtual void sy(double);
 		
-		virtual double gax() const;
-		virtual double gay() const;
+		bool world;
 		
 		void sworld(bool);
 		bool isinside(en::Region *);
@@ -60,7 +60,6 @@ namespace ap {
 		static int COUNT;
 		
 		//bool 
-		bool world;
 		Hitbox hitbox;
 		int bsx, bsy, bex, bey; // bounds
 		

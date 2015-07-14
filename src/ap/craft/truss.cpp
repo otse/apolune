@@ -2,12 +2,18 @@
 
 #include "../def.h"
 
+using namespace ap::craft;
+const Truss::Model Truss::metal = {
+		(en::Draws::Model) {
+			&textures::truss,
+			&regions::craft::trussmetal
+		}, /* strength */ 100, /* weight */ 100};
 
-ap::craft::Truss::Truss(const Model m) :
-	Part(m) ,
+
+ap::craft::Truss::Truss(const Model m) : Part(m.m) ,
 	x(0)
 	{
-	LOG("new part")
+	LOG("new truz, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
 	//nodraw = true;
 
 }

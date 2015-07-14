@@ -48,6 +48,7 @@ namespace ap {
 		extern en::Texture guy;
 		extern en::Texture backdrop;
 		extern en::Texture craftgrid;
+		extern en::Texture truss;
 		
 		extern en::Texture apexcoolchair;
 		extern en::Texture apexcooltable;
@@ -86,6 +87,9 @@ namespace ap {
 		extern en::Region masteroid;
 
 		namespace craft {
+			extern en::Region trussmetal;
+			extern en::Region trussangledmetal;
+
 			extern en::Region tilenew;
 			extern en::Region tile;
 			extern en::Region tileover;

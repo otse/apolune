@@ -4,14 +4,16 @@
 #include "../def.h"
 
 
-ap::craft::Tile::Tile(Grid &grid, int i) :
+ap::craft::Tile::Tile(Grid &grid, int n, int x, int y) :
 	ap::Sprite(en::GDEF, &textures::craftgrid, &regions::craft::tile) ,
-	n(i),
+	n(n),
+	x(x),
+	y(y),
 	grid(grid),
 	part(nullptr),
 	spawned(0)
 	{
-	//nodraw = true;
+	nodraw = true;
 	scale = 1;
 
 	sw(r->w);
@@ -31,9 +33,10 @@ void ap::craft::Tile::step() {
 		if ( spawned > ((double) n/20)+0.2 ) {
 			sregion(&regions::craft::tile);
 			spawned = -1;
+			nodraw = true;
 		}
 		else if ( spawned > (double) n/20 ) {
-			//nodraw = false;
+			nodraw = false;
 			sregion(&regions::craft::tileover);
 		}
 	}
@@ -45,9 +48,9 @@ void ap::craft::Tile::click() {
 		return;
 
 	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
-		Part *p = new Part();
-		p->sx(gx());
-		p->sx(gy());
+		Truss *p = new Truss(Truss::metal);
+		p->sx(x*32);
+		p->sy(y*32);
 		grid.gcraft()->add(p);
 		attach(p);
 	}
@@ -61,8 +64,10 @@ void ap::craft::Tile::hover(mou::Hover h) {
 	
 	if ( mou::HOVER_IN == h ) {
 		sregion(&regions::craft::tileover);
+		nodraw = false;
 	} else {
 		sregion(&regions::craft::tile);
+		nodraw = true;
 	}
 
 }
