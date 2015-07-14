@@ -67,7 +67,6 @@ void en::Draws::translate() {
 	if ( nullptr == fbo ) {
 		glTranslatef(x, y, 0);
 	} else {
-		LOG("zupa speciale")
 		glTranslatef(x, en::height - fbo->gr().h + y, 0);
 	}
 }
