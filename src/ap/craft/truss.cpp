@@ -22,14 +22,14 @@ ap::craft::Truss::Truss(Craft &c, const Model m, int x, int y) : Part(c, m.m, TR
 	{
 	sx(x);
 	sy(y);
-	// LOG("new truz, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
+
+	LOG("new truz, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
 	wall = new Wall(gcraft(), Wall::duo);
 	wall->sx(x);
 	wall->sy(y);
 
-	LOG("our x y is " << gx() << ", " << gy())
-	LOG("wall x y is " << wall->gx() << ", " << wall->gy())
-
+	// LOG("our x y is " << gx() << ", " << gy())
+	// LOG("wall x y is " << wall->gx() << ", " << wall->gy())
 }
 
 ap::craft::Truss::~Truss() {

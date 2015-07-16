@@ -12,7 +12,7 @@ namespace ap {
 	namespace craft {
 		class Craft : public Sprite {
 		public:
-			Craft(en::Region r);
+			Craft();
 			~Craft();
 
 			virtual void click();
@@ -23,12 +23,12 @@ namespace ap {
 
 			void pose();
 
-			en::FBO &gfbo();
+			en::FBO *gfbo();
 			void add(Part *);
 
 		protected:
 			en::Region r;
-			en::FBO ship;
+			en::FBO *ship;
 			Sprite *sprite;
 
 			en::Vector<Part *> parts;

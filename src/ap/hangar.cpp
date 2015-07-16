@@ -70,7 +70,7 @@ void ap::Hangar::post() {
 	ventfume3->sy(540);
 	ap::world->add(ventfume3);
 
-	craft = new craft::Craft( {0,0,300,568} );
+	craft = new craft::Craft();
 	ap::world->add(craft);
 
 	grid = new craft::Grid(*craft, 14, 5);

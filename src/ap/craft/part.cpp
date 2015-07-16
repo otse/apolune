@@ -10,7 +10,7 @@ ap::craft::Part::Part(Craft &c, const Model m, TYPE t) :
 	type(t)
 	{
 	world = false;
-	//fbo = &craft.gfbo();
+	fbo = craft.gfbo();
 }
 
 ap::craft::Part::~Part() {
