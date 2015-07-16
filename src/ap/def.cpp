@@ -28,7 +28,7 @@ en::Texture textures::sheet("sheet.png");
 en::Texture textures::guy("guy.png");
 en::Texture textures::backdrop("earth.png");
 en::Texture textures::craftgrid("craft/grid.png");
-en::Texture textures::truss("craft/truss.png");
+en::Texture textures::parts("craft/parts.png");
 
 en::Texture textures::teacup("objects/teacup1.png");
 en::Texture textures::apexcoolchair("objects/apexcoolchair.png");
@@ -75,12 +75,20 @@ en::Region regions::chicken = {18,0,18,18};
 en::Region regions::tentacle = {40,0,40,48};
 en::Region regions::tentaclepopped = {0,48*2,40,48};
 
-en::Region regions::craft::tilenew = {64,0,32,32};
-en::Region regions::craft::tile = {0,0,32,32};
-en::Region regions::craft::tileover = {32,0,32,32};
+en::Region regions::tilenew = {64,0,32,32};
+en::Region regions::tile = {0,0,32,32};
+en::Region regions::tileover = {32,0,32,32};
 
-en::Region regions::craft::trussmetal = {0,0,16,16};
-en::Region regions::craft::trussangledmetal = {16,0,16,16};
+en::Region regions::trussmetal = {0,0,16,16};
+en::Region regions::trussangledmetal = {16,0,16,16};
+
+en::Region regions::walliris = {0,16,16,16};
+en::Region regions::wallsingle = {16,16,16,16};
+en::Region regions::walluni = {16*3,16,16,16};
+en::Region regions::wallduo = {16*5,16,16,16};
+en::Region regions::wallopposite = {16*4,16,16,16};
+en::Region regions::walltri = {16*6,16,16,16};
+en::Region regions::wallquad = {16*7,16,16,16};
 
 en::Region regions::apexcoolchair = {0,0,15,18};
 en::Region regions::apexcooltable = {0,0,40,16};
@@ -359,7 +367,7 @@ void ap::loadtex() {
 	textures::guy.load();
 	textures::backdrop.load();
 	textures::craftgrid.load();
-	textures::truss.load();
+	textures::parts.load();
 	
 	textures::apexcoolchair.load();
 	textures::apexcooltable.load();

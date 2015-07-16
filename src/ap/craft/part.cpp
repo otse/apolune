@@ -1,15 +1,16 @@
-#include "part.h"
+#include "all.h"
 
 #include "../def.h"
 
+using namespace ap::craft;
 
-ap::craft::Part::Part(const Model m) :
+ap::craft::Part::Part(Craft &c, const Model m, TYPE t) :
 	ap::Sprite(en::GDEF, m.t, m.r) ,
-	x(0)
+	craft(c),
+	type(t)
 	{
 	world = false;
-	//nodraw = true;
-
+	//fbo = &craft.gfbo();
 }
 
 ap::craft::Part::~Part() {
@@ -21,29 +22,29 @@ void ap::craft::Part::step() {
 	Sprite::step();
 }
 
+void ap::craft::Part::draw() {
+	Sprite::draw();
+}
+
 void ap::craft::Part::click() {
 	
 }
 
-
 void ap::craft::Part::hover(mou::Hover h) {
-	if ( mou::HOVER_IN == h ) {
-		
-	} else {
-		
-	}
+	if ( mou::HOVER_IN == h ) {} else {}
+}
+
+void ap::craft::Part::scan() {
+
 }
 
 
 /* ###########################
    ## Getters & Setters
    ########################### */
-//void ap::craft::Tile::sgrid(int c, int r) {
-	//cols = c;
-	//rows = r;
-
-	//table();
-//}
+Craft &ap::craft::Part::gcraft() {
+	return craft;
+}
 
 //float ap::Ply::gy() {
 //	return .0;

@@ -5,22 +5,30 @@
 using namespace ap::craft;
 const Truss::Model Truss::metal = {
 		(en::Draws::Model) {
-			&textures::truss,
-			&regions::craft::trussmetal
+			&textures::parts,
+			&regions::trussmetal
 		}, /* strength */ 100, /* weight */ 100};
 
 const Truss::Model Truss::angledmetal = {
 		(en::Draws::Model) {
-			&textures::truss,
-			&regions::craft::trussangledmetal
+			&textures::parts,
+			&regions::trussangledmetal
 		}, 100, 100};
 
 
-ap::craft::Truss::Truss(const Model m) : Part(m.m) ,
-	x(0)
+ap::craft::Truss::Truss(Craft &c, const Model m, int x, int y) : Part(c, m.m, TRUSS) ,
+	wall(nullptr),
+	outline(nullptr)
 	{
-	LOG("new truz, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
-	//nodraw = true;
+	sx(x);
+	sy(y);
+	// LOG("new truz, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
+	wall = new Wall(gcraft(), Wall::duo);
+	wall->sx(x);
+	wall->sy(y);
+
+	LOG("our x y is " << gx() << ", " << gy())
+	LOG("wall x y is " << wall->gx() << ", " << wall->gy())
 
 }
 
@@ -28,11 +36,15 @@ ap::craft::Truss::~Truss() {
 	
 }
 
-
 void ap::craft::Truss::step() {
 	Part::step();
+}
 
+void ap::craft::Truss::draw() {
+	Part::draw();
 
+	if ( nullptr != wall )
+		wall->draw();
 }
 
 void ap::craft::Truss::click() {
@@ -52,12 +64,9 @@ void ap::craft::Truss::hover(mou::Hover h) {
 /* ###########################
    ## Getters & Setters
    ########################### */
-//void ap::craft::Tile::sgrid(int c, int r) {
-	//cols = c;
-	//rows = r;
-
-	//table();
-//}
+Wall *ap::craft::Truss::gwall() {
+	return wall;
+}
 
 //float ap::Ply::gy() {
 //	return .0;

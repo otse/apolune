@@ -8,22 +8,37 @@
 namespace ap {
 	
 	namespace craft {
+
 		class Part : public Sprite {
+		public: enum TYPE {
+				PART,
+				TRUSS,
+				WALL
+			};
+
 		protected:
-		// abstract
-			Part(const Model);
-			~Part();
+			Part(Craft &, const Model, TYPE);
 
 		public:
 
+			~Part();
+
 			virtual void click();
 			virtual void hover(mou::Hover h);
-
 			virtual void step();
+			virtual void draw();
+
+			TYPE gtype();
+			Craft &gcraft();
+
+			void scan();
+
+		private:
+			Craft &craft;
+			TYPE type;
 
 		protected:
-			int x;
-			int y;
+			
 		};
 	}
 }

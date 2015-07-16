@@ -48,7 +48,7 @@ namespace ap {
 		extern en::Texture guy;
 		extern en::Texture backdrop;
 		extern en::Texture craftgrid;
-		extern en::Texture truss;
+		extern en::Texture parts;
 		
 		extern en::Texture apexcoolchair;
 		extern en::Texture apexcooltable;
@@ -72,7 +72,7 @@ namespace ap {
 		extern en::Texture bubbles;
 	}
 	
-	namespace regions {		
+	namespace regions {
 		extern en::Region spread;
 		
 		extern en::Region hangar;
@@ -86,14 +86,20 @@ namespace ap {
 		extern en::Region asteroid;
 		extern en::Region masteroid;
 
-		namespace craft {
-			extern en::Region trussmetal;
-			extern en::Region trussangledmetal;
+		extern en::Region trussmetal;
+		extern en::Region trussangledmetal;
+		
+		extern en::Region walliris;
+		extern en::Region wallsingle;
+		extern en::Region walluni;
+		extern en::Region wallduo;
+		extern en::Region wallopposite;
+		extern en::Region walltri;
+		extern en::Region wallquad;
 
-			extern en::Region tilenew;
-			extern en::Region tile;
-			extern en::Region tileover;
-		};
+		extern en::Region tilenew;
+		extern en::Region tile;
+		extern en::Region tileover;
 		
 		extern en::Region fluotube;
 		extern en::Region fluotubelight;

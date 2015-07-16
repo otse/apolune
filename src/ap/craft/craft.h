@@ -3,6 +3,8 @@
 
 #include "../../h.h"
 
+#include "../../en/fbo.h"
+
 #include "../sprite.h"
 
 namespace ap {
@@ -10,7 +12,7 @@ namespace ap {
 	namespace craft {
 		class Craft : public Sprite {
 		public:
-			Craft();
+			Craft(en::Region r);
 			~Craft();
 
 			virtual void click();
@@ -21,10 +23,12 @@ namespace ap {
 
 			void pose();
 
+			en::FBO &gfbo();
 			void add(Part *);
+
 		protected:
 			en::Region r;
-			en::FBO *ship;
+			en::FBO ship;
 			Sprite *sprite;
 
 			en::Vector<Part *> parts;

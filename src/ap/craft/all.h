@@ -7,6 +7,7 @@
 #include "craft.h"
 #include "part.h"
 #include "truss.h"
+#include "wall.h"
 
 
 #endif

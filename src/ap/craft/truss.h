@@ -3,7 +3,7 @@
 
 #include "../../h.h"
 
-#include "part.h"
+#include "all.h"
 
 namespace ap {
 	
@@ -19,17 +19,20 @@ namespace ap {
 			static const Model metal;
 			static const Model angledmetal;
 
-			Truss(const Model m);
+			Truss(Craft &, const Model m, int x, int y);
 			~Truss();			
 
 			virtual void click();
 			virtual void hover(mou::Hover h);
 
 			virtual void step();
+			virtual void draw();
+
+			Wall *gwall();
 
 		protected:
-			int x;
-			int y;
+			Wall *wall;
+			Sprite *outline;
 		};
 	}
 }

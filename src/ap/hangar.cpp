@@ -40,19 +40,11 @@ void ap::Hangar::step() {
 }
 
 void ap::Hangar::post() {
-
 	Sprite *hangarlight = new Sprite(en::GDEF, &textures::hangarlight, &regions::hangarlight);
 	hangarlight->sx((1514-911)*2);
 	hangarlight->sy((705-527)*2);
 	ap::world->lights.v.push_back(hangarlight);
 
-	craft = new craft::Craft();
-	ap::world->add(craft);
-
-	grid = new craft::Grid(craft, 14, 5);
-	grid->sx(264*2+64);
-	grid->sy(213*2);
-	grid->table();
 
 	//grid.attach(craft);
 	
@@ -77,6 +69,14 @@ void ap::Hangar::post() {
 	ventfume3->sx(958);
 	ventfume3->sy(540);
 	ap::world->add(ventfume3);
+
+	craft = new craft::Craft( {0,0,300,568} );
+	ap::world->add(craft);
+
+	grid = new craft::Grid(*craft, 14, 5);
+	grid->sx(264*2+64);
+	grid->sy(213*2);
+	grid->table();
 
 	using namespace objects;
 

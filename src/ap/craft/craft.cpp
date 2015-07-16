@@ -4,12 +4,12 @@
 #include "../../en/fbo.h"
 
 
-ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
-	r({0,0,300,568})
+ap::craft::Craft::Craft(en::Region r) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
+	r(r),
+	ship(&en::BLACK, r )
 	{
-	ship = new en::FBO(&en::BLACK, r);
 
-	sprite = new Sprite(en::GDEF, ship, &r);
+	sprite = new Sprite(en::GDEF, &ship, &r);
 	sprite->yflip = true;
 	sprite->scale = 1;
 
@@ -30,7 +30,7 @@ void ap::craft::Craft::pose() {
 }
 
 void ap::craft::Craft::draw() {
-	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ship->gfbid() );
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ship.gfbid() );
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
@@ -48,7 +48,13 @@ void ap::craft::Craft::draw() {
 
 void ap::craft::Craft::add(Part *p) {
 	parts.v.push_back(p);
-	p->fbo = ship;
+	p->fbo = &ship;
+
+	std::vector<Part *>::iterator it;
+	for ( it = parts.v.begin(); it < parts.v.end(); it ++) {
+		Part *p = *it;
+		p->scan();
+	}
 
 	// LOG(parts.v.size())
 }
@@ -61,12 +67,9 @@ void ap::craft::Craft::hover(mou::Hover h) {}
 /* ###########################
    ## Getters & Setters
    ########################### */
-//void ap::craft::Grid::sgrid(int c, int r) {
-	//cols = c;
-	//rows = r;
-
-	//table();
-//}
+en::FBO &ap::craft::Craft::gfbo() {
+	return ship;
+}
 
 //float ap::Ply::gy() {
 //	return .0;

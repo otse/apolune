@@ -13,6 +13,7 @@
 #include <cstdlib>
 #include <random>
 
+
 #define EN_WINDOWNAME "Apolune"
 #include "en/engine.h"
 
@@ -77,6 +78,7 @@ namespace ap {
 		class Craft;
 		class Part;
 		class Truss;
+		class Wall;
 	}
 	
 	

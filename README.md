@@ -8,17 +8,21 @@ Classes of /src/ap:
 
 `Sprite` is an extended `/en/Draws` meant to show in-world.
 
-`Objects` extends `Sprite`. this is a base for game-object, or very dormant game objects that need a tooltip
+`Objects` extends `Sprite`. this is a base for game-objects, or very dormant game objects that need a tooltip
 
 `Mover` is a destination for physics. Niy
 
 `Hangar` the hangar. also hangar-related apparatus
-
-`Ship` todo: refactor move to craft?
 
 `Planet` is not done
 
 Folders of /src/ap
 `/craft` this folder means both spacecraft and literal craft. this contains shipbuilding
 
-`Craft` le spacecraft. its a sprite, so that it gets posed, rendered and stepped. has its own draw routine into an fbo.
+`craft/Craft` le spacecraft. its a sprite, so that it gets posed, rendered and stepped. has its own draw routine into an fbo.
+
+`craft/Grid` holds tiles
+`craft/Tile` a grid tile that you can click to place a `Part`
+`craft/Part` any piece of a spaceship. more of a marker class
+`craft/Truss` the outside of the spaceship
+`craft/Wall` placed onto truss

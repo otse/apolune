@@ -1,9 +1,9 @@
 ENO = o/engine.o o/texture.o o/shader.o o/fbo.o o/font.o o/text.o o/draws.o o/anim.o
 
-APO = o/main.o o/loader.o o/lua.o o/start.o o/files.o o/def.o o/cli.o o/bulk.o o/context.o o/world.o o/sprite.o o/emitter.o o/object.o o/chair.o o/table.o o/console.o o/light.o o/mover.o o/ai.o o/chicken.o o/tentacle.o o/ply.o o/planet.o o/asteroid.o o/ship.o o/hangar.o
+APO = o/main.o o/loader.o o/lua.o o/start.o o/files.o o/def.o o/cli.o o/bulk.o o/context.o o/world.o o/sprite.o o/emitter.o o/object.o o/chair.o o/table.o o/console.o o/light.o o/mover.o o/ai.o o/chicken.o o/tentacle.o o/ply.o o/planet.o o/asteroid.o o/hangar.o
 
 APGUIO =  o/box.o o/element.o o/label.o o/button.o
-APCRAFTO =  o/grid.o o/tile.o o/craft.o o/part.o o/truss.o
+APCRAFTO =  o/grid.o o/tile.o o/craft.o o/part.o o/truss.o o/wall.o
 
 O = $(ENO) $(APO) $(APGUIO) $(APCRAFTO)
 
@@ -91,9 +91,6 @@ o/planet.o: ap/planet.cpp ap/planet.h
 o/world.o: ap/world.cpp ap/world.h
 	g++ $(INC) -c ap/world.cpp -o o/world.o $(FLAGS)
 
-o/ship.o: ap/ship.cpp ap/ship.h
-	g++ $(INC) -c ap/ship.cpp -o o/ship.o $(FLAGS)
-
 o/hangar.o: ap/hangar.cpp ap/hangar.h
 	g++ $(INC) -c ap/hangar.cpp -o o/hangar.o $(FLAGS)
 
@@ -129,6 +126,9 @@ o/part.o: ap/craft/part.cpp ap/craft/part.h
 
 o/truss.o: ap/craft/truss.cpp ap/craft/truss.h
 	g++ $(INC) -c ap/craft/truss.cpp -o o/truss.o $(FLAGS)
+
+o/wall.o: ap/craft/wall.cpp ap/craft/wall.h
+	g++ $(INC) -c ap/craft/wall.cpp -o o/wall.o $(FLAGS)
 
 #/ll
 o/stb_image.o: ll/stb_image.c
