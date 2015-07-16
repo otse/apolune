@@ -47,7 +47,7 @@ const Wall::Model Wall::quad = {
 		}, 100};
 
 
-ap::craft::Wall::Wall(Craft &c, const Model m) : Part(c, m.m, WALL) ,
+ap::craft::Wall::Wall(Tile &t, const Model m) : Part(t, m.m, WALL) ,
 	outline(nullptr)
 	{
 	// LOG("new wall, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)

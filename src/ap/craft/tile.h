@@ -18,13 +18,12 @@ namespace ap {
 
 			virtual void step();
 
-			Grid &ggrid();
-			
 			void attach(Part *);
 			void neighbour(Tile &);
 
-		protected:
 			Grid &grid;
+			
+		protected:
 			Part *part;
 
 			Tile *top;

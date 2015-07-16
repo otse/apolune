@@ -4,10 +4,11 @@
 
 using namespace ap::craft;
 
-ap::craft::Part::Part(Craft &c, const Model m, TYPE t) :
+ap::craft::Part::Part(Tile &t, const Model m, TYPE type) :
 	ap::Sprite(en::GDEF, m.t, m.r) ,
-	craft(c),
-	type(t)
+	tile(t),
+	craft(t.grid.craft),
+	type(type)
 	{
 	world = false;
 	fbo = craft.gfbo();
@@ -42,9 +43,9 @@ void ap::craft::Part::scan() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-Craft &ap::craft::Part::gcraft() {
-	return craft;
-}
+//Craft &ap::craft::Part::gcraft() {
+//	return craft;
+//}
 
 //float ap::Ply::gy() {
 //	return .0;

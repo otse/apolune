@@ -57,6 +57,6 @@ void ap::craft::Grid::step() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-ap::craft::Craft &ap::craft::Grid::gcraft() {
-	return craft;
-}
+//ap::craft::Craft &ap::craft::Grid::gcraft() {
+//	return craft;
+//}

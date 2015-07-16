@@ -23,7 +23,7 @@ namespace ap {
 			static const Model tri;
 			static const Model quad;
 
-			Wall(Craft &, const Model m);
+			Wall(Tile &, const Model m);
 			~Wall();			
 
 			virtual void click();

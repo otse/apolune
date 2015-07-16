@@ -16,7 +16,7 @@ const Truss::Model Truss::angledmetal = {
 		}, 100, 100};
 
 
-ap::craft::Truss::Truss(Craft &c, const Model m, int x, int y) : Part(c, m.m, TRUSS) ,
+ap::craft::Truss::Truss(Tile &t, const Model m, int x, int y) : Part(t, m.m, TRUSS) ,
 	wall(nullptr),
 	outline(nullptr)
 	{
@@ -24,7 +24,7 @@ ap::craft::Truss::Truss(Craft &c, const Model m, int x, int y) : Part(c, m.m, TR
 	sy(y);
 
 	LOG("new truz, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
-	wall = new Wall(gcraft(), Wall::duo);
+	wall = new Wall(tile, Wall::duo);
 	wall->sx(x);
 	wall->sy(y);
 

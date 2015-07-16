@@ -17,7 +17,7 @@ namespace ap {
 			};
 
 		protected:
-			Part(Craft &, const Model, TYPE);
+			Part(Tile &, const Model, TYPE);
 
 		public:
 
@@ -28,17 +28,17 @@ namespace ap {
 			virtual void step();
 			virtual void draw();
 
-			TYPE gtype();
-			Craft &gcraft();
+			Tile &tile;
+			Craft &craft;
 
+			TYPE gtype();
 			void scan();
 
 		private:
-			Craft &craft;
 			TYPE type;
 
 		protected:
-			
+
 		};
 	}
 }

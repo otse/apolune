@@ -21,10 +21,10 @@ namespace ap {
 
 			en::Vector<Tile *> tiles;
 
-			Craft &gcraft();
+			Craft &craft;
+			//Craft &gcraft();
 
 		protected:
-			Craft &craft;
 			
 			int cols;
 			int rows;

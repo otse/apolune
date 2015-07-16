@@ -49,8 +49,8 @@ void ap::craft::Tile::click() {
 		return;
 
 	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
-		Truss *p = new Truss(grid.gcraft(), Truss::metal, x*32, y*32);
-		ggrid().gcraft().add(p);
+		Truss *p = new Truss(*this, Truss::metal, x*32, y*32);
+		grid.craft.add(p);
 		attach(p);
 	}
 }
@@ -87,9 +87,9 @@ void ap::craft::Tile::hover(mou::Hover h) {
 /* ###########################
    ## Getters & Setters
    ########################### */
-Grid &ap::craft::Tile::ggrid() {
-	return grid;
-}
+//Grid &ap::craft::Tile::ggrid() {
+//	return grid;
+//}
 
 //float ap::Ply::gy() {
 //	return .0;

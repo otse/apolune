@@ -19,7 +19,7 @@ namespace ap {
 			static const Model metal;
 			static const Model angledmetal;
 
-			Truss(Craft &, const Model m, int x, int y);
+			Truss(Tile &t, const Model m, int x, int y);
 			~Truss();			
 
 			virtual void click();
