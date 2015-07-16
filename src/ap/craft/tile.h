@@ -22,7 +22,17 @@ namespace ap {
 			void neighbour(Tile &);
 
 			Grid &grid;
-			
+
+			int gx();
+			int gy();
+
+			Part *gpart();
+
+			Tile *gtop();
+			Tile *gbottom();
+			Tile *gleft();
+			Tile *gright();
+
 		protected:
 			Part *part;
 

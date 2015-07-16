@@ -24,9 +24,7 @@ ap::craft::Truss::Truss(Tile &t, const Model m, int x, int y) : Part(t, m.m, TRU
 	sy(y);
 
 	LOG("new truz, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
-	wall = new Wall(tile, Wall::duo);
-	wall->sx(x);
-	wall->sy(y);
+	wall = new Wall(tile);
 
 	// LOG("our x y is " << gx() << ", " << gy())
 	// LOG("wall x y is " << wall->gx() << ", " << wall->gy())
@@ -58,6 +56,11 @@ void ap::craft::Truss::hover(mou::Hover h) {
 	} else {
 		
 	}
+}
+
+void ap::craft::Truss::refit() {
+	if ( nullptr != wall )
+		wall->refit();
 }
 
 

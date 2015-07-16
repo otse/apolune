@@ -41,7 +41,6 @@ namespace en {
 		void stackorder();
 		
 		const char *name;
-		float angle;
 		
 		void mousetrigger();
 		

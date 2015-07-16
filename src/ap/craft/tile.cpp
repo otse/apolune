@@ -12,9 +12,13 @@ ap::craft::Tile::Tile(Grid &grid, int n, int x, int y) :
 	y(y),
 	grid(grid),
 	part(nullptr),
-	spawned(0)
+	spawned(0),
+	top(nullptr),
+	bottom(nullptr),
+	left(nullptr),
+	right(nullptr)
 	{
-	nodraw = true;
+	//nodraw = true;
 	scale = 1;
 
 	sw(r->w);
@@ -34,10 +38,10 @@ void ap::craft::Tile::step() {
 		if ( spawned > ((double) n/20)+0.2 ) {
 			sregion(&regions::tile);
 			spawned = -1;
-			nodraw = true;
+			//nodraw = true;
 		}
 		else if ( spawned > (double) n/20 ) {
-			nodraw = false;
+			//nodraw = false;
 			sregion(&regions::tileover);
 		}
 	}
@@ -50,8 +54,8 @@ void ap::craft::Tile::click() {
 
 	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
 		Truss *p = new Truss(*this, Truss::metal, x*32, y*32);
-		grid.craft.add(p);
 		attach(p);
+		grid.craft.add(p);
 	}
 }
 
@@ -61,13 +65,13 @@ void ap::craft::Tile::attach(Part *p) {
 }
 
 void ap::craft::Tile::neighbour(Tile &t) {
-	if (t.x == x && t.y == y-1)
+	if (t.gx() == x && t.gy() == y-1)
 		top = &t;
-	else if (t.x == x && t.y == y+1)
+	else if (t.gx() == x && t.gy() == y+1)
 		bottom = &t;
-	else if (t.x == x-1 && t.y == y)
+	else if (t.gx() == x-1 && t.gy() == y)
 		left = &t;
-	else if (t.x == x+1 && t.y == y)
+	else if (t.gx() == x+1 && t.gy() == y)
 		right = &t;
 }
 
@@ -91,6 +95,12 @@ void ap::craft::Tile::hover(mou::Hover h) {
 //	return grid;
 //}
 
-//float ap::Ply::gy() {
-//	return .0;
-//}
+Part *ap::craft::Tile::gpart() { return part; }
+
+Tile *ap::craft::Tile::gtop() { return top; }
+Tile *ap::craft::Tile::gbottom() { return bottom; }
+Tile *ap::craft::Tile::gleft() { return left; }
+Tile *ap::craft::Tile::gright() { return right; }
+
+int ap::craft::Tile::gx() { return x; }
+int ap::craft::Tile::gy() { return y; }

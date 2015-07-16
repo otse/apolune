@@ -32,7 +32,8 @@ namespace ap {
 			Craft &craft;
 
 			TYPE gtype();
-			void scan();
+
+			virtual void refit();
 
 		private:
 			TYPE type;

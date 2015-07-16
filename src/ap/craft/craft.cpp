@@ -52,10 +52,8 @@ void ap::craft::Craft::add(Part *p) {
 	std::vector<Part *>::iterator it;
 	for ( it = parts.v.begin(); it < parts.v.end(); it ++) {
 		Part *p = *it;
-		p->scan();
+		p->refit();
 	}
-
-	// LOG(parts.v.size())
 }
 
 

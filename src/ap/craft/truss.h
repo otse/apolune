@@ -28,6 +28,8 @@ namespace ap {
 			virtual void step();
 			virtual void draw();
 
+			virtual void refit();
+
 			Wall *gwall();
 
 		protected:

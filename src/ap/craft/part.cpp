@@ -35,17 +35,15 @@ void ap::craft::Part::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {} else {}
 }
 
-void ap::craft::Part::scan() {
-
-}
+void ap::craft::Part::refit() {}
 
 
 /* ###########################
    ## Getters & Setters
    ########################### */
-//Craft &ap::craft::Part::gcraft() {
-//	return craft;
-//}
+Part::TYPE ap::craft::Part::gtype() {
+	return type;
+}
 
 //float ap::Ply::gy() {
 //	return .0;
