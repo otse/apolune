@@ -2,13 +2,16 @@
 #include "shader.h"
 #include "../ll/files.h"
 
-//#include "shaders/FontVertexShader.txt"
-//#include "shaders/FontFragmentShader.txt"
 
-en::Shader::Shader(const char *vertex, const char *fragment) :
-	vertex(vertex),
-	fragment(fragment)
-	{
+en::Shader::Shader(const char *vertex, const char *fragment) {
+	using namespace boilerplate;
+
+	basefile bfv = gbasefile(vertex);
+	basefile bff = gbasefile(fragment);
+
+	vertex = bfv.buf;
+	fragment = bff.buf;
+
 	create();
 }
 
@@ -18,8 +21,8 @@ void en::Shader::create() {
 	vid = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vid, 1, &vertex, NULL);
     glCompileShader(vid);
-	
-	fid = glCreateShader(GL_FRAGMENT_SHADER);
+
+    fid = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fid, 1, &fragment, NULL);
     glCompileShader(fid);
 	
@@ -29,7 +32,7 @@ void en::Shader::create() {
     glLinkProgram(pid);
 	
     if ( GL_NO_ERROR != glGetError() ) {
-		
+		std::cout << "gl_no_error; " << glGetError() << std::endl;
 	}
 }
 

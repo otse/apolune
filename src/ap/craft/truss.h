@@ -16,8 +16,12 @@ namespace ap {
 				int weight;
 			};
 
-			static const Model metal;
-			static const Model angledmetal;
+			static const Model single;
+			static const Model uni;
+			static const Model duo;
+			static const Model opposite;
+			static const Model tri;
+			static const Model quad;
 
 			Truss(Tile &t, const Model m, int x, int y);
 			~Truss();			

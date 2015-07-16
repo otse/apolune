@@ -13,8 +13,8 @@ namespace en {
 		void create();
 		void link();
 		
-		const char *vertex;
-		const char *fragment;
+		char *vertex;
+		char *fragment;
 		
 		GLuint vid, fid, pid;
 	};

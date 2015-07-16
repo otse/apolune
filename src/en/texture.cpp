@@ -62,8 +62,6 @@ void en::Texture::create() {
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 }
 
-
-#include "../boilerplate.h"
 bool en::Texture::load() {
 	using namespace boilerplate;
 	

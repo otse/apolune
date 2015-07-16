@@ -2,7 +2,6 @@
 #define entexture_H
 
 #include "engine.h"
-#include "Q:/physfs-2.0.3/physfs.h"
 
 
 namespace en {

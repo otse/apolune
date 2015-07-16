@@ -79,8 +79,12 @@ en::Region regions::tilenew = {64,0,32,32};
 en::Region regions::tile = {0,0,32,32};
 en::Region regions::tileover = {32,0,32,32};
 
-en::Region regions::trussmetal = {0,0,16,16};
-en::Region regions::trussangledmetal = {16,0,16,16};
+en::Region regions::trusssingle = {0,0,16,16};
+en::Region regions::trussuni = {16,0,16,16};
+en::Region regions::trussduo = {32,0,16,16};
+en::Region regions::trussopposite = {48,0,16,16};
+en::Region regions::trusstri = {64,0,16,16};
+en::Region regions::trussquad = {80,0,16,16};
 
 en::Region regions::walliris = {0,16,16,16};
 en::Region regions::wallsingle = {16,16,16,16};

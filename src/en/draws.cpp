@@ -4,7 +4,7 @@
 
 #define ZERO 0
 
-//using namespace en;
+using namespace en;
 int en::Draws::COUNT = 0;
 
 /*en::Draws::Draws(Group g, Texture *t ) {
@@ -280,6 +280,7 @@ void en::Draws::sh(double p) { h = p; }
 
 void en::Draws::sorder(order_t p) { order = p; }
 void en::Draws::stexture(en::Texture *t) { texture = t; }
+Region *en::Draws::gregion() { return r; }
 void en::Draws::sregion(Region *r) { this->r = r; }
 //void en::Draws::sxflip(bool b) { xflip = b; }
 //void en::Draws::syflip(bool b) { yflip = b; }

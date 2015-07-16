@@ -31,7 +31,6 @@ namespace ap {
 		en::FBO *stars;
 		
 		Light *cursorlight;
-		
 
 		std::vector<std::list<Sprite *>::iterator> group;
 		en::List<Sprite *> sprites;

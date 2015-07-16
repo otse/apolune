@@ -13,8 +13,7 @@
 
 #include "def.h"
 
-
-#include "shaders/FontVertexShader.txt"
+#include "../en/shader.h"
 
 en::Region starsreg = (en::Region) { 0, 0, (int) (en::width), (int) (en::height) };
 en::Region *leasurearea = new (en::Region) { 980, 242, 1190-980, 602-242 };
@@ -27,6 +26,8 @@ ap::World::World() :
 	
 	fboreg( (en::Region) {0,0,en::width,en::height} )
 	{
+	lightshader = new en::Shader("shaders/WhitesFragment.txt", "shaders/WhitesVertex.txt");
+
 	LOG("world ctor")
 	
 	fbos();

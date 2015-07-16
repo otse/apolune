@@ -69,6 +69,7 @@ namespace en {
 		
 		void stexture(Texture *);
 		void sregion(Region *);
+		Region *gregion();
 		void sa(float);
 		void sscale(double);
 		//void sxflip(bool);

@@ -15,7 +15,6 @@ namespace ap {
 				int asd;
 			};
 
-			static const Model fluke;
 			static const Model iris;
 			static const Model single;
 			static const Model uni;
@@ -31,7 +30,7 @@ namespace ap {
 			virtual void hover(mou::Hover h);
 
 			virtual void step();
-			
+
 			virtual void refit();
 
 			//Plate gplate();

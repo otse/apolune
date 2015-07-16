@@ -73,6 +73,17 @@ void ap::Hangar::post() {
 	craft = new craft::Craft();
 	ap::world->add(craft);
 
+	Sprite *craftlight = new Sprite(en::GDEF, craft->gfbo(), craft->gregion());
+	
+	craftlight->yflip = true;
+	craftlight->scale = 1;
+	craftlight->sw(craft->gregion()->w);
+	craftlight->sh(craft->gregion()->h);
+	craftlight->sx(craft->gx());
+	craftlight->sy(craft->gy());
+
+	ap::world->lights.v.push_back(craftlight);
+
 	grid = new craft::Grid(*craft, 14, 5);
 	grid->sx(264*2+64);
 	grid->sy(213*2);

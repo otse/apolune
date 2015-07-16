@@ -86,8 +86,12 @@ namespace ap {
 		extern en::Region asteroid;
 		extern en::Region masteroid;
 
-		extern en::Region trussmetal;
-		extern en::Region trussangledmetal;
+		extern en::Region trusssingle;
+		extern en::Region trussuni;
+		extern en::Region trussduo;
+		extern en::Region trussopposite;
+		extern en::Region trusstri;
+		extern en::Region trussquad;
 		
 		extern en::Region walliris;
 		extern en::Region wallsingle;
