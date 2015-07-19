@@ -48,6 +48,18 @@ const Wall::Model Wall::quad = {
 			&regions::wallquad
 		}, 100};
 
+const Wall::Model Wall::tri2 = {
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::walltri2
+		}, 100};
+
+const Wall::Model Wall::quad2 = {
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::wallquad2
+		}, 100};
+
 
 ap::craft::Wall::Wall(Tile &t) : Part(t, single.m, WALL) ,
 	outline(nullptr)
@@ -147,7 +159,7 @@ void ap::craft::Wall::refit() {
 		rotate = 90;
 	}
 
-	// unir
+	// uni
 	else if ( top ) {
 		sregion(&regions::walluni);
 		rotate = 0;

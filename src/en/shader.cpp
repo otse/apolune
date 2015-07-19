@@ -9,15 +9,27 @@ en::Shader::Shader(const char *vertex, const char *fragment) {
 	basefile bfv = gbasefile(vertex);
 	basefile bff = gbasefile(fragment);
 
-	vertex = bfv.buf;
-	fragment = bff.buf;
+	bfv.buf[bfv.len] = '\0';
+	bff.buf[bff.len] = '\0';
 
-	create();
+	vertex = cpychr(bfv.buf);
+	fragment = cpychr(bff.buf);
+
+	std::cout << vertex << std::endl;
+
+	std::cout << vertex[bfv.len] << std::endl;
+
+	if (vertex[bfv.len] == '\0')
+		std::cout << "Oh its null" << std::endl;
+
+	//create();
 }
 
 en::Shader::~Shader() {}
 
 void en::Shader::create() {
+	std::cout << "creating" << std::endl;
+
 	vid = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vid, 1, &vertex, NULL);
     glCompileShader(vid);
@@ -32,8 +44,11 @@ void en::Shader::create() {
     glLinkProgram(pid);
 	
     if ( GL_NO_ERROR != glGetError() ) {
-		std::cout << "gl_no_error; " << glGetError() << std::endl;
+		std::cout << "gl_no_error " << glGetError() << std::endl;
 	}
+
+	std::cout << "created" << std::endl;
+
 }
 
 void en::Shader::link() {

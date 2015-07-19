@@ -22,6 +22,8 @@ namespace ap {
 			static const Model opposite;
 			static const Model tri;
 			static const Model quad;
+			static const Model tri2;
+			static const Model quad2;
 
 			Wall(Tile &);
 			~Wall();			

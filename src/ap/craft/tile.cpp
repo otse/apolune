@@ -53,7 +53,7 @@ void ap::craft::Tile::click() {
 		return;
 
 	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
-		Truss *p = new Truss(*this, Truss::single, x*32, y*32);
+		Truss *p = new Truss(*this, Truss::single);
 		attach(p);
 		grid.craft.add(p);
 	}
@@ -67,8 +67,16 @@ void ap::craft::Tile::attach(Part *p) {
 void ap::craft::Tile::neighbour(Tile &t) {
 	if (t.gx() == x && t.gy() == y-1)
 		top = &t;
+	else if (t.gx() == x-1 && t.gy() == y+1)
+		topleft = &t;
+	else if (t.gx() == x+1 && t.gy() == y+1)
+		topright = &t;
 	else if (t.gx() == x && t.gy() == y+1)
 		bottom = &t;
+	else if (t.gx() == x-1 && t.gy() == y+1)
+		bottomleft = &t;
+	else if (t.gx() == x+1 && t.gy() == y+1)
+		bottomright = &t;
 	else if (t.gx() == x-1 && t.gy() == y)
 		left = &t;
 	else if (t.gx() == x+1 && t.gy() == y)
@@ -101,6 +109,8 @@ Tile *ap::craft::Tile::gtop() { return top; }
 Tile *ap::craft::Tile::gbottom() { return bottom; }
 Tile *ap::craft::Tile::gleft() { return left; }
 Tile *ap::craft::Tile::gright() { return right; }
+
+//Tile *ap::craft::Tile::gright() { return right; }
 
 int ap::craft::Tile::gx() { return x; }
 int ap::craft::Tile::gy() { return y; }

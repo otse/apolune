@@ -26,7 +26,7 @@ ap::World::World() :
 	
 	fboreg( (en::Region) {0,0,en::width,en::height} )
 	{
-	lightshader = new en::Shader("shaders/WhitesFragment.txt", "shaders/WhitesVertex.txt");
+	//lightshader = new en::Shader("shaders/WhitesFragment.txt", "shaders/WhitesVertex.txt");
 
 	LOG("world ctor")
 	

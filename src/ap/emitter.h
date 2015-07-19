@@ -35,7 +35,7 @@ namespace ap {
 		static const Model breathbubbles;
 		static const Model spawnplosion;
 		static const Model ventfume;
-		static const Model feathers;
+		static const Model placesparks;
 		
 		Emitter(const Model &);
 		virtual ~Emitter();

@@ -23,7 +23,7 @@ namespace ap {
 			static const Model tri;
 			static const Model quad;
 
-			Truss(Tile &t, const Model m, int x, int y);
+			Truss(Tile &, const Model);
 			~Truss();			
 
 			virtual void click();

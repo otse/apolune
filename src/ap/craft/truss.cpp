@@ -41,15 +41,12 @@ const Truss::Model Truss::quad = {
 		}, 100, 100};
 
 
-ap::craft::Truss::Truss(Tile &t, const Model m, int x, int y) : Part(t, m.m, TRUSS) ,
+ap::craft::Truss::Truss(Tile &t, const Model m : Part(t, m.m, TRUSS) ,
 	wall(nullptr),
 	outline(nullptr)
 	{
-	sx(x);
-	sy(y);
-
 	LOG("new truz, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
-	//wall = new Wall(tile);
+	wall = new Wall(tile);
 
 	// LOG("our x y is " << gx() << ", " << gy())
 	// LOG("wall x y is " << wall->gx() << ", " << wall->gy())
@@ -85,6 +82,8 @@ void ap::craft::Truss::hover(mou::Hover h) {
 
 void ap::craft::Truss::refit() {
 	Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
+	//Part *topleft = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
+	//Part *topright = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
 	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
 	Part *left = (tile.gleft() && tile.gleft()->gpart()) ? tile.gleft()->gpart() : nullptr;
 	Part *right = (tile.gright() && tile.gright()->gpart()) ? tile.gright()->gpart() : nullptr;
@@ -93,6 +92,8 @@ void ap::craft::Truss::refit() {
 	if ( !(bottom && bottom->gtype() == TRUSS) ) bottom = nullptr;
 	if ( !(left && left->gtype() == TRUSS) ) left = nullptr;
 	if ( !(right && right->gtype() == TRUSS) ) right = nullptr;
+
+	
 
 	// quad
 	if ( top && bottom && left && right ) {
@@ -146,7 +147,7 @@ void ap::craft::Truss::refit() {
 		rotate = 90;
 	}
 
-	// unir
+	// uni
 	else if ( top ) {
 		sregion(&regions::trussuni);
 		rotate = 0;

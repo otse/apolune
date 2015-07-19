@@ -10,7 +10,15 @@ ap::craft::Part::Part(Tile &t, const Model m, TYPE type) :
 	craft(t.grid.craft),
 	type(type)
 	{
+	sx(t.gx());
+	sy(t.gy());
 	world = false;
+
+	em = new Emitter(Emitter::placesparks);
+	em->sx(gx());
+	em->sy(gy());
+	ap::world->add(em);
+
 	fbo = craft.gfbo();
 }
 

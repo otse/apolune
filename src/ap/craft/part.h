@@ -30,6 +30,7 @@ namespace ap {
 
 			Tile &tile;
 			Craft &craft;
+			Emitter *em;
 
 			TYPE gtype();
 

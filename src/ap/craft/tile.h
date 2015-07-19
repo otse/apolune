@@ -37,7 +37,11 @@ namespace ap {
 			Part *part;
 
 			Tile *top;
+			Tile *topleft;
+			Tile *topright;
 			Tile *bottom;
+			Tile *bottomleft;
+			Tile *bottomright;
 			Tile *left;
 			Tile *right;
 

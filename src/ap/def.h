@@ -100,6 +100,8 @@ namespace ap {
 		extern en::Region wallopposite;
 		extern en::Region walltri;
 		extern en::Region wallquad;
+		extern en::Region walltri2;
+		extern en::Region wallquad2;
 
 		extern en::Region tilenew;
 		extern en::Region tile;

@@ -2,6 +2,7 @@
 #include "time.h"
 
 #include "chicken.h"
+#include "../emitter.h"
 
 #include "../def.h"
 
@@ -14,7 +15,7 @@ ap::ais::Chicken::Chicken(en::Region *b) :
 	{
 	tip = "Pkok";
 	//feathers = new Emitter(Emitter::feathers);
-	//ap::add(feathers);
+	//add(feathers);
 }
 
 ap::ais::Chicken::~Chicken() {}
