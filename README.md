@@ -2,6 +2,7 @@
 starbound knockoff /w spaceships
 
 Classes of _/src/ap_:
+
 (Look below for non-classes and headers)
 
 `World` aka game. this class acts like a singleton. it renders the different fbos. it is rather bloated. also, it renders sprites like /src/en renders draws
@@ -22,7 +23,8 @@ Classes of _/src/ap_:
 
 `CLI` the Command-line interface
 
-# Folders of /src/ap
+Folders of /src/ap
+
 `/craft` this folder means both spacecraft and literal craft. this contains shipbuilding
 
 `craft/Craft` le spacecraft. its a sprite, so that it gets posed, rendered and stepped. has its own draw routine into an fbo.
@@ -37,14 +39,14 @@ Classes of _/src/ap_:
 
 `craft/Wall` placed onto truss
 
-# Non-class and headers:
+Non-class and headers:
 
-`h`
+`h` contains forward declarations and some global external definitions, which are defined in `main.cpp`
 
 `ap/def .cpp & .h` contains most regions, textures and colors
 
 `ap/bulk.cpp` this contains glyphs for some fonts so it's very lengthy
 
-# Unused
+Unused
 `ap/Asteroid`
 
