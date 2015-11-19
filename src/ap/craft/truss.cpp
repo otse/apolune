@@ -41,7 +41,7 @@ const Truss::Model Truss::quad = {
 		}, 100, 100};
 
 
-ap::craft::Truss::Truss(Tile &t, const Model m : Part(t, m.m, TRUSS) ,
+ap::craft::Truss::Truss(Tile &t, const Model m)	 : Part(t, m.m, TRUSS) ,
 	wall(nullptr),
 	outline(nullptr)
 	{

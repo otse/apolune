@@ -242,8 +242,8 @@ void ap::World::load() {
 	this->add(mist);*/
 	
 	ply = new Ply();
-	ply->sx((1400-911)*2);
-	ply->sy((828-527-33)*2);
+	ply->sx(0);
+	ply->sy(34);
 	//ply->nodraw = true;
 	this->add( ply ); // tiny willy
 
