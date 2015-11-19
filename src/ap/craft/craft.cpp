@@ -1,11 +1,11 @@
-#include "craft.h"
 #include "all.h"
 
 #include "../../en/fbo.h"
 
 
 ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
-	r({0,0,300,568})
+	r({0,0,300,568}),
+	grid(*this)
 	{
 	ship = new en::FBO(&en::BLACK, r);
 
@@ -16,6 +16,9 @@ ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	sprite->sw(r.w);
 	sprite->sh(r.h);
 	pose();
+
+	//grid = new craft::Grid(*this);
+	// grid->table();
 }
 
 ap::craft::Craft::~Craft() {

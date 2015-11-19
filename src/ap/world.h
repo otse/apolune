@@ -31,7 +31,6 @@ namespace ap {
 		en::FBO *stars;
 
 		craft::Craft *craft;
-		craft::Grid *grid;
 		
 		Light *cursorlight;
 

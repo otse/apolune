@@ -237,11 +237,6 @@ void ap::World::load() {
 
 	craft = new craft::Craft();
 	ap::world->add(craft);
-
-	grid = new craft::Grid(*craft, 14, 5);
-	grid->sx(0);
-	grid->sy(-5*16*2);
-	grid->table();
 	
 	cursorlight = new Light(lights::CURSOR, en::mou::mx, en::mou::my);
 	cursorlight->world = false;

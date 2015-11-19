@@ -5,12 +5,11 @@
 #include "tile.h"
 
 
-ap::craft::Grid::Grid(Craft &o, int c, int r) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
-	craft(o),
-	cols(c),
-	rows(r)
+ap::craft::Grid::Grid(Craft &o) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
+	craft(o)
 	{
-	//
+	sx(craft.gx());
+	sy(craft.gy());
 }
 
 ap::craft::Grid::~Grid() {
@@ -19,15 +18,10 @@ ap::craft::Grid::~Grid() {
 
 
 void ap::craft::Grid::table() {
-	craft.sx(gx());
-	craft.sy(gy());
-	craft.pose();
 
-	int i = 50;
-	for ( int y = 0; y < rows; y ++ ) {
+	/*for ( int y = 0; y < rows; y ++ ) {
 		for ( int x = 0; x < cols; x ++ ) {
-			i ++;
-			Tile *t = new Tile(*this, i, x, y);
+			Tile *t = new Tile(*this, x, y);
 			t->sx(gx() + (x*32));
 			t->sy(gy() + (y*32));
 			tiles.v.push_back(t);
@@ -45,7 +39,7 @@ void ap::craft::Grid::table() {
 			if ( t != t2)
 				t->neighbour(*t2);
 		}
-	}
+	}*/
 }
 
 

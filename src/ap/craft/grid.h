@@ -11,7 +11,7 @@ namespace ap {
 	namespace craft {
 		class Grid : public Sprite {
 		public:
-			Grid(Craft &, int c, int r);
+			Grid(Craft &);
 			~Grid();
 
 			virtual void step();
@@ -25,9 +25,7 @@ namespace ap {
 			//Craft &gcraft();
 
 		protected:
-			
-			int cols;
-			int rows;
+			int beh;
 		};
 	}
 }

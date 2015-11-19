@@ -5,9 +5,8 @@
 
 using namespace ap::craft;
 
-ap::craft::Tile::Tile(Grid &grid, int n, int x, int y) :
+ap::craft::Tile::Tile(Grid &grid, int x, int y) :
 	ap::Sprite(en::GDEF, &textures::craftgrid, &regions::tile) ,
-	n(n),
 	x(x),
 	y(y),
 	grid(grid),
@@ -33,7 +32,7 @@ ap::craft::Tile::~Tile() {
 void ap::craft::Tile::step() {
 	Sprite::step();
 
-	if (spawned != -1 ) {
+	/*if (spawned != -1 ) {
 		spawned += delta;
 		if ( spawned > ((double) n/20)+0.2 ) {
 			sregion(&regions::tile);
@@ -44,8 +43,8 @@ void ap::craft::Tile::step() {
 			//nodraw = false;
 			sregion(&regions::tileover);
 		}
-	}
-		//LOG("WHAT")
+	}*/
+	
 }
 
 void ap::craft::Tile::click() {

@@ -25,6 +25,8 @@ namespace ap {
 
 			en::FBO *gfbo();
 			void add(Part *);
+			
+			Grid grid;
 
 		protected:
 			en::Region r;
