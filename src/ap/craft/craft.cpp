@@ -5,7 +5,9 @@
 
 ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	r({0,0,300,568}),
-	grid(*this)
+	grid(*this),
+	top(0),
+	left(0)
 	{
 	ship = new en::FBO(&en::BLACK, r);
 
@@ -17,8 +19,9 @@ ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	sprite->sh(r.h);
 	pose();
 
-	//grid = new craft::Grid(*this);
-	// grid->table();
+	Tile &t = grid.single(0,0);
+	Truss *p = new Truss(t, Truss::single);
+	t.attach(p);
 }
 
 ap::craft::Craft::~Craft() {
@@ -69,6 +72,14 @@ void ap::craft::Craft::hover(mou::Hover h) {}
    ########################### */
 en::FBO *ap::craft::Craft::gfbo() {
 	return ship;
+}
+
+int ap::craft::Craft::gtop() {
+	return top;
+}
+
+int ap::craft::Craft::gleft() {
+	return left;
 }
 
 //float ap::Ply::gy() {

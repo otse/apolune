@@ -25,8 +25,11 @@ namespace ap {
 
 			en::FBO *gfbo();
 			void add(Part *);
-			
+
 			Grid grid;
+
+			int gtop();
+			int gleft();
 
 		protected:
 			en::Region r;
@@ -35,7 +38,8 @@ namespace ap {
 
 			en::Vector<Part *> parts;
 
-			int asd;
+			int top;
+			int left;
 		};
 	}
 }

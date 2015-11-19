@@ -44,7 +44,7 @@ void ap::craft::Tile::step() {
 			sregion(&regions::tileover);
 		}
 	}*/
-	
+
 }
 
 void ap::craft::Tile::click() {
@@ -54,13 +54,15 @@ void ap::craft::Tile::click() {
 	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
 		Truss *p = new Truss(*this, Truss::single);
 		attach(p);
-		grid.craft.add(p);
+		grid.expandfrom(x,y);
 	}
 }
 
 
 void ap::craft::Tile::attach(Part *p) {
 	part = p;
+	grid.craft.add(p);
+	grid.expandfrom(x,y);
 }
 
 void ap::craft::Tile::neighbour(Tile &t) {

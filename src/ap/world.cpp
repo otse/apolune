@@ -235,6 +235,7 @@ void ap::World::load() {
 	// this->add( hangar );
 	// hangar->post();
 
+	
 	craft = new craft::Craft();
 	ap::world->add(craft);
 	

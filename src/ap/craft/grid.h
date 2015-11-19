@@ -16,16 +16,24 @@ namespace ap {
 
 			virtual void step();
 
-			void table();
+			void expandfrom(int,int);
 			//void sgrid(int cols, int rows);
 
 			en::Vector<Tile *> tiles;
 
 			Craft &craft;
+
+			int gtop();
+			int gleft();
+
+			Tile &single(int,int);
+
 			//Craft &gcraft();
 
 		protected:
 			int beh;
+
+			
 		};
 	}
 }
