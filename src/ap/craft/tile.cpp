@@ -25,6 +25,8 @@ ap::craft::Tile::Tile(Grid &grid, int x, int y) :
 
 	sx(grid.gx() + (x*32));
 	sy(grid.gy() + (y*32));
+
+	// expand();
 }
 
 ap::craft::Tile::~Tile() {
@@ -65,6 +67,11 @@ void ap::craft::Tile::attach(Part *p) {
 	part = p;
 	grid.craft.add(p);
 	grid.expandfrom(*this);
+}
+
+
+void ap::craft::Tile::hasneighbour(int x, int y) {
+
 }
 
 void ap::craft::Tile::neighbour(Tile &t) {
@@ -109,7 +116,11 @@ void ap::craft::Tile::hover(mou::Hover h) {
 Part *ap::craft::Tile::gpart() { return part; }
 
 Tile *ap::craft::Tile::gtop() { return top; }
+Tile *ap::craft::Tile::gtopleft() { return topleft; }
+Tile *ap::craft::Tile::gtopright() { return topright; }
 Tile *ap::craft::Tile::gbottom() { return bottom; }
+Tile *ap::craft::Tile::gbottomleft() { return bottomleft; }
+Tile *ap::craft::Tile::gbottomright() { return bottomright; }
 Tile *ap::craft::Tile::gleft() { return left; }
 Tile *ap::craft::Tile::gright() { return right; }
 
