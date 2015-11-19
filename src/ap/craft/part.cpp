@@ -15,8 +15,8 @@ ap::craft::Part::Part(Tile &t, const Model m, TYPE type) :
 	world = false;
 
 	em = new Emitter(Emitter::placesparks);
-	em->sx(gx());
-	em->sy(gy());
+	em->sx(gx()+t.grid.gx()+16);
+	em->sy(gy()+t.grid.gy()+16);
 	ap::world->add(em);
 
 	fbo = craft.gfbo();

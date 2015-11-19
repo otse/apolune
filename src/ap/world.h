@@ -29,6 +29,9 @@ namespace ap {
 		en::FBO *foreground;
 		en::FBO *lightmap;
 		en::FBO *stars;
+
+		craft::Craft *craft;
+		craft::Grid *grid;
 		
 		Light *cursorlight;
 

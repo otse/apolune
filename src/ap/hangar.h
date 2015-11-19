@@ -15,9 +15,6 @@ namespace ap {
 		virtual void step();
 		void post();
 
-		craft::Craft *craft;
-		craft::Grid *grid;
-
 	protected:
 		int asd;
 

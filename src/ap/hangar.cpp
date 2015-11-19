@@ -24,8 +24,8 @@ ap::Hangar::Hangar()
 		&textures::hangar,
 		&regions::hangar
 		) ,
-	asd(0),
-	craft(nullptr)
+	asd(0)
+	// craft(nullptr)
 	{
 	//dim(0, 0, textures::orpheus.gw(), textures::orpheus.gh());
 	sorder(2);
@@ -37,7 +37,7 @@ ap::Hangar::~Hangar() { // dtor
 }
 
 void ap::Hangar::step() {
-	grid->step();
+	// grid->step();
 }
 
 void ap::Hangar::post() {
@@ -71,9 +71,6 @@ void ap::Hangar::post() {
 	ventfume3->sy(540);
 	ap::world->add(ventfume3);*/
 
-	craft = new craft::Craft();
-	ap::world->add(craft);
-
 	/*Sprite *craftlight = new Sprite(en::GDEF, craft->gfbo(), craft->gregion());*/
 	
 	/*craftlight->yflip = true;
@@ -85,10 +82,7 @@ void ap::Hangar::post() {
 
 	ap::world->lights.v.push_back(craftlight);*/
 
-	grid = new craft::Grid(*craft, 14, 5);
-	grid->sx(64);
-	grid->sy(-5*64);
-	grid->table();
+
 
 	using namespace objects;
 

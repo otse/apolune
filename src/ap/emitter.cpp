@@ -88,24 +88,24 @@ const Emitter::Model Emitter::placesparks = {
 				&textures::sparkle1,
 				&regions::sparkle1
 			},
-			200., // emit
-			1000., // emit vary
-			1700., // particle kill
-			500, // emitter kill,
-			false, // wait for particle
-			0., // fade in
-			0., // fade out
-			.75, // alpha
-			0., // alpha vary
+			35., // emit
+			15., // emit vary
+			800., // particle kill
+			150, // emitter kill,
+			true, // wait for particle
+			32., // fade in
+			600., // fade out
+			.2, // alpha
+			0.4, // alpha vary
 			.0, // spin
 			.0, // spin vary
-			20., // move
-			{.5, .5}, // angle range
+			80., // move
+			{0, 1}, // angle range
 			1., // base size
 			0., // size vary
 			0., // grow
-			.75, // pull angle 
-			40., // pull angle force
+			.0, // pull angle 
+			0., // pull angle force
 			&anims::sparkle1 // anim
 };
 

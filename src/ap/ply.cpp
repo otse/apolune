@@ -26,8 +26,8 @@ ap::Ply::Ply()
 	spawnplosion = new Emitter(Emitter::spawnplosion);
     ap::world->add(spawnplosion);
 	
-	breath = new Emitter(Emitter::breathbubbles);
-    ap::world->add(breath);
+	// breath = new Emitter(Emitter::breathbubbles);
+    // ap::world->add(breath);
 }
 
 ap::Ply::~Ply() { // dtor

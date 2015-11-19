@@ -11,11 +11,13 @@
 #include "emitter.h"
 #include "asteroid.h"
 
+#include "craft/all.h"
+
 #include "def.h"
 
 #include "../en/shader.h"
 
-en::Region starsreg = (en::Region) { 0, 0, (int) (en::width), (int) (en::height) };
+en::Region starsreg = (en::Region) { 0, 0, (int) (en::width*2), (int) (en::height*2) };
 en::Region *leasurearea = new (en::Region) { 980, 242, 1190-980, 602-242 };
 //std::vector<en::Draws> stars;
 
@@ -23,7 +25,8 @@ ap::World::World() :
 	//resort(true),
 	backdrop(nullptr),
 	hangar(nullptr),
-	
+	craft(nullptr),
+
 	fboreg( (en::Region) {0,0,en::width,en::height} )
 	{
 	//lightshader = new en::Shader("shaders/WhitesFragment.txt", "shaders/WhitesVertex.txt");
@@ -136,9 +139,9 @@ void ap::World::step() {
 	glClearColor(1, 0, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	//stars->gdraws().rotate += en::delta * .5d;
-	//stars->gdraws().draw();
-	backdrop->draw();
+	stars->gdraws().rotate += en::delta * .5d;
+	stars->gdraws().draw();
+	//backdrop->draw();
 	
 	// draw foreground
 	en::Draws &d = foreground->gdraws();
@@ -227,10 +230,18 @@ void ap::World::load() {
 			&regions::backdrop);
 	// don't add; we render the backdrop last, manually
 	
-	hangar = new Hangar();
+	// hangar = new Hangar();
 	//hangar->nodraw = true;
-	this->add( hangar );
-	hangar->post();
+	// this->add( hangar );
+	// hangar->post();
+
+	craft = new craft::Craft();
+	ap::world->add(craft);
+
+	grid = new craft::Grid(*craft, 14, 5);
+	grid->sx(0);
+	grid->sy(-5*16*2);
+	grid->table();
 	
 	cursorlight = new Light(lights::CURSOR, en::mou::mx, en::mou::my);
 	cursorlight->world = false;
@@ -243,7 +254,7 @@ void ap::World::load() {
 	
 	ply = new Ply();
 	ply->sx(0);
-	ply->sy(34);
+	ply->sy(-34*2);
 	//ply->nodraw = true;
 	this->add( ply ); // tiny willy
 
