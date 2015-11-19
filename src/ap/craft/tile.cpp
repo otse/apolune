@@ -22,6 +22,9 @@ ap::craft::Tile::Tile(Grid &grid, int x, int y) :
 
 	sw(r->w);
 	sh(r->h);
+
+	sx(grid.gx() + (x*32));
+	sy(grid.gy() + (y*32));
 }
 
 ap::craft::Tile::~Tile() {
@@ -54,7 +57,6 @@ void ap::craft::Tile::click() {
 	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
 		Truss *p = new Truss(*this, Truss::single);
 		attach(p);
-		grid.expandfrom(x,y);
 	}
 }
 
@@ -62,15 +64,15 @@ void ap::craft::Tile::click() {
 void ap::craft::Tile::attach(Part *p) {
 	part = p;
 	grid.craft.add(p);
-	grid.expandfrom(x,y);
+	grid.expandfrom(*this);
 }
 
 void ap::craft::Tile::neighbour(Tile &t) {
 	if (t.gx() == x && t.gy() == y-1)
 		top = &t;
-	else if (t.gx() == x-1 && t.gy() == y+1)
+	else if (t.gx() == x-1 && t.gy() == y-1)
 		topleft = &t;
-	else if (t.gx() == x+1 && t.gy() == y+1)
+	else if (t.gx() == x+1 && t.gy() == y-1)
 		topright = &t;
 	else if (t.gx() == x && t.gy() == y+1)
 		bottom = &t;

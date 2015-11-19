@@ -22,30 +22,30 @@ ap::craft::Tile &ap::craft::Grid::single(int x, int y) {
 	t->sy(gy() + (y*32));
 	tiles.v.push_back(t);
 	ap::world->add(t);
+	expandfrom(*t);
 	return *t;
 }
 
-void ap::craft::Grid::expandfrom(int x, int y) {
-	int i = 0;
-
-	for (int i = 0; i < 3; i ++) {
-		LOG(i)
-
-		int X = x;
-		int Y = y;
+void ap::craft::Grid::expandfrom(Tile &t) {
+	for (int i = 0; i < 8; i ++) {
+		int x = t.gx(), y = t.gy();
 
 		switch(i) {
-			case 0: Y -= 1; break; // top
-			case 1: X += 1; break; // right
-			case 2: Y += 1; break; // bottom
-			case 3: X -= 1; break; // left
+			case 0: 		y -= 1; break; // top
+			case 1: x -= 1; y -= 1; break; // topleft
+			case 2: x += 1; y -= 1;	break; // topright
+			case 3: 		y += 1;	break; // bottom
+			case 4: x -= 1; y += 1; break; // bottomleft
+			case 5: x += 1; y += 1;	break; // bottomright
+			case 6: x -= 1; 		break; // left
+			case 7: x += 1; 		break; // right
 		}
 
-		Tile *t = new Tile(*this, X, Y);
-		t->sx(gx() + (X*32));
-		t->sy(gy() + (Y*32));
-		tiles.v.push_back(t);
-		ap::world->add(t);
+		Tile *t2 = new Tile(*this, x, y);
+		t2->neighbour(t);
+
+		tiles.v.push_back(t2);
+		ap::world->add(t2);
 	}
 	
 	/*if (t.gx() == x && t.gy() == y-1)
@@ -65,7 +65,6 @@ void ap::craft::Grid::expandfrom(int x, int y) {
 	else if (t.gx() == x+1 && t.gy() == y)
 		right = &t;*/
 
-	
 }
 
 //void ap::craft::Grid::table() {

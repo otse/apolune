@@ -16,7 +16,7 @@ namespace ap {
 
 			virtual void step();
 
-			void expandfrom(int,int);
+			void expandfrom(Tile &);
 			//void sgrid(int cols, int rows);
 
 			en::Vector<Tile *> tiles;
