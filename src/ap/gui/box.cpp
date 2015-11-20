@@ -8,9 +8,11 @@ ap::gui::Box::Box() :
 	reposition(true),
 	elementy(0)
 {
-	r = new en::Region;
+	nodraw = true;
+	//r = new en::Region;
 	scolor(&colors::GUIGRAY);
-	//r = new (en::Region) {0,0,0,0};
+	en::Region *rr = new (en::Region) {0,0,30,30};
+	r = rr;
 }
 
 ap::gui::Box::~Box() {
@@ -46,6 +48,7 @@ void ap::gui::Box::rm(Element *p) {
 }
 
 void ap::gui::Box::step() {
+
 	std::vector<Element *>::iterator it = e.begin();
 	for ( ; it < e.end(); it ++) {
 		Element *e = *it;
@@ -53,8 +56,9 @@ void ap::gui::Box::step() {
 			e->reposition();
 		e->step();
 	}
-	reposition = false;
+
 	elementy = 0;
+	reposition = false;
 }
 
 void ap::gui::Box::draw() {

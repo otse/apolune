@@ -103,6 +103,8 @@ void ap::gui::Label::rebuild() {
 	
 	sw(4+lwidth+4+3+vwidth+3+1);
 	sh(20);
+
+	Element::rebuild();
 }
 
 /**
@@ -122,13 +124,13 @@ void ap::gui::Label::reposition() {
 }
 
 void ap::gui::Label::step() {
-	Draws::step();
+	Element::step();
 }
 
 void ap::gui::Label::draw() {
-	lleft->draw();
-	lmiddle->draw();
-	lright->draw();
+	//lleft->draw();
+	//lmiddle->draw();
+	//lright->draw();
 	
 	tlabel->draw();
 	

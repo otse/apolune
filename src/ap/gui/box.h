@@ -23,6 +23,7 @@ namespace ap {
 		
 			bool reposition;
 			int elementy;
+
 		protected:
 			std::vector<Element *> e;
 		};

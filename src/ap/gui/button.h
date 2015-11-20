@@ -13,7 +13,7 @@ namespace ap {
 			virtual ~Button();
 			
 			//void slabel(const char *);
-			//void svalue(const char *);
+			virtual void svalue(const char *);
 			
 			virtual void step();
 			virtual void draw();

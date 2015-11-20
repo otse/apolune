@@ -19,6 +19,7 @@ namespace ap {
 	
 	extern const en::Font statfont;
 	extern const en::Font valuefont;
+	extern const en::Font buttonfont;
 	extern const en::Font valuefontchangeable;
 	extern const en::Font noticefont;
 	extern const en::Font clifont;
@@ -33,6 +34,7 @@ namespace ap {
 		extern en::Texture monospace2;
 		extern en::Texture statfont;
 		extern en::Texture valuefont;
+		extern en::Texture buttonfont;
 		extern en::Texture valuefontchangeable;
 		extern en::Texture noticefont;
 		extern en::Texture clifont;

@@ -60,6 +60,8 @@ void ap::gui::Button::rebuild() {
 	
 	sw(4+lwidth+4+3+vwidth+3+1);
 	sh(20);
+
+	Element::rebuild();
 }
 
 /**
@@ -83,9 +85,9 @@ void ap::gui::Button::step() {
 }
 
 void ap::gui::Button::draw() {
-	lleft->draw();
-	lmiddle->draw();
-	lright->draw();
+	//lleft->draw();
+	//lmiddle->draw();
+	//lright->draw();
 	
 	tlabel->draw();
 	
@@ -134,6 +136,16 @@ void ap::gui::Button::hover(mou::Hover h) {
 	}
 }
 
+void ap::gui::Button::svalue(const char *q) {
+	delete tvalue;
+	value = q;
+	
+	//if ( changeable )
+		//tvalue = new en::Text(en::GDEF, valuefontchangeable, &en::WHITE, value);
+	//else
+	
+	tvalue = new en::Text(en::GDEF, buttonfont, &en::WHITE, value);
+}
 
 /* ###########################
    ## Getters & Setters

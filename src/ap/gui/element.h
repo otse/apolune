@@ -25,6 +25,8 @@ namespace ap {
 			virtual void hover(mou::Hover);
 			
 			typedef void (*t_click)();
+
+			Box *gbox();
 			
 			//bool reposition;
 		protected:

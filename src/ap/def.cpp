@@ -15,6 +15,7 @@ en::Texture textures::monospace1("fonts/monospace1.png");
 en::Texture textures::monospace2("fonts/monospace2.png");
 en::Texture textures::statfont("fonts/statfont.png");
 en::Texture textures::valuefont("fonts/valuefont.png");
+en::Texture textures::buttonfont("fonts/buttonfont.png");
 en::Texture textures::valuefontchangeable("fonts/valuefontchangeable.png");
 en::Texture textures::noticefont("fonts/noticefont.png");
 en::Texture textures::clifont("fonts/clifont.png");
@@ -158,7 +159,7 @@ en::Color colors::MENUGREY = {31/255.f,31/255.f,31/255.f};
 en::Color colors::TEXTOFF = {170/255.f, 170/255.f, 170/255.f};
 en::Color colors::OBJECTHOVER = {.7f, .7f, 1};
 en::Color colors::TOOLTIP = {.8f, .8f, .8};
-en::Color colors::GUIGRAY = {240/255.f, 240/255.f, 240/255.f};
+en::Color colors::GUIGRAY = {222/255.f, 222/255.f, 222/255.f};
 
 // # lights
 const Light::Model lights::CURSOR = {
@@ -363,6 +364,7 @@ void ap::loadtex() {
 	textures::monospace2.load();
 	textures::statfont.load();
 	textures::valuefont.load();
+	textures::buttonfont.load();
 	textures::valuefontchangeable.load();
 	textures::clifont.load();
 	

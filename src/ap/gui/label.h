@@ -12,7 +12,7 @@ namespace ap {
 			virtual ~Label();
 			
 			void slabel(const char *);
-			void svalue(const char *);
+			virtual void svalue(const char *);
 			
 			//void sstate(int);
 			//int gstate();

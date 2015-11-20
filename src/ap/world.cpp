@@ -189,7 +189,7 @@ void ap::World::makestars() {
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
 	
-	for ( int i = 0; i < 500; i ++ ) {
+	for ( int i = 0; i < 7000; i ++ ) {
 		int x = ilrand() * stars->gw();
 		int y = ilrand() * stars->gh();
 		
@@ -198,8 +198,14 @@ void ap::World::makestars() {
 				
 		en::Draws star(en::GDEF, &textures::sparkle1, &r);
 		
-		float a = ilrand();// * .5;
+		float a;
+		if (ilrand()<.06)
+			a = a = ilrand();
+		else
+			a = ilrand() * .2;
+
 		star.sa(a);
+		star.rotate = ilrand() * 360;
 		
 		star.sx(x);
 		star.sy(y);
