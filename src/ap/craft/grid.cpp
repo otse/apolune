@@ -28,7 +28,6 @@ ap::craft::Tile &ap::craft::Grid::single(int x, int y) {
 
 void ap::craft::Grid::expandfrom(Tile &t) {
 	for (int i = 0; i < 8; i ++) {
-		//next:
 		int x = t.gx(), y = t.gy();
 
 		switch(i) {
@@ -51,7 +50,6 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 				hit = c;
 				t.neighbour(*c);
 				c->neighbour(t);
-				//goto next;
 			}
 		}
 
@@ -66,31 +64,6 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 	}
 
 }
-
-//void ap::craft::Grid::table() {
-
-	/*for ( int y = 0; y < rows; y ++ ) {
-		for ( int x = 0; x < cols; x ++ ) {
-			Tile *t = new Tile(*this, x, y);
-			t->sx(gx() + (x*32));
-			t->sy(gy() + (y*32));
-			tiles.v.push_back(t);
-			ap::world->add(t);
-		}
-	}
-
-	std::vector<Tile *>::iterator it;
-	for ( it = tiles.v.begin(); it < tiles.v.end(); it ++) {
-		Tile *t = *it;
-
-		std::vector<Tile *>::iterator it2;
-		for ( it2 = tiles.v.begin(); it2 < tiles.v.end(); it2 ++) {
-			Tile *t2 = *it2;
-			if ( t != t2)
-				t->neighbour(*t2);
-		}
-	}*/
-//}
 
 
 void ap::craft::Grid::step() {

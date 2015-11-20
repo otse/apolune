@@ -100,7 +100,7 @@ void ap::craft::Tile::hover(mou::Hover h) {
 		nodraw = false;
 	} else {
 		sregion(&regions::tile);
-		nodraw = true;
+		if ( part ) nodraw = true;
 	}
 
 }
