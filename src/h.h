@@ -12,6 +12,7 @@
 #include <vector>
 #include <cstdlib>
 #include <random>
+#include <unordered_map>
 
 
 #define EN_WINDOWNAME "Apolune"

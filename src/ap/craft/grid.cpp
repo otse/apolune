@@ -5,6 +5,7 @@
 #include "tile.h"
 
 
+
 ap::craft::Grid::Grid(Craft &o) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	craft(o)
 	{
@@ -27,6 +28,7 @@ ap::craft::Tile &ap::craft::Grid::single(int x, int y) {
 
 void ap::craft::Grid::expandfrom(Tile &t) {
 	for (int i = 0; i < 8; i ++) {
+		//next:
 		int x = t.gx(), y = t.gy();
 
 		switch(i) {
@@ -46,8 +48,10 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 		for ( it = tiles.v.begin(); it < tiles.v.end(); it ++) {
 			Tile *c = *it;
 			if (c->gx() == x && c->gy() == y) {
-				LOG("GOT ALREADY")
 				hit = c;
+				t.neighbour(*c);
+				c->neighbour(t);
+				//goto next;
 			}
 		}
 
