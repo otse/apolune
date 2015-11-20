@@ -20,7 +20,7 @@ namespace ap {
 			//void sgrid(int cols, int rows);
 
 			en::Vector<Tile *> tiles;
-			std::unordered_map <std::string, Tile *> umap;
+			//std::unordered_map <std::string, Tile *> umap;
 
 			Craft &craft;
 
