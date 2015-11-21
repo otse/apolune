@@ -25,10 +25,11 @@ om\:window {
 om\:box {
 	display: inline-block;
 	padding: 1px;
+	width: 110px;
 	xbackground: rgb(42, 42, 42);
 
-  font-family: Segoe UI;
-  font-size: 12px;
+	font-family: Segoe UI;
+	font-size: 12px;
 }
 
 om\:label {}
@@ -39,52 +40,33 @@ om\:label[title] {
 }
 
 om\:stat {
-  display: block;
-  letter-spacing: 2px;
-  padding: 5px;
-  color: rgb(205, 205, 205);
-  /* background: rgb(31, 31, 31); */
+	display: block;
+	letter-spacing: 2px;
+	padding: 10px;
+	background: rgb(248, 248, 248);
+	color: rgb(86, 86, 86);
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #D6D6D6;
 }
 
 om\:stat:hover {
-	background: rgb(248, 248, 248);
-	color: rgb(86, 86, 86);
+	color: rgb(205, 205, 205);
+	background: rgb(31, 31, 31);
 }
 
 om\:stat[changeable] {
 	xbackground: rgb(248, 248, 248);
 }
 
-om\:stat[button] {	
+om\:stat[button] {  
 	xborder-left: 4px solid rgb(146, 158, 176);
 }
 
 om\:value {
-  display: inline-block;
-  color: rgb(205, 205, 205);
-  border-radius: 3px;
-  margin-left: 1ex;
-}
-
-om\:stat[button] om\:value {
-	/* padding: 4px 4px; */
-}
-
-om\:stat[button] om\:value:hover {
-	background: white;
-}
-
-om\:stat[button] om\:value:active {
-	border: 1px solid rgb(210, 210, 210);
-	background: transparent;
-}
-
-om\:stat[button] om\:value span {
 	display: inline-block;
-}
-
-om\:stat[button] om\:value:active span {
-	/* margin: 1px -1px -1px 1px; */
+	color: rgb(205, 205, 205);
+	border-radius: 3px;
+	margin-left: 1ex;
 }
 
 om\:bool {
@@ -102,14 +84,14 @@ om\:bool {
 <body>
 <om:window>
 	<om:box style="margin: 204px 228px;">
-		<!--<om:label title>stats</om:label>-->
+		<om:label title>context</om:label>
 		<om:stat style="margin-top: 0em;"><span>mount space</span></om:stat>
 		<om:stat><span>ship status</span><!--<om:value><span>verygay</span></om:value>--></om:stat>
 		<om:stat><span>inventory</span><!--<om:value><span>< i ></span></om:value>--></om:stat>
 		<om:stat><span>build ></span><!--<om:value><span>12</span></om:value>--></om:stat>
-		<om:stat button><span>do:</span> <om:value><span>on</span></om:value></om:stat>
+		<om:stat><span>do:</span> <om:value><span>on</span></om:value></om:stat>
 	</om:box>
-	
+		
 </om:window>
 </body>
 </html>

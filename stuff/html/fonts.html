@@ -118,7 +118,7 @@ sb is the amount detracted towards the previous character.
 
 that may be a bit hard to visualize, but that's the best way to put it
 for example, the j often has a setback, because it has a deep curl to the left,
-so other characters then shift towards it. :)
+so sb will make it shift towards the previous charracter. :)
 */
 
 glyphs = [
@@ -158,8 +158,8 @@ foo = function() {
 					y += i
 				bulk += y + ', '
 				bulk += w+2 + ', '
-				bulk += 2 + ', '
-				bulk += 2 + '},' // sb
+				bulk += 0 + ', '
+				bulk += 0 + '},' // sb
 				bulk += '\n'
 				x = 3
 			}
