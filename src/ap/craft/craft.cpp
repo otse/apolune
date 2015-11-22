@@ -28,7 +28,13 @@ ap::craft::Craft::~Craft() {
 
 }
 
-void ap::craft::Craft::step() { }
+void ap::craft::Craft::step() {
+	std::vector<Part *>::iterator it;
+	for ( it = parts.v.begin(); it < parts.v.end(); it ++) {
+		Part *p = *it;
+		p->step();
+	}
+}
 
 void ap::craft::Craft::pose() {
 	sprite->sx(gx());
