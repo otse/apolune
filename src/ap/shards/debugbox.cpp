@@ -9,11 +9,11 @@ namespace ap {
 		void init();
 		
 		extern bool bpet;
-		extern gui::Button *pet;
+		extern gui::Label *pet;
 		void petcb();
 		
 		extern bool bfs;
-		extern gui::Button *fs;
+		extern gui::Label *fs;
 		void fscb();
 		
 	}
@@ -21,10 +21,10 @@ namespace ap {
 
 gui::Box *ap::debugbox::box;
 
-gui::Button *ap::debugbox::pet;
+gui::Label *ap::debugbox::pet;
 bool ap::debugbox::bpet = true;
 
-gui::Button *ap::debugbox::fs;
+gui::Label *ap::debugbox::fs;
 bool ap::debugbox::bfs = false;
 
 // XxX_BakrexzzDE11IGHTZZ4201337_Xx
@@ -67,17 +67,17 @@ void ap::debugbox::init() {
 	
 	en::add(box);
 	
-	stats::fps = new Label(box, "fps", "60");
-	stats::delta = new Label(box, "delta", "0.003234");
-	stats::draws = new Label(box, "draws", "120");
-	stats::sprites = new Label(box, "sprites", "20");
+	stats::fps = new Label(box, "fps", "60", false);
+	stats::delta = new Label(box, "delta", "0.003234", false);
+	stats::draws = new Label(box, "draws", "120", false);
+	stats::sprites = new Label(box, "sprites", "20", false);
 	
-	fs = new Button(box, "windowed", "", fscb);
-	//fs->category = true;
+	fs = new Label(box, "windowed", "", true);
+	fs->onclick = fscb;
 	fs->svalue("on");
 	
-	pet = new Button(box, "pet", "", petcb);
-	//pet->category = true;
+	pet = new Label(box, "pet", "", true);
+	pet->onclick = petcb;
 	pet->svalue("on");
 	
 	box->add(stats::fps);

@@ -8,7 +8,7 @@ namespace ap {
 	namespace gui {
 		class Label : public Element {
 		public:
-			Label(Box *, const char *, const char *);
+			Label(Box *, const char *, const char *, bool);
 			virtual ~Label();
 			
 			void slabel(const char *);
@@ -27,6 +27,8 @@ namespace ap {
 			
 			virtual void rebuild();
 			virtual void reposition();
+
+			t_click onclick;
 			
 		protected:
 			//int state;
@@ -44,6 +46,13 @@ namespace ap {
 			
 			en::Text *tlabel;
 			en::Text *tvalue;
+
+			en::Draws *bleft;
+			en::Draws *bmiddle;
+			en::Draws *bright;
+
+		private:
+			bool button;
 		};
 	}
 }

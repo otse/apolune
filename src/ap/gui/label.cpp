@@ -12,10 +12,12 @@ using namespace ap::gui;
 // ## BOX
 // ####################
 
-ap::gui::Label::Label(Box *b, const char *l, const char *v) :
+ap::gui::Label::Label(Box *b, const char *l, const char *v, bool button) :
 	ap::gui::Element::Element(b) ,
     label(l),
     value(v),
+	button(button),
+
 	tlabel(nullptr),
 	tvalue(nullptr),
 	category(false),
@@ -31,6 +33,12 @@ ap::gui::Label::Label(Box *b, const char *l, const char *v) :
 	vleft = new en::Draws(en::GDEF, &textures::guipieces, &regions::valuel);
 	vmiddle = new en::Draws(en::GDEF, &textures::guipieces, &regions::valuem);
 	vright = new en::Draws(en::GDEF, &textures::guipieces, &regions::valuer);
+
+	if ( button ) {
+		bleft = new en::Draws(en::GDEF, &textures::guipieces, &regions::buttonl);
+		bmiddle = new en::Draws(en::GDEF, &textures::guipieces, &regions::buttonm);
+		bright = new en::Draws(en::GDEF, &textures::guipieces, &regions::buttonr);
+	}
 }
 
 ap::gui::Label::~Label() {
@@ -41,9 +49,16 @@ ap::gui::Label::~Label() {
 	delete lmiddle;
 	delete lright;
 	
-	delete vleft;
-	delete vmiddle;
-	delete vright;
+	if ( button ) {
+		delete bleft;
+		delete bmiddle;
+		delete bright;
+	}
+	else {
+		delete vleft;
+		delete vmiddle;
+		delete vright;
+	}
 }
 
 void ap::gui::Label::slabel(const char *q) {
@@ -61,7 +76,10 @@ void ap::gui::Label::svalue(const char *q) {
 		//tvalue = new en::Text(en::GDEF, valuefontchangeable, &en::WHITE, value);
 	//else
 	
-	tvalue = new en::Text(en::GDEF, valuefont, &en::WHITE, value);
+	if ( button )
+		tvalue = new en::Text(en::GDEF, buttonfont, &en::WHITE, value);
+	else
+		tvalue = new en::Text(en::GDEF, valuefont, &en::WHITE, value);
 }
 
 void ap::gui::Label::rebuild() {
@@ -99,6 +117,19 @@ void ap::gui::Label::rebuild() {
 
 		vright->sx(gx()+4+lwidth+4+3+vwidth);
 		vright->sy(gy()+1);
+	}
+
+	if ( button ) {
+		// button bg
+		bleft->sx(gx()+4+lwidth+4);
+		bleft->sy(gy()+1);
+
+		bmiddle->sx(gx()+4+lwidth+4+3);
+		bmiddle->sy(gy()+1);
+		bmiddle->sw(vwidth);
+
+		bright->sx(gx()+4+lwidth+4+3+vwidth);
+		bright->sy(gy()+1);
 	}
 	
 	sw(4+lwidth+4+3+vwidth+3+1);
@@ -139,13 +170,56 @@ void ap::gui::Label::draw() {
 		vmiddle->draw();
 		vright->draw();
 	}
+
+	if ( button ) {
+		bleft->draw();
+		bmiddle->draw();
+		bright->draw();
+	}
 	
 	tvalue->draw();
 }
 
-void ap::gui::Label::click() {}
+void ap::gui::Label::click() {
+	if ( ! button ) return;
+	
+	if ( &mou::left == mou::active ) {
+		if ( mou::PRESSED == *mou::active ) {
+			bleft->sregion(&regions::buttonlpressed);
+			bmiddle->sregion(&regions::buttonmpressed);
+			bright->sregion(&regions::buttonrpressed);
+		}
+		else if ( mou::RELEASED == *mou::active ) {
+			if ( nullptr != this->onclick )
+				this->onclick();
+			
+			bleft->sregion(&regions::buttonlhover);
+			bmiddle->sregion(&regions::buttonmhover);
+			bright->sregion(&regions::buttonrhover);
+		}		
+	}
+}
+
 void ap::gui::Label::hover(mou::Hover h) {
-	//Draws::hover(h);
+	Element::hover(h);
+	
+	if ( ! button ) return;
+
+	if ( mou::HOVER_IN == h ) {
+		if ( ! held ) {
+			bleft->sregion(&regions::buttonlhover);
+			bmiddle->sregion(&regions::buttonmhover);
+			bright->sregion(&regions::buttonrhover);
+		} else {
+			bleft->sregion(&regions::buttonlpressed);
+			bmiddle->sregion(&regions::buttonmpressed);
+			bright->sregion(&regions::buttonrpressed);
+		}
+	} else {
+		bleft->sregion(&regions::buttonl);
+		bmiddle->sregion(&regions::buttonm);
+		bright->sregion(&regions::buttonr);
+	}
 }
 
 
