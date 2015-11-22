@@ -97,7 +97,6 @@ void ap::craft::Truss::refit() {
 	if ( !(right && right->gtype() == TRUSS) ) right = nullptr;
 
 	
-
 	// quad
 	if ( top && bottom && left && right ) {
 		sregion(&regions::trussquad);
