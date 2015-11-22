@@ -58,6 +58,9 @@ ap::craft::Truss::~Truss() {
 
 void ap::craft::Truss::step() {
 	Part::step();
+
+	if ( nullptr != wall )
+		wall->step();
 }
 
 void ap::craft::Truss::draw() {

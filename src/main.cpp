@@ -36,9 +36,6 @@ double ap::zoomspeed = 1;
 int ap::fps = 0;
 int ap::frameCount = 0;
 
-double ap::dresize = 0.D;
-bool ap::timeresize = false;
-
 CLI *ap::cli = nullptr;
 Loader *ap::loader;
 Lua *ap::lua;
@@ -72,9 +69,10 @@ int main(int argc, const char* argv[]) {
 	
 	uint32_t seed = time(0);
 	
-	dresize = dnow;
-	
 	rng.seed(seed);
+
+	en::width = 1024;
+	en::height = 768;
 	
 	en::window();
     
@@ -122,42 +120,6 @@ void envars::make() {
 	en::add(loader);
 }
 
-#define IDEAL_WIDTH 800
-#define IDEAL_HEIGHT 600
-
-void en::resize(int w, int h) {
-	using namespace en;
-	if ( debugbox::bfs ) {
-		width = w;
-		height = h;
-		glViewport(0,0,w,h);
-		world->resize();
-	}
-	else {
-		if ( width != IDEAL_WIDTH ) {
-			width = IDEAL_WIDTH;
-			height = IDEAL_HEIGHT;
-			world->resize();
-			glViewport(0,0,width,height);
-			//glutReshapeWindow(width, height);
-		}
-		else
-		if ( w != IDEAL_WIDTH  ||  h != IDEAL_HEIGHT ) {
-			dresize = dnow + 1000;
-			timeresize = true;
-			//dnow
-		}
-	}
-}
-
-void ap::timedresize() {
-	if ( timeresize  &&  dresize-dnow <= 0 ) {
-		//glutReshapeWindow(width, en::height);
-		dresize = 0;
-		timeresize = false;
-	}
-}
-
 bool second() {
 	static double dsecond = 0.;
 	
@@ -178,8 +140,6 @@ void react();
 void envars::frame() {
 	//draws.resort = true;
 	//draws.sort();
-	
-	timedresize();
 	
 	if ( world && second() )
 		secondpass();

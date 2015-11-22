@@ -83,8 +83,6 @@ namespace ap {
 	}
 	
 	
-	extern bool timeresize;
-	void timedresize();
 	extern ais::Chicken *chicken;
 	
 	extern std::ofstream log;
@@ -98,8 +96,6 @@ namespace ap {
 	extern CLI *cli;
 	extern Loader *loader;
 	extern start::Menu *menu;
-	
-	extern double dresize;
 	
 	extern Lua *lua;
 	char const VERSION[] = "0.12";

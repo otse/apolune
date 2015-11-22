@@ -17,7 +17,7 @@ ap::craft::Tile::Tile(Grid &grid, int x, int y) :
 	left(nullptr),
 	right(nullptr)
 	{
-	//nodraw = true;
+	nodraw = true;
 	scale = 1;
 
 	sw(r->w);
@@ -100,7 +100,8 @@ void ap::craft::Tile::hover(mou::Hover h) {
 		nodraw = false;
 	} else {
 		sregion(&regions::tile);
-		if ( part ) nodraw = true;
+		// if ( part )
+			nodraw = true;
 	}
 
 }
