@@ -107,7 +107,7 @@ namespace en {
 	
 	extern int WindowHandle;
 	
-	void window();
+	void boot(int, const char* []);
 	void resize(int, int);
 	void render();
 	void cleanup();
@@ -127,8 +127,7 @@ namespace en {
 	
 	void mdelta();
 	extern double delta;
-	
-
+	extern bool ppi;
 }
 
 #define PL_GL_TELL_ERROR(QUOTE) \

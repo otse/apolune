@@ -51,6 +51,7 @@ LARGE_INTEGER en::deltatime;
 LARGE_INTEGER en::now;
 double en::dnow = 0.D;
 double en::delta = 0;
+bool en::ppi = false;
 
 
 std::string *en::extraction = nullptr;
@@ -68,17 +69,22 @@ void en::roaming() {
 	LOG("extraction path is " << extraction->c_str() );
 }
 
-void en::window() {
-	/*
-	char *argv [1];
-	int argc=1;
-	argv [0]=strdup("Myappname/Apolune");
-	
-	glut(argc, argv);
-	*/
-	
+void en::boot(int argc, const char* argv[]) {	
 	using namespace sf;
-	RenderWindow window(VideoMode(width, height), envars::windowname, envars::windowstyle);
+
+	int w = width;
+	int h = height;
+
+	if (strcmp(argv[1], "-ppi") == 0) {
+		en::ppi = true;
+	}
+
+	if ( en::ppi ) {
+		w *= 2;
+		h *= 2;
+	}
+
+	RenderWindow window(VideoMode(w, h), envars::windowname, envars::windowstyle);
 	//window.setVerticalSyncEnabled(true);
 	
 	GLenum GlewInitResult;

@@ -61,6 +61,7 @@ using namespace en;
 #include "ap/shards/stats.cpp"
 #include "ap/shards/debugbox.cpp"
 
+void switches();
 
 int main(int argc, const char* argv[]) {
 	ap::log.open(LOGFILE);
@@ -73,13 +74,17 @@ int main(int argc, const char* argv[]) {
 
 	en::width = 1024;
 	en::height = 768;
+
+	//switches();
 	
-	en::window();
+	en::boot(argc, argv);
     
 	exit(EXIT_SUCCESS);
 	
 	return 0;
 }
+
+void switches() {}
 
 
 bool ap::commentary() {
