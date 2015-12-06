@@ -12,6 +12,7 @@ namespace ap {
 		public:
 			struct Model {
 				Draws::Model m;
+				Draws::Model cs;
 				int asd;
 			};
 
@@ -26,7 +27,7 @@ namespace ap {
 			static const Model quad2;
 
 			Wall(Tile &);
-			~Wall();			
+			~Wall();
 
 			virtual void click();
 			virtual void hover(mou::Hover h);

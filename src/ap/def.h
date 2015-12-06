@@ -105,6 +105,16 @@ namespace ap {
 		extern en::Region walltri2;
 		extern en::Region wallquad2;
 
+		extern en::Region walliris_cs;
+		extern en::Region wallsingle_cs;
+		extern en::Region walluni_cs;
+		extern en::Region wallduo_cs;
+		extern en::Region wallopposite_cs;
+		extern en::Region walltri_cs;
+		extern en::Region wallquad_cs;
+		extern en::Region walltri2_cs;
+		extern en::Region wallquad2_cs;
+
 		extern en::Region tilenew;
 		extern en::Region tile;
 		extern en::Region tileover;

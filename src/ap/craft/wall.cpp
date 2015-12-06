@@ -10,54 +10,90 @@ const Wall::Model Wall::iris = {
 		(en::Draws::Model) {
 			&textures::parts,
 			&regions::walliris
+		},
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::walliris_cs
 		}, 100};
 
 const Wall::Model Wall::single = {
 		(en::Draws::Model) {
 			&textures::parts,
 			&regions::wallsingle
+		},
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::wallsingle_cs
 		}, 100};
 
 const Wall::Model Wall::uni = {
 		(en::Draws::Model) {
 			&textures::parts,
 			&regions::walluni
+		},
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::walluni_cs
 		}, 100};
 
 const Wall::Model Wall::duo = {
 		(en::Draws::Model) {
 			&textures::parts,
 			&regions::wallduo
+		},
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::wallduo_cs
 		}, 100};
 
 const Wall::Model Wall::opposite = {
 		(en::Draws::Model) {
 			&textures::parts,
 			&regions::wallopposite
+		},
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::wallopposite_cs
 		}, 100};
 
 const Wall::Model Wall::tri = {
 		(en::Draws::Model) {
 			&textures::parts,
 			&regions::walltri
+		},
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::walltri_cs
 		}, 100};
 
 const Wall::Model Wall::quad = {
 		(en::Draws::Model) {
 			&textures::parts,
 			&regions::wallquad
+		},
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::wallquad_cs
 		}, 100};
 
 const Wall::Model Wall::tri2 = {
 		(en::Draws::Model) {
 			&textures::parts,
 			&regions::walltri2
+		},
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::walltri2_cs
 		}, 100};
 
 const Wall::Model Wall::quad2 = {
 		(en::Draws::Model) {
 			&textures::parts,
 			&regions::wallquad2
+		},
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::wallquad2_cs
 		}, 100};
 
 

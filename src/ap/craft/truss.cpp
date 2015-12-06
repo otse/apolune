@@ -45,11 +45,9 @@ ap::craft::Truss::Truss(Tile &t, const Model m) : Part(t, m.m, TRUSS) ,
 	wall(nullptr),
 	outline(nullptr)
 	{
-	LOG("new truz, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
-	//wall = new Wall(tile);
 
-	// LOG("our x y is " << gx() << ", " << gy())
-	// LOG("wall x y is " << wall->gx() << ", " << wall->gy())
+	if ( !! round(ilrand()) )
+		wall = new Wall(tile);
 }
 
 ap::craft::Truss::~Truss() {
@@ -64,9 +62,12 @@ void ap::craft::Truss::step() {
 }
 
 void ap::craft::Truss::draw() {
+	if ( nullptr != wall )
+		wall->draw();
+
 	Part::draw();
 
-	if ( nullptr != wall )
+	if ( ! craft.crosssection && nullptr != wall )
 		wall->draw();
 }
 

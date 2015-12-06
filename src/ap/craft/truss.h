@@ -23,8 +23,8 @@ namespace ap {
 			static const Model tri;
 			static const Model quad;
 
-			Truss(Tile &, const Model);
-			~Truss();			
+			Truss(Tile &, Model);
+			~Truss();
 
 			virtual void click();
 			virtual void hover(mou::Hover h);
@@ -35,6 +35,8 @@ namespace ap {
 			virtual void refit();
 
 			Wall *gwall();
+
+			Model *test;
 
 		protected:
 			Wall *wall;

@@ -31,6 +31,8 @@ namespace ap {
 			int gtop();
 			int gleft();
 
+			bool crosssection;
+
 		protected:
 			en::Region r;
 			en::FBO *ship;

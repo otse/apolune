@@ -87,14 +87,14 @@ en::Region regions::trussopposite = {48,0,16,16};
 en::Region regions::trusstri = {64,0,16,16};
 en::Region regions::trussquad = {80,0,16,16};
 
-en::Region regions::wallsingle = {0,16,16,16};
-en::Region regions::walluni = {16,16,16,16};
-en::Region regions::wallduo = {32,16,16,16};
-en::Region regions::wallopposite = {48,16,16,16};
-en::Region regions::walltri = {64,16,16,16};
-en::Region regions::wallquad = {80,16,16,16};
-en::Region regions::walltri2 = {96,16,16,16};
-en::Region regions::wallquad2 = {112,16,16,16};
+en::Region regions::wallsingle = {0,32,16,16};
+en::Region regions::walluni = {16,32,16,16};
+en::Region regions::wallduo = {32,32,16,16};
+en::Region regions::wallopposite = {48,32,16,16};
+en::Region regions::walltri = {64,32,16,16};
+en::Region regions::wallquad = {80,32,16,16};
+en::Region regions::walltri2 = {96,32,16,16};
+en::Region regions::wallquad2 = {112,32,16,16};
 
 en::Region regions::walliris = {0,16,16,16};
 

@@ -7,7 +7,8 @@ ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	r({0,0,300,568}),
 	grid(*this),
 	top(0),
-	left(0)
+	left(0),
+	crosssection(false)
 	{
 	ship = new en::FBO(&en::BLACK, r);
 
@@ -22,6 +23,8 @@ ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	Tile &t = grid.mtile(0,0);
 	Truss *p = new Truss(t, Truss::single);
 	t.attach(p);
+
+	crosssection = true;
 }
 
 ap::craft::Craft::~Craft() {
