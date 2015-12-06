@@ -76,9 +76,7 @@ ap::craft::Wall::~Wall() {
 
 
 void ap::craft::Wall::step() {
-	Part::step();
-
-
+	//Part::step();
 }
 
 void ap::craft::Wall::click() {
@@ -95,17 +93,15 @@ void ap::craft::Wall::hover(mou::Hover h) {
 }
 
 void ap::craft::Wall::refit() {
-	LOG("refit")
-
 	Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
 	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
 	Part *left = (tile.gleft() && tile.gleft()->gpart()) ? tile.gleft()->gpart() : nullptr;
 	Part *right = (tile.gright() && tile.gright()->gpart()) ? tile.gright()->gpart() : nullptr;
 
-	if ( !(top && top->gtype() == TRUSS && dynamic_cast<Truss *>(top)->gwall()) ) top = nullptr;
-	if ( !(bottom && bottom->gtype() == TRUSS && dynamic_cast<Truss *>(bottom)->gwall()) ) bottom = nullptr;
-	if ( !(left && left->gtype() == TRUSS && dynamic_cast<Truss *>(left)->gwall()) ) left = nullptr;
-	if ( !(right && right->gtype() == TRUSS && dynamic_cast<Truss *>(right)->gwall()) ) right = nullptr;
+	if ( !(top && top->type == TRUSS && dynamic_cast<Truss *>(top)->gwall()) ) top = nullptr;
+	if ( !(bottom && bottom->type == TRUSS && dynamic_cast<Truss *>(bottom)->gwall()) ) bottom = nullptr;
+	if ( !(left && left->type == TRUSS && dynamic_cast<Truss *>(left)->gwall()) ) left = nullptr;
+	if ( !(right && right->type == TRUSS && dynamic_cast<Truss *>(right)->gwall()) ) right = nullptr;
 
 	// quad
 	if ( top && bottom && left && right ) {

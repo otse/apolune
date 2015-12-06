@@ -43,15 +43,25 @@ void ap::craft::Part::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {} else {}
 }
 
-void ap::craft::Part::refit() {}
+void ap::craft::Part::refit() {
+	/*Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
+	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
+	Part *left = (tile.gleft() && tile.gleft()->gpart()) ? tile.gleft()->gpart() : nullptr;
+	Part *right = (tile.gright() && tile.gright()->gpart()) ? tile.gright()->gpart() : nullptr;*/
+
+	/*if ( !(top && top->gtype() == TRUSS && dynamic_cast<Truss *>(top)->gwall()) ) top = nullptr;
+	if ( !(bottom && bottom->gtype() == TRUSS && dynamic_cast<Truss *>(bottom)->gwall()) ) bottom = nullptr;
+	if ( !(left && left->gtype() == TRUSS && dynamic_cast<Truss *>(left)->gwall()) ) left = nullptr;
+	if ( !(right && right->gtype() == TRUSS && dynamic_cast<Truss *>(right)->gwall()) ) right = nullptr;*/
+}
 
 
 /* ###########################
    ## Getters & Setters
    ########################### */
-Part::TYPE ap::craft::Part::gtype() {
+/*Part::TYPE ap::craft::Part::gtype() {
 	return type;
-}
+}*/
 
 //float ap::Ply::gy() {
 //	return .0;

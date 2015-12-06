@@ -12,8 +12,14 @@ ap::craft::Tile::Tile(Grid &grid, int x, int y) :
 	grid(grid),
 	part(nullptr),
 	spawned(0),
+	fitted(false),
+
 	top(nullptr),
+	topleft(nullptr),
+	topright(nullptr),
 	bottom(nullptr),
+	bottomleft(nullptr),
+	bottomright(nullptr),
 	left(nullptr),
 	right(nullptr)
 	{
@@ -70,11 +76,11 @@ void ap::craft::Tile::attach(Part *p) {
 }
 
 
-void ap::craft::Tile::hasneighbour(int x, int y) {
+void ap::craft::Tile::hasneighbor(int x, int y) {
 
 }
 
-void ap::craft::Tile::neighbour(Tile &t) {
+void ap::craft::Tile::neighbor(Tile &t) {
 	if (t.gx() == x && t.gy() == y-1)
 		top = &t;
 	else if (t.gx() == x-1 && t.gy() == y-1)
@@ -93,8 +99,40 @@ void ap::craft::Tile::neighbour(Tile &t) {
 		right = &t;
 }
 
+void ap::craft::Tile::link() {
+	for (int i = 0; i < 8; i ++) {
+		int x = this->x, y = this->y;
+
+		switch(i) {
+			case 0: y -= 1; 		break;
+			case 1: x -= 1; y -= 1; break;
+			case 2: x += 1; y -= 1; break;
+			case 3: y += 1; 		break;
+			case 4: x -= 1; y += 1; break;
+			case 5: x += 1; y += 1; break;
+			case 6: x -= 1; 		break;
+			case 7: x += 1; 		break;
+		}
+
+		Tile *hit = nullptr;
+
+		std::string xy = std::to_string(x) + "," + std::to_string(y);
+
+		std::unordered_map<std::string, Tile *>::const_iterator got = grid.tilesum.find(xy);
+		
+		if ( got != grid.tilesum.end() ) {
+			got->second->neighbor(*this);
+			this->neighbor(*got->second);
+		}
+	}
+
+	fitted = true;
+}
+
 void ap::craft::Tile::hover(mou::Hover h) {
-	
+
+	if ( ! fitted ) link();
+
 	if ( mou::HOVER_IN == h ) {
 		sregion(&regions::tileover);
 		nodraw = false;

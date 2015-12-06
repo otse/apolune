@@ -10,46 +10,46 @@
 
 template<class T> struct Reorder;
 	
-	template<class T> struct Vector {
+template<class T> struct Vector {
+public:
+	std::vector<T> v;
+	bool resort = false;
+	void sort() {
+		if ( resort ) {
+			std::sort(v.begin(), v.end(), en::Reorder<T>());
+			
+			resort = false;
+		}
+	}
+};
+
+// Situations where you want to insert a lot of items into the middle of a sequence repeatedly.
+template<class T> struct List {
+public:
+	std::list<T> l;
+	bool resort = false;
+};
+
+template<typename T> struct Reorder
+{
+	bool operator()(const T a, const T b) const {
+	   return a->order < b->order;
+	}
+};
+
+// Functor for deleting pointers in vector.
+template<class T> class DeleteVector
+{
 	public:
-		std::vector<T> v;
-		bool resort = false;
-		void sort() {
-			if ( resort ) {
-				std::sort(v.begin(), v.end(), en::Reorder<T>());
-				
-				resort = false;
-			}
-		}
-	};
-	
-	// Situations where you want to insert a lot of items into the middle of a sequence repeatedly.
-	template<class T> struct List {
-	public:
-		std::list<T> l;
-		bool resort = false;
-	};
-	
-	template<typename T> struct Reorder
+	// Overloaded () operator.
+	// This will be called by for_each() function.
+	bool operator()(T x) const
 	{
-		bool operator()(const T a, const T b) const {
-		   return a->order < b->order;
-		}
-	};
-	
-	// Functor for deleting pointers in vector.
-	template<class T> class DeleteVector
-	{
-		public:
-		// Overloaded () operator.
-		// This will be called by for_each() function.
-		bool operator()(T x) const
-		{
-			// Delete pointer.
-			delete x;
-			return true;
-		}
-	};
+		// Delete pointer.
+		delete x;
+		return true;
+	}
+};
 
 #endif	/* STLTEMPL_H */
 

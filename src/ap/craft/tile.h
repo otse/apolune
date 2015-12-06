@@ -19,8 +19,9 @@ namespace ap {
 			virtual void step();
 
 			void attach(Part *);
-			void neighbour(Tile &);
-			void hasneighbour(int,int);
+			void neighbor(Tile &);
+			void hasneighbor(int,int);
+			void link();
 
 			Grid &grid;
 
@@ -56,6 +57,9 @@ namespace ap {
 			int y;
 
 			double spawned;
+
+		private:
+			bool fitted;
 		};
 	}
 }

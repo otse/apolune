@@ -32,12 +32,12 @@ namespace ap {
 			Craft &craft;
 			Emitter *em;
 
-			TYPE gtype();
+			//TYPE gtype();
+			const TYPE type;
 
 			virtual void refit();
 
 		private:
-			TYPE type;
 
 		protected:
 

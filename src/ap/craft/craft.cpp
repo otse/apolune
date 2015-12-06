@@ -19,7 +19,7 @@ ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	sprite->sh(r.h);
 	pose();
 
-	Tile &t = grid.single(0,0);
+	Tile &t = grid.mtile(0,0);
 	Truss *p = new Truss(t, Truss::single);
 	t.attach(p);
 }

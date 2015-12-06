@@ -4,6 +4,7 @@
 #include "../../h.h"
 
 #include "../sprite.h"
+#include "tile.h"
 
 
 namespace ap {
@@ -19,15 +20,14 @@ namespace ap {
 			void expandfrom(Tile &);
 			//void sgrid(int cols, int rows);
 
-			en::Vector<Tile *> tiles;
-			//std::unordered_map <std::string, Tile *> umap;
+			std::unordered_map <std::string, Tile *> tilesum;
 
 			Craft &craft;
 
 			int gtop();
 			int gleft();
 
-			Tile &single(int,int);
+			Tile &mtile(int,int);
 
 			//Craft &gcraft();
 
