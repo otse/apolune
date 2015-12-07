@@ -21,7 +21,7 @@ ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	pose();
 
 	Tile &t = grid.mtile(0,0);
-	Truss *p = new Truss(t, Truss::single);
+	Truss *p = new Truss(t);
 	t.attach(p);
 
 	crosssection = true;

@@ -33,7 +33,7 @@ Folders of /src/ap
 
 `craft/Tile` a grid tile that you can click to place a `Part`
 
-`craft/Part` any piece of a spaceship. more of a marker class
+`craft/Part` any piece of a spaceship, foreground and bg. more of a marker class. wip
 
 `craft/Truss` the outside of the spaceship
 
@@ -43,9 +43,9 @@ Non-class and headers:
 
 `h` contains forward declarations and some global external definitions, which are defined in `main.cpp`
 
-`ap/def .cpp & .h` contains most regions, textures and colors
+`ap/def- .cpp & .h` contains most regions, textures and colors
 
-`ap/bulk.cpp` this contains glyphs for some fonts so it's very lengthy
+`ap/bulk.cpp` this contains fonts so it's very lengthy
 
 Unused
 `ap/Asteroid`

@@ -96,7 +96,18 @@ en::Region regions::wallquad = {80,32,16,16};
 en::Region regions::walltri2 = {96,32,16,16};
 en::Region regions::wallquad2 = {112,32,16,16};
 
-en::Region regions::walliris = {0,16,16,16};
+en::Region regions::walliris = {0,32,16,16};
+
+en::Region regions::wallsingle_rear = {0,48,16,16};
+en::Region regions::walluni_rear = {16,48,16,16};
+en::Region regions::wallduo_rear = {32,48,16,16};
+en::Region regions::wallopposite_rear = {48,48,16,16};
+en::Region regions::walltri_rear = {64,48,16,16};
+en::Region regions::wallquad_rear = {80,48,16,16};
+en::Region regions::walltri2_rear = {96,48,16,16};
+en::Region regions::wallquad2_rear = {112,48,16,16};
+
+en::Region regions::walliris_rear = {0,48,16,16};
 
 en::Region regions::apexcoolchair = {0,0,15,18};
 en::Region regions::apexcooltable = {0,0,40,16};

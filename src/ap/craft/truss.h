@@ -23,7 +23,7 @@ namespace ap {
 			static const Model tri;
 			static const Model quad;
 
-			Truss(Tile &, Model);
+			Truss(Tile &);
 			~Truss();
 
 			virtual void click();
@@ -34,13 +34,14 @@ namespace ap {
 
 			virtual void refit();
 
+			Model &gmodel();
 			Wall *gwall();
 
-			Model *test;
-
-		protected:
+		private:
+			const Model *model;
 			Wall *wall;
 			Sprite *outline;
+
 		};
 	}
 }

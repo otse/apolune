@@ -63,7 +63,7 @@ void ap::craft::Tile::click() {
 		return;
 
 	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
-		Truss *p = new Truss(*this, Truss::single);
+		Truss *p = new Truss(*this);
 		attach(p);
 	}
 }

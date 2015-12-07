@@ -13,7 +13,7 @@ const Wall::Model Wall::iris = {
 		},
 		(en::Draws::Model) {
 			&textures::parts,
-			&regions::walliris_cs
+			&regions::walliris_rear
 		}, 100};
 
 const Wall::Model Wall::single = {
@@ -23,7 +23,7 @@ const Wall::Model Wall::single = {
 		},
 		(en::Draws::Model) {
 			&textures::parts,
-			&regions::wallsingle_cs
+			&regions::wallsingle_rear
 		}, 100};
 
 const Wall::Model Wall::uni = {
@@ -33,7 +33,7 @@ const Wall::Model Wall::uni = {
 		},
 		(en::Draws::Model) {
 			&textures::parts,
-			&regions::walluni_cs
+			&regions::walluni_rear
 		}, 100};
 
 const Wall::Model Wall::duo = {
@@ -43,7 +43,7 @@ const Wall::Model Wall::duo = {
 		},
 		(en::Draws::Model) {
 			&textures::parts,
-			&regions::wallduo_cs
+			&regions::wallduo_rear
 		}, 100};
 
 const Wall::Model Wall::opposite = {
@@ -53,7 +53,7 @@ const Wall::Model Wall::opposite = {
 		},
 		(en::Draws::Model) {
 			&textures::parts,
-			&regions::wallopposite_cs
+			&regions::wallopposite_rear
 		}, 100};
 
 const Wall::Model Wall::tri = {
@@ -63,7 +63,7 @@ const Wall::Model Wall::tri = {
 		},
 		(en::Draws::Model) {
 			&textures::parts,
-			&regions::walltri_cs
+			&regions::walltri_rear
 		}, 100};
 
 const Wall::Model Wall::quad = {
@@ -73,7 +73,7 @@ const Wall::Model Wall::quad = {
 		},
 		(en::Draws::Model) {
 			&textures::parts,
-			&regions::wallquad_cs
+			&regions::wallquad_rear
 		}, 100};
 
 const Wall::Model Wall::tri2 = {
@@ -83,7 +83,7 @@ const Wall::Model Wall::tri2 = {
 		},
 		(en::Draws::Model) {
 			&textures::parts,
-			&regions::walltri2_cs
+			&regions::walltri2_rear
 		}, 100};
 
 const Wall::Model Wall::quad2 = {
@@ -93,11 +93,12 @@ const Wall::Model Wall::quad2 = {
 		},
 		(en::Draws::Model) {
 			&textures::parts,
-			&regions::wallquad2_cs
+			&regions::wallquad2_rear
 		}, 100};
 
 
 ap::craft::Wall::Wall(Tile &t) : Part(t, single.m, WALL) ,
+	model(&single),
 	outline(nullptr)
 	{
 	sx(tile.gx()*32);
@@ -113,6 +114,16 @@ ap::craft::Wall::~Wall() {
 
 void ap::craft::Wall::step() {
 	//Part::step();
+}
+
+void ap::craft::Wall::draw2(bool rear) {
+	if ( rear )
+		sregion(model->rear.r);
+
+	else if ( ! craft.crosssection )
+		sregion(model->m.r);
+
+	draw();
 }
 
 void ap::craft::Wall::click() {
@@ -141,71 +152,72 @@ void ap::craft::Wall::refit() {
 
 	// quad
 	if ( top && bottom && left && right ) {
+		model = &quad;
 		sregion(&regions::wallquad);
 		rotate = 0;
 	}
 
 	// tri
 	else if ( top && right && bottom ) {
-		sregion(&regions::walltri);
+		model = &tri;
 		rotate = 0;
 	}
 	else if ( right && bottom && left ) {
-		sregion(&regions::walltri);
+		model = &tri;
 		rotate = 90;
 	}
 	else if ( bottom && left && top ) {
-		sregion(&regions::walltri);
+		model = &tri;
 		rotate = 180;
 	}
 	else if ( left && top && right ) {
-		sregion(&regions::walltri);
+		model = &tri;
 		rotate = 270;
 	}
 
 	// duo
 	else if ( top && right ) {
-		sregion(&regions::wallduo);
+		model = &duo;
 		rotate = 0;
 	}
 	else if ( right && bottom ) {
-		sregion(&regions::wallduo);
+		model = &duo;
 		rotate = 90;
 	}
 	else if ( bottom && left ) {
-		sregion(&regions::wallduo);
+		model = &duo;
 		rotate = 180;
 	}
 	else if ( left && top ) {
-		sregion(&regions::wallduo);
+		model = &duo;
 		rotate = 270;
 	}
 
 	// opposite
 	else if ( top && bottom ) {
-		sregion(&regions::wallopposite);
+		model = &opposite;
 		rotate = 0;
 	}
 	else if ( left && right ) {
-		sregion(&regions::wallopposite);
+		model = &opposite;
 		rotate = 90;
 	}
 
 	// uni
 	else if ( top ) {
-		sregion(&regions::walluni);
+		model = &uni;
 		rotate = 0;
 	}
 	else if ( right ) {
-		sregion(&regions::walluni);
+		model = &uni;
 		rotate = 90;
 	}
 	else if ( bottom ) {
-		sregion(&regions::walluni);
+		model = &uni;
 		rotate = 180;
 	}
 	else if ( left ) {
-		sregion(&regions::walluni);
+		model = &uni;
 		rotate = 270;
 	}
 

@@ -41,13 +41,14 @@ const Truss::Model Truss::quad = {
 		}, 100, 100};
 
 
-ap::craft::Truss::Truss(Tile &t, const Model m) : Part(t, m.m, TRUSS) ,
+ap::craft::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
+	model(&single),
 	wall(nullptr),
 	outline(nullptr)
 	{
 
-	if ( !! round(ilrand()) )
-		wall = new Wall(tile);
+	// if ( !! round(ilrand()) )
+	wall = new Wall(tile);
 }
 
 ap::craft::Truss::~Truss() {
@@ -63,12 +64,12 @@ void ap::craft::Truss::step() {
 
 void ap::craft::Truss::draw() {
 	if ( nullptr != wall )
-		wall->draw();
+		wall->draw2(true);
 
 	Part::draw();
 
 	if ( ! craft.crosssection && nullptr != wall )
-		wall->draw();
+		wall->draw2(false);
 }
 
 void ap::craft::Truss::click() {
@@ -99,6 +100,7 @@ void ap::craft::Truss::refit() {
 	
 	// quad
 	if ( top && bottom && left && right ) {
+		model = &quad;
 		sregion(&regions::trussquad);
 		rotate = 0;
 	}

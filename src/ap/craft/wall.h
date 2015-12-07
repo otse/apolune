@@ -12,7 +12,7 @@ namespace ap {
 		public:
 			struct Model {
 				Draws::Model m;
-				Draws::Model cs;
+				Draws::Model rear;
 				int asd;
 			};
 
@@ -33,12 +33,15 @@ namespace ap {
 			virtual void hover(mou::Hover h);
 
 			virtual void step();
+			void draw2(bool);
 
 			virtual void refit();
 
 			//Plate gplate();
 
-		protected:
+		private:
+			const Model *model;
+
 			//Plate *plate;
 			Sprite *outline;
 		};
