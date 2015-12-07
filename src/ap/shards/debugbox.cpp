@@ -1,4 +1,5 @@
 #include "../gui/all.h"
+#include "../craft/all.h"
 #include "../ais/chicken.h"
 
 using namespace en;
@@ -15,6 +16,10 @@ namespace ap {
 		extern bool bfs;
 		extern gui::Label *fs;
 		void fscb();
+
+		extern bool bcs;
+		extern gui::Label *cs;
+		void cscb();
 		
 	}
 }
@@ -26,6 +31,9 @@ bool ap::debugbox::bpet = true;
 
 gui::Label *ap::debugbox::fs;
 bool ap::debugbox::bfs = false;
+
+gui::Label *ap::debugbox::cs;
+bool ap::debugbox::bcs = false;
 
 // XxX_BakrexzzDE11IGHTZZ4201337_Xx
 void ap::debugbox::petcb() {
@@ -59,6 +67,22 @@ void ap::debugbox::fscb() {
 	}
 }
 
+void ap::debugbox::cscb() {
+	if ( MOUISLEFT  &&  mou::RELEASED == *mou::active ) {
+		if ( bcs ) {
+			cs->svalue("on");
+			//glutReshapeWindow(en::width, en::height);
+		} else {
+			cs->svalue("off");
+			//glutFullScreen();
+		}
+		
+		bcs = ! bcs;
+		ap::world->craft->crosssection = bcs;
+		cs->rebuild();
+	}
+}
+
 void ap::debugbox::init() {
 	using namespace gui;
 	box = new Box();
@@ -79,6 +103,10 @@ void ap::debugbox::init() {
 	pet = new Label(box, "pet", "", true);
 	pet->onclick = petcb;
 	pet->svalue("on");
+
+	cs = new Label(box, "Cross Section", "", true);
+	cs->onclick = cscb;
+	cs->svalue("on");
 	
 	box->add(stats::fps);
 	box->add(stats::delta);
@@ -87,5 +115,6 @@ void ap::debugbox::init() {
 	
 	box->add(fs);
 	box->add(pet);
+	box->add(cs);
 	//debugbox->step();
 }

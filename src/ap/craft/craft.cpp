@@ -24,7 +24,7 @@ ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	Truss *p = new Truss(t);
 	t.attach(p);
 
-	crosssection = true;
+	//crosssection = true;
 }
 
 ap::craft::Craft::~Craft() {

@@ -86,7 +86,7 @@ void ap::gui::Label::rebuild() {
 	using namespace regions;
 	
 	tlabel->sx(gx()+4);
-	tlabel->sy(gy()+2);
+	tlabel->sy(gy()+1);
 	tlabel->position();
 	int lwidth = tlabel->gtextw() + 1;
 	
