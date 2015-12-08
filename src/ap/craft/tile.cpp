@@ -14,15 +14,6 @@ ap::craft::Tile::Tile(Grid &grid, int x, int y) :
 	spawned(0),
 	fitted(false),
 
-	top(nullptr),
-	topleft(nullptr),
-	topright(nullptr),
-	bottom(nullptr),
-	bottomleft(nullptr),
-	bottomright(nullptr),
-	left(nullptr),
-	right(nullptr),
-
 	neighbors {nullptr}
 	{
 	nodraw = true;
@@ -76,7 +67,6 @@ void ap::craft::Tile::attach(Part *p) {
 	grid.craft.add(p);
 	grid.expandfrom(*this);
 	p->connect();
-	p->refit();
 }
 
 
@@ -86,35 +76,35 @@ void ap::craft::Tile::hasneighbor(int x, int y) {
 
 void ap::craft::Tile::neighbor(Tile &t) {
 	if (t.gx() == x && t.gy() == y-1) {
-		top = &t;
+		//top = &t;
 		neighbors[0] = &t;
 	}
 	else if (t.gx() == x+1 && t.gy() == y-1) {
-		topright = &t;
+		//topright = &t;
 		neighbors[1] = &t;
 	}
 	else if (t.gx() == x+1 && t.gy() == y) {
-		right = &t;
+		//right = &t;
 		neighbors[2] = &t;
 	}
 	else if (t.gx() == x+1 && t.gy() == y+1) {
-		bottomright = &t;
+		//bottomright = &t;
 		neighbors[3] = &t;
 	}
 	else if (t.gx() == x && t.gy() == y+1) {
-		bottom = &t;
+		//bottom = &t;
 		neighbors[4] = &t;
 	}
 	else if (t.gx() == x-1 && t.gy() == y+1) {
-		bottomleft = &t;
+		//bottomleft = &t;
 		neighbors[5] = &t;
 	}
 	else if (t.gx() == x-1 && t.gy() == y) {
-		left = &t;
+		//left = &t;
 		neighbors[6] = &t;
 	}
 	else if (t.gx() == x-1 && t.gy() == y-1) {
-		topleft = &t;
+		//topleft = &t;
 		neighbors[7] = &t;
 	}
 }
@@ -174,14 +164,14 @@ void ap::craft::Tile::hover(mou::Hover h) {
 
 Part *ap::craft::Tile::gpart() { return part; }
 
-Tile *ap::craft::Tile::gtop() { return top; }
+/*Tile *ap::craft::Tile::gtop() { return top; }
 Tile *ap::craft::Tile::gtopleft() { return topleft; }
 Tile *ap::craft::Tile::gtopright() { return topright; }
 Tile *ap::craft::Tile::gbottom() { return bottom; }
 Tile *ap::craft::Tile::gbottomleft() { return bottomleft; }
 Tile *ap::craft::Tile::gbottomright() { return bottomright; }
 Tile *ap::craft::Tile::gleft() { return left; }
-Tile *ap::craft::Tile::gright() { return right; }
+Tile *ap::craft::Tile::gright() { return right; }*/
 
 Tile **ap::craft::Tile::gneighbors() { return neighbors; }
 

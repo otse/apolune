@@ -139,84 +139,91 @@ void ap::craft::Wall::hover(mou::Hover h) {
 	}
 }
 
-void ap::craft::Wall::refit() {
-	Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
-	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
-	Part *left = (tile.gleft() && tile.gleft()->gpart()) ? tile.gleft()->gpart() : nullptr;
-	Part *right = (tile.gright() && tile.gright()->gpart()) ? tile.gright()->gpart() : nullptr;
+#define TOP 		walls[0]
+#define TOPRIGHT 	walls[1]
+#define RIGHT 		walls[2]
+#define BOTTOMRIGHT walls[3]
+#define BOTTOM 		walls[4]
+#define BOTTOMLEFT 	walls[5]
+#define LEFT 		walls[6]
+#define TOPLEFT 	walls[7]
 
-	if ( !(top && top->type == TRUSS && dynamic_cast<Truss *>(top)->gwall()) ) top = nullptr;
-	if ( !(bottom && bottom->type == TRUSS && dynamic_cast<Truss *>(bottom)->gwall()) ) bottom = nullptr;
-	if ( !(left && left->type == TRUSS && dynamic_cast<Truss *>(left)->gwall()) ) left = nullptr;
-	if ( !(right && right->type == TRUSS && dynamic_cast<Truss *>(right)->gwall()) ) right = nullptr;
+void ap::craft::Wall::refit() {
+	Tile **all = tile.gneighbors();
+
+	bool walls[8]; // = {false};
+
+	for (int i = 0; i < 8; i ++) {
+		Tile *t = all[i];
+		walls[i] = t && t->gpart() && t->gpart()->type == TRUSS && dynamic_cast<Truss *>(t->gpart())->gwall();
+	}
 
 	// quad
-	if ( top && bottom && left && right ) {
+	if ( TOP && RIGHT && BOTTOM && LEFT ) {
 		model = &quad;
-		//sregion(&regions::wallquad);
 		rotate = 0;
 	}
 
 	// tri
-	else if ( top && right && bottom ) {
+	else if ( TOP && RIGHT && BOTTOM ) {
 		model = &tri;
 		rotate = 0;
 	}
-	else if ( right && bottom && left ) {
+	else if ( RIGHT && BOTTOM && LEFT ) {
 		model = &tri;
 		rotate = 90;
 	}
-	else if ( bottom && left && top ) {
+	else if ( BOTTOM && LEFT && TOP ) {
 		model = &tri;
 		rotate = 180;
 	}
-	else if ( left && top && right ) {
+	else if ( LEFT && TOP && RIGHT ) {
 		model = &tri;
 		rotate = 270;
 	}
 
 	// duo
-	else if ( top && right ) {
+	else if ( TOP && RIGHT ) {
 		model = &duo;
 		rotate = 0;
 	}
-	else if ( right && bottom ) {
+	else if ( RIGHT && BOTTOM ) {
 		model = &duo;
 		rotate = 90;
 	}
-	else if ( bottom && left ) {
+	else if ( BOTTOM && LEFT ) {
 		model = &duo;
 		rotate = 180;
 	}
-	else if ( left && top ) {
+	else if ( LEFT && TOP ) {
 		model = &duo;
 		rotate = 270;
 	}
 
 	// opposite
-	else if ( top && bottom ) {
+	else if ( TOP && BOTTOM ) {
 		model = &opposite;
 		rotate = 0;
 	}
-	else if ( left && right ) {
+	else if ( LEFT && RIGHT ) {
 		model = &opposite;
 		rotate = 90;
 	}
 
 	// uni
-	else if ( top ) {
+	else if ( TOP ) {
 		model = &uni;
 		rotate = 0;
 	}
-	else if ( right ) {
+	else if ( RIGHT ) {
 		model = &uni;
 		rotate = 90;
 	}
-	else if ( bottom ) {
+	else if ( BOTTOM ) {
 		model = &uni;
 		rotate = 180;
 	}
-	else if ( left ) {
+	else if ( LEFT ) {
 		model = &uni;
 		rotate = 270;
 	}

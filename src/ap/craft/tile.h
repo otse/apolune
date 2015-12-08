@@ -30,14 +30,14 @@ namespace ap {
 
 			Part *gpart();
 
-			Tile *gtop();
+			/*Tile *gtop();
 			Tile *gtopright();
 			Tile *gright();
 			Tile *gbottomright();
 			Tile *gbottom();
 			Tile *gbottomleft();
 			Tile *gleft();
-			Tile *gtopleft();
+			Tile *gtopleft();*/
 
 			Tile **gneighbors();
 
@@ -46,14 +46,14 @@ namespace ap {
 
 			Part *part;
 
-			Tile *top;
+			/*Tile *top;
 			Tile *topright;
 			Tile *right;
 			Tile *bottomright;
 			Tile *bottom;
 			Tile *bottomleft;
 			Tile *left;
-			Tile *topleft;
+			Tile *topleft;*/
 
 			Tile *neighbors[8];
 

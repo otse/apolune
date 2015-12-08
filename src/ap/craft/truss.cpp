@@ -100,94 +100,98 @@ void ap::craft::Truss::connect() {
 
 	for (int i = 0; i < 8; i ++) {
 		Tile *t = all[i];
-		Part *p;
-		if ( t && (p = t->gpart()) && p->type == TRUSS ) p->refit();
+		if ( t && t->gpart() && t->gpart()->type == TRUSS )
+			t->gpart()->refit();
 	}
 
 	refit();
 }
 
-void ap::craft::Truss::refit() {
-	Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
-	Part *topright = (tile.gtopright() && tile.gtopright()->gpart()) ? tile.gtopright()->gpart() : nullptr;
-	Part *right = (tile.gright() && tile.gright()->gpart()) ? tile.gright()->gpart() : nullptr;
-	Part *bottomright = (tile.gbottomright() && tile.gbottomright()->gpart()) ? tile.gbottomright()->gpart() : nullptr;
-	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
-	Part *bottomleft = (tile.gbottomleft() && tile.gbottomleft()->gpart()) ? tile.gbottomleft()->gpart() : nullptr;
-	Part *left = (tile.gleft() && tile.gleft()->gpart()) ? tile.gleft()->gpart() : nullptr;
-	Part *topleft = (tile.gtopleft() && tile.gtopleft()->gpart()) ? tile.gtopleft()->gpart() : nullptr;
+#define TOP 		trusses[0]
+#define TOPRIGHT 	trusses[1]
+#define RIGHT 		trusses[2]
+#define BOTTOMRIGHT trusses[3]
+#define BOTTOM 		trusses[4]
+#define BOTTOMLEFT 	trusses[5]
+#define LEFT 		trusses[6]
+#define TOPLEFT 	trusses[7]
 
-	if ( !(top && top->type == TRUSS) ) top = nullptr;
-	if ( !(bottom && bottom->type == TRUSS) ) bottom = nullptr;
-	if ( !(left && left->type == TRUSS) ) left = nullptr;
-	if ( !(right && right->type == TRUSS) ) right = nullptr;
+void ap::craft::Truss::refit() {
+	Tile **all = tile.gneighbors();
+
+	bool trusses[8]; // = {false};
+
+	for (int i = 0; i < 8; i ++) {
+		Tile *t = all[i];
+		trusses[i] = t && t->gpart() && t->gpart()->type == TRUSS;
+	}
 	
 	// quad
-	if ( top && right && bottom && left ) {
+	if ( TOP && RIGHT && BOTTOM && LEFT ) {
 		model = &quad;
 		rotate = 0;
 	}
 
 	// tri
-	else if ( top && right && bottom ) {
+	else if ( TOP && RIGHT && BOTTOM ) {
 		model = &tri;
 		rotate = 0;
 	}
-	else if ( right && bottom && left ) {
+	else if ( RIGHT && BOTTOM && LEFT ) {
 		model = &tri;
 		rotate = 90;
 	}
-	else if ( bottom && left && top ) {
+	else if ( BOTTOM && LEFT && TOP ) {
 		model = &tri;
 		rotate = 180;
 	}
-	else if ( left && top && right ) {
+	else if ( LEFT && TOP && RIGHT ) {
 		model = &tri;
 		rotate = 270;
 	}
 
 	// duo
-	else if ( top && right ) {
+	else if ( TOP && RIGHT ) {
 		model = &duo;
 		rotate = 0;
 	}
-	else if ( right && bottom ) {
+	else if ( RIGHT && BOTTOM ) {
 		model = &duo;
 		rotate = 90;
 	}
-	else if ( bottom && left ) {
+	else if ( BOTTOM && LEFT ) {
 		model = &duo;
 		rotate = 180;
 	}
-	else if ( left && top ) {
+	else if ( LEFT && TOP ) {
 		model = &duo;
 		rotate = 270;
 	}
 
 	// opposite
-	else if ( top && bottom ) {
+	else if ( TOP && BOTTOM ) {
 		model = &opposite;
 		rotate = 0;
 	}
-	else if ( left && right ) {
+	else if ( LEFT && RIGHT ) {
 		model = &opposite;
 		rotate = 90;
 	}
 
 	// uni
-	else if ( top ) {
+	else if ( TOP ) {
 		model = &uni;
 		rotate = 0;
 	}
-	else if ( right ) {
+	else if ( RIGHT ) {
 		model = &uni;
 		rotate = 90;
 	}
-	else if ( bottom ) {
+	else if ( BOTTOM ) {
 		model = &uni;
 		rotate = 180;
 	}
-	else if ( left ) {
+	else if ( LEFT ) {
 		model = &uni;
 		rotate = 270;
 	}
@@ -196,12 +200,12 @@ void ap::craft::Truss::refit() {
 
 	// junctions
 	if ( model == &quad) {
-		if ( ! topleft ) {
+		if ( ! TOPLEFT ) {
 			junction1 = new Sprite(en::GDEF, &textures::parts, &regions::trussjunction);
 			junction1->rotate = 90;
 			junction1->sx(gx());
 			junction1->sy(gy());
-			LOG ("quad: ! topleft")
+			LOG ("quad: ! topLEFT")
 		}
 	}
 
