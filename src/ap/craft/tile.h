@@ -31,13 +31,15 @@ namespace ap {
 			Part *gpart();
 
 			Tile *gtop();
-			Tile *gtopleft();
 			Tile *gtopright();
+			Tile *gright();
+			Tile *gbottomright();
 			Tile *gbottom();
 			Tile *gbottomleft();
-			Tile *gbottomright();
 			Tile *gleft();
-			Tile *gright();
+			Tile *gtopleft();
+
+			Tile **gneighbors();
 
 		protected:
 			void expand();
@@ -45,13 +47,15 @@ namespace ap {
 			Part *part;
 
 			Tile *top;
-			Tile *topleft;
 			Tile *topright;
+			Tile *right;
+			Tile *bottomright;
 			Tile *bottom;
 			Tile *bottomleft;
-			Tile *bottomright;
 			Tile *left;
-			Tile *right;
+			Tile *topleft;
+
+			Tile *neighbors[8];
 
 			int x;
 			int y;

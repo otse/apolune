@@ -153,7 +153,7 @@ void ap::craft::Wall::refit() {
 	// quad
 	if ( top && bottom && left && right ) {
 		model = &quad;
-		sregion(&regions::wallquad);
+		//sregion(&regions::wallquad);
 		rotate = 0;
 	}
 

@@ -86,6 +86,7 @@ en::Region regions::trussduo = {32,0,16,16};
 en::Region regions::trussopposite = {48,0,16,16};
 en::Region regions::trusstri = {64,0,16,16};
 en::Region regions::trussquad = {80,0,16,16};
+en::Region regions::trussjunction = {96,0,16,16};
 
 en::Region regions::wallsingle = {0,32,16,16};
 en::Region regions::walluni = {16,32,16,16};

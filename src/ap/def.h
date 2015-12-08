@@ -94,6 +94,7 @@ namespace ap {
 		extern en::Region trussopposite;
 		extern en::Region trusstri;
 		extern en::Region trussquad;
+		extern en::Region trussjunction;
 		
 		extern en::Region walliris;
 		extern en::Region wallsingle;

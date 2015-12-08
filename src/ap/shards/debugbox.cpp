@@ -85,6 +85,7 @@ void ap::debugbox::cscb() {
 
 void ap::debugbox::init() {
 	using namespace gui;
+	
 	box = new Box();
 	box->sx(50);
 	box->sy(100);

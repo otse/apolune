@@ -21,7 +21,9 @@ ap::craft::Tile::Tile(Grid &grid, int x, int y) :
 	bottomleft(nullptr),
 	bottomright(nullptr),
 	left(nullptr),
-	right(nullptr)
+	right(nullptr),
+
+	neighbors {nullptr}
 	{
 	nodraw = true;
 	scale = 1;
@@ -73,6 +75,8 @@ void ap::craft::Tile::attach(Part *p) {
 	part = p;
 	grid.craft.add(p);
 	grid.expandfrom(*this);
+	p->connect();
+	p->refit();
 }
 
 
@@ -81,22 +85,38 @@ void ap::craft::Tile::hasneighbor(int x, int y) {
 }
 
 void ap::craft::Tile::neighbor(Tile &t) {
-	if (t.gx() == x && t.gy() == y-1)
+	if (t.gx() == x && t.gy() == y-1) {
 		top = &t;
-	else if (t.gx() == x-1 && t.gy() == y-1)
-		topleft = &t;
-	else if (t.gx() == x+1 && t.gy() == y-1)
+		neighbors[0] = &t;
+	}
+	else if (t.gx() == x+1 && t.gy() == y-1) {
 		topright = &t;
-	else if (t.gx() == x && t.gy() == y+1)
-		bottom = &t;
-	else if (t.gx() == x-1 && t.gy() == y+1)
-		bottomleft = &t;
-	else if (t.gx() == x+1 && t.gy() == y+1)
-		bottomright = &t;
-	else if (t.gx() == x-1 && t.gy() == y)
-		left = &t;
-	else if (t.gx() == x+1 && t.gy() == y)
+		neighbors[1] = &t;
+	}
+	else if (t.gx() == x+1 && t.gy() == y) {
 		right = &t;
+		neighbors[2] = &t;
+	}
+	else if (t.gx() == x+1 && t.gy() == y+1) {
+		bottomright = &t;
+		neighbors[3] = &t;
+	}
+	else if (t.gx() == x && t.gy() == y+1) {
+		bottom = &t;
+		neighbors[4] = &t;
+	}
+	else if (t.gx() == x-1 && t.gy() == y+1) {
+		bottomleft = &t;
+		neighbors[5] = &t;
+	}
+	else if (t.gx() == x-1 && t.gy() == y) {
+		left = &t;
+		neighbors[6] = &t;
+	}
+	else if (t.gx() == x-1 && t.gy() == y-1) {
+		topleft = &t;
+		neighbors[7] = &t;
+	}
 }
 
 void ap::craft::Tile::link() {
@@ -162,6 +182,8 @@ Tile *ap::craft::Tile::gbottomleft() { return bottomleft; }
 Tile *ap::craft::Tile::gbottomright() { return bottomright; }
 Tile *ap::craft::Tile::gleft() { return left; }
 Tile *ap::craft::Tile::gright() { return right; }
+
+Tile **ap::craft::Tile::gneighbors() { return neighbors; }
 
 //Tile *ap::craft::Tile::gright() { return right; }
 

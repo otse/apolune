@@ -32,6 +32,7 @@ namespace ap {
 			virtual void step();
 			virtual void draw();
 
+			virtual void connect();
 			virtual void refit();
 
 			Model &gmodel();
@@ -42,6 +43,10 @@ namespace ap {
 			Wall *wall;
 			Sprite *outline;
 
+			Sprite *junction1;
+			Sprite *junction2;
+			Sprite *junction3;
+			Sprite *junction4;
 		};
 	}
 }

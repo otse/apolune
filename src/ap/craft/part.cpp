@@ -43,7 +43,10 @@ void ap::craft::Part::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {} else {}
 }
 
-void ap::craft::Part::refit() {
+void ap::craft::Part::connect () {}
+
+void ap::craft::Part::refit () {}
+
 	/*Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
 	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
 	Part *left = (tile.gleft() && tile.gleft()->gpart()) ? tile.gleft()->gpart() : nullptr;
@@ -53,7 +56,6 @@ void ap::craft::Part::refit() {
 	if ( !(bottom && bottom->gtype() == TRUSS && dynamic_cast<Truss *>(bottom)->gwall()) ) bottom = nullptr;
 	if ( !(left && left->gtype() == TRUSS && dynamic_cast<Truss *>(left)->gwall()) ) left = nullptr;
 	if ( !(right && right->gtype() == TRUSS && dynamic_cast<Truss *>(right)->gwall()) ) right = nullptr;*/
-}
 
 
 /* ###########################

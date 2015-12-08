@@ -63,14 +63,6 @@ void ap::craft::Craft::draw() {
 
 void ap::craft::Craft::add(Part *p) {
 	parts.v.push_back(p);
-
-	//p->refit();
-
-	std::vector<Part *>::iterator it;
-	for ( it = parts.v.begin(); it < parts.v.end(); it ++) {
-		Part *p = *it;
-		p->refit();
-	}
 }
 
 
