@@ -46,10 +46,7 @@ ap::craft::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
 	wall(nullptr),
 	outline(nullptr),
 
-	junction1(nullptr),
-	junction2(nullptr),
-	junction3(nullptr),
-	junction4(nullptr)
+	junctions {nullptr}
 	{
 
 	// if ( !! round(ilrand()) )
@@ -73,10 +70,10 @@ void ap::craft::Truss::draw() {
 
 	Part::draw();
 
-	if ( nullptr != junction1 ) junction1->draw();
-	if ( nullptr != junction2 ) junction2->draw();
-	if ( nullptr != junction3 ) junction3->draw();
-	if ( nullptr != junction4 ) junction4->draw();
+	if ( nullptr != junctions[0] ) junctions[0]->draw();
+	if ( nullptr != junctions[1] ) junctions[1]->draw();
+	if ( nullptr != junctions[2] ) junctions[2]->draw();
+	if ( nullptr != junctions[3] ) junctions[3]->draw();
 
 	if ( ! craft.crosssection && nullptr != wall )
 		wall->draw2(false);
@@ -107,6 +104,18 @@ void ap::craft::Truss::connect() {
 	refit();
 }
 
+void ap::craft::Truss::junction(int i, int r) {
+	Sprite *j = new Sprite(en::GDEF, &textures::parts, &regions::trussjunction);
+	j->world = false;
+	j->rotate = r;
+
+	j->sx(gx());
+	j->sy(gy());
+	j->fbo = craft.gfbo();
+
+	junctions[i] = j;
+}
+
 #define TOP 		trusses[0]
 #define TOPRIGHT 	trusses[1]
 #define RIGHT 		trusses[2]
@@ -121,6 +130,13 @@ void ap::craft::Truss::refit() {
 
 	bool trusses[8]; // = {false};
 
+	for (int i = 0; i < 4; i ++) {
+		if ( nullptr != junctions[i] ) {
+			delete junctions[i];
+			junctions[i] = nullptr;
+		}
+	}
+
 	for (int i = 0; i < 8; i ++) {
 		Tile *t = all[i];
 		trusses[i] = t && t->gpart() && t->gpart()->type == TRUSS;
@@ -130,6 +146,18 @@ void ap::craft::Truss::refit() {
 	if ( TOP && RIGHT && BOTTOM && LEFT ) {
 		model = &quad;
 		rotate = 0;
+
+		if ( ! TOPLEFT )
+			junction(0, 0);
+
+		if ( ! TOPRIGHT )
+			junction(1, 90);
+
+		if ( ! BOTTOMRIGHT )
+			junction(2, 180);
+
+		if ( ! BOTTOMLEFT )
+			junction(3, 270);
 	}
 
 	// tri
@@ -198,20 +226,11 @@ void ap::craft::Truss::refit() {
 
 	sregion(model->m.r);
 
-	// junctions
-	if ( model == &quad) {
-		if ( ! TOPLEFT ) {
-			junction1 = new Sprite(en::GDEF, &textures::parts, &regions::trussjunction);
-			junction1->rotate = 90;
-			junction1->sx(gx());
-			junction1->sy(gy());
-			LOG ("quad: ! topLEFT")
-		}
-	}
-
 	if ( nullptr != wall )
 		wall->refit();
 }
+
+
 
 
 /* ###########################

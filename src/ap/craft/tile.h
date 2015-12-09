@@ -29,32 +29,12 @@ namespace ap {
 			int gy();
 
 			Part *gpart();
-
-			/*Tile *gtop();
-			Tile *gtopright();
-			Tile *gright();
-			Tile *gbottomright();
-			Tile *gbottom();
-			Tile *gbottomleft();
-			Tile *gleft();
-			Tile *gtopleft();*/
-
 			Tile **gneighbors();
 
 		protected:
 			void expand();
 
 			Part *part;
-
-			/*Tile *top;
-			Tile *topright;
-			Tile *right;
-			Tile *bottomright;
-			Tile *bottom;
-			Tile *bottomleft;
-			Tile *left;
-			Tile *topleft;*/
-
 			Tile *neighbors[8];
 
 			int x;

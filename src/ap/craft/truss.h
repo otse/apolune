@@ -35,6 +35,7 @@ namespace ap {
 			virtual void connect();
 			virtual void refit();
 
+
 			Model &gmodel();
 			Wall *gwall();
 
@@ -43,10 +44,8 @@ namespace ap {
 			Wall *wall;
 			Sprite *outline;
 
-			Sprite *junction1;
-			Sprite *junction2;
-			Sprite *junction3;
-			Sprite *junction4;
+			void junction(int, int);
+			Sprite *junctions[4];
 		};
 	}
 }
