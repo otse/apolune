@@ -78,7 +78,7 @@ void ap::craft::Tile::sneighbor(Tile &t, int i) {
 	neighbors[i] = &t;
 }
 
-void ap::craft::Tile::neighbor(Tile &t) {
+/*void ap::craft::Tile::neighbor(Tile &t) {
 	if (t.gx() == x && t.gy() == y-1)
 		neighbors[0] = &t;
 
@@ -102,8 +102,7 @@ void ap::craft::Tile::neighbor(Tile &t) {
 	
 	else if (t.gx() == x-1 && t.gy() == y-1)
 		neighbors[7] = &t;
-	
-}
+}*/
 
 int opposites[8] = {4,5,6,7,0,1,2,3};
 
