@@ -75,38 +75,30 @@ void ap::craft::Tile::hasneighbor(int x, int y) {
 }
 
 void ap::craft::Tile::neighbor(Tile &t) {
-	if (t.gx() == x && t.gy() == y-1) {
-		//top = &t;
+	if (t.gx() == x && t.gy() == y-1)
 		neighbors[0] = &t;
-	}
-	else if (t.gx() == x+1 && t.gy() == y-1) {
-		//topright = &t;
+
+	else if (t.gx() == x+1 && t.gy() == y-1)
 		neighbors[1] = &t;
-	}
-	else if (t.gx() == x+1 && t.gy() == y) {
-		//right = &t;
+	
+	else if (t.gx() == x+1 && t.gy() == y)
 		neighbors[2] = &t;
-	}
-	else if (t.gx() == x+1 && t.gy() == y+1) {
-		//bottomright = &t;
+	
+	else if (t.gx() == x+1 && t.gy() == y+1)
 		neighbors[3] = &t;
-	}
-	else if (t.gx() == x && t.gy() == y+1) {
-		//bottom = &t;
+	
+	else if (t.gx() == x && t.gy() == y+1)
 		neighbors[4] = &t;
-	}
-	else if (t.gx() == x-1 && t.gy() == y+1) {
-		//bottomleft = &t;
+	
+	else if (t.gx() == x-1 && t.gy() == y+1) 
 		neighbors[5] = &t;
-	}
-	else if (t.gx() == x-1 && t.gy() == y) {
-		//left = &t;
+	
+	else if (t.gx() == x-1 && t.gy() == y) 
 		neighbors[6] = &t;
-	}
-	else if (t.gx() == x-1 && t.gy() == y-1) {
-		//topleft = &t;
+	
+	else if (t.gx() == x-1 && t.gy() == y-1) 
 		neighbors[7] = &t;
-	}
+	
 }
 
 void ap::craft::Tile::link() {
