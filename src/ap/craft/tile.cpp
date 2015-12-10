@@ -74,6 +74,10 @@ void ap::craft::Tile::hasneighbor(int x, int y) {
 
 }
 
+void ap::craft::Tile::sneighbor(Tile &t, int i) {
+	neighbors[i] = &t;
+}
+
 void ap::craft::Tile::neighbor(Tile &t) {
 	if (t.gx() == x && t.gy() == y-1)
 		neighbors[0] = &t;
@@ -90,30 +94,32 @@ void ap::craft::Tile::neighbor(Tile &t) {
 	else if (t.gx() == x && t.gy() == y+1)
 		neighbors[4] = &t;
 	
-	else if (t.gx() == x-1 && t.gy() == y+1) 
+	else if (t.gx() == x-1 && t.gy() == y+1)
 		neighbors[5] = &t;
 	
-	else if (t.gx() == x-1 && t.gy() == y) 
+	else if (t.gx() == x-1 && t.gy() == y)
 		neighbors[6] = &t;
 	
-	else if (t.gx() == x-1 && t.gy() == y-1) 
+	else if (t.gx() == x-1 && t.gy() == y-1)
 		neighbors[7] = &t;
 	
 }
+
+int opposites[8] = {4,5,6,7,0,1,2,3};
 
 void ap::craft::Tile::link() {
 	for (int i = 0; i < 8; i ++) {
 		int x = this->x, y = this->y;
 
 		switch(i) {
-			case 0: y -= 1; 		break;
-			case 1: x -= 1; y -= 1; break;
-			case 2: x += 1; y -= 1; break;
-			case 3: y += 1; 		break;
-			case 4: x -= 1; y += 1; break;
-			case 5: x += 1; y += 1; break;
+			case 0: y -= 1;			break;
+			case 1: x += 1; y -= 1; break;
+			case 2: x += 1; 		break;
+			case 3: x += 1; y += 1; break;
+			case 4: y += 1; 		break;
+			case 5: x -= 1; y += 1; break;
 			case 6: x -= 1; 		break;
-			case 7: x += 1; 		break;
+			case 7: x -= 1; y -= 1; break;
 		}
 
 		Tile *hit = nullptr;
@@ -123,8 +129,10 @@ void ap::craft::Tile::link() {
 		std::unordered_map<std::string, Tile *>::const_iterator got = grid.tilesum.find(xy);
 		
 		if ( got != grid.tilesum.end() ) {
-			got->second->neighbor(*this);
-			this->neighbor(*got->second);
+			//got->second->neighbor(*this);
+			//this->neighbor(*got->second);
+			got->second->sneighbor(*this, opposites[i]);
+			this->sneighbor(*got->second, i);
 		}
 	}
 

@@ -20,6 +20,7 @@ namespace ap {
 
 			void attach(Part *);
 			void neighbor(Tile &);
+			void sneighbor(Tile &, int);
 			void hasneighbor(int,int);
 			void link();
 
