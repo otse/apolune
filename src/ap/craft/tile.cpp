@@ -78,32 +78,6 @@ void ap::craft::Tile::sneighbor(Tile &t, int i) {
 	neighbors[i] = &t;
 }
 
-/*void ap::craft::Tile::neighbor(Tile &t) {
-	if (t.gx() == x && t.gy() == y-1)
-		neighbors[0] = &t;
-
-	else if (t.gx() == x+1 && t.gy() == y-1)
-		neighbors[1] = &t;
-	
-	else if (t.gx() == x+1 && t.gy() == y)
-		neighbors[2] = &t;
-	
-	else if (t.gx() == x+1 && t.gy() == y+1)
-		neighbors[3] = &t;
-	
-	else if (t.gx() == x && t.gy() == y+1)
-		neighbors[4] = &t;
-	
-	else if (t.gx() == x-1 && t.gy() == y+1)
-		neighbors[5] = &t;
-	
-	else if (t.gx() == x-1 && t.gy() == y)
-		neighbors[6] = &t;
-	
-	else if (t.gx() == x-1 && t.gy() == y-1)
-		neighbors[7] = &t;
-}*/
-
 int opposites[8] = {4,5,6,7,0,1,2,3};
 
 void ap::craft::Tile::link() {
@@ -128,8 +102,6 @@ void ap::craft::Tile::link() {
 		std::unordered_map<std::string, Tile *>::const_iterator got = grid.tilesum.find(xy);
 		
 		if ( got != grid.tilesum.end() ) {
-			//got->second->neighbor(*this);
-			//this->neighbor(*got->second);
 			got->second->sneighbor(*this, opposites[i]);
 			this->sneighbor(*got->second, i);
 		}
