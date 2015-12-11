@@ -20,6 +20,9 @@ namespace ap {
 		extern bool bcs;
 		extern gui::Label *cs;
 		void cscb();
+
+		extern gui::Label *scale;
+		void scalecb();
 		
 	}
 }
@@ -34,6 +37,9 @@ bool ap::debugbox::bfs = false;
 
 gui::Label *ap::debugbox::cs;
 bool ap::debugbox::bcs = false;
+
+gui::Label *ap::debugbox::scale;
+
 
 // XxX_BakrexzzDE11IGHTZZ4201337_Xx
 void ap::debugbox::petcb() {
@@ -83,6 +89,23 @@ void ap::debugbox::cscb() {
 	}
 }
 
+void ap::debugbox::scalecb() {
+	if ( MOUISLEFT  &&  mou::RELEASED == *mou::active ) {
+		if ( ap::scale == 1 ) {
+			ap::scale = 2;
+			cs->svalue("2");
+		} else if ( ap::scale == 2 ) {
+			ap::scale = 3;
+			cs->svalue("3");
+		} else if ( ap::scale == 3 ) {
+			ap::scale = 1;
+			cs->svalue("1");
+		}
+		
+		scale->rebuild();
+	}
+}
+
 void ap::debugbox::init() {
 	using namespace gui;
 	
@@ -108,6 +131,10 @@ void ap::debugbox::init() {
 	cs = new Label(box, "Cross Section", "", true);
 	cs->onclick = cscb;
 	cs->svalue("on");
+
+	scale = new Label(box, "scale", "", true);
+	scale->onclick = scalecb;
+	scale->svalue("2");
 	
 	box->add(stats::fps);
 	box->add(stats::delta);
@@ -117,5 +144,6 @@ void ap::debugbox::init() {
 	box->add(fs);
 	box->add(pet);
 	box->add(cs);
+	box->add(scale);
 	//debugbox->step();
 }
