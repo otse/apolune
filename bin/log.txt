@@ -1,6 +1,6 @@
 0.12
 hi ô_ô
-extraction path is C:\Users\petru_000\AppData\Roaming\.apolune
+extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
 Midrash.json versions 0.12
 verifying lua...
 END

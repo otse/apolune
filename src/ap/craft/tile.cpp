@@ -95,10 +95,7 @@ void ap::craft::Tile::link() {
 			case 7: x -= 1; y -= 1; break;
 		}
 
-		Tile *hit = nullptr;
-
 		std::string xy = std::to_string(x) + "," + std::to_string(y);
-
 		std::unordered_map<std::string, Tile *>::const_iterator got = grid.tilesum.find(xy);
 		
 		if ( got != grid.tilesum.end() ) {
