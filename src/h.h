@@ -81,8 +81,7 @@ namespace ap {
 		class Truss;
 		class Wall;
 	}
-	
-	
+
 	extern ais::Chicken *chicken;
 	
 	extern std::ofstream log;
@@ -109,9 +108,12 @@ namespace ap {
 	extern int frameCount;
 	extern int fps;
 
+	extern int scale;
+
 	extern double zoom;
 	extern double zoomto;
 	extern double zoomspeed;
+
 	extern bool pointingcoords; // niy
 	
 	void loadtex();
