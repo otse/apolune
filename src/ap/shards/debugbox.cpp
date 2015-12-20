@@ -130,7 +130,7 @@ void ap::debugbox::init() {
 	pet->onclick = petcb;
 	pet->svalue("on");
 
-	cs = new Label(box, "Cross Section", "", true);
+	cs = new Label(box, "cross section", "", true);
 	cs->onclick = cscb;
 	cs->svalue("on");
 

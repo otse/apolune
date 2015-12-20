@@ -113,11 +113,11 @@ void ap::craft::Tile::hover(mou::Hover h) {
 
 	if ( mou::HOVER_IN == h ) {
 		sregion(&regions::tileover);
-		nodraw = false;
+		// nodraw = false;
 	} else {
 		sregion(&regions::tile);
 		// if ( part )
-			nodraw = true;
+			// nodraw = true;
 	}
 
 }
