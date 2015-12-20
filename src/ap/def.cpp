@@ -88,6 +88,14 @@ en::Region regions::trusstri = {64,0,16,16};
 en::Region regions::trussquad = {80,0,16,16};
 en::Region regions::trussjunction = {96,0,16,16};
 
+en::Region regions::trusssingle_shadow = {0,16,16,16};
+en::Region regions::trussuni_shadow = {16,16,16,16};
+en::Region regions::trussduo_shadow = {32,16,16,16};
+en::Region regions::trussopposite_shadow = {48,16,16,16};
+en::Region regions::trusstri_shadow = {64,16,16,16};
+en::Region regions::trussquad_shadow = {80,16,16,16};
+en::Region regions::trussjunction_shadow = {96,16,16,16};
+
 en::Region regions::wallsingle = {0,32,16,16};
 en::Region regions::walluni = {16,32,16,16};
 en::Region regions::wallduo = {32,32,16,16};

@@ -117,13 +117,20 @@ void ap::craft::Wall::step() {
 }
 
 void ap::craft::Wall::draw2(bool rear) {
-	if ( rear )
-		sregion(model->rear.r);
+	int r = rotate;
+
+	if ( rear ) {
+		//sregion(model->rear.r);
+		sregion(quad.rear.r);
+		rotate = 0;
+	}
 
 	else if ( ! craft.crosssection )
 		sregion(model->m.r);
 
 	draw();
+
+	rotate = r;
 }
 
 void ap::craft::Wall::click() {
