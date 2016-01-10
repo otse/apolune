@@ -195,7 +195,7 @@ void en::Draws::draw() {
 	} else { // no texture
 		glDisable(GL_TEXTURE_2D);
 		glColor4f(color->r, color->g, color->b, a);
-			
+		
 		glBegin(GL_QUADS);
 		
 		glVertex2d(0, 0);
@@ -206,7 +206,7 @@ void en::Draws::draw() {
 		glEnd();
 		
 		glColor4f(1, 1, 1, 1);
-			
+		
 		glEnable(GL_TEXTURE_2D);
 	}
 	
