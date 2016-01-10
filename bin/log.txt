@@ -5,3 +5,10 @@ Midrash.json versions 0.12
 verifying lua...
 END
 ~Loader
+pressed button
+pressed button
+world ctor
+world load
+ply ctor
+ok
+deleting menu and affiliates

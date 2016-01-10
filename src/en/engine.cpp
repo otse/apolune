@@ -84,8 +84,10 @@ void en::boot(int argc, const char* argv[]) {
 	}
 
 	if ( en::ppi ) {
-		w *= 2;
-		h *= 2;
+		w = 1920;
+		h = 1080;
+		width = 960;
+		height = 540;
 	}
 
 	RenderWindow window(VideoMode(w, h), envars::windowname, envars::windowstyle);
