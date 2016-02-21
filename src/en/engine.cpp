@@ -75,7 +75,7 @@ void en::boot(int argc, const char* argv[]) {
 	int w = width;
 	int h = height;
 
-	/*for (int i = 1; i < argc; i ++) {
+	for (int i = 1; i < argc; i ++) {
 		if (strcmp(argv[i], "-ppi") == 0)
 			en::ppi = true;
 
@@ -84,9 +84,11 @@ void en::boot(int argc, const char* argv[]) {
 	}
 
 	if ( en::ppi ) {
-		w *= 2;
-		h *= 2;
-	}*/
+		w = 1920;
+		h = 1080;
+		width = 960;
+		height = 540;
+	}
 
 	RenderWindow window(VideoMode(w, h), envars::windowname, envars::windowstyle);
 	//window.setVerticalSyncEnabled(true);
