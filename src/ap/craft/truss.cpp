@@ -164,18 +164,6 @@ void ap::craft::Truss::refit() {
 	else if ( TOP && RIGHT && BOTTOM ) {
 		model = &tri;
 		rotate = 0;
-
-		if ( ! TOPLEFT )
-			junction(0, 0);
-
-		if ( ! TOPRIGHT )
-			junction(1, 90);
-
-		if ( ! BOTTOMRIGHT )
-			junction(2, 180);
-
-		if ( ! BOTTOMLEFT )
-			junction(3, 270);
 	}
 	else if ( RIGHT && BOTTOM && LEFT ) {
 		model = &tri;
