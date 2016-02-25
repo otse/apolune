@@ -72,22 +72,25 @@ void en::roaming() {
 void en::boot(int argc, const char* argv[]) {	
 	using namespace sf;
 
-	int w = width;
-	int h = height;
 
 	for (int i = 1; i < argc; i ++) {
-		if (strcmp(argv[i], "-ppi") == 0)
+		if (strcmp(argv[i], "-ppi") == 0) {
+			LOG("-~=-> -ppi switch")
 			en::ppi = true;
+		}
 
 		else if (strcmp(argv[1], "-thing") == 0)
 			;
 	}
 
+	int w = width;
+	int h = height;
+
 	if ( en::ppi ) {
-		w = 1920;
-		h = 1080;
-		width = 960;
-		height = 540;
+		// w = 1920;
+		// h = 1080;
+		width = w / 2 ; // 960
+		height = h / 2 ; // 540
 	}
 
 	RenderWindow window(VideoMode(w, h), envars::windowname, envars::windowstyle);
@@ -155,8 +158,12 @@ void en::mou::mice(const sf::RenderWindow &a) {
 	using namespace sf;
 	
 	pos = Mouse::getPosition(a);
-	mx = pos.x;
-	my = pos.y;
+	if ( en::ppi && pos.x/2 != mx || pos.y/2 != my ) {
+		LOG("mx " << mx << " my " << my)
+		mx = pos.x / 2;
+		my = pos.y / 2;
+	}
+
 	
 	bool l = Mouse::isButtonPressed(Mouse::Left);
 	bool r = Mouse::isButtonPressed(Mouse::Right);

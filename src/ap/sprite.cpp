@@ -10,7 +10,7 @@ ap::Sprite::Sprite(en::Group g, en::Texture *t, en::Region *r)
 	{
 	COUNT ++;
 
-	scale = 2;
+	scale = 3;
 	sw(gw()*scale);
 	sh(gh()*scale);
 }
