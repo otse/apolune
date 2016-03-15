@@ -72,7 +72,6 @@ void en::roaming() {
 void en::boot(int argc, const char* argv[]) {	
 	using namespace sf;
 
-
 	for (int i = 1; i < argc; i ++) {
 		if (strcmp(argv[i], "-ppi") == 0) {
 			LOG("-~=-> -ppi switch")
@@ -83,17 +82,20 @@ void en::boot(int argc, const char* argv[]) {
 			;
 	}
 
-	int w = width;
-	int h = height;
+	int windoww = width;
+	int windowh = height;
 
 	if ( en::ppi ) {
 		// w = 1920;
 		// h = 1080;
-		width = w / 2 ; // 960
-		height = h / 2 ; // 540
+		windoww = 1920;
+		windowh = 1080;
+
+		width = windoww / 2 ; // 960
+		height = windowh / 2 ; // 540
 	}
 
-	RenderWindow window(VideoMode(w, h), envars::windowname, envars::windowstyle);
+	RenderWindow window(VideoMode(windoww, windowh), envars::windowname, envars::windowstyle);
 	//window.setVerticalSyncEnabled(true);
 	
 	GLenum GlewInitResult;
@@ -158,13 +160,15 @@ void en::mou::mice(const sf::RenderWindow &a) {
 	using namespace sf;
 	
 	pos = Mouse::getPosition(a);
-	if ( en::ppi && pos.x/2 != mx || pos.y/2 != my ) {
-		LOG("mx " << mx << " my " << my)
+	mx = pos.x;
+	my = pos.y;
+
+	if ( en::ppi /* && (pos.x/2 != mx || pos.y/2 != my)*/ ) {
 		mx = pos.x / 2;
 		my = pos.y / 2;
+		// LOG("mx " << mx << " my " << my)
 	}
 
-	
 	bool l = Mouse::isButtonPressed(Mouse::Left);
 	bool r = Mouse::isButtonPressed(Mouse::Right);
 	
