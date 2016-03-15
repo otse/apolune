@@ -241,7 +241,6 @@ void ap::World::load() {
 	// this->add( hangar );
 	// hangar->post();
 
-	
 	craft = new craft::Craft();
 	ap::world->add(craft);
 	
@@ -277,11 +276,11 @@ void ap::World::load() {
 			Sprite *d = *i;
 			LOG("'" << d->name << "' order " << d->order)
 		}
-		
 	}
 	*/
 	
 	// set world offsets
+
 	ap::xof = (en::width/2)-(ply->gw()/2);
 	ap::yof = (en::height/2)-(ply->gh()/2)+100;
 
