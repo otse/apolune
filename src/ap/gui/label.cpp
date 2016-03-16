@@ -84,13 +84,15 @@ void ap::gui::Label::svalue(const char *q) {
 
 void ap::gui::Label::rebuild() {
 	using namespace regions;
+
+	const int A = 4; // STAT TEXT START
 	
-	tlabel->sx(gx()+4);
-	tlabel->sy(gy()+3);
+	tlabel->sx(gx()+A);
+	tlabel->sy(gy()+2);
 	tlabel->position();
 	int lwidth = tlabel->gtextw() + 1;
 	
-	tvalue->sx(gx()+4+lwidth+4+3);
+	tvalue->sx(gx()+A+lwidth+4+3);
 	tvalue->sy(gy()+3);
 	tvalue->position();
 	int vwidth = tvalue->gtextw();
@@ -101,38 +103,38 @@ void ap::gui::Label::rebuild() {
 	
 	lmiddle->sx(gx()+statl.w);
 	lmiddle->sy(gy());
-	lmiddle->sw(4-statl.w+lwidth+4+3+vwidth+3+1-4);
+	lmiddle->sw(-statl.w+lwidth+4+3+vwidth+3+1);
 	
 	lright->sx(gx()+lwidth+2+vwidth+8+3-2);
 	lright->sy(gy());
 	
 	// value bg
 	if ( changeable ) {
-		vleft->sx(gx()+4+lwidth+4);
+		vleft->sx(gx()+A+lwidth+4);
 		vleft->sy(gy()+1);
 
-		vmiddle->sx(gx()+4+lwidth+4+3);
+		vmiddle->sx(gx()+A+lwidth+4+3);
 		vmiddle->sy(gy()+1);
 		vmiddle->sw(vwidth);
 
-		vright->sx(gx()+4+lwidth+4+3+vwidth);
+		vright->sx(gx()+A+lwidth+4+3+vwidth);
 		vright->sy(gy()+1);
 	}
 
 	if ( button ) {
 		// button bg
-		bleft->sx(gx()+4+lwidth+4);
+		bleft->sx(gx()+A+lwidth+4);
 		bleft->sy(gy()+1);
 
-		bmiddle->sx(gx()+4+lwidth+4+3);
+		bmiddle->sx(gx()+A+lwidth+4+3);
 		bmiddle->sy(gy()+1);
 		bmiddle->sw(vwidth);
 
-		bright->sx(gx()+4+lwidth+4+3+vwidth);
+		bright->sx(gx()+A+lwidth+4+3+vwidth);
 		bright->sy(gy()+1);
 	}
 	
-	sw(4+lwidth+4+3+vwidth+3+1);
+	sw(A+lwidth+4+3+vwidth+3+1);
 	sh(20);
 
 	Element::rebuild();
