@@ -16,14 +16,14 @@ ap::craft::Tile::Tile(Grid &grid, int x, int y) :
 
 	neighbors {nullptr}
 	{
-	nodraw = true;
-	scale = 1;
+	// nodraw = true;
+	scale = 3;
 
-	sw(r->w);
-	sh(r->h);
+	sw(r->w*scale);
+	sh(r->h*scale);
 
-	sx(grid.gx() + (x*32));
-	sy(grid.gy() + (y*32));
+	sx(grid.gx() + (x*48));
+	sy(grid.gy() + (y*48));
 
 	// expand();
 }
@@ -113,11 +113,11 @@ void ap::craft::Tile::hover(mou::Hover h) {
 
 	if ( mou::HOVER_IN == h ) {
 		sregion(&regions::tileover);
-		// nodraw = false;
+		nodraw = false;
 	} else {
 		sregion(&regions::tile);
-		// if ( part )
-			// nodraw = true;
+		if ( part )
+			nodraw = true;
 	}
 
 }

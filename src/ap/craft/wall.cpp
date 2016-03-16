@@ -101,8 +101,8 @@ ap::craft::Wall::Wall(Tile &t) : Part(t, single.m, WALL) ,
 	model(&single),
 	outline(nullptr)
 	{
-	sx(tile.gx()*32);
-	sy(tile.gy()*32);
+	sx(tile.gx()*48);
+	sy(tile.gy()*48);
 	// LOG("new wall, region " << m.m.r->x << m.m.r->y << m.m.r->w << m.m.r->h)
 
 }
