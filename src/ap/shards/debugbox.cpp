@@ -122,13 +122,13 @@ void ap::debugbox::init() {
 	stats::draws = new Label(box, "draws", "120", false);
 	stats::sprites = new Label(box, "sprites", "20", false);
 	
-	fs = new Label(box, "windowed", "", true);
+	/*fs = new Label(box, "windowed", "", true);
 	fs->onclick = fscb;
 	fs->svalue("on");
 	
 	pet = new Label(box, "pet", "", true);
 	pet->onclick = petcb;
-	pet->svalue("on");
+	pet->svalue("on");*/
 
 	cs = new Label(box, "cross section", "", true);
 	cs->onclick = cscb;
@@ -143,8 +143,8 @@ void ap::debugbox::init() {
 	box->add(stats::draws);
 	box->add(stats::sprites);
 	
-	box->add(fs);
-	box->add(pet);
+	//box->add(fs);
+	//box->add(pet);
 	box->add(cs);
 	box->add(scale);
 	//debugbox->step();

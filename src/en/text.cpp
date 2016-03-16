@@ -62,7 +62,9 @@ void en::Text::position() {
 		Draws *d = this->draws[i];
 		
 		d->scolor(color);
+		
 		int x_ = (width-g.sb) * scale;
+
 		d->sx(gx() + x_ );
 		d->sy(gy());
 		
@@ -74,8 +76,13 @@ void en::Text::position() {
 		}
 		
 		width += g.w-g.sb-g.sf;
+		
+		//if ( i == l-1 )
+			//width += g.sf;
+			
 		//std::cout << "text Draws glyph '" << c << "', x: " << d->gx() << std::endl;
 	}
+
 	
 	sw(width * scale);
 	sh(f.gh() * scale);
