@@ -159,9 +159,9 @@ void ap::gui::Label::step() {
 }
 
 void ap::gui::Label::draw() {
-	//lleft->draw();
-	//lmiddle->draw();
-	//lright->draw();
+	lleft->draw();
+	lmiddle->draw();
+	lright->draw();
 	
 	tlabel->draw();
 	
