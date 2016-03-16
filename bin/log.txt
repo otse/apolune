@@ -1,8 +1,14 @@
 0.12
 hi ô_ô
--~=-> -ppi switch
-extraction path is C:\Users\petru_000\AppData\Roaming\.apolune
+extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
 Midrash.json versions 0.12
 verifying lua...
 END
 ~Loader
+pressed button
+pressed button
+world ctor
+world load
+ply ctor
+ok
+deleting menu and affiliates
