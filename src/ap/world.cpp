@@ -17,7 +17,7 @@
 
 #include "../en/shader.h"
 
-en::Region starsreg = (en::Region) { 0, 0, (int) (en::width*2), (int) (en::height*2) };
+en::Region starsreg = (en::Region) { 0, 0, (int) (en::width*3), (int) (en::height*3) };
 en::Region *leasurearea = new (en::Region) { 980, 242, 1190-980, 602-242 };
 //std::vector<en::Draws> stars;
 

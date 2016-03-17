@@ -29,7 +29,7 @@ ap::Hangar::Hangar()
 	{
 	//dim(0, 0, textures::orpheus.gw(), textures::orpheus.gh());
 	sorder(2);
-	nodraw = true;
+	//nodraw = true;
 }
 
 ap::Hangar::~Hangar() { // dtor
@@ -41,22 +41,22 @@ void ap::Hangar::step() {
 }
 
 void ap::Hangar::post() {
-	/*Sprite *hangarlight = new Sprite(en::GDEF, &textures::hangarlight, &regions::hangarlight);
+	Sprite *hangarlight = new Sprite(en::GDEF, &textures::hangarlight, &regions::hangarlight);
 	hangarlight->sx((1514-911)*2);
 	hangarlight->sy((705-527)*2);
-	ap::world->lights.v.push_back(hangarlight);*/
+	ap::world->lights.v.push_back(hangarlight);
 
 
 	//grid.attach(craft);
 	
-	/*Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
+	Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
 	Light *light2 = new Light(lights::FLUOTUBE, 1307-911, 754-527);
-	Light *light3 = new Light(lights::FLUOTUBE, 1379-911, 754-527);*/
+	Light *light3 = new Light(lights::FLUOTUBE, 1379-911, 754-527);
 	//Light *light4 = new Light(lights::FLUOTUBE, 1194/2, 402/2);
 	//Light *light4 = new Light(lights::FLUOTUBE, 1283, 772);
 	//Light *light5 = new Light(lights::FLUOTUBE, 1364, 772);
 	
-	/*Emitter *ventfume1 = new Emitter(Emitter::ventfume);
+	Emitter *ventfume1 = new Emitter(Emitter::ventfume);
 	ventfume1->sx(673);
 	ventfume1->sy(540);
 	ap::world->add(ventfume1);
@@ -69,7 +69,7 @@ void ap::Hangar::post() {
 	Emitter *ventfume3 = new Emitter(Emitter::ventfume);
 	ventfume3->sx(958);
 	ventfume3->sy(540);
-	ap::world->add(ventfume3);*/
+	ap::world->add(ventfume3);
 
 	/*Sprite *craftlight = new Sprite(en::GDEF, craft->gfbo(), craft->gregion());*/
 	
@@ -86,17 +86,17 @@ void ap::Hangar::post() {
 
 	using namespace objects;
 
-	/*Chair *chair = new Chair(Chair::apexcool);
+	Chair *chair = new Chair(Chair::apexcool);
 	chair->sx((1432-910)*2);
 	chair->sy((828-527-18)*2);
-	ap::world->add(chair);*/
+	ap::world->add(chair);
 	
-	/*Console *console = new Console();
+	Console *console = new Console();
 	console->sx((1452-970)*2);
 	console->sy((828-544)*2);
-	add(console);*/
+	add(console);
 
-	/*Table *table = new Table(Table::apexcool);
+	Table *table = new Table(Table::apexcool);
 	table->sx((1450-910)*2);
 	table->sy((828-527-16)*2);
 	ap::world->add(table);
@@ -108,7 +108,7 @@ void ap::Hangar::post() {
 			anims::teacup);
 	teacup->sx(1088);
 	teacup->sy(570-16);
-	ap::world->add(teacup);*/
+	ap::world->add(teacup);
 
 	/*for ( int i = 0; i < 1; i ++ ) {
 		en::Region *r = new (en::Region) { 565, 503, 220, 100 };
@@ -126,13 +126,13 @@ void ap::Hangar::post() {
 		ap::world->add(chicken);
 	}*/
 
-	/*Sprite *radio = new Sprite(
-			en::GDEFAULT,
+	Sprite *radio = new Sprite(
+			en::GDEF,
 			&textures::apexradio,
 			&regions::apexradio);
 	radio->sx((1500-911)*2);
 	radio->sy((828-527-17)*2);
-	add(radio);*/
+	add(radio);
 }
 
 /* ###########################
