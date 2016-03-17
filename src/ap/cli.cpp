@@ -10,19 +10,24 @@
 ap::CLI::CLI() : en::Draws(en::GDUMP, nullptr, &en::regfluke) ,
 	pane(nullptr)
 	{
-	sy(600-regions::clipane.h);
-	sh(regions::clipane.h);
-	pane = new Draws(en::GDUMP, nullptr, &regions::clipane);
+
+	en::Region *rr = new (en::Region) {0,0,en::width,160};
+	r = rr;
+
+	sy(en::height-r->h);
+	sh(r->h);
+	pane = new Draws(en::GDUMP, nullptr, r);
 	pane->scolor(&colors::CLIPANE);
 	pane->sy(gy());
 	add(pane);
 
-	mention( "-~=\\ cli /=~-" );
+	mention( "-~=\\ apolune /=~-" );
 	mention( "| running world" );
-	mention( "| doing uff..." );
+	mention( "| doing stuff..." );
 }
 
 ap::CLI::~CLI() {
+	delete r;
 	pane->remove = true;
 	
 	{std::vector<Text *>::iterator it;

@@ -88,7 +88,7 @@ void ap::gui::Label::rebuild() {
 	const int A = 4; // STAT TEXT START
 	
 	tlabel->sx(gx()+A);
-	tlabel->sy(gy()+2);
+	tlabel->sy(gy()+3);
 	tlabel->position();
 	int lwidth = tlabel->gtextw() + 1;
 	
