@@ -35,7 +35,7 @@ double ap::zoomspeed = 1;
 
 int ap::fps = 0;
 int ap::frameCount = 0;
-int ap::scale = 2;
+int ap::scale = 3;
 
 CLI *ap::cli = nullptr;
 Loader *ap::loader;

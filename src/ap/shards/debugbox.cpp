@@ -93,11 +93,11 @@ void ap::debugbox::scalecb() {
 	if ( MOUISLEFT  &&  mou::RELEASED == *mou::active ) {
 		if ( ap::scale == 1 ) {
 			ap::scale = 2;
-			scale->svalue("2: normal");
+			scale->svalue("2: macro");
 
 		} else if ( ap::scale == 2 ) {
 			ap::scale = 3;
-			scale->svalue("3: close");
+			scale->svalue("3: normal");
 		
 		} else if ( ap::scale == 3 ) {
 			ap::scale = 1;
@@ -134,9 +134,9 @@ void ap::debugbox::init() {
 	cs->onclick = cscb;
 	cs->svalue("on");
 
-	scale = new Label(box, "scale", "", true);
+	/*scale = new Label(box, "scale", "", true);
 	scale->onclick = scalecb;
-	scale->svalue("2: normal");
+	scale->svalue("2: normal");*/
 	
 	box->add(stats::fps);
 	box->add(stats::delta);
@@ -146,6 +146,6 @@ void ap::debugbox::init() {
 	//box->add(fs);
 	//box->add(pet);
 	box->add(cs);
-	box->add(scale);
+	//box->add(scale);
 	//debugbox->step();
 }

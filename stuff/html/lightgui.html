@@ -17,10 +17,10 @@ body {
 om\:window {
 	position: relative;
 	display: block;
-	background-image: url(game.png);
-	background: black;
-	width: 800px;
-	height: 600px;
+	background-image: url(gamee.png);
+	xbackground: black;
+	width: 1024px;
+	height: 768px;
 }
 
 om\:box {
@@ -284,10 +284,26 @@ om\:cmd om\:line om\:block {
 	xmargin-left: 3px;
   background: rgb(244, 244, 244);
 }
+
+
+om\:float {
+	position: absolute;
+	left: 40%;
+	top: 50px;
+	display: inline-block;
+	font-family: Source Code Pro;
+	font-size: 24px;
+	text-transform: uppercase;
+	padding: 4px;
+	color: white;
+	xbackground: rgba(235, 235, 235, 0.16);
+}
 </style>
 </head>
 <body>
 <om:window>
+	<om:float>Huge Floating Title</om:float>
+
 	<om:box style="margin: 254px 28px;">
 		<!--<om:label title>stats</om:label><br />-->
 		<om:stat style="margin-top: 0em;"><span>fps</span><om:value><span>100</span></om:value></om:stat><br />
