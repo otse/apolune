@@ -97,8 +97,8 @@ int *ap::craft::Grid::gdims() {
 	if ( y2 < 0 )
 		hh += -y2;
 
-	dims[0] = ww;
-	dims[1] = hh;
+	dims[0] = ww+1;
+	dims[1] = hh+1;
 
 	return dims;
 }
