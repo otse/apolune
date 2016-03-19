@@ -62,7 +62,7 @@ void ap::craft::Craft::draw() {
 void ap::craft::Craft::add(Part *p) {
 	parts.v.push_back(p);
 
-	// re fbo
+	// re fbo;
 
 	int *dims = grid.gdims();
 
@@ -74,6 +74,8 @@ void ap::craft::Craft::add(Part *p) {
 	r.w = ww;
 	r.h = hh;
 
+	sprite->sx(grid.gx2()*48);
+	sprite->sy(grid.gy2()*48);
 	sprite->sw(ww);
 	sprite->sh(hh);
 

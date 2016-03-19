@@ -26,6 +26,12 @@ ap::craft::Part::~Part() {
 	
 }
 
+void ap::craft::Part::translate() {
+	glTranslatef(
+		gx() - (tile.grid.gx2()*48),
+		en::height - craft.gfbo()->gr().h + (gy() - (tile.grid.gy2()*48)), 0.f);
+}
+
 
 void ap::craft::Part::step() {
 	Sprite::step();
