@@ -7,7 +7,11 @@
 
 
 ap::craft::Grid::Grid(Craft &o) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
-	craft(o)
+	craft(o),
+	x2(0),
+	y2(0),
+	w2(0),
+	h2(0)
 	{
 	sx(craft.gx());
 	sy(craft.gy());
@@ -58,6 +62,13 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 			mtile(x, y);
 
 	}
+
+	if ( t.gx() < x2 ) x2 = t.gx();
+	if ( t.gy() < y2 ) y2 = t.gy();
+	if ( t.gx() > w2 ) w2 = t.gx();
+	if ( t.gy() > h2 ) h2 = t.gy();
+
+	// LOG("grid expands to x:" << x2 << ", y:" << y2 << ", w:" << w2 << ", h:" << h2)
 
 	t.link();
 }

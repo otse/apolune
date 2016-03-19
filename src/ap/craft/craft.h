@@ -30,6 +30,8 @@ namespace ap {
 
 			int gtop();
 			int gleft();
+			
+			void refbo();
 
 			bool crosssection;
 
@@ -42,6 +44,8 @@ namespace ap {
 
 			int top;
 			int left;
+			int width;
+			int height;
 		};
 	}
 }

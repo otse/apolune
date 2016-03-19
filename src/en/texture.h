@@ -28,6 +28,7 @@ namespace en {
 	protected:
 		GLuint tid;
 		bool success;
+		
 		int w;
 		int h;
 		int n;

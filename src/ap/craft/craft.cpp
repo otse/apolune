@@ -4,10 +4,12 @@
 
 
 ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
-	r({0,0,300,568}),
+	r({0,0,48,48}),
 	grid(*this),
 	top(0),
 	left(0),
+	width(1),
+	height(1),
 	crosssection(false)
 	{
 	ship = new en::FBO(&en::BLACK, r);
@@ -63,8 +65,15 @@ void ap::craft::Craft::draw() {
 
 void ap::craft::Craft::add(Part *p) {
 	parts.v.push_back(p);
+
+	// redo dimensions
+	
 }
 
+void ap::craft::Craft::refbo() {
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+
+}
 
 void ap::craft::Craft::click() {}
 void ap::craft::Craft::hover(mou::Hover h) {}

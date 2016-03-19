@@ -24,16 +24,20 @@ namespace ap {
 
 			Craft &craft;
 
-			int gtop();
-			int gleft();
+			int gx2();
+			int gy2();
+			int gw2();
+			int gh2();
 
 			Tile &mtile(int,int);
 
 			//Craft &gcraft();
 
 		protected:
-			int beh;
-
+			int x2;
+			int y2;
+			int w2;
+			int h2;
 			
 		};
 	}

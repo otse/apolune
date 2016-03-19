@@ -6,6 +6,7 @@
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 
 #include "Q:/jsoncpp-master/include/json/json.h"
+#include <algorithm>
 #include <iostream>
 #include <fstream>
 #include <cstdio>
