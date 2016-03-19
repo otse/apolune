@@ -40,6 +40,10 @@ const Truss::Model Truss::quad = {
 			&regions::trussquad
 		}, 100, 100};
 
+const en::Draws::Model Truss::jjunction = {
+			&textures::parts,
+			&regions::trussjunction };
+
 
 ap::craft::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
 	model(&single),
@@ -109,7 +113,7 @@ void ap::craft::Truss::connect() {
 }
 
 void ap::craft::Truss::junction(int i, int r) {
-	Sprite *j = new Sprite(en::GDEF, &textures::parts, &regions::trussjunction);
+	Part *j = new Part(tile, jjunction, TRUSS);
 	j->world = false;
 	j->rotate = r;
 

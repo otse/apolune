@@ -23,6 +23,8 @@ namespace ap {
 			static const Model tri;
 			static const Model quad;
 
+			static const Draws::Model jjunction;
+
 			Truss(Tile &);
 			~Truss();
 
@@ -45,7 +47,7 @@ namespace ap {
 			Sprite *outline;
 
 			void junction(int, int);
-			Sprite *junctions[4];
+			Part *junctions[4];
 		};
 	}
 }

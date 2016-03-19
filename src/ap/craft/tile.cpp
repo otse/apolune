@@ -109,7 +109,8 @@ void ap::craft::Tile::link() {
 
 void ap::craft::Tile::hover(mou::Hover h) {
 
-	if ( ! fitted ) link();
+	if ( ! fitted )
+		link();
 
 	if ( mou::HOVER_IN == h ) {
 		sregion(&regions::tileover);
