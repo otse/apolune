@@ -14,7 +14,7 @@ namespace en {
 		
 		Color *clear;
 		
-		void reset();
+		//void reset();
 		void resize(int,int);
 		
 		Region &gr();

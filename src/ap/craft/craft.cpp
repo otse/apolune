@@ -44,7 +44,7 @@ void ap::craft::Craft::pose() {
 
 void ap::craft::Craft::draw() {
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ship->gfbid() );
-	glClearColor(0, 0, 0, 0);
+	glClearColor(1, 0, 1, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
@@ -64,9 +64,19 @@ void ap::craft::Craft::add(Part *p) {
 
 	// redo dimensions
 	int *dims = grid.gdims();
+
 	LOG("added part, new grid dims are " << dims[0] << " " << dims[1])
 
-	// ship->resize(1,1);
+	int ww = dims[0]*48;
+	int hh = dims[1]*48;
+
+	r.w = ww;
+	r.h = hh;
+
+	sprite->sw(ww);
+	sprite->sh(hh);
+
+	ship->resize(ww,hh);
 
 }
 
