@@ -64,9 +64,9 @@ void ap::craft::Tile::click() {
 
 void ap::craft::Tile::attach(Part *p) {
 	part = p;
-	grid.craft.add(p);
 	grid.expandfrom(*this);
 	p->connect();
+	grid.craft.add(p);
 }
 
 

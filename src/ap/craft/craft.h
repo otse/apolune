@@ -27,9 +27,6 @@ namespace ap {
 			void add(Part *);
 
 			Grid grid;
-
-			int gtop();
-			int gleft();
 			
 			void refbo();
 
@@ -41,11 +38,6 @@ namespace ap {
 			Sprite *sprite;
 
 			en::Vector<Part *> parts;
-
-			int top;
-			int left;
-			int width;
-			int height;
 		};
 	}
 }

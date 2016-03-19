@@ -16,6 +16,7 @@ namespace en {
 		
 		void create();
 		bool load();
+		
 		virtual void bind();
 		virtual void unbind();
 		
@@ -28,6 +29,9 @@ namespace en {
 	protected:
 		GLuint tid;
 		bool success;
+
+		void sw(int);
+		void sh(int);
 		
 		int w;
 		int h;

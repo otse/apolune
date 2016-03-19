@@ -55,6 +55,13 @@ void en::FBO::unbind() {
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 }*/
 
+/*void en::FBO::resize(int x, int w) {
+	sw(x);
+	sh(x);
+	glBindTexture(GL_TEXTURE_2D, tid);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+}*/
+
 void en::FBO::reset() {
 	glBindTexture(GL_TEXTURE_2D, tid);
 	glClearColor(1, 1, 0, 1);

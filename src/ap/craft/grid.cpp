@@ -68,7 +68,7 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 	if ( t.gx() > w2 ) w2 = t.gx();
 	if ( t.gy() > h2 ) h2 = t.gy();
 
-	// LOG("grid expands to x:" << x2 << ", y:" << y2 << ", w:" << w2 << ", h:" << h2)
+	LOG("grid expands to x:" << x2 << ", y:" << y2 << ", w:" << w2 << ", h:" << h2)
 
 	t.link();
 }
@@ -82,6 +82,24 @@ void ap::craft::Grid::step() {
 /* ###########################
    ## Getters & Setters
    ########################### */
+int ap::craft::Grid::gx2() { return x2; }
+int ap::craft::Grid::gy2() { return y2; }
+int ap::craft::Grid::gw2() { return w2; }
+int ap::craft::Grid::gh2() { return h2; }
+
+int *ap::craft::Grid::gdims() {
+	int ww = w2;
+	int hh = h2;
+
+	if ( x2 < 0 )
+		ww -= -x2;
+
+	if ( y2 < 0 )
+		hh -= -y2;
+
+	LOG("grid dims w:" << ww << ", h:" << hh)
+}
+
 //ap::craft::Craft &ap::craft::Grid::gcraft() {
 //	return craft;
 //}

@@ -15,8 +15,7 @@ namespace en {
 		Color *clear;
 		
 		void reset();
-		//virtual void bind();
-		//virtual void unbind();
+		void resize(int,int);
 		
 		Region &gr();
 		GLuint gfbid();

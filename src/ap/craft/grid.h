@@ -28,6 +28,7 @@ namespace ap {
 			int gy2();
 			int gw2();
 			int gh2();
+			int *gdims();
 
 			Tile &mtile(int,int);
 
@@ -38,6 +39,7 @@ namespace ap {
 			int y2;
 			int w2;
 			int h2;
+			int dims[4];
 			
 		};
 	}

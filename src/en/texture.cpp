@@ -123,3 +123,5 @@ GLuint en::Texture::gtid() { return tid; }
 int en::Texture::gn() { return n; }
 int en::Texture::gw() { return w; }
 int en::Texture::gh() { return h; }
+void en::Texture::sw(int a) { w = a; }
+void en::Texture::sh(int a) { h = a; }
