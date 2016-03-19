@@ -14,381 +14,101 @@ added part, new grid dims are 1 1
 ply ctor
 ok
 deleting menu and affiliates
-grid expands to x:0, y:0, w:1, h:1
-added part, new grid dims are 2 2
-grid expands to x:0, y:0, w:1, h:1
-added part, new grid dims are 2 2
+grid expands to x:0, y:0, w:0, h:1
+added part, new grid dims are 1 2
 grid expands to x:0, y:0, w:1, h:1
 added part, new grid dims are 2 2
 grid expands to x:0, y:0, w:2, h:2
 added part, new grid dims are 3 3
 grid expands to x:0, y:0, w:3, h:3
 added part, new grid dims are 4 4
-grid expands to x:0, y:0, w:3, h:4
-added part, new grid dims are 4 5
-grid expands to x:0, y:0, w:3, h:5
-added part, new grid dims are 4 6
-grid expands to x:0, y:0, w:4, h:5
-added part, new grid dims are 5 6
-grid expands to x:0, y:0, w:5, h:6
-added part, new grid dims are 6 7
-grid expands to x:0, y:0, w:5, h:7
-added part, new grid dims are 6 8
-grid expands to x:0, y:0, w:5, h:8
-added part, new grid dims are 6 9
-grid expands to x:0, y:0, w:6, h:8
-added part, new grid dims are 7 9
+grid expands to x:0, y:0, w:4, h:3
+added part, new grid dims are 5 4
+grid expands to x:0, y:0, w:4, h:4
+added part, new grid dims are 5 5
+grid expands to x:0, y:0, w:5, h:5
+added part, new grid dims are 6 6
+grid expands to x:0, y:0, w:6, h:6
+added part, new grid dims are 7 7
+grid expands to x:0, y:0, w:7, h:7
+added part, new grid dims are 8 8
+grid expands to x:0, y:0, w:7, h:7
+added part, new grid dims are 8 8
 grid expands to x:0, y:0, w:7, h:8
 added part, new grid dims are 8 9
 grid expands to x:0, y:0, w:7, h:9
 added part, new grid dims are 8 10
-grid expands to x:0, y:0, w:7, h:9
-added part, new grid dims are 8 10
-grid expands to x:0, y:0, w:8, h:9
-added part, new grid dims are 9 10
-grid expands to x:0, y:0, w:9, h:9
-added part, new grid dims are 10 10
-grid expands to x:-1, y:-1, w:9, h:9
-added part, new grid dims are 11 11
-grid expands to x:-2, y:-2, w:9, h:9
-added part, new grid dims are 12 12
-grid expands to x:-2, y:-2, w:9, h:9
-added part, new grid dims are 12 12
-grid expands to x:-3, y:-2, w:9, h:9
-added part, new grid dims are 13 12
-grid expands to x:-3, y:-3, w:9, h:9
-added part, new grid dims are 13 13
-grid expands to x:-3, y:-3, w:9, h:9
-added part, new grid dims are 13 13
-grid expands to x:-3, y:-3, w:9, h:9
-added part, new grid dims are 13 13
-grid expands to x:-3, y:-3, w:9, h:9
-added part, new grid dims are 13 13
-grid expands to x:-3, y:-3, w:9, h:9
-added part, new grid dims are 13 13
-grid expands to x:-4, y:-4, w:9, h:9
-added part, new grid dims are 14 14
-grid expands to x:-5, y:-5, w:9, h:9
-added part, new grid dims are 15 15
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:9, h:9
-added part, new grid dims are 16 16
-grid expands to x:-6, y:-6, w:10, h:9
-added part, new grid dims are 17 16
-grid expands to x:-6, y:-6, w:11, h:9
-added part, new grid dims are 18 16
-grid expands to x:-6, y:-6, w:12, h:9
-added part, new grid dims are 19 16
-grid expands to x:-6, y:-6, w:13, h:9
-added part, new grid dims are 20 16
-grid expands to x:-6, y:-6, w:14, h:9
-added part, new grid dims are 21 16
-grid expands to x:-6, y:-6, w:15, h:9
-added part, new grid dims are 22 16
-grid expands to x:-6, y:-6, w:16, h:9
-added part, new grid dims are 23 16
-grid expands to x:-6, y:-6, w:17, h:9
-added part, new grid dims are 24 16
-grid expands to x:-6, y:-6, w:18, h:9
-added part, new grid dims are 25 16
-grid expands to x:-6, y:-6, w:19, h:9
-added part, new grid dims are 26 16
-grid expands to x:-6, y:-6, w:20, h:9
-added part, new grid dims are 27 16
-grid expands to x:-6, y:-6, w:21, h:9
-added part, new grid dims are 28 16
-grid expands to x:-6, y:-6, w:22, h:9
-added part, new grid dims are 29 16
-grid expands to x:-6, y:-6, w:23, h:9
-added part, new grid dims are 30 16
-grid expands to x:-6, y:-6, w:24, h:9
-added part, new grid dims are 31 16
-grid expands to x:-6, y:-6, w:25, h:9
-added part, new grid dims are 32 16
-grid expands to x:-6, y:-6, w:26, h:9
-added part, new grid dims are 33 16
-grid expands to x:-6, y:-6, w:27, h:9
-added part, new grid dims are 34 16
-grid expands to x:-6, y:-6, w:28, h:9
-added part, new grid dims are 35 16
-grid expands to x:-6, y:-6, w:29, h:9
-added part, new grid dims are 36 16
-grid expands to x:-6, y:-6, w:30, h:9
-added part, new grid dims are 37 16
-grid expands to x:-6, y:-6, w:31, h:9
-added part, new grid dims are 38 16
-grid expands to x:-6, y:-6, w:32, h:9
-added part, new grid dims are 39 16
-grid expands to x:-6, y:-6, w:32, h:9
-added part, new grid dims are 39 16
-grid expands to x:-6, y:-6, w:33, h:9
-added part, new grid dims are 40 16
-grid expands to x:-6, y:-6, w:34, h:9
-added part, new grid dims are 41 16
-grid expands to x:-6, y:-6, w:35, h:9
-added part, new grid dims are 42 16
-grid expands to x:-6, y:-6, w:36, h:9
-added part, new grid dims are 43 16
-grid expands to x:-6, y:-6, w:37, h:9
-added part, new grid dims are 44 16
-grid expands to x:-6, y:-6, w:38, h:9
-added part, new grid dims are 45 16
-grid expands to x:-6, y:-6, w:39, h:9
-added part, new grid dims are 46 16
-grid expands to x:-6, y:-6, w:40, h:9
-added part, new grid dims are 47 16
-grid expands to x:-6, y:-6, w:41, h:9
-added part, new grid dims are 48 16
-grid expands to x:-6, y:-6, w:42, h:9
-added part, new grid dims are 49 16
-grid expands to x:-6, y:-6, w:43, h:9
-added part, new grid dims are 50 16
-grid expands to x:-6, y:-6, w:44, h:9
-added part, new grid dims are 51 16
-grid expands to x:-6, y:-6, w:45, h:9
-added part, new grid dims are 52 16
-grid expands to x:-6, y:-6, w:46, h:9
-added part, new grid dims are 53 16
-grid expands to x:-6, y:-6, w:47, h:9
-added part, new grid dims are 54 16
-grid expands to x:-6, y:-6, w:48, h:9
-added part, new grid dims are 55 16
-grid expands to x:-6, y:-6, w:49, h:9
-added part, new grid dims are 56 16
-grid expands to x:-6, y:-6, w:50, h:9
-added part, new grid dims are 57 16
-grid expands to x:-6, y:-6, w:51, h:9
-added part, new grid dims are 58 16
-grid expands to x:-6, y:-6, w:52, h:9
-added part, new grid dims are 59 16
-grid expands to x:-6, y:-6, w:53, h:9
-added part, new grid dims are 60 16
-grid expands to x:-6, y:-6, w:54, h:9
-added part, new grid dims are 61 16
-grid expands to x:-6, y:-6, w:55, h:9
-added part, new grid dims are 62 16
-grid expands to x:-6, y:-6, w:56, h:9
-added part, new grid dims are 63 16
-grid expands to x:-6, y:-6, w:57, h:9
-added part, new grid dims are 64 16
-grid expands to x:-6, y:-6, w:58, h:9
-added part, new grid dims are 65 16
-grid expands to x:-6, y:-6, w:59, h:9
-added part, new grid dims are 66 16
-grid expands to x:-6, y:-6, w:60, h:9
-added part, new grid dims are 67 16
-grid expands to x:-6, y:-6, w:60, h:9
-added part, new grid dims are 67 16
-grid expands to x:-6, y:-6, w:61, h:9
-added part, new grid dims are 68 16
-grid expands to x:-6, y:-6, w:62, h:9
-added part, new grid dims are 69 16
-grid expands to x:-6, y:-6, w:63, h:9
-added part, new grid dims are 70 16
-grid expands to x:-6, y:-6, w:64, h:9
-added part, new grid dims are 71 16
-grid expands to x:-6, y:-6, w:65, h:9
-added part, new grid dims are 72 16
-grid expands to x:-6, y:-6, w:66, h:9
-added part, new grid dims are 73 16
-grid expands to x:-6, y:-6, w:67, h:9
-added part, new grid dims are 74 16
-grid expands to x:-6, y:-6, w:68, h:9
-added part, new grid dims are 75 16
-grid expands to x:-6, y:-6, w:69, h:9
-added part, new grid dims are 76 16
-grid expands to x:-6, y:-6, w:70, h:9
-added part, new grid dims are 77 16
-grid expands to x:-6, y:-6, w:71, h:9
-added part, new grid dims are 78 16
-grid expands to x:-6, y:-6, w:72, h:9
-added part, new grid dims are 79 16
-grid expands to x:-6, y:-6, w:73, h:9
-added part, new grid dims are 80 16
-grid expands to x:-6, y:-6, w:74, h:9
-added part, new grid dims are 81 16
-grid expands to x:-6, y:-6, w:75, h:9
-added part, new grid dims are 82 16
-grid expands to x:-6, y:-6, w:76, h:9
-added part, new grid dims are 83 16
-grid expands to x:-6, y:-6, w:77, h:9
-added part, new grid dims are 84 16
-grid expands to x:-6, y:-6, w:78, h:9
-added part, new grid dims are 85 16
-grid expands to x:-6, y:-6, w:79, h:9
-added part, new grid dims are 86 16
-grid expands to x:-6, y:-6, w:80, h:9
-added part, new grid dims are 87 16
-grid expands to x:-6, y:-6, w:81, h:9
-added part, new grid dims are 88 16
-grid expands to x:-6, y:-6, w:82, h:9
-added part, new grid dims are 89 16
-grid expands to x:-6, y:-6, w:83, h:9
-added part, new grid dims are 90 16
-grid expands to x:-6, y:-6, w:84, h:9
-added part, new grid dims are 91 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
-grid expands to x:-6, y:-6, w:85, h:9
-added part, new grid dims are 92 16
+grid expands to x:0, y:0, w:7, h:10
+added part, new grid dims are 8 11
+grid expands to x:0, y:0, w:7, h:11
+added part, new grid dims are 8 12
+grid expands to x:0, y:0, w:7, h:11
+added part, new grid dims are 8 12
+grid expands to x:0, y:0, w:7, h:12
+added part, new grid dims are 8 13
+grid expands to x:0, y:0, w:7, h:13
+added part, new grid dims are 8 14
+grid expands to x:0, y:0, w:7, h:14
+added part, new grid dims are 8 15
+grid expands to x:0, y:0, w:7, h:15
+added part, new grid dims are 8 16
+grid expands to x:0, y:0, w:7, h:16
+added part, new grid dims are 8 17
+grid expands to x:0, y:0, w:7, h:17
+added part, new grid dims are 8 18
+grid expands to x:0, y:0, w:7, h:18
+added part, new grid dims are 8 19
+grid expands to x:0, y:0, w:7, h:19
+added part, new grid dims are 8 20
+grid expands to x:0, y:0, w:7, h:20
+added part, new grid dims are 8 21
+grid expands to x:0, y:0, w:7, h:21
+added part, new grid dims are 8 22
+grid expands to x:0, y:0, w:7, h:22
+added part, new grid dims are 8 23
+grid expands to x:0, y:0, w:7, h:23
+added part, new grid dims are 8 24
+grid expands to x:0, y:0, w:7, h:24
+added part, new grid dims are 8 25
+grid expands to x:0, y:0, w:8, h:24
+added part, new grid dims are 9 25
+grid expands to x:0, y:0, w:9, h:25
+added part, new grid dims are 10 26
+grid expands to x:0, y:0, w:9, h:26
+added part, new grid dims are 10 27
+grid expands to x:0, y:0, w:10, h:26
+added part, new grid dims are 11 27
+grid expands to x:0, y:0, w:10, h:27
+added part, new grid dims are 11 28
+grid expands to x:0, y:0, w:11, h:27
+added part, new grid dims are 12 28
+grid expands to x:0, y:0, w:12, h:28
+added part, new grid dims are 13 29
+grid expands to x:0, y:0, w:12, h:29
+added part, new grid dims are 13 30
+grid expands to x:0, y:0, w:13, h:29
+added part, new grid dims are 14 30
+grid expands to x:0, y:0, w:13, h:30
+added part, new grid dims are 14 31
+grid expands to x:0, y:0, w:14, h:30
+added part, new grid dims are 15 31
+grid expands to x:0, y:0, w:14, h:31
+added part, new grid dims are 15 32
+grid expands to x:0, y:0, w:14, h:32
+added part, new grid dims are 15 33
+grid expands to x:0, y:0, w:14, h:33
+added part, new grid dims are 15 34
+grid expands to x:0, y:0, w:14, h:34
+added part, new grid dims are 15 35
+grid expands to x:0, y:0, w:14, h:35
+added part, new grid dims are 15 36
+grid expands to x:0, y:0, w:14, h:35
+added part, new grid dims are 15 36
+grid expands to x:0, y:0, w:14, h:36
+added part, new grid dims are 15 37
+grid expands to x:0, y:0, w:14, h:37
+added part, new grid dims are 15 38
+grid expands to x:0, y:0, w:14, h:38
+added part, new grid dims are 15 39
+grid expands to x:0, y:0, w:14, h:39
+added part, new grid dims are 15 40
