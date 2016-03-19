@@ -92,12 +92,15 @@ int *ap::craft::Grid::gdims() {
 	int hh = h2;
 
 	if ( x2 < 0 )
-		ww -= -x2;
+		ww += -x2;
 
 	if ( y2 < 0 )
-		hh -= -y2;
+		hh += -y2;
 
-	LOG("grid dims w:" << ww << ", h:" << hh)
+	dims[0] = ww;
+	dims[1] = hh;
+
+	return dims;
 }
 
 //ap::craft::Craft &ap::craft::Grid::gcraft() {

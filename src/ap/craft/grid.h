@@ -39,7 +39,7 @@ namespace ap {
 			int y2;
 			int w2;
 			int h2;
-			int dims[4];
+			int dims[2];
 			
 		};
 	}

@@ -63,8 +63,9 @@ void ap::craft::Craft::add(Part *p) {
 	parts.v.push_back(p);
 
 	// redo dimensions
-	//int *dims = grid.gdims();
-	LOG("added part, new grid dims are ")
+	int *dims = grid.gdims();
+	LOG("added part, new grid dims are " << dims[0] << " " << dims[1])
+
 	// ship->resize(1,1);
 
 }
