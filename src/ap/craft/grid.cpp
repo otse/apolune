@@ -60,7 +60,6 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 	}
 
 	t.link();
-
 }
 
 

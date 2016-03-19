@@ -54,7 +54,11 @@ ap::craft::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
 }
 
 ap::craft::Truss::~Truss() {
-	
+
+	for (int i = 0; i < 4; i ++)
+		if ( nullptr != junctions[i] )
+			delete junctions[i];
+
 }
 
 void ap::craft::Truss::step() {
@@ -146,18 +150,6 @@ void ap::craft::Truss::refit() {
 	if ( TOP && RIGHT && BOTTOM && LEFT ) {
 		model = &quad;
 		rotate = 0;
-
-		if ( ! TOPLEFT )
-			junction(0, 0);
-
-		if ( ! TOPRIGHT )
-			junction(1, 90);
-
-		if ( ! BOTTOMRIGHT )
-			junction(2, 180);
-
-		if ( ! BOTTOMLEFT )
-			junction(3, 270);
 	}
 
 	// tri
@@ -226,7 +218,45 @@ void ap::craft::Truss::refit() {
 
 	sregion(model->m.r);
 
-	if ( model == &tri ) {}
+	if ( model == &quad ) {
+		if ( ! TOPLEFT )
+			junction(0, 0);
+
+		if ( ! TOPRIGHT )
+			junction(1, 90);
+
+		if ( ! BOTTOMRIGHT )
+			junction(2, 180);
+
+		if ( ! BOTTOMLEFT )
+			junction(3, 270);
+	}
+	else if ( model == &tri ) {
+		if ( ! TOPLEFT && ( rotate == 180 || rotate == 270 ) )
+			junction(0, 0);
+
+		if ( ! TOPRIGHT && ( rotate == 0 || rotate == 270 ) )
+			junction(1, 90);
+
+		if ( ! BOTTOMRIGHT && ( rotate == 0 || rotate == 90 ) )
+			junction(2, 180);
+
+		if ( ! BOTTOMLEFT && ( rotate == 90 || rotate == 180 ) )
+			junction(3, 270);
+	}
+	else if ( model == &duo ) {
+		if ( ! TOPLEFT && ( rotate == 270 ) )
+			junction(0, 0);
+
+		if ( ! TOPRIGHT && ( rotate == 0 ) )
+			junction(1, 90);
+
+		if ( ! BOTTOMRIGHT && ( rotate == 90 ) )
+			junction(2, 180);
+
+		if ( ! BOTTOMLEFT && ( rotate == 180 ) )
+			junction(3, 270);
+	}
 
 	if ( nullptr != wall )
 		wall->refit();
