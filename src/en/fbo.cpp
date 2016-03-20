@@ -56,6 +56,8 @@ void en::FBO::unbind() {
 }*/
 
 void en::FBO::resize(int w, int h) {
+	region.w = w;
+	region.h = h;
 	sw(w);
 	sh(h);
 	glBindTexture(GL_TEXTURE_2D, tid);

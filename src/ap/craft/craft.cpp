@@ -43,8 +43,21 @@ void ap::craft::Craft::pose() {
 }
 
 void ap::craft::Craft::draw() {
+
+	// LOG("gw " << ship->gw() << " " << ship->gh());
+
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ship->gfbid() );
-	glClearColor(1, 0, 1, 0);
+
+	glPushAttrib(GL_VIEWPORT_BIT);
+	glViewport(0,0, ship->gw(), ship->gh() );
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, ship->gw(), ship->gh() , 0, 0, 1);
+	glMatrixMode(GL_MODELVIEW);
+	//glOrtho(0, ship->gw(), ship->gh(), 0, 0, 1);
+
+	glClearColor(1, 0, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
@@ -53,6 +66,13 @@ void ap::craft::Craft::draw() {
 		Part *p = *it;
 		p->draw();
 	}
+
+	glPopAttrib();
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, en::width, en::height, 0, 0, 1);
+	glMatrixMode(GL_MODELVIEW);
 
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ap::world->foreground->gfbid() );
 
@@ -76,6 +96,7 @@ void ap::craft::Craft::add(Part *p) {
 
 	sprite->sx(grid.gx2()*48);
 	sprite->sy(grid.gy2()*48);
+
 	sprite->sw(ww);
 	sprite->sh(hh);
 

@@ -136,9 +136,9 @@ void en::Draws::draw() {
 		//glTexCoord2f(1, 1);
 		//glTexCoord2f(0, 1);
 		
-		int w_ = gw();
-		int h_ = gh();
-		
+		float w_ = gw();
+		float h_ = gh();
+				
 		// no flippage today
 		if ( ! xflip && ! yflip ) {
 			glTexCoord2f(ntx, nty); // left top
