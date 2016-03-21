@@ -71,7 +71,7 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 	craft.gfbo()->x = x2*48;
 	craft.gfbo()->y = y2*48;
 
-	LOG("grid expands to x:" << x2 << ", y:" << y2 << ", w:" << w2 << ", h:" << h2)
+	//LOG("grid expands to x:" << x2 << ", y:" << y2 << ", w:" << w2 << ", h:" << h2)
 
 	t.link();
 }
