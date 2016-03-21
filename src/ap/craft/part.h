@@ -28,8 +28,6 @@ namespace ap {
 			virtual void step();
 			virtual void draw();
 
-			virtual void translate();	
-
 			Tile &tile;
 			Craft &craft;
 			Emitter *em;

@@ -64,7 +64,11 @@ void en::Draws::stackorder() {
 }
 
 void en::Draws::translate() {
-	glTranslatef(x, y, 0);
+if ( nullptr == fbo ) {
+		glTranslatef(x, y, 0);
+	} else {
+		glTranslatef(x-fbo->x, y-fbo->y, 0);
+	}
 }
 
 void en::Draws::sall(double x, double y, double w, double h) {

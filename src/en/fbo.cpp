@@ -5,7 +5,9 @@ en::FBO::FBO(Color *c, Region &r) : en::Texture(r.w, r.h) ,
 	region(r),
 	clear(c),
 	fb(0),
-	draws(en::GDEF, this, &r)
+	draws(en::GDEF, this, &r),
+	x(0),
+	y(0)
 	{
 	draws.yflip = true;
 	

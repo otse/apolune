@@ -21,6 +21,9 @@ namespace en {
 		GLuint gfbid();
 		Draws &gdraws();
 
+		int x;
+		int y;
+
 	private:
 		Region &region;
 		Draws draws;

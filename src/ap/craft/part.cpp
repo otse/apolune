@@ -26,12 +26,6 @@ ap::craft::Part::~Part() {
 	
 }
 
-void ap::craft::Part::translate() {
-	glTranslatef(
-		gx() - (tile.grid.gx2()*48),
-		gy() - (tile.grid.gy2()*48), 0.f); // </3
-}
-
 void ap::craft::Part::step() {
 	Sprite::step();
 }
