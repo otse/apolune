@@ -36,7 +36,7 @@ gui::Label *ap::debugbox::fs;
 bool ap::debugbox::bfs = false;
 
 gui::Label *ap::debugbox::cs;
-bool ap::debugbox::bcs = false;
+bool ap::debugbox::bcs = true;
 
 gui::Label *ap::debugbox::scale;
 

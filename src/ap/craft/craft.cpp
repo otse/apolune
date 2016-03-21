@@ -6,7 +6,7 @@
 ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	r({0,0,48,48}),
 	grid(*this),
-	crosssection(false)
+	crosssection(true)
 	{
 	ship = new en::FBO(&en::BLACK, r);
 
