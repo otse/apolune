@@ -94,8 +94,8 @@ o/world.o: ap/world.cpp ap/world.h
 o/hangar.o: ap/hangar.cpp ap/hangar.h
 	g++ $(INC) -c ap/hangar.cpp -o o/hangar.o $(FLAGS)
 
-o/asteroid.o: ap/asteroid.cpp ap/sprite.h ap/mover.h ap/asteroid.h
-	g++ $(INC) -c ap/asteroid.cpp -o o/asteroid.o $(FLAGS)
+o/asteroid.o: ap/asteroid/asteroid.cpp ap/sprite.h ap/mover.h ap/asteroid/asteroid.h
+	g++ $(INC) -c ap/asteroid/asteroid.cpp -o o/asteroid.o $(FLAGS)
 
 
 #/ap/gui

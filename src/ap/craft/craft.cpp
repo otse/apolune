@@ -46,6 +46,8 @@ void ap::craft::Craft::draw() {
 
 	// LOG("gw " << ship->gw() << " " << ship->gh());
 
+	//glPushMatrix();
+
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ship->gfbid() );
 
 	glPushAttrib(GL_VIEWPORT_BIT);
@@ -55,9 +57,8 @@ void ap::craft::Craft::draw() {
 	glLoadIdentity();
 	glOrtho(0, ship->gw(), ship->gh() , 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
-	//glOrtho(0, ship->gw(), ship->gh(), 0, 0, 1);
 
-	glClearColor(1, 0, 1, 1);
+	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
@@ -73,6 +74,8 @@ void ap::craft::Craft::draw() {
 	glLoadIdentity();
 	glOrtho(0, en::width, en::height, 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
+
+	//glPopMatrix();
 
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ap::world->foreground->gfbid() );
 

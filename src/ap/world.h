@@ -6,8 +6,7 @@
 
 
 namespace ap {
-
-	class Asteroid;
+	
 	class Hangar;
 
 	class World {

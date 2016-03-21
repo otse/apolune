@@ -9,7 +9,6 @@
 #include "ply.h"
 #include "hangar.h"
 #include "emitter.h"
-#include "asteroid.h"
 
 #include "craft/all.h"
 

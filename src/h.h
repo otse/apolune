@@ -55,7 +55,10 @@ namespace ap {
 	class Mover;
 	class Ply;
 	class AI;
-	class Asteroid;
+
+	namespace asteroid {
+		class Asteroid;
+	}
 	
 	namespace gui {
 		class Box;

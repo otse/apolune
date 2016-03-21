@@ -47,7 +47,7 @@ namespace ap {
 			Sprite *outline;
 
 			void junction(int, int);
-			Part *junctions[4];
+			Sprite *junctions[4];
 		};
 	}
 }

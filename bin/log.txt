@@ -14,77 +14,41 @@ added part, new grid dims are 1 1
 ply ctor
 ok
 deleting menu and affiliates
+grid expands to x:0, y:0, w:1, h:0
+added part, new grid dims are 2 1
 grid expands to x:0, y:0, w:1, h:1
 added part, new grid dims are 2 2
-grid expands to x:0, y:0, w:1, h:1
-added part, new grid dims are 2 2
-grid expands to x:0, y:0, w:1, h:1
-added part, new grid dims are 2 2
-grid expands to x:-1, y:-1, w:1, h:1
+grid expands to x:0, y:0, w:1, h:2
+added part, new grid dims are 2 3
+grid expands to x:0, y:0, w:2, h:2
 added part, new grid dims are 3 3
-grid expands to x:-1, y:-1, w:1, h:1
-added part, new grid dims are 3 3
-grid expands to x:-1, y:-1, w:1, h:1
-added part, new grid dims are 3 3
-grid expands to x:-1, y:-1, w:1, h:1
-added part, new grid dims are 3 3
-grid expands to x:-1, y:-1, w:1, h:1
-added part, new grid dims are 3 3
-grid expands to x:-1, y:-2, w:1, h:1
-added part, new grid dims are 3 4
-grid expands to x:-2, y:-2, w:1, h:1
-added part, new grid dims are 4 4
-grid expands to x:-2, y:-2, w:1, h:1
-added part, new grid dims are 4 4
-grid expands to x:-2, y:-2, w:1, h:1
-added part, new grid dims are 4 4
-grid expands to x:-2, y:-2, w:1, h:1
-added part, new grid dims are 4 4
-grid expands to x:-2, y:-2, w:1, h:1
-added part, new grid dims are 4 4
-grid expands to x:-2, y:-2, w:1, h:1
-added part, new grid dims are 4 4
-grid expands to x:-2, y:-2, w:2, h:1
-added part, new grid dims are 5 4
-grid expands to x:-2, y:-2, w:2, h:1
-added part, new grid dims are 5 4
-grid expands to x:-2, y:-2, w:2, h:1
-added part, new grid dims are 5 4
-grid expands to x:-2, y:-2, w:2, h:1
-added part, new grid dims are 5 4
-grid expands to x:-2, y:-2, w:2, h:2
-added part, new grid dims are 5 5
-grid expands to x:-2, y:-2, w:2, h:2
-added part, new grid dims are 5 5
-grid expands to x:-2, y:-2, w:2, h:2
-added part, new grid dims are 5 5
-grid expands to x:-2, y:-2, w:2, h:2
-added part, new grid dims are 5 5
-grid expands to x:-2, y:-2, w:2, h:2
-added part, new grid dims are 5 5
-grid expands to x:-2, y:-2, w:3, h:2
+grid expands to x:0, y:0, w:3, h:2
+added part, new grid dims are 4 3
+grid expands to x:0, y:0, w:3, h:2
+added part, new grid dims are 4 3
+grid expands to x:0, y:0, w:4, h:2
+added part, new grid dims are 5 3
+grid expands to x:0, y:0, w:5, h:2
+added part, new grid dims are 6 3
+grid expands to x:0, y:0, w:5, h:2
+added part, new grid dims are 6 3
+grid expands to x:0, y:0, w:5, h:3
+added part, new grid dims are 6 4
+grid expands to x:0, y:0, w:5, h:4
 added part, new grid dims are 6 5
-grid expands to x:-2, y:-2, w:3, h:2
-added part, new grid dims are 6 5
-grid expands to x:-2, y:-2, w:3, h:2
-added part, new grid dims are 6 5
-grid expands to x:-2, y:-2, w:3, h:3
+grid expands to x:0, y:0, w:5, h:5
 added part, new grid dims are 6 6
-grid expands to x:-2, y:-2, w:3, h:3
+grid expands to x:0, y:0, w:5, h:5
 added part, new grid dims are 6 6
-grid expands to x:-2, y:-2, w:3, h:3
+grid expands to x:0, y:0, w:5, h:5
 added part, new grid dims are 6 6
-grid expands to x:-2, y:-2, w:3, h:3
-added part, new grid dims are 6 6
-grid expands to x:-2, y:-2, w:3, h:3
-added part, new grid dims are 6 6
-grid expands to x:-2, y:-2, w:3, h:3
-added part, new grid dims are 6 6
-grid expands to x:-2, y:-2, w:3, h:3
-added part, new grid dims are 6 6
-grid expands to x:-2, y:-2, w:3, h:3
-added part, new grid dims are 6 6
-grid expands to x:-3, y:-3, w:3, h:3
-added part, new grid dims are 7 7
-grid expands to x:-3, y:-3, w:4, h:4
-added part, new grid dims are 8 8
+grid expands to x:0, y:0, w:5, h:6
+added part, new grid dims are 6 7
+grid expands to x:0, y:0, w:5, h:6
+added part, new grid dims are 6 7
+grid expands to x:0, y:0, w:5, h:7
+added part, new grid dims are 6 8
+grid expands to x:0, y:0, w:5, h:8
+added part, new grid dims are 6 9
+grid expands to x:0, y:0, w:5, h:8
+added part, new grid dims are 6 9
