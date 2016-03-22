@@ -2,24 +2,27 @@
 #define apasteroid_H
 
 #include "../../h.h"
-//#include "font.h"
-#include "../mover.h"
+#include "../sprite.h"
+#include "../../en/fbo.h"
 
 namespace ap {
 	namespace asteroid {
-		class Asteroid : public Mover
+		class Asteroid : public Sprite
 		{
 			public:
-			Asteroid(en::Texture *, en::Region *);
-			~Asteroid();
-			
-			static int count;
-			
-			virtual void step();
-			//void rotation();
-			
-			int smthng;
-			char *elsee;
+				Asteroid();
+				~Asteroid();
+				
+				static int count;
+				
+				virtual void step();
+
+				void fillerup();
+
+			protected:
+				en::FBO fbo;
+				std::unordered_map <std::string, Draws *> tilesum;
+
 		};
 	}
 }

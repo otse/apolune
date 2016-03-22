@@ -4,7 +4,6 @@
 #include "../../h.h"
 
 #include "../../en/fbo.h"
-
 #include "../sprite.h"
 
 namespace ap {

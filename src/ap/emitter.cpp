@@ -110,7 +110,7 @@ const Emitter::Model Emitter::placesparks = {
 };
 
 ap::Emitter::Emitter(const Model &m) :
-	ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
+	ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
 	m(m),
 	kill(en::dnow+m.emitterkill),
 	timer(0.0D),

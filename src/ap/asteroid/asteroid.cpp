@@ -1,14 +1,17 @@
 #include "asteroid.h"
 
+
 // retard the hot flames
 int ap::asteroid::Asteroid::count = 0;
 
-ap::asteroid::Asteroid::Asteroid(en::Texture *t, en::Region *r)
-	: ap::Mover(ASTEROID,en::GDUMP,t,r) ,
-	smthng(1337), // smthng very bad
-	elsee("elsee")
+ap::asteroid::Asteroid::Asteroid()
+	: ap::Sprite(GDUMP, nullptr, &regfluke ) ,
+	fbo(&BLACK, *(new Region{0,0,16,16}))
 	{
 	Asteroid::count ++;
+
+	sx(200);
+	sy(200);
 }
 
 ap::asteroid::Asteroid::~Asteroid() {
@@ -20,5 +23,5 @@ ap::asteroid::Asteroid::~Asteroid() {
 //}
 
 void ap::asteroid::Asteroid::step() {
-	ap::Mover::step();
+	step();
 }
