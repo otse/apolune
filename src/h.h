@@ -2,6 +2,7 @@
 #define h_H
 
 //#warning building apolune
+// mingw32-make in /src
 
 #pragma GCC diagnostic ignored "-Wwrite-strings"
 

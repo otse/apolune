@@ -1,4 +1,4 @@
-#include "asteroid.h"
+#include "all.h"
 
 
 // retard the hot flames
@@ -6,9 +6,17 @@ int ap::asteroid::Asteroid::count = 0;
 
 ap::asteroid::Asteroid::Asteroid()
 	: ap::Sprite(GDUMP, nullptr, &regfluke ) ,
-	fbo(&BLACK, *(new Region{0,0,16,16}))
+	region({0,0,16,16}),
+	fbo(&BLACK, region)
 	{
 	Asteroid::count ++;
+
+	sprite = new Sprite(en::GDEF, &fbo, &region);
+	sprite->yflip = true;
+	sprite->scale = 1;
+
+	sprite->sw(region.w);
+	sprite->sh(region.h);
 
 	sx(200);
 	sy(200);
@@ -31,18 +39,18 @@ void ap::asteroid::Asteroid::step() {
 
 void ap::asteroid::Asteroid::draw() {
 
-	// LOG("gw " << ship->gw() << " " << ship->gh());
+	// LOG("gw " << fbo.gw() << " " << fbo.gh());
 
 	//glPushMatrix();
 
-	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, fbo->gfbid() );
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, fbo.gfbid() );
 
 	glPushAttrib(GL_VIEWPORT_BIT);
-	glViewport(0,0, fbo->gw(), fbo->gh() );
+	glViewport(0,0, fbo.gw(), fbo.gh() );
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0, fbo->gw(), fbo->gh() , 0, 0, 1);
+	glOrtho(0, fbo.gw(), fbo.gh() , 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
 
 	glClearColor(0, 0, 0, 0);
@@ -50,9 +58,9 @@ void ap::asteroid::Asteroid::draw() {
 	
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	std::vector<Rock *>::iterator it;
-	for ( it = parts.v.begin(); it < parts.v.end(); it ++) {
-		Part *p = *it;
-		p->draw();
+	for ( it = rocks.v.begin(); it < rocks.v.end(); it ++) {
+		Rock *r = *it;
+		r->draw();
 	}
 
 	glPopAttrib();
@@ -68,4 +76,11 @@ void ap::asteroid::Asteroid::draw() {
 
 	sprite->draw();
 
+}
+
+/* ###########################
+   ## Getters & Setters
+   ########################### */
+en::FBO &ap::asteroid::Asteroid::gfbo() {
+	return fbo;
 }

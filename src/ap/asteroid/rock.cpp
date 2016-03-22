@@ -1,22 +1,24 @@
 #include "all.h"
 
-#include "rock.h"
+#include "../def.h"
 
 
 // retard the hot flames
-int ap::asteroid::Asteroid::count = 0;
+int ap::asteroid::Rock::count = 0;
+			
 
-ap::asteroid::Rock::Rock(Asteroid &a)
-	: ap::Sprite(GDUMP, nullptr, &regfluke ) ,
+ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
+	: ap::Sprite(GDUMP, &textures::parts, &regions::trusssingle ) ,
 	asteroid(a),
-	fbo(&BLACK, *(new Region{0,0,16,16}))
+	x(0),
+	y(0)
 	{
-	Asteroid::count ++;
+	Rock::count ++;
 
 	sx(200);
 	sy(200);
 
-	fbo = asteroid.gfbo();
+	fbo = &asteroid.gfbo();
 
 	LOG("something nasty")
 }

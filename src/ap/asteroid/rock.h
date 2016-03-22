@@ -10,13 +10,15 @@ namespace ap {
 		class Rock : public Sprite
 		{
 			public:
-				Rock(Asteroid &);
+				Rock(Asteroid &, int, int);
 				~Rock();
 				
 				static int count;
 
 			protected:
-				Asteroid &asteroid;
+				int x;
+				int y;
+				Asteroid &asteroid; // nullptr
 
 		};
 	}

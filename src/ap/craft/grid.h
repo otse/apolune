@@ -21,7 +21,7 @@ namespace ap {
 			//void sgrid(int cols, int rows);
 
 			std::unordered_map <std::string, Tile *> tilesum;
-
+			
 			Craft &craft;
 
 			int gx2();
