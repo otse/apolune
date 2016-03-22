@@ -58,6 +58,7 @@ namespace ap {
 
 	namespace asteroid {
 		class Asteroid;
+		class Rock;
 	}
 	
 	namespace gui {

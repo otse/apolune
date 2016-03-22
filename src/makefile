@@ -1,6 +1,6 @@
 ENO = o/engine.o o/texture.o o/shader.o o/fbo.o o/font.o o/text.o o/draws.o o/anim.o
 
-APO = o/main.o o/loader.o o/lua.o o/start.o o/files.o o/def.o o/cli.o o/bulk.o o/context.o o/world.o o/sprite.o o/emitter.o o/object.o o/chair.o o/table.o o/console.o o/light.o o/mover.o o/ai.o o/chicken.o o/tentacle.o o/ply.o o/planet.o o/asteroid.o o/hangar.o
+APO = o/main.o o/loader.o o/lua.o o/start.o o/files.o o/def.o o/cli.o o/bulk.o o/context.o o/world.o o/sprite.o o/emitter.o o/object.o o/chair.o o/table.o o/console.o o/light.o o/mover.o o/ai.o o/chicken.o o/tentacle.o o/ply.o o/planet.o o/asteroid.o o/rock.o o/hangar.o
 
 APGUIO =  o/box.o o/element.o o/label.o o/button.o
 APCRAFTO =  o/grid.o o/tile.o o/craft.o o/part.o o/truss.o o/wall.o
@@ -94,8 +94,11 @@ o/world.o: ap/world.cpp ap/world.h
 o/hangar.o: ap/hangar.cpp ap/hangar.h
 	g++ $(INC) -c ap/hangar.cpp -o o/hangar.o $(FLAGS)
 
-o/asteroid.o: ap/asteroid/asteroid.cpp ap/sprite.h ap/mover.h ap/asteroid/asteroid.h
+o/asteroid.o: ap/asteroid/asteroid.cpp ap/sprite.h ap/asteroid/asteroid.h
 	g++ $(INC) -c ap/asteroid/asteroid.cpp -o o/asteroid.o $(FLAGS)
+
+o/rock.o: ap/asteroid/rock.cpp ap/sprite.h ap/asteroid/rock.h
+	g++ $(INC) -c ap/asteroid/rock.cpp -o o/rock.o $(FLAGS)
 
 
 #/ap/gui

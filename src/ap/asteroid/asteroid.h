@@ -16,12 +16,14 @@ namespace ap {
 				static int count;
 				
 				virtual void step();
+				virtual void draw();
 
 				void fillerup();
 
 			protected:
 				en::FBO fbo;
 				std::unordered_map <std::string, Draws *> tilesum;
+				en::Vector<Rock *> rocks;
 
 		};
 	}

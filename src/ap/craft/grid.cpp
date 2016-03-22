@@ -20,7 +20,7 @@ ap::craft::Grid::Grid(Craft &o) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) 
 }
 
 ap::craft::Grid::~Grid() {
-
+	
 }
 
 ap::craft::Tile &ap::craft::Grid::mtile(int x, int y) {

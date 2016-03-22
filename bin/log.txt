@@ -14,12 +14,9 @@ ply ctor
 ok
 deleting menu and affiliates
 added part, new grid dims are 2 1
-added part, new grid dims are 2 2
-added part, new grid dims are 2 2
+added part, new grid dims are 3 1
 added part, new grid dims are 3 2
-added part, new grid dims are 3 3
+added part, new grid dims are 3 2
+added part, new grid dims are 3 2
 added part, new grid dims are 4 3
-added part, new grid dims are 4 4
 added part, new grid dims are 5 4
-added part, new grid dims are 6 4
-added part, new grid dims are 6 5
