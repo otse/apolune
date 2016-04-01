@@ -11,8 +11,13 @@ namespace ap {
 		{
 			public:
 				struct Model {
-					Draws::Model m;
+					Texture *t;
+					// int variation;
+					Region **r;
 				};
+
+				static const Model single;
+				static const Model uni;
 
 				Rock(Asteroid &, int, int);
 				~Rock();

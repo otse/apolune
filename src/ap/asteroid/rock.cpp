@@ -6,11 +6,17 @@
 // retard the hot flames
 int ap::asteroid::Rock::count = 0;
 
+using namespace ap::asteroid;
+
 const Rock::Model Rock::uni = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::trussuni
-		}, /* int */ };
+		&textures::parts,
+		(Region *[])
+		{
+			&regions::rockuni1,
+			&regions::rockuni2,
+			&regions::rockuni3
+		}
+		/*, int i */ };
 
 ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
 	: ap::Sprite(GDUMP, &textures::parts, &regions::trusssingle ) ,

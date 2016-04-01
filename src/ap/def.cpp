@@ -120,6 +120,11 @@ en::Region regions::wallquad2_rear = {112,48,16,16};
 
 en::Region regions::walliris_rear = {0,48,16,16};
 
+en::Region regions::rockuni1 = {0,0,8,8};
+en::Region regions::rockuni2 = {0,0,8,8};
+en::Region regions::rockuni3 = {0,0,8,8};
+
+
 en::Region regions::apexcoolchair = {0,0,15,18};
 en::Region regions::apexcooltable = {0,0,40,16};
 en::Region regions::apexradio = {0,0,16,16};

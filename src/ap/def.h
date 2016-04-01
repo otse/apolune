@@ -116,6 +116,13 @@ namespace ap {
 		extern en::Region walltri2;
 		extern en::Region wallquad2;
 
+		extern en::Region rockuni1;
+		extern en::Region rockuni2;
+		extern en::Region rockuni3;
+		
+		extern en::Region rockcorner;
+		extern en::Region rock;
+
 		extern en::Region walliris_rear;
 		extern en::Region wallsingle_rear;
 		extern en::Region walluni_rear;
