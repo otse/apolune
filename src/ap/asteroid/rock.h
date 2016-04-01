@@ -10,6 +10,10 @@ namespace ap {
 		class Rock : public Sprite
 		{
 			public:
+				struct Model {
+					Draws::Model m;
+				};
+
 				Rock(Asteroid &, int, int);
 				~Rock();
 				

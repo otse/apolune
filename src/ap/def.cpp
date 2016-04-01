@@ -31,6 +31,8 @@ en::Texture textures::backdrop("earth.png");
 en::Texture textures::craftgrid("craft/grid.png");
 en::Texture textures::parts("craft/parts.png");
 
+en::Texture textures::rocks("craft/rocks.png");
+
 en::Texture textures::teacup("objects/teacup1.png");
 en::Texture textures::apexcoolchair("objects/apexcoolchair.png");
 en::Texture textures::apexcooltable("objects/apexcooltable.png");
@@ -418,4 +420,6 @@ void ap::loadtex() {
 	textures::playerdeath.load();
 	textures::sparkle1.load();
 	textures::bubbles.load();
+
+	textures::rocks.load();
 }

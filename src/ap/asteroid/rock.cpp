@@ -5,7 +5,12 @@
 
 // retard the hot flames
 int ap::asteroid::Rock::count = 0;
-			
+
+const Rock::Model Rock::uni = {
+		(en::Draws::Model) {
+			&textures::parts,
+			&regions::trussuni
+		}, /* int */ };
 
 ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
 	: ap::Sprite(GDUMP, &textures::parts, &regions::trusssingle ) ,
@@ -23,8 +28,8 @@ ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
 	LOG("something nasty")
 }
 
-ap::asteroid::Asteroid::~Asteroid() {
-	Asteroid::count --;
+ap::asteroid::Rock::~Rock() {
+	Rock::count --;
 }
 
 //void ap::Asteroid::rotate() {

@@ -1,5 +1,7 @@
 #include "all.h"
 
+#include "../sprite.h"
+#include "../../en/fbo.h"
 
 // retard the hot flames
 int ap::asteroid::Asteroid::count = 0;

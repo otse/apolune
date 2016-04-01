@@ -51,6 +51,8 @@ namespace ap {
 		extern en::Texture backdrop;
 		extern en::Texture craftgrid;
 		extern en::Texture parts;
+
+		extern en::Texture rocks;		
 		
 		extern en::Texture apexcoolchair;
 		extern en::Texture apexcooltable;
