@@ -24,10 +24,24 @@ namespace ap {
 				
 				static int count;
 
+				virtual void connect();
+				virtual void refit();
+
+				int gx();
+				int gy();
+
+				Rock **gneighbors();
+
 			protected:
 				int x;
 				int y;
+
 				Asteroid &asteroid; // nullptr
+
+				Rock *neighbors[8];
+
+			private:
+				const Model *model;
 
 		};
 	}

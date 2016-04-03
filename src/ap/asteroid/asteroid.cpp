@@ -45,7 +45,6 @@ void ap::asteroid::Asteroid::step() {
 	Sprite::step();
 }
 
-
 void ap::asteroid::Asteroid::draw() {
 
 	// LOG("gw " << fbo.gw() << " " << fbo.gh());
