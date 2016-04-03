@@ -10,14 +10,7 @@ pressed button
 world ctor
 world load
 added part, new grid dims are 1 1
+something nasty
 ply ctor
 ok
 deleting menu and affiliates
-added part, new grid dims are 2 1
-added part, new grid dims are 3 1
-added part, new grid dims are 4 1
-added part, new grid dims are 5 1
-added part, new grid dims are 6 1
-added part, new grid dims are 7 1
-added part, new grid dims are 7 2
-added part, new grid dims are 7 3

@@ -11,6 +11,7 @@
 #include "emitter.h"
 
 #include "craft/all.h"
+#include "asteroid/all.h"
 
 #include "def.h"
 
@@ -241,7 +242,10 @@ void ap::World::load() {
 	// hangar->post();
 
 	craft = new craft::Craft();
-	ap::world->add(craft);
+	add(craft);
+
+	asteroid::Asteroid *ast = new asteroid::Asteroid();
+	add(ast);
 	
 	cursorlight = new Light(lights::CURSOR, en::mou::mx, en::mou::my);
 	cursorlight->world = false;

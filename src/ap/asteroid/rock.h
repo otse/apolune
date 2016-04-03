@@ -12,8 +12,8 @@ namespace ap {
 			public:
 				struct Model {
 					Texture *t;
-					// int variation;
 					Region **r;
+					int variation;
 				};
 
 				static const Model single;
