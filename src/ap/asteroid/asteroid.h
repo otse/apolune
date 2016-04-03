@@ -21,11 +21,11 @@ namespace ap {
 				void fillerup();
 
 				en::FBO &gfbo();
-				
+
 			protected:
 				en::Region region;
 				en::FBO fbo;
-				Sprite *sprite;
+				Sprite *Sprite;
 
 				std::unordered_map <std::string, Draws *> tilesum;
 				en::Vector<Rock *> rocks;

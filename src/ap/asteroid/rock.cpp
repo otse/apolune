@@ -24,12 +24,22 @@ const Rock::Model Rock::uni = {
 			&regions::rockuni3
 		}, 3 };
 
+/*const Rock::Model Rock::uni = {
+		&textures::rocks,
+		(Region *[])
+		{
+			&regions::rockuni1,
+			&regions::rockuni2,
+			&regions::rockuni3
+		}, 3 };*/
+
 ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
 	: ap::Sprite(GDUMP, &textures::rocks, &regions::rocksingle1 ) ,
 	asteroid(a),
 	model(&single),
 	x(0),
 	y(0),
+	variation(0),
 
 	neighbors {nullptr}
 	{
@@ -53,12 +63,11 @@ ap::asteroid::Rock::~Rock() {
 //}
 
 void ap::asteroid::Rock::connect() {
-	Tile **all = tile.gneighbors();
+	Rock **all = Rock.gneighbors();
 
 	for (int i = 0; i < 8; i ++) {
-		Tile *t = all[i];
-		if ( t && t->gpart() && t->gpart()->type == TRUSS )
-			t->gpart()->refit();
+		Rock *r = all[i];
+		r->refit();
 	}
 
 	refit();
@@ -159,4 +168,4 @@ void ap::asteroid::Rock::refit() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-Tile **ap::craft::Tile::gneighbors() { return neighbors; }
+Rock **ap::asteroid::Rock::gneighbors() { return neighbors; }

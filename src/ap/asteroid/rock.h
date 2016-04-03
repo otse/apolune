@@ -35,6 +35,7 @@ namespace ap {
 			protected:
 				int x;
 				int y;
+				int variation;
 
 				Asteroid &asteroid; // nullptr
 
