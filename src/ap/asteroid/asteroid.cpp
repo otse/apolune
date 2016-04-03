@@ -23,6 +23,8 @@ ap::asteroid::Asteroid::Asteroid()
 	sx(200);
 	sy(200);
 
+	fillerup();
+
 	LOG("something nasty")
 }
 
@@ -33,6 +35,11 @@ ap::asteroid::Asteroid::~Asteroid() {
 //void ap::Asteroid::rotate() {
 	// retard the hot flames
 //}
+
+void ap::asteroid::Asteroid::fillerup() {
+	Rock *r = new Rock(*this, 0,0);
+	rocks.v.push_back(r);
+}
 
 void ap::asteroid::Asteroid::step() {
 	Sprite::step();

@@ -13,7 +13,7 @@ namespace ap {
 				struct Model {
 					Texture *t;
 					Region **r;
-					int variation;
+					int variations;
 				};
 
 				static const Model single;

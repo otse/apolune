@@ -21,8 +21,7 @@ namespace ap {
 				void fillerup();
 
 				en::FBO &gfbo();
-
-
+				
 			protected:
 				en::Region region;
 				en::FBO fbo;

@@ -25,15 +25,16 @@ const Rock::Model Rock::uni = {
 		}, 3 };
 
 ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
-	: ap::Sprite(GDUMP, &textures::parts, &regions::trusssingle ) ,
+	: ap::Sprite(GDUMP, &textures::rocks, &regions::rocksingle ) ,
 	asteroid(a),
 	x(0),
 	y(0)
 	{
 	Rock::count ++;
 
-	sx(200);
-	sy(200);
+	sx(x*24);
+	sy(y*24);
+	world = false;
 
 	fbo = &asteroid.gfbo();
 
