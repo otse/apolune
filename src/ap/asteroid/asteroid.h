@@ -25,7 +25,7 @@ namespace ap {
 			protected:
 				en::Region region;
 				en::FBO fbo;
-				Sprite *Sprite;
+				Sprite *sprite;
 
 				std::unordered_map <std::string, Draws *> tilesum;
 				en::Vector<Rock *> rocks;

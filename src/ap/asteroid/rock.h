@@ -9,40 +9,45 @@ namespace ap {
 	namespace asteroid {
 		class Rock : public Sprite
 		{
-			public:
-				struct Model {
-					Texture *t;
-					Region **r;
-					int variations;
-				};
+		public:
+			struct Model {
+				Texture *t;
+				Region **r;
+				int variations;
+			};
 
-				static const Model single;
-				static const Model uni;
+			
+			static const Model single;
+			static const Model uni;
+			static const Model duo;
+			static const Model opposite;
+			static const Model tri;
+			static const Model quad;
 
-				Rock(Asteroid &, int, int);
-				~Rock();
-				
-				static int count;
+			Rock(Asteroid &, int, int);
+			~Rock();
+			
+			static int count;
 
-				virtual void connect();
-				virtual void refit();
+			virtual void connect();
+			virtual void refit();
 
-				int gx();
-				int gy();
+			int gx();
+			int gy();
 
-				Rock **gneighbors();
+			Rock **gneighbors();
 
-			protected:
-				int x;
-				int y;
-				int variation;
+		protected:
+			int x;
+			int y;
+			int variation;
 
-				Asteroid &asteroid; // nullptr
+			Asteroid &asteroid; // nullptr
 
-				Rock *neighbors[8];
+			Rock *neighbors[8];
 
-			private:
-				const Model *model;
+		private:
+			const Model *model;
 
 		};
 	}

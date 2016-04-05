@@ -24,21 +24,48 @@ const Rock::Model Rock::uni = {
 			&regions::rockuni3
 		}, 3 };
 
-/*const Rock::Model Rock::uni = {
+const Rock::Model Rock::duo = {
 		&textures::rocks,
 		(Region *[])
 		{
 			&regions::rockuni1,
 			&regions::rockuni2,
 			&regions::rockuni3
-		}, 3 };*/
+		}, 3 };
+
+const Rock::Model Rock::opposite = {
+		&textures::rocks,
+		(Region *[])
+		{
+			&regions::rockuni1,
+			&regions::rockuni2,
+			&regions::rockuni3
+		}, 3 };
+
+const Rock::Model Rock::tri = {
+		&textures::rocks,
+		(Region *[])
+		{
+			&regions::rockuni1,
+			&regions::rockuni2,
+			&regions::rockuni3
+		}, 3 };
+
+const Rock::Model Rock::quad = {
+		&textures::rocks,
+		(Region *[])
+		{
+			&regions::rockuni1,
+			&regions::rockuni2,
+			&regions::rockuni3
+		}, 3 };
 
 ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
 	: ap::Sprite(GDUMP, &textures::rocks, &regions::rocksingle1 ) ,
 	asteroid(a),
 	model(&single),
-	x(0),
-	y(0),
+	x(x),
+	y(y),
 	variation(0),
 
 	neighbors {nullptr}
@@ -51,7 +78,7 @@ ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
 
 	fbo = &asteroid.gfbo();
 
-	LOG("rock rock")
+	// LOG("Rock::Rock " << Rock::count)
 }
 
 ap::asteroid::Rock::~Rock() {
@@ -63,10 +90,9 @@ ap::asteroid::Rock::~Rock() {
 //}
 
 void ap::asteroid::Rock::connect() {
-	Rock **all = Rock.gneighbors();
 
 	for (int i = 0; i < 8; i ++) {
-		Rock *r = all[i];
+		Rock *r = neighbors[i];
 		r->refit();
 	}
 
@@ -162,7 +188,7 @@ void ap::asteroid::Rock::refit() {
 		rotate = 270;
 	}
 
-	sregion(model->m.r);
+	sregion(model->r[variation]);
 }
 
 /* ###########################

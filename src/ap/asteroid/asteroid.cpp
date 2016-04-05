@@ -37,12 +37,18 @@ ap::asteroid::Asteroid::~Asteroid() {
 //}
 
 void ap::asteroid::Asteroid::fillerup() {
-	Rock *r = new Rock(*this, 0,0);
-	rocks.v.push_back(r);
+	for (int y = 0; y < 20; y ++ ) {
+		for (int x = 0; x < 20; x ++) {
+			Rock *r = new Rock(*this, x,y);
+			rocks.v.push_back(r);
+		}
+	}
 }
 
 void ap::asteroid::Asteroid::step() {
 	Sprite::step();
+
+	
 }
 
 void ap::asteroid::Asteroid::draw() {
