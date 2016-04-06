@@ -45,6 +45,22 @@ void ap::asteroid::Asteroid::fillerup() {
 	}
 }
 
+void ap::asteroid::Asteroid::add(Rock *r) {
+	int ww = dims[0]*48;
+	int hh = dims[1]*48;
+
+	r.w = ww;
+	r.h = hh;
+
+	sprite->sx(gx2()*48);
+	sprite->sy(gy2()*48);
+
+	sprite->sw(ww);
+	sprite->sh(hh);
+
+	ship->resize(ww,hh);
+}
+
 void ap::asteroid::Asteroid::step() {
 	Sprite::step();
 

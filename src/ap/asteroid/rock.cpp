@@ -74,6 +74,8 @@ ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
 
 	sx(x*24);
 	sy(y*24);
+
+	LOG(Sprite::gx() << " " << Sprite::gy())
 	world = false;
 
 	fbo = &asteroid.gfbo();

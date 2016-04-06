@@ -87,7 +87,7 @@ void ap::craft::Craft::add(Part *p) {
 
 	// re fbo;
 
-	int *dims = grid.gdims();
+	const Region normal = grid.gnormal();
 
 	LOG("added part, new grid dims are " << dims[0] << " " << dims[1])
 
@@ -97,8 +97,9 @@ void ap::craft::Craft::add(Part *p) {
 	r.w = ww;
 	r.h = hh;
 
-	sprite->sx(grid.gx2()*48);
-	sprite->sy(grid.gy2()*48);
+
+	sprite->sx(r.x*48);
+	sprite->sy(r.y*48);
 
 	sprite->sw(ww);
 	sprite->sh(hh);

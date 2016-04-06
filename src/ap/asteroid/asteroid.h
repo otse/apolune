@@ -22,6 +22,9 @@ namespace ap {
 
 				en::FBO &gfbo();
 
+				void add(Rock *);
+
+
 			protected:
 				en::Region region;
 				en::FBO fbo;

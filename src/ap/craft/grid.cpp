@@ -8,10 +8,7 @@
 
 ap::craft::Grid::Grid(Craft &o) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	craft(o),
-	x2(0),
-	y2(0),
-	w2(0),
-	h2(0)
+	normal( {0,0,0,0} )
 	{
 	sx(craft.gx());
 	sy(craft.gy());
@@ -71,6 +68,15 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 	craft.gfbo()->x = x2*48;
 	craft.gfbo()->y = y2*48;
 
+	int ww = w2;
+	int hh = h2;
+
+	if ( x2 < 0 ) ww += -x2;
+	if ( y2 < 0 ) hh += -y2;
+
+	dims[0] = ww+1;
+	dims[1] = hh+1;
+
 	//LOG("grid expands to x:" << x2 << ", y:" << y2 << ", w:" << w2 << ", h:" << h2)
 
 	t.link();
@@ -85,26 +91,7 @@ void ap::craft::Grid::step() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-int ap::craft::Grid::gx2() { return x2; }
-int ap::craft::Grid::gy2() { return y2; }
-int ap::craft::Grid::gw2() { return w2; }
-int ap::craft::Grid::gh2() { return h2; }
-
-int *ap::craft::Grid::gdims() {
-	int ww = w2;
-	int hh = h2;
-
-	if ( x2 < 0 )
-		ww += -x2;
-
-	if ( y2 < 0 )
-		hh += -y2;
-
-	dims[0] = ww+1;
-	dims[1] = hh+1;
-
-	return dims;
-}
+int ap::craft::Grid::gnormal() { return normal; }
 
 //ap::craft::Craft &ap::craft::Grid::gcraft() {
 //	return craft;
