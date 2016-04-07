@@ -60,10 +60,12 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 
 	}
 
-	if ( t.gx() < x2 ) x2 = t.gx();
-	if ( t.gy() < y2 ) y2 = t.gy();
-	if ( t.gx() > w2 ) w2 = t.gx();
-	if ( t.gy() > h2 ) h2 = t.gy();
+	const Region &n = normal; // alias
+
+	if ( t.gx() < normal.x ) normal.x = t.gx();
+	if ( t.gy() < normal.y ) normal.y = t.gy();
+	if ( t.gx() > normal.w ) normal.w = t.gx();
+	if ( t.gy() > normal.h ) normal.h = t.gy();
 
 	craft.gfbo()->x = x2*48;
 	craft.gfbo()->y = y2*48;
@@ -74,8 +76,8 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 	if ( x2 < 0 ) ww += -x2;
 	if ( y2 < 0 ) hh += -y2;
 
-	dims[0] = ww+1;
-	dims[1] = hh+1;
+	normal[0] = ww+1;
+	normal[1] = hh+1;
 
 	//LOG("grid expands to x:" << x2 << ", y:" << y2 << ", w:" << w2 << ", h:" << h2)
 
@@ -91,7 +93,7 @@ void ap::craft::Grid::step() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-int ap::craft::Grid::gnormal() { return normal; }
+const Region &ap::craft::Grid::gnormal() { return normal; }
 
 //ap::craft::Craft &ap::craft::Grid::gcraft() {
 //	return craft;

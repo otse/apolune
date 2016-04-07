@@ -89,7 +89,7 @@ void ap::craft::Craft::add(Part *p) {
 
 	const Region normal = grid.gnormal();
 
-	LOG("added part, new grid dims are " << dims[0] << " " << dims[1])
+	LOG("added part, new grid dims are " << normal.w << " " << normal.h)
 
 	int ww = dims[0]*48;
 	int hh = dims[1]*48;
