@@ -45,7 +45,7 @@ bool ap::Loader::explain(const char *q) {
 	//LOG(q)
 	
 	if ( nullptr != wit )
-		wit->remove = true; 
+		wit->remove = true;
 
 	const en::Font &f = ap::normal1;
 	en::Color &c = ap::colors::BLUEISH;
