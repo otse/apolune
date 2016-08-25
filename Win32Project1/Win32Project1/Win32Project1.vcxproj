@@ -189,6 +189,7 @@
     <ClInclude Include="..\..\src\ap\sprite.h" />
     <ClInclude Include="..\..\src\ap\start.h" />
     <ClInclude Include="..\..\src\ap\world.h" />
+    <ClInclude Include="..\..\src\awesome.h" />
     <ClInclude Include="..\..\src\boilerplate.h" />
     <ClInclude Include="..\..\src\en\anim.h" />
     <ClInclude Include="..\..\src\en\draws.h" />

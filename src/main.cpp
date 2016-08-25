@@ -23,11 +23,6 @@
 #include <direct.h> // for mkdir
 #include <cstring> // for gl ext
 
-#include <Awesomium/WebCore.h>
-#include <Awesomium/BitmapSurface.h>
-#include <Awesomium/STLHelpers.h>
-
-
 using namespace ap;
 
 std::ofstream ap::log;
@@ -56,7 +51,15 @@ std::default_random_engine ap::e1(ap::rd());
 std::mt19937 ap::rng(ap::rd());
 std::uniform_real_distribution<double> ap::randy(.0, 1);
 
+
 ais::Chicken *ap::chicken;
+
+#include "awesome.h"
+using namespace Awesomium;
+
+WebCore *ap::webcore;
+WebView *ap::webview;
+en::FBO *ap::web;
 
 using namespace en;
 
@@ -133,19 +136,29 @@ void ap::launchworld() {
 void envars::make() {
 	using namespace Awesomium;
 
-	WebCore* webcore = WebCore::Initialize(WebConfig());
-	//WebView *view = webcore->CreateWebView(en::width, en::height);
+	ap::webcore = WebCore::Initialize(WebConfig());
+	ap::webview = ap::webcore->CreateWebView(en::width, en::height);
+
+	WebURL url(WSLit("http://www.google.com"));
+	ap::webview->LoadURL(url);
+
+	en::Region *r = new en::Region { 0,0,en::width,en::height };
+
+	ap::web = new en::FBO(&en::BLACK, *r);
 
 	using namespace boilerplate;
 
 	basefile bf = gbasefile("htmls/loader.html");
-	if (!bf.read)
-		return;
+	//if (!bf.read)
+		//return;
 
-	WebURL url( Awesomium::WSLit(bf.buf) );
 
-	loader = new Loader();
-	en::add(loader);
+	//WebURL url( Awesomium::WSLit(bf.buf) );
+
+	en::add(&ap::web->gdraws());
+
+	//loader = new Loader();
+	//en::add(loader);
 }
 
 bool second() {
@@ -176,6 +189,18 @@ void envars::frame() {
 	
 	oar::poll();
 	react();
+
+	if (webview->IsLoading())
+		webcore->Update();
+
+	BitmapSurface* surface = (BitmapSurface*) webview->surface();
+
+	if (NULL != surface) {
+		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, web->gfbid());
+		glBindTexture(GL_TEXTURE_2D, web->gtid());
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, en::width, en::height, 0, GL_BGRA_EXT, GL_UNSIGNED_BYTE, surface->buffer());
+		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
+	}
 	
 	if ( world )
 		world->step();
