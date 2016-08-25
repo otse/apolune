@@ -23,6 +23,10 @@
 #include <direct.h> // for mkdir
 #include <cstring> // for gl ext
 
+#include <Awesomium/WebCore.h>
+#include <Awesomium/BitmapSurface.h>
+#include <Awesomium/STLHelpers.h>
+
 
 using namespace ap;
 
@@ -127,6 +131,19 @@ void ap::launchworld() {
 }
 
 void envars::make() {
+	using namespace Awesomium;
+
+	WebCore* webcore = WebCore::Initialize(WebConfig());
+	//WebView *view = webcore->CreateWebView(en::width, en::height);
+
+	using namespace boilerplate;
+
+	basefile bf = gbasefile("htmls/loader.html");
+	if (!bf.read)
+		return;
+
+	WebURL url( Awesomium::WSLit(bf.buf) );
+
 	loader = new Loader();
 	en::add(loader);
 }

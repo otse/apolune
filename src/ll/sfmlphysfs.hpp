@@ -22,7 +22,7 @@
 #ifndef _sfmlphysfs_
 #define _sfmlphysfs_
 
-#include <physfs.h>
+#include "Q:/physfs-2.0.3/physfs.h"
 #include <SFML/System.hpp>
 
 namespace sf{

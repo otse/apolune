@@ -93,13 +93,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;GLEW_STATIC;SFML_STATIC;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>Q:\SFML-2.4.0\include;$(SolutionDir)\..\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Q:\SFML-2.4.0\include;$(SolutionDir)\..\src\;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32s.lib;opengl32.lib;winmm.lib;sfml-system-s-d.lib;gdi32.lib;sfml-window-s-d.lib;freetype.lib;jpeg.lib;Q:\built\physfs\Debug\physfs.lib;Q:\built\json\lib\Debug\jsoncpp.lib;sfml-graphics-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>Q:\built;Q:\SFML-2.4.0\lib;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32s.lib;opengl32.lib;winmm.lib;sfml-system-s-d.lib;gdi32.lib;sfml-window-s-d.lib;freetype.lib;jpeg.lib;Q:\built\physfs\Debug\physfs.lib;Q:\built\json\lib\Debug\jsoncpp.lib;awesomium.lib;sfml-graphics-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>Q:\built;Q:\SFML-2.4.0\lib;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\build\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -202,6 +202,7 @@
     <ClInclude Include="..\..\src\h.h" />
     <ClInclude Include="..\..\src\ll\files.h" />
     <ClInclude Include="..\..\src\ll\load.h" />
+    <ClInclude Include="..\..\src\ll\sfmlphysfs.hpp" />
     <ClInclude Include="..\..\src\ll\stb_image.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -253,6 +254,7 @@
     <ClCompile Include="..\..\src\en\texture.cpp" />
     <ClCompile Include="..\..\src\ll\files.cpp" />
     <ClCompile Include="..\..\src\ll\load.cpp" />
+    <ClCompile Include="..\..\src\ll\sfmlphysfs.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

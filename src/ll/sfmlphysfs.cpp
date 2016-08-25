@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 //Copyright (c) 2011 Oscar (.teri) Triano <teritriano@gmail.com>
 
 //This software is provided 'as-is', without any express or implied

@@ -1,23 +1,2 @@
 0.12
 hi ô_ô
-extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
-Midrash.json versions 0.12
-removing Draws in remove loop 
-END
-removing Draws in remove loop 
-~Loader
-removing Draws in remove loop 
-removing Draws in remove loop 
-removing Draws in remove loop 
-pressed button
-pressed button
-world ctor
-world load
-added part, new grid dims are 0 0
-ply ctor
-ok
-removing Draws in remove loop 
-deleting menu and affiliates
-removing Draws in remove loop 
-removing Draws in remove loop 
-removing Draws in remove loop 
