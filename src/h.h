@@ -4,7 +4,9 @@
 //#warning building apolune
 // mingw32-make in /src
 
-#pragma GCC diagnostic ignored "-Wwrite-strings"
+// #pragma GCC diagnostic ignored "-Wwrite-strings"
+
+#include <cmath>
 
 #include "Q:/jsoncpp-master/include/json/json.h"
 #include <algorithm>
@@ -46,7 +48,6 @@ namespace ap {
 	class CLI;
 	class Loader;
 	class Menu;
-	class Lua;
 	class World;
 	class Sprite;
 	class Emitter;
@@ -96,13 +97,12 @@ namespace ap {
 	extern std::default_random_engine e1;
 	extern std::mt19937 rng;
 	extern std::uniform_real_distribution<double> randy;
-	inline float ilrand() { return randy(rng); }
+	inline double ilrand() { return randy(rng); }
 	
 	extern CLI *cli;
 	extern Loader *loader;
 	extern start::Menu *menu;
 	
-	extern Lua *lua;
 	char const VERSION[] = "0.12";
 	
 	bool commentary();

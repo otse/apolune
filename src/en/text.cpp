@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include <algorithm>
 
 #include "draws.h"
@@ -39,7 +41,7 @@ en::Text::Text(en::Group g, const Font &font, en::Color *c, const char *quote)
 }
 
 en::Text::~Text() {
-	delete []q;
+	//delete q;
 	std::for_each( this->draws.begin(), this->draws.end(), DeleteVector<Draws*>() );
 }
 

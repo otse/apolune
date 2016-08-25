@@ -4,11 +4,11 @@
 
 namespace ap {
 	namespace net {
-		class Conn() {
-			Conn();
-			~Conn();
+		class Conn {
+			//Conn();
+			//~Conn();
 			
-			void connect();
-		}
+			//void connect();
+		};
 	}
 }

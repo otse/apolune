@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "all.h"
 
 #include "../../en/fbo.h"
@@ -87,18 +89,19 @@ void ap::craft::Craft::add(Part *p) {
 
 	// re fbo;
 
-	int *dims = grid.gdims();
+	const Region normal = grid.gnormal();
 
-	LOG("added part, new grid dims are " << dims[0] << " " << dims[1])
+	LOG("added part, new grid dims are " << normal.w << " " << normal.h)
 
-	int ww = dims[0]*48;
-	int hh = dims[1]*48;
+	int ww = normal.w*48;
+	int hh = normal.h*48;
 
 	r.w = ww;
 	r.h = hh;
 
-	sprite->sx(grid.gx2()*48);
-	sprite->sy(grid.gy2()*48);
+
+	sprite->sx(r.x*48);
+	sprite->sy(r.y*48);
 
 	sprite->sw(ww);
 	sprite->sh(hh);

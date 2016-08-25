@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "../en/anim.h"
 
 #include "emitter.h"
@@ -6,7 +8,7 @@
 using namespace ap;
 
 const Emitter::Model Emitter::breathbubbles = {
-			(en::Draws::Model) {
+			{
 				&textures::bubbles,
 				&regions::bubble
 			},
@@ -32,7 +34,7 @@ const Emitter::Model Emitter::breathbubbles = {
 };
 
 const Emitter::Model Emitter::spawnplosion = {
-			(en::Draws::Model) {
+			{
 				&textures::playerdeath,
 				&regions::playerdeath
 			},
@@ -58,7 +60,7 @@ const Emitter::Model Emitter::spawnplosion = {
 };
 
 const Emitter::Model Emitter::ventfume = {
-			(en::Draws::Model) {
+			{
 				&textures::ventfume,
 				&regions::ventfume
 			},
@@ -84,7 +86,7 @@ const Emitter::Model Emitter::ventfume = {
 };
 
 const Emitter::Model Emitter::placesparks = {
-			(en::Draws::Model) {
+			{
 				&textures::sparkle1,
 				&regions::sparkle1
 			},
@@ -113,7 +115,7 @@ ap::Emitter::Emitter(const Model &m) :
 	ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
 	m(m),
 	kill(en::dnow+m.emitterkill),
-	timer(0.0D),
+	timer(0.0),
 	wantsout(false)
 {
 	delete_ = false;

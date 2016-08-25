@@ -25,7 +25,7 @@ namespace ap {
 		
 		bool guse();
 		
-		speed_ps speed = 1.D;
+		speed_ps speed = 1;
 		
 		virtual void sx(double);
 		virtual void sy(double);

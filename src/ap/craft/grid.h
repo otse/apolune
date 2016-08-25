@@ -24,23 +24,17 @@ namespace ap {
 			
 			Craft &craft;
 
-			int gx2();
-			int gy2();
-			int gw2();
-			int gh2();
-			int *gdims();
+			const Region &gnormal();
 
 			Tile &mtile(int,int);
 
 			//Craft &gcraft();
+			int x;
+			int y;
 
 		protected:
-			int x2;
-			int y2;
-			int w2;
-			int h2;
-			int dims[2];
-			
+			Region normal;
+
 		};
 	}
 }

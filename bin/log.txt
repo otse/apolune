@@ -1,22 +1,23 @@
 0.12
 hi ô_ô
-extraction path is C:\Users\petru_000\AppData\Roaming\.apolune
+extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
 Midrash.json versions 0.12
-verifying lua...
+removing Draws in remove loop 
 END
+removing Draws in remove loop 
 ~Loader
+removing Draws in remove loop 
+removing Draws in remove loop 
+removing Draws in remove loop 
 pressed button
 pressed button
 world ctor
 world load
-added part, new grid dims are 1 1
+added part, new grid dims are 0 0
 ply ctor
 ok
+removing Draws in remove loop 
 deleting menu and affiliates
-added part, new grid dims are 2 1
-added part, new grid dims are 3 1
-added part, new grid dims are 3 2
-added part, new grid dims are 3 2
-added part, new grid dims are 3 2
-added part, new grid dims are 4 3
-added part, new grid dims are 5 4
+removing Draws in remove loop 
+removing Draws in remove loop 
+removing Draws in remove loop 

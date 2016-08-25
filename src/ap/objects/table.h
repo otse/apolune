@@ -14,7 +14,6 @@ namespace ap {
 			static const Model bone;
 			static const Model apexcool;
 			
-			
 			Table(const Model);
 			virtual ~Table();
 			

@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "element.h"
 #include "box.h"
 

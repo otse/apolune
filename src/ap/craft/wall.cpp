@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "wall.h"
 #include "all.h"
 
@@ -7,93 +9,93 @@ using namespace ap::craft;
 
 
 const Wall::Model Wall::iris = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::walliris
+		{
+			&ap::textures::parts,
+			&ap::regions::walliris
 		},
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::walliris_rear
+		{
+			&ap::textures::parts,
+			&ap::regions::walliris_rear
 		}, 100};
 
 const Wall::Model Wall::single = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallsingle
+		{
+			&ap::textures::parts,
+			&ap::regions::wallsingle
 		},
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallsingle_rear
+		{
+			&ap::textures::parts,
+			&ap::regions::wallsingle_rear
 		}, 100};
 
 const Wall::Model Wall::uni = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::walluni
+		{
+			&ap::textures::parts,
+			&ap::regions::walluni
 		},
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::walluni_rear
+		{
+			&ap::textures::parts,
+			&ap::regions::walluni_rear
 		}, 100};
 
 const Wall::Model Wall::duo = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallduo
+		{
+			&ap::textures::parts,
+			&ap::regions::wallduo
 		},
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallduo_rear
+		{
+			&ap::textures::parts,
+			&ap::regions::wallduo_rear
 		}, 100};
 
 const Wall::Model Wall::opposite = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallopposite
+		{
+			&ap::textures::parts,
+			&ap::regions::wallopposite
 		},
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallopposite_rear
+		{
+			&ap::textures::parts,
+			&ap::regions::wallopposite_rear
 		}, 100};
 
 const Wall::Model Wall::tri = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::walltri
+		{
+			&ap::textures::parts,
+			&ap::regions::walltri
 		},
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::walltri_rear
+		{
+			&ap::textures::parts,
+			&ap::regions::walltri_rear
 		}, 100};
 
 const Wall::Model Wall::quad = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallquad
+		{
+			&ap::textures::parts,
+			&ap::regions::wallquad
 		},
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallquad_rear
+		{
+			&ap::textures::parts,
+			&ap::regions::wallquad_rear
 		}, 100};
 
 const Wall::Model Wall::tri2 = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::walltri2
+		{
+			&ap::textures::parts,
+			&ap::regions::walltri2
 		},
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::walltri2_rear
+		{
+			&ap::textures::parts,
+			&ap::regions::walltri2_rear
 		}, 100};
 
 const Wall::Model Wall::quad2 = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallquad2
+		{
+			&ap::textures::parts,
+			&ap::regions::wallquad2
 		},
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::wallquad2_rear
+		{
+			&ap::textures::parts,
+			&ap::regions::wallquad2_rear
 		}, 100};
 
 

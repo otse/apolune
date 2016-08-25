@@ -1,6 +1,6 @@
-#include "../gui/all.h"
-#include "../craft/all.h"
-#include "../ais/chicken.h"
+//#include "../gui/all.h"
+//#include "../craft/all.h"
+//#include "../ais/chicken.h"
 
 using namespace en;
 

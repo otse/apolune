@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "truss.h"
 
 #include "../def.h"
@@ -5,39 +7,39 @@
 using namespace ap::craft;
 
 const Truss::Model Truss::single = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::trusssingle
+		{
+			&ap::textures::parts,
+			&ap::regions::trusssingle
 		}, /* strength */ 100, /* weight */ 100};
 
 const Truss::Model Truss::uni = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::trussuni
+		{
+			&ap::textures::parts,
+			&ap::regions::trussuni
 		}, 100, 100};
 
 const Truss::Model Truss::duo = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::trussduo
+		{
+			&ap::textures::parts,
+			&ap::regions::trussduo
 		}, 100, 100};
 
 const Truss::Model Truss::opposite = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::trussopposite
+		{
+			&ap::textures::parts,
+			&ap::regions::trussopposite
 		}, 100, 100};
 
 const Truss::Model Truss::tri = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::trusstri
+		{
+			&ap::textures::parts,
+			&ap::regions::trusstri
 		}, 100, 100};
 
 const Truss::Model Truss::quad = {
-		(en::Draws::Model) {
-			&textures::parts,
-			&regions::trussquad
+		{
+			&ap::textures::parts,
+			&ap::regions::trussquad
 		}, 100, 100};
 
 
@@ -109,7 +111,7 @@ void ap::craft::Truss::connect() {
 }
 
 void ap::craft::Truss::junction(int i, int r) {
-	Sprite *j = new Sprite(en::GDEF, &textures::parts, &regions::trussjunction);
+	Sprite *j = new Sprite(en::GDEF, &textures::parts, &ap::regions::trussjunction);
 	j->world = false;
 	j->rotate = r;
 

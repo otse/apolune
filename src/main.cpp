@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include <chrono>
 #include <windows.h>
 
@@ -28,7 +30,7 @@ std::ofstream ap::log;
 const char *envars::windowname = "Ap";
 int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close;
 
-double ap::zoom = 3.d;
+double ap::zoom = 3;
 double ap::zoomto = 1;
 double ap::zoomspeed = 1;
 
@@ -38,7 +40,6 @@ int ap::scale = 3;
 
 CLI *ap::cli = nullptr;
 Loader *ap::loader;
-Lua *ap::lua;
 World *ap::world = nullptr;
 Ply *ap::ply = nullptr;
 
@@ -49,7 +50,7 @@ start::Menu *ap::menu;
 std::random_device ap::rd;
 std::default_random_engine ap::e1(ap::rd());
 std::mt19937 ap::rng(ap::rd());
-std::uniform_real_distribution<double> ap::randy(.0D, 1.D);
+std::uniform_real_distribution<double> ap::randy(.0, 1);
 
 ais::Chicken *ap::chicken;
 
@@ -58,12 +59,17 @@ using namespace en;
 
 #include "boilerplate.h"
 
+#include "ap/gui/all.h"
+#include "ap/craft/all.h"
+#include "ap/ais/chicken.h"
+
 #include "ap/shards/stats.cpp"
 #include "ap/shards/debugbox.cpp"
 
 void switches();
 
-int main(int argc, const char* argv[]) {
+
+int wmain(int argc, wchar_t* argv[]) {
 	ap::log.open(LOGFILE);
 	LOG(VERSION);
 	LOG("hi ô_ô")

@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "mover.h"
 
 using namespace ap;
@@ -6,7 +8,7 @@ ap::Mover::Mover(Type type, en::Group g, en::Texture *t, en::Region *r) : ap::Sp
 	cycled(false),
 	solid(false),
 	type(type),
-	momentum(0.D)
+	momentum(0)
 	{
 	//LOG("mover ctor type " << type);
 }

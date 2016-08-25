@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 // shard-file for main.cpp
 
 void ap::intro() {

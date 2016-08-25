@@ -14,7 +14,7 @@ namespace ap {
 
 	class CLI : public Draws {
 	public:
-		struct asd { int asd; };
+		struct asd { int asdasd; };
 		
 		CLI();
 		~CLI();

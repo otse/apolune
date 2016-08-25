@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include <algorithm>
 
 #include "../h.h"
@@ -11,12 +13,13 @@
 #include "emitter.h"
 
 #include "craft/all.h"
+#include "asteroid/all.h"
 
 #include "def.h"
 
 #include "../en/shader.h"
 
-en::Region starsreg = (en::Region) { 0, 0, (int) (en::width*3), (int) (en::height*3) };
+en::Region starsreg = { 0, 0, (en::width*3), (en::height*3) };
 en::Region *leasurearea = new (en::Region) { 980, 242, 1190-980, 602-242 };
 //std::vector<en::Draws> stars;
 
@@ -26,7 +29,7 @@ ap::World::World() :
 	hangar(nullptr),
 	craft(nullptr),
 
-	fboreg( (en::Region) {0,0,en::width,en::height} )
+	fboreg( {0,0,en::width,en::height} )
 	{
 	//lightshader = new en::Shader("shaders/WhitesFragment.txt", "shaders/WhitesVertex.txt");
 
@@ -138,7 +141,7 @@ void ap::World::step() {
 	glClearColor(1, 0, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	stars->gdraws().rotate += en::delta * .5d;
+	stars->gdraws().rotate += en::delta * .5;
 	stars->gdraws().draw();
 	//backdrop->draw();
 	
@@ -241,7 +244,10 @@ void ap::World::load() {
 	// hangar->post();
 
 	craft = new craft::Craft();
-	ap::world->add(craft);
+	add(craft);
+
+	//asteroid::Asteroid *ast = new asteroid::Asteroid();
+	//add(ast);
 	
 	cursorlight = new Light(lights::CURSOR, en::mou::mx, en::mou::my);
 	cursorlight->world = false;

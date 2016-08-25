@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "../def.h"
 
 #include "table.h"
@@ -5,15 +7,15 @@
 
 using namespace ap::objects;
 const Table::Model Table::bone = {
-		(en::Draws::Model) {
-			&textures::bonetable,
-			&regions::bonetable
+		{
+			&ap::textures::bonetable,
+			&ap::regions::bonetable
 		}};
 
 const Table::Model Table::apexcool = {
-		(en::Draws::Model) {
-			&textures::apexcooltable,
-			&regions::apexcooltable
+		{
+			&ap::textures::apexcooltable,
+			&ap::regions::apexcooltable
 		}};
 		
 ap::objects::Table::Table(const Table::Model m) :

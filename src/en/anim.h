@@ -14,19 +14,19 @@ namespace en {
 	class Anim {
 	public:
 		
-		Anim(Texture *, double sp, bool, const Region[], int);
+		Anim(Texture *, double sp, bool, std::initializer_list<Region>, int);
 		~Anim();
 		
-		const Region *frames;
+		std::vector<Region> frames;
 		//const Region framesr[];
 		
 		//Texture gtexture();
 		
-		Region *getframe(int) const;
+		//Region *getframe(int) const;
 		Region &rgetframe(int) const;
 		Region *progress(animinstance &) const;
-		
-		int gcount() const;
+
+		int gcount() const;		
 		//void getframe(counter_t);
 		//animframes_t *getframes();
 	private:

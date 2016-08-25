@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include <time.h>
 #include <windows.h>
 #include <math.h>
@@ -22,10 +24,10 @@ ap::Loader::Loader()
 	top(nullptr),
 	wit(nullptr),
 	teacup(nullptr),
-	dtimer(0.D),
+	dtimer(0),
 	flush(true),
 	stat(nullptr),
-	elap(0.D)
+	elap(0)
 	{}
 
 ap::Loader::~Loader() {
@@ -42,7 +44,8 @@ bool ap::Loader::explain(const char *q) {
 	
 	//LOG(q)
 	
-	delete wit;
+	if ( nullptr != wit )
+		wit->remove = true; 
 
 	const en::Font &f = ap::normal1;
 	en::Color &c = ap::colors::BLUEISH;
@@ -184,9 +187,6 @@ void ap::Loader::step() {
 				en::later(wit);
 				return;
 			}
-				
-			ap::lua = new Lua();
-			lua->verify();
 			
 			flush = true;
 			state = SOUND;

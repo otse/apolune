@@ -11,7 +11,7 @@ namespace ap {
 		{
 			public:
 				Asteroid();
-				~Asteroid();
+				virtual ~Asteroid();
 				
 				static int count;
 				
@@ -21,6 +21,8 @@ namespace ap {
 				void fillerup();
 
 				en::FBO &gfbo();
+
+				void add(Rock *);
 
 
 			protected:

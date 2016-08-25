@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "all.h"
 
 #include "../def.h"

@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include <stdio.h>
 #include <iostream>
 #include <time.h> // clock_t, clock, CLOCKS_PER_SEC
@@ -49,7 +51,7 @@ List<Draws *> en::draws;
 LARGE_INTEGER en::frequency;
 LARGE_INTEGER en::deltatime;
 LARGE_INTEGER en::now;
-double en::dnow = 0.D;
+double en::dnow = 0;
 double en::delta = 0;
 bool en::ppi = false;
 
@@ -64,21 +66,21 @@ void en::roaming() {
 	char *appdata = getenv("APPDATA");
 	extraction = new std::string(appdata);
 	extraction->append("\\.apolune");
-	mkdir(extraction->c_str());
+	_mkdir(extraction->c_str());
 	
 	LOG("extraction path is " << extraction->c_str() );
 }
 
-void en::boot(int argc, const char* argv[]) {	
+void en::boot(int argc, wchar_t* argv[]) {
 	using namespace sf;
 
 	for (int i = 1; i < argc; i ++) {
-		if (strcmp(argv[i], "-ppi") == 0) {
+		if (wcscmp(argv[i], L"-ppi") == 0) {
 			LOG("-~=-> -ppi switch")
 			en::ppi = true;
 		}
 
-		else if (strcmp(argv[1], "-thing") == 0)
+		else if (wcscmp(argv[1], L"-thing") == 0)
 			;
 	}
 
@@ -242,15 +244,16 @@ void en::drawsstep() {
 	
 	// remove
 	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
+	for ( it = draws.l.begin(); it != draws.l.end(); ) {
 		Draws *d = *it;
 		if ( d->remove ) {
-			//LOG("removing Draws in remove loop ")
+			LOG("removing Draws in remove loop ")
 			it = draws.l.erase(it);
 			d->remove = false; // ?
 			if ( d->delete_ )
 				delete d;
 		}
+		else it++;
 	}}
 	
 	// add late

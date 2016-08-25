@@ -1,5 +1,6 @@
+#include "stdafx.h"
+
 #include <algorithm>
-#include <cmath>
 #include <sstream>
 #include "time.h"
 
@@ -56,7 +57,7 @@ void ap::start::Menu::step() {
 
 void ap::start::Menu::draw() {
 	if ( accel > 1 ) {
-		accel -= ((accel*0.2) + 3) * 0.003D;
+		accel -= ((accel*0.2) + 3) * 0.003;
 		if ( accel < 1 )
 			accel = 1;
 	}
@@ -189,7 +190,7 @@ void ap::start::Asteroid::out() {
 void ap::start::Asteroid::draw() {
 	float pangle = ((M_PI * 2) * this->direction);
 	
-	float m = (speed*Menu::accel) * 0.1D;//en::delta;
+	float m = (speed*Menu::accel) * 0.1;//en::delta;
 	
 	x += m * cos(pangle);
 	y += m * sin(pangle);

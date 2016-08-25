@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "light.h"
 #include "def.h"
 

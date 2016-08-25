@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "console.h"
 
 #include "../def.h"

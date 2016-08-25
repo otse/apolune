@@ -1,12 +1,14 @@
+#include "stdafx.h"
+
 #include "../def.h"
 
 #include "chair.h"
 
 using namespace ap::objects;
 const Chair::Model Chair::apexcool = {
-			(en::Draws::Model) {
-				&textures::apexcoolchair,
-				&regions::apexcoolchair
+			{
+				&ap::textures::apexcoolchair,
+				&ap::regions::apexcoolchair
 			}, 0, 0 };
 
 ap::objects::Chair::Chair(const Chair::Model m) :

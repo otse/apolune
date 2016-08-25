@@ -1,5 +1,10 @@
+#include "stdafx.h"
+
+#if 0
 #include "all.h"
 
+#include "../sprite.h"
+#include "../../en/fbo.h"
 
 // retard the hot flames
 int ap::asteroid::Asteroid::count = 0;
@@ -21,6 +26,8 @@ ap::asteroid::Asteroid::Asteroid()
 	sx(200);
 	sy(200);
 
+	fillerup();
+
 	LOG("something nasty")
 }
 
@@ -32,10 +39,36 @@ ap::asteroid::Asteroid::~Asteroid() {
 	// retard the hot flames
 //}
 
-void ap::asteroid::Asteroid::step() {
-	Sprite::step();
+void ap::asteroid::Asteroid::fillerup() {
+	for (int y = 0; y < 20; y ++ ) {
+		for (int x = 0; x < 20; x ++) {
+			Rock *r = new Rock(*this, x,y);
+			rocks.v.push_back(r);
+		}
+	}
 }
 
+void ap::asteroid::Asteroid::add(Rock *r) {
+	int ww = dims[0]*48;
+	int hh = dims[1]*48;
+
+	r.w = ww;
+	r.h = hh;
+
+	sprite->sx(gx2()*48);
+	sprite->sy(gy2()*48);
+
+	sprite->sw(ww);
+	sprite->sh(hh);
+
+	ship->resize(ww,hh);
+}
+
+void ap::asteroid::Asteroid::step() {
+	Sprite::step();
+
+	
+}
 
 void ap::asteroid::Asteroid::draw() {
 
@@ -84,3 +117,4 @@ void ap::asteroid::Asteroid::draw() {
 en::FBO &ap::asteroid::Asteroid::gfbo() {
 	return fbo;
 }
+#endif

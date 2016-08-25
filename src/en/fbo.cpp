@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "fbo.h"
 
 // uses protected texture fbo-ctor

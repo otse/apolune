@@ -63,7 +63,7 @@ namespace ap {
 			Asteroid();
 			virtual ~Asteroid();
 			
-			const double RESCALE = 1.5D;
+			const double RESCALE = 1.5;
 			
 			virtual void in();
 			virtual void out();

@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "object.h"
 #include "../en/font.h"
 #include "../en/text.h"

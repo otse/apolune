@@ -20,11 +20,6 @@ namespace ap {
 		Lua();
 		~Lua();
 		
-		struct _lua {
-			lua_State *L;
-		};
-		_lua lua;
-		
 		bool init();
 		void verify();
 		bool dostring(const std::string &);

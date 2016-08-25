@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include <iostream>
 
 #include "../h.h"
@@ -14,4 +16,5 @@ ap::load::~load() {
 
 std::string ap::load::doo(std::string *) {
 	std::cout << "load::~doo()" << std::endl;
+	return "";
 }

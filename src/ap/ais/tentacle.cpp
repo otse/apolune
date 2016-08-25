@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include <random>
 #include "time.h"
 
@@ -8,7 +10,7 @@
 ap::ais::Tentacle::Tentacle(en::Region *b) :
 	ap::AI::AI(&textures::tentacle, &regions::tentaclepopped) ,
 	bounds(b),
-	timetonext(.0d),
+	timetonext(.0),
 	next(UNPOP),
 	current(CURRENT_NONE)
 	{
@@ -64,19 +66,19 @@ void ap::ais::Tentacle::donext() {
 		
 		case POP :
 			LOG("POP")
-			animi = {anims::tentaclepop.gcount()-2,0.D,true};
+			animi = {anims::tentaclepop.gcount()-2,0,true};
 			current = POPPING;
 			next = NEXT_NONE;
 			break;
 			
 		case UNPOP :
-			animi = {1,0.D,false};
+			animi = {1,0,false};
 			current = UNPOPPING;
 			next = NEXT_NONE;
 			break;
 			
 		case BLINK :
-			animi = {0,0.D,false};
+			animi = {0,0,false};
 			current = BLINKING;
 			timetonext = en::dnow + RANDRANGE(1000, 1000);
 			next = IDLE;
@@ -84,7 +86,7 @@ void ap::ais::Tentacle::donext() {
 			
 		case MOVE :
 			{
-			animi = {0,0.D,false};
+			animi = {0,0,false};
 			bool b;
 			if ( ax <= bounds->x)
 				b = false;

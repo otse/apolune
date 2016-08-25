@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "cli.h"
 
 #include "../en/font.h"

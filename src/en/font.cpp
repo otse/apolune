@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include <stdlib.h>
 //#include <array>
 #include <iostream>
@@ -8,7 +10,7 @@
 
 
 using namespace en;
-glyph en::badglyph = (glyph) {' ', 0, 0, 0, 0, 0, (Region) {0,0,0,0} };
+//glyph en::badglyph = (glyph) {' ', 0, 0, 0, 0, 0, (Region) {0,0,0,0} };
 
 
 en::Font::Font(char *q, int h, int b, bool absolute, en::glyph g[], int l, en::Texture &t) :

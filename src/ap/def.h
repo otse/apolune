@@ -51,6 +51,8 @@ namespace ap {
 		extern en::Texture backdrop;
 		extern en::Texture craftgrid;
 		extern en::Texture parts;
+
+		extern en::Texture rocks;		
 		
 		extern en::Texture apexcoolchair;
 		extern en::Texture apexcooltable;
@@ -113,6 +115,14 @@ namespace ap {
 		extern en::Region wallquad;
 		extern en::Region walltri2;
 		extern en::Region wallquad2;
+
+		extern en::Region rocksingle1;
+		extern en::Region rockuni1;
+		extern en::Region rockuni2;
+		extern en::Region rockuni3;
+
+		extern en::Region rockcorner;
+		extern en::Region rock;
 
 		extern en::Region walliris_rear;
 		extern en::Region wallsingle_rear;

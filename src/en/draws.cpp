@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "../h.h"
 #include "draws.h"
 #include "fbo.h"
@@ -33,7 +35,7 @@ en::Draws::Draws(Group g, Texture *t, Region *r) :
 	name(nullptr),
 	hovering(false),
 	held(false),
-	animi({0,0.D,false}),
+	animi({0,0,false}),
 	order(0),
 	remove(false),
 	delete_(true),

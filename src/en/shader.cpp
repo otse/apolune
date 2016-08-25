@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "../h.h"
 #include "shader.h"
 #include "../ll/files.h"

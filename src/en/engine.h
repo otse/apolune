@@ -36,7 +36,7 @@ namespace en {
 	class Shader;
 	class Anim;
 	
-	struct Region {int x, y, w, h;};
+	struct Region {public: int x, y, w, h;};
 	struct Color {float r, g, b;};
 	
 	struct animinstance {
@@ -107,7 +107,7 @@ namespace en {
 	
 	extern int WindowHandle;
 	
-	void boot(int, const char* []);
+	void boot(int, wchar_t* []);
 	void resize(int, int);
 	void render();
 	void cleanup();
@@ -130,6 +130,7 @@ namespace en {
 	extern bool ppi;
 }
 
+/*
 #define PL_GL_TELL_ERROR(QUOTE) \
 	{ \
 	GLenum e = glGetError(); \
@@ -139,14 +140,14 @@ namespace en {
 		//LOG("err: " << err << " @'" << QUOTE << "':" << __LINE__ << " in " << __FILE__) \
 	} \
 	}
-
+*/
 
 // ### INCLUDED FOR LOGGING PREPROCESSOR
 // ### AND ALSO FOR SOME ENGINE DEFINES
 #ifdef APOLUNE
-#include "../h.h"
-#else
 #include "../../lau/h.h"
+#else
+#include "../h.h"
 #endif
 
 #endif

@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include <random>
 #include "time.h"
 
@@ -9,7 +11,7 @@
 ap::ais::Chicken::Chicken(en::Region *b) :
 	ap::AI::AI(&textures::chicken, &regions::chicken) ,
 	bounds(b),
-	timetonext(.0d),
+	timetonext(0),
 	next(IDLE),
 	current(NONE)
 	{
@@ -45,7 +47,7 @@ void ap::ais::Chicken::donext() {
 			} else {
 				sregion( &regions::chicken );
 				timetonext = en::dnow + RANDRANGE(1000, 4000);
-				animi = {0,0.D,false};
+				animi = {0,0,false};
 			}
 			}
 			break;

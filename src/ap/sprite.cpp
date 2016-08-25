@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "sprite.h"
 #include "ply.h"
 
