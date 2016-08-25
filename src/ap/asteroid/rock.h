@@ -12,7 +12,11 @@ namespace ap {
 		public:
 			struct Model {
 				Texture *t;
+<<<<<<< HEAD
 				std::vector<Region *> r;
+=======
+				Region **r;
+>>>>>>> ad92b5e523892a8971ccc3709474c1f4556c1e1f
 				int variations;
 			};
 

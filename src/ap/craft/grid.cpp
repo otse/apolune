@@ -68,9 +68,12 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 	if ( t.gy() < normal.y ) normal.y = t.gy();
 	if ( t.gx() > normal.w ) normal.w = t.gx();
 	if ( t.gy() > normal.h ) normal.h = t.gy();
+<<<<<<< HEAD
 
 	craft.gfbo()->x = normal.x*48;
 	craft.gfbo()->y = normal.y*48;
+=======
+>>>>>>> ad92b5e523892a8971ccc3709474c1f4556c1e1f
 
 	//int ww = normal.x;
 	//int hh = normal.y;
@@ -80,6 +83,15 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 
 	//normal[0] = ww+1;
 	//normal[1] = hh+1;
+
+	int ww = w2;
+	int hh = h2;
+
+	if ( x2 < 0 ) ww += -x2;
+	if ( y2 < 0 ) hh += -y2;
+
+	normal[0] = ww+1;
+	normal[1] = hh+1;
 
 	//LOG("grid expands to x:" << x2 << ", y:" << y2 << ", w:" << w2 << ", h:" << h2)
 
