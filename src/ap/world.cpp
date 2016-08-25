@@ -246,13 +246,8 @@ void ap::World::load() {
 	craft = new craft::Craft();
 	add(craft);
 
-<<<<<<< HEAD
 	//asteroid::Asteroid *ast = new asteroid::Asteroid();
 	//add(ast);
-=======
-	asteroid::Asteroid *ast = new asteroid::Asteroid();
-	add(ast);
->>>>>>> ad92b5e523892a8971ccc3709474c1f4556c1e1f
 	
 	cursorlight = new Light(lights::CURSOR, en::mou::mx, en::mou::my);
 	cursorlight->world = false;

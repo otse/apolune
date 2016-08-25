@@ -11,7 +11,6 @@ int ap::asteroid::Rock::count = 0;
 using namespace ap::asteroid;
 
 const Rock::Model Rock::single = {
-<<<<<<< HEAD
 		&ap::textures::rocks,
 		{
 			&ap::regions::rocksingle1
@@ -55,57 +54,6 @@ const Rock::Model Rock::quad = {
 			&ap::regions::rockuni1,
 			&ap::regions::rockuni2,
 			&ap::regions::rockuni3
-=======
-		&textures::rocks,
-		(Region *[])
-		{
-			&regions::rocksingle1
-		}, 1 };
-
-const Rock::Model Rock::uni = {
-		&textures::rocks,
-		(Region *[])
-		{
-			&regions::rockuni1,
-			&regions::rockuni2,
-			&regions::rockuni3
-		}, 3 };
-
-const Rock::Model Rock::duo = {
-		&textures::rocks,
-		(Region *[])
-		{
-			&regions::rockuni1,
-			&regions::rockuni2,
-			&regions::rockuni3
-		}, 3 };
-
-const Rock::Model Rock::opposite = {
-		&textures::rocks,
-		(Region *[])
-		{
-			&regions::rockuni1,
-			&regions::rockuni2,
-			&regions::rockuni3
-		}, 3 };
-
-const Rock::Model Rock::tri = {
-		&textures::rocks,
-		(Region *[])
-		{
-			&regions::rockuni1,
-			&regions::rockuni2,
-			&regions::rockuni3
-		}, 3 };
-
-const Rock::Model Rock::quad = {
-		&textures::rocks,
-		(Region *[])
-		{
-			&regions::rockuni1,
-			&regions::rockuni2,
-			&regions::rockuni3
->>>>>>> ad92b5e523892a8971ccc3709474c1f4556c1e1f
 		}, 3 };
 
 ap::asteroid::Rock::Rock(Asteroid &a, int x, int y)
@@ -245,7 +193,4 @@ void ap::asteroid::Rock::refit() {
    ## Getters & Setters
    ########################### */
 Rock **ap::asteroid::Rock::gneighbors() { return neighbors; }
-<<<<<<< HEAD
 #endif
-=======
->>>>>>> ad92b5e523892a8971ccc3709474c1f4556c1e1f
