@@ -2,14 +2,14 @@
 hi ô_ô
 extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
 'htmls/first.html' successfully read
+'htmls/css.css' successfully read
+'jquery-3.1.0.min.js' successfully read
 explain("System");
 'Midrash.json' successfully read
 Midrash.json versions 0.12
-'htmls/css.css' successfully read
-'jquery-3.1.0.min.js' successfully read
 explain("Scripts");
-explain("Sound...");
-explain("Textures...");
+explain("Sounds");
+explain("Textures");
 'fonts/normal2.png' successfully read
 'fonts/monospace1.png' successfully read
 'fonts/monospace2.png' successfully read

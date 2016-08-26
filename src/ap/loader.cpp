@@ -38,12 +38,15 @@ bool ap::Loader::explain(const char *n) {
 
 	LOG(syringe.c_str())
 
-	ap::webview->ExecuteJavascript(WSLit(syringe.c_str()), WSLit(""));
+	as::view->ExecuteJavascript(WSLit(syringe.c_str()), WSLit(""));
 
 	return true;
 }
 
 void ap::Loader::step() {
+	if (as::view->IsLoading())
+		return;
+
 	frame++;
 
 	switch(state) {
@@ -59,7 +62,7 @@ void ap::Loader::step() {
 			explain("System");
 
 			// -~-~-~- LOADS
-			if (frame == 1) {
+			if (frame == 2) {
 				if (!commentary()) {
 					state = ERR;
 					return;
@@ -82,7 +85,7 @@ void ap::Loader::step() {
 
 			// -~-~-~-
 
-			if (frame < 30)
+			if (frame < 20)
 				break;
 
 			frame = 0;
@@ -91,13 +94,13 @@ void ap::Loader::step() {
 			break;
 
 		case SOUNDS :
-			explain("Sound...");
+			explain("Sounds");
 
 			// -~-~-~- LOADS
 
 			// -~-~-~-
 
-			if (frame < 30)
+			if (frame < 10)
 				break;
 
 			frame = 0;
@@ -106,10 +109,10 @@ void ap::Loader::step() {
 			break;
 
 		case TEXTURES :
-			explain("Textures...");
+			explain("Textures");
 
 			// -~-~-~- LOADS
-			if (frame == 1) {
+			if (frame == 2) {
 				loadtex();
 			}
 			// -~-~-~-
@@ -123,7 +126,7 @@ void ap::Loader::step() {
 			break;
 
 		case END :
-			if (frame == 1) {
+			if (frame == 2) {
 				menu = new start::Menu();
 			}
 			

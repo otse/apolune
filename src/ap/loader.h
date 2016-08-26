@@ -9,11 +9,11 @@ namespace ap {
 	class Loader : public en::Draws {
 	public:
 		enum State {
-			BEGIN,
-			SCRIPTS,
-			SOUNDS,
-			TEXTURES,
-			END,
+			BEGIN = 1,
+			SCRIPTS = 2,
+			SOUNDS = 3,
+			TEXTURES = 4,
+			END = 5,
 			
 			COUNT,
 			ERR

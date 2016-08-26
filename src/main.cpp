@@ -56,11 +56,11 @@ ais::Chicken *ap::chicken;
 #include "awesome.h"
 #include "ll/method_dispatcher.h"
 
-Awesomium::WebCore *ap::webcore;
-Awesomium::WebView *ap::webview;
-Awesomium::WebSession *ap::websession;
-MethodDispatcher ap::madness;
-en::FBO *ap::web;
+Awesomium::WebCore *ap::as::core;
+Awesomium::WebView *ap::as::view;
+Awesomium::WebSession *ap::as::session;
+MethodDispatcher ap::as::madness;
+en::FBO *ap::as::web;
 
 using namespace en;
 
@@ -139,15 +139,13 @@ void envars::make() {
 
 	en::Region *r = new en::Region { 0,0,1024,1024 };
 
-	ap::web = new en::FBO(&en::BLACK, *r);
-	ap::web->gdraws().sw(en::width);
-	ap::web->gdraws().sh(en::height);
-	ap::web->gdraws().yflip = false;
+	using namespace ap::as;
+	web = new en::FBO(&en::BLACK, *r);
+	web->gdraws().sw(en::width);
+	web->gdraws().sh(en::height);
+	web->gdraws().yflip = false;
 
-	en::add(&ap::web->gdraws());
-
-	loader = new Loader();
-	en::add(loader);
+	en::add(&web->gdraws());
 }
 
 void awesome() {
@@ -174,13 +172,15 @@ void awesome() {
 	prefs.enable_web_security = false;
 	prefs.enable_smooth_scrolling = true;
 
-	ap::webcore = WebCore::Initialize(c);
-	WebString empty = WebString::CreateFromUTF8("", strlen(""));
-	ap::websession = ap::webcore->CreateWebSession(empty, prefs);
-	ap::webview = ap::webcore->CreateWebView(1024, 1024, ap::websession);
-	ap::webview->session()->AddDataSource(WSLit("baze"), new Baze());
+	using namespace ap::as;
 
-	JSValue result = ap::webview->CreateGlobalJavascriptObject(WSLit("app"));
+	core = WebCore::Initialize(c);
+	WebString empty = WebString::CreateFromUTF8("", strlen(""));
+	session = core->CreateWebSession(empty, prefs);
+	view = core->CreateWebView(1024, 1024, session);
+	view->session()->AddDataSource(WSLit("baze"), new Baze());
+
+	JSValue result = view->CreateGlobalJavascriptObject(WSLit("app"));
 
 	if (result.IsObject()) {
 		// Bind our custom method to it.
@@ -195,7 +195,10 @@ void awesome() {
 	//std::replace(file.begin(), file.end(), '\\', '/');
 
 	WebURL url(WSLit("asset://baze/htmls/first.html"));
-	ap::webview->LoadURL(url);
+	view->LoadURL(url);
+
+	loader = new Loader();
+	en::add(loader);
 	//JSValue result = web_view->CreateGlobalJavascriptObject(WSLit("app"));
 }
 
@@ -225,18 +228,16 @@ void envars::frame() {
 	react();
 
 	//if (webview->IsLoading())
-	webview->InjectMouseMove(mou::mx, mou::my);
+	ap::as::view->InjectMouseMove(mou::mx, mou::my);
 
 	//webview->InjectMouseDown(kMouseButton_Left);
 	//webview->InjectMouseUp(kMouseButton_Left);
 
-	webcore->Update();
-
-	BitmapSurface* surface = (BitmapSurface*) webview->surface();
+	BitmapSurface* surface = (BitmapSurface*)ap::as::view->surface();
 
 	if (NULL != surface) {
-		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, web->gfbid());
-		glBindTexture(GL_TEXTURE_2D, web->gtid());
+		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ap::as::web->gfbid());
+		glBindTexture(GL_TEXTURE_2D, ap::as::web->gtid());
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, en::width, en::height, 0, GL_BGRA_EXT, GL_UNSIGNED_BYTE, surface->buffer());
 		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 	}
@@ -245,6 +246,8 @@ void envars::frame() {
 		world->step();
 	
 	en::drawsstep();
+
+	ap::as::core->Update();
 	
 	return;
 }

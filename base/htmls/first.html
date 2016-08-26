@@ -47,7 +47,7 @@ body {
 }
 
 .box:hover {
-	color: orange;
+	color: black;
 }
 
 .tabel {
@@ -69,11 +69,29 @@ body {
 	width: 1px;
 	background: red;
 }
+
+.dot {
+	display: inline-block;
+    background: white;
+    border: 1px solid gainsboro;
+    width: 0.75ex;
+    height: 1ex;
+    margin-left: 1ex;
+    border-radius: 3px;
+}
 </style>
 
 <script>
+	increments = 0;
+
 	function explain(q) {
 		$('.box').html(q);
+
+		increments++;
+
+		for (var i = 0; i < increments; i ++ )
+			$('.box').append( $('<span class="dot">') );
+
 	};
 </script>
 </head>
@@ -83,6 +101,8 @@ body {
 	<div class="tabel"><div class="cel">
 			<div class="box">
 				This might take a whi-- Never mind
+
+				<span class="dot"></span>
 			</div>
 	</div></div>
 

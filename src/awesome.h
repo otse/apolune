@@ -12,10 +12,12 @@ using namespace Awesomium;
 class MethodDispatcher;
 
 namespace ap {
-	extern WebCore *webcore;
-	extern WebView *webview;
-	extern WebSession *websession;
-	extern MethodDispatcher madness;
+	namespace as {
+		extern WebCore *core;
+		extern WebView *view;
+		extern WebSession *session;
+		extern MethodDispatcher madness;
 
-	extern en::FBO *web;
+		extern en::FBO *web;
+	}
 }
