@@ -9,6 +9,8 @@
 #include <cstring>
 #include <fstream> // for roaming
 
+#include "../boilerplate.h"
+
 bool en::Texture::NOBIND = false;
 
 

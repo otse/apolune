@@ -4,6 +4,8 @@
 #include "shader.h"
 #include "../ll/files.h"
 
+#include "../boilerplate.h"
+
 
 en::Shader::Shader(const char *vertex, const char *fragment) {
 	using namespace boilerplate;

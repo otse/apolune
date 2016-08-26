@@ -10,7 +10,6 @@
 #include "draws.h"
 #include "texture.h"
 #include "../ll/stb_image.h"
-#include "Q:/physfs-2.0.3/physfs.h"
 
 
 //#include "string.h"
@@ -61,7 +60,8 @@ std::string *en::extraction = nullptr;
 void en::roaming() {
 	PHYSFS_init(0);
 	PHYSFS_setSaneConfig("w/e", "apolune", "7z", 0, 0);
-	PHYSFS_addToSearchPath("base", 0);
+	//PHYSFS_addToSearchPath("base", 0);
+	PHYSFS_addToSearchPath("../base", 1);
 	
 	char *appdata = getenv("APPDATA");
 	extraction = new std::string(appdata);
@@ -127,6 +127,8 @@ void en::boot(int argc, wchar_t* argv[]) {
 	QueryPerformanceFrequency(&frequency);
 	dnow = (now.QuadPart) * 1000.0 / frequency.QuadPart;
 	
+	en::roaming();
+
 	envars::make();
 	
 	while ( window.isOpen() ) {

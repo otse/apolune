@@ -245,6 +245,7 @@
     <ClCompile Include="..\..\src\ap\sprite.cpp" />
     <ClCompile Include="..\..\src\ap\start.cpp" />
     <ClCompile Include="..\..\src\ap\world.cpp" />
+    <ClCompile Include="..\..\src\boilerplate.cpp" />
     <ClCompile Include="..\..\src\en\anim.cpp" />
     <ClCompile Include="..\..\src\en\draws.cpp" />
     <ClCompile Include="..\..\src\en\engine.cpp" />

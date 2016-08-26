@@ -51,14 +51,13 @@ std::default_random_engine ap::e1(ap::rd());
 std::mt19937 ap::rng(ap::rd());
 std::uniform_real_distribution<double> ap::randy(.0, 1);
 
-
 ais::Chicken *ap::chicken;
 
 #include "awesome.h"
-using namespace Awesomium;
 
-WebCore *ap::webcore;
-WebView *ap::webview;
+Awesomium::WebCore *ap::webcore;
+Awesomium::WebView *ap::webview;
+Awesomium::WebSession *ap::websession;
 en::FBO *ap::web;
 
 using namespace en;
@@ -135,23 +134,26 @@ void ap::launchworld() {
 
 void envars::make() {
 	using namespace Awesomium;
+	using namespace boilerplate;
 
 	ap::webcore = WebCore::Initialize(WebConfig());
 	ap::webview = ap::webcore->CreateWebView(en::width, en::height);
+	ap::webview->session()->AddDataSource(WSLit("base"), new MyDataSource());
 
-	WebURL url(WSLit("http://www.google.com"));
+	using namespace std;
+
+	basefile bf = gbasefile("first.html");
+	//std::replace(file.begin(), file.end(), '\\', '/');
+
+
+	WebURL url(WSLit("asset://base/first.html"));
 	ap::webview->LoadURL(url);
+	//ap::webview->last_error
 
 	en::Region *r = new en::Region { 0,0,en::width,en::height };
 
 	ap::web = new en::FBO(&en::BLACK, *r);
-
-	using namespace boilerplate;
-
-	basefile bf = gbasefile("htmls/loader.html");
-	//if (!bf.read)
-		//return;
-
+	ap::web->gdraws().yflip = false;
 
 	//WebURL url( Awesomium::WSLit(bf.buf) );
 

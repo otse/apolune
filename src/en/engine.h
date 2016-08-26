@@ -11,7 +11,7 @@
 #include "Q:/glew-1.11.0/include/GL/wglew.h"
 #include <SFML/Graphics.hpp>
 #include "Q:/physfs-2.0.3/physfs.h"
-#include "../boilerplate.h"
+
 //#include "Q:/freeglut/include/GL/freeglut.h"
 //#include "../../../DEPS/openal-soft-1.16.0-bin/include/AL/al.h"
 

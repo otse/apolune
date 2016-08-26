@@ -1,42 +1,38 @@
 #ifndef boilerplate_H
 #define boilerplate_H
 
+#include "h.h"
+#include "awesome.h"
+
+#include "Q:/physfs-2.0.3/physfs.h"
+#include <Awesomium/DataSource.h>
+
+#include <cstring>
+#include <fstream> // for roaming
+
+using namespace Awesomium;
+
 // INLINES
 namespace boilerplate {
 	struct basefile {
+		const char *n;
 		char *buf;
 		PHYSFS_sint64 len;
 		PHYSFS_sint64 read;
 	};
 	
-	inline basefile gbasefile(const char *n) {
-		if ( ! PHYSFS_exists(n) ) {
-			std::cout << "'"<<n<<"' not found in archive" << std::endl;
-			return {nullptr,0,0};
-		}
-		
-		PHYSFS_File *file;
-		file = PHYSFS_openRead(n);
-		PHYSFS_sint64 len = PHYSFS_fileLength(file);
-		char *buf = new char[len];
-		PHYSFS_sint64 read = PHYSFS_read(file, buf, 1, len);
-		if ( ! read ) {
-			std::cout << "'"<<n<<"' couldn't be read" << std::endl;
-			return {nullptr,len,read};
-		}
-		
-		PHYSFS_close(file);
-		
-		//LOG("'"<<n<<"' successfully read");
-		
-		return {buf, len, read};
-	}
+	const char* cpychr(const char *q);
+	basefile gbasefile(const char *n);
+	const char* toroaming(basefile bf);
+
+	class MyDataSource : public DataSource {
+	public:
+		MyDataSource() { }
+		virtual ~MyDataSource(void){}
+
+		virtual void OnRequest(int request_id, const ResourceRequest& request, const WebString& path);
+	};
 	
-	inline char* cpychr(const char *q) {
-		char *d = new char[strlen(q)+1];
-		strcpy(d,q);
-		return d;
-	}
 }
 
 #endif
