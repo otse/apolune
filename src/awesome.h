@@ -5,10 +5,11 @@
 #include <Awesomium/WebCore.h>
 #include <Awesomium/BitmapSurface.h>
 #include <Awesomium/STLHelpers.h>
-#include "ll/method_dispatcher.h"
 
 
 using namespace Awesomium;
+
+class MethodDispatcher;
 
 namespace ap {
 	extern WebCore *webcore;

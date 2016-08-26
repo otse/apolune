@@ -31,9 +31,12 @@ ap::Loader::~Loader() {
 void ap::Loader::draw() {}
 
 bool ap::Loader::explain(const char *n) {
-	if (frame>0) return false;
+	if (frame>1)
+		return false;
 
-	std::string syringe = "explain(" + std::string(n) + ");";
+	std::string syringe = "explain(\"" + std::string(n) + "\");";
+
+	LOG(syringe.c_str())
 
 	ap::webview->ExecuteJavascript(WSLit(syringe.c_str()), WSLit(""));
 
@@ -64,7 +67,8 @@ void ap::Loader::step() {
 			}
 			// -~-~-~-
 
-			if (frame < 30) break;
+			if (frame < 30)
+				break;
 
 			frame = 0;
 			next = true;
@@ -78,7 +82,8 @@ void ap::Loader::step() {
 
 			// -~-~-~-
 
-			if (frame < 30) break;
+			if (frame < 30)
+				break;
 
 			frame = 0;
 			next = true;
@@ -92,7 +97,8 @@ void ap::Loader::step() {
 
 			// -~-~-~-
 
-			if (frame < 30) break;
+			if (frame < 30)
+				break;
 
 			frame = 0;
 			next = true;
@@ -108,7 +114,8 @@ void ap::Loader::step() {
 			}
 			// -~-~-~-
 
-			if (frame < 30) break;
+			if (frame < 30)
+				break;
 
 			frame = 0;
 			next = true;

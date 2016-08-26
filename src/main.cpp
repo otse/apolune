@@ -54,6 +54,7 @@ std::uniform_real_distribution<double> ap::randy(.0, 1);
 ais::Chicken *ap::chicken;
 
 #include "awesome.h"
+#include "ll/method_dispatcher.h"
 
 Awesomium::WebCore *ap::webcore;
 Awesomium::WebView *ap::webview;
@@ -158,15 +159,6 @@ void awesome() {
 	//arr.Push(Awesomium::WebString::CreateFromUTF8(glStr.c_str(), glStr.size()));
 
 	WebConfig c = WebConfig();
-	JSValue result = ap::webview->CreateGlobalJavascriptObject(WSLit("app"));
-
-	if (result.IsObject()) {
-		// Bind our custom method to it.
-		JSObject& app_object = result.ToObject();
-		/*madness.Bind(app_object,
-			WSLit("sayHello"),
-			JSDelegate(this, &TutorialApp::OnSayHello));*/
-	}
 
 	// Bind our method dispatcher to the WebView
 	//ap::webview->set_js_method_handler(&madness);
@@ -187,6 +179,16 @@ void awesome() {
 	ap::websession = ap::webcore->CreateWebSession(empty, prefs);
 	ap::webview = ap::webcore->CreateWebView(1024, 1024, ap::websession);
 	ap::webview->session()->AddDataSource(WSLit("baze"), new Baze());
+
+	JSValue result = ap::webview->CreateGlobalJavascriptObject(WSLit("app"));
+
+	if (result.IsObject()) {
+		// Bind our custom method to it.
+		JSObject& app_object = result.ToObject();
+		/*madness.Bind(app_object,
+		WSLit("sayHello"),
+		JSDelegate(this, &TutorialApp::OnSayHello));*/
+	}
 
 	using namespace std;
 
