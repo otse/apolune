@@ -19,24 +19,25 @@ namespace boilerplate {
 
 		if (!PHYSFS_exists(n)) {
 			std::cout << "'" << n << "' not found in archive" << std::endl;
-			return{ n,nullptr,0,0 };
+			return { n,nullptr,0,0 };
 		}
 
 		PHYSFS_File *file;
 		file = PHYSFS_openRead(n);
 		PHYSFS_sint64 len = PHYSFS_fileLength(file);
-		char *buf = new char[len];
+		char *buf = new char[len+1];
 		PHYSFS_sint64 read = PHYSFS_read(file, buf, 1, len);
+		buf[len] = '\0';
 		if (!read) {
 			std::cout << "'" << n << "' couldn't be read" << std::endl;
-			return{ n, nullptr, len, read };
+			return { n, nullptr, len, read };
 		}
 
 		PHYSFS_close(file);
 
 		LOG("'"<<n<<"' successfully read");
 
-		return{ n, buf, len, read };
+		return { n, buf, len, read };
 	}
 
 	const char* toroaming(basefile bf) {
@@ -51,17 +52,20 @@ namespace boilerplate {
 		return cpychr(loc.c_str());
 	}
 
-	const char* html_str = "<h1>Hello World</h1>";
-
 	void boilerplate::MyDataSource::OnRequest(int request_id, const ResourceRequest& request, const WebString& path) {
 
-		LOG("requesting " << path)
-		if (path == WSLit("first.html")) {
-			SendResponse(request_id,
-				strlen(html_str),
-				reinterpret_cast<const unsigned char*>(html_str),
-				WSLit("text/html"));
-		}
+		LOG("MyDataSource requesting " << path)
+		basefile bf = gbasefile(ToString(path).c_str());
+
+		LOG(bf.buf)
+
+		const unsigned char* a = reinterpret_cast<const unsigned char*>(cpychr(bf.buf));
+
+		// LOG(a)
+
+		//if (path == WSLit("first.html")) {
+		SendResponse( request_id, strlen(bf.buf), a, WSLit("text/html") );
+		//}
 	};
 
 }

@@ -138,24 +138,19 @@ void envars::make() {
 
 	ap::webcore = WebCore::Initialize(WebConfig());
 	ap::webview = ap::webcore->CreateWebView(en::width, en::height);
-	ap::webview->session()->AddDataSource(WSLit("base"), new MyDataSource());
+	ap::webview->session()->AddDataSource(WSLit("baze"), new MyDataSource());
 
 	using namespace std;
 
-	basefile bf = gbasefile("first.html");
 	//std::replace(file.begin(), file.end(), '\\', '/');
 
-
-	WebURL url(WSLit("asset://base/first.html"));
+	WebURL url(WSLit("asset://baze/htmls/first.html"));
 	ap::webview->LoadURL(url);
-	//ap::webview->last_error
 
 	en::Region *r = new en::Region { 0,0,en::width,en::height };
 
 	ap::web = new en::FBO(&en::BLACK, *r);
 	ap::web->gdraws().yflip = false;
-
-	//WebURL url( Awesomium::WSLit(bf.buf) );
 
 	en::add(&ap::web->gdraws());
 
@@ -192,7 +187,7 @@ void envars::frame() {
 	oar::poll();
 	react();
 
-	if (webview->IsLoading())
+	//if (webview->IsLoading())
 		webcore->Update();
 
 	BitmapSurface* surface = (BitmapSurface*) webview->surface();

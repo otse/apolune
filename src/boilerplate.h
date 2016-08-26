@@ -30,7 +30,7 @@ namespace boilerplate {
 		MyDataSource() { }
 		virtual ~MyDataSource(void){}
 
-		virtual void OnRequest(int request_id, const ResourceRequest& request, const WebString& path);
+		virtual void OnRequest(int, const ResourceRequest&, const WebString&);
 	};
 	
 }
