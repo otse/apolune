@@ -10,8 +10,8 @@ namespace ap {
 	public:
 		enum State {
 			BEGIN,
-			LUA,
-			SOUND,
+			SCRIPTS,
+			SOUNDS,
 			TEXTURES,
 			END,
 			
@@ -28,18 +28,9 @@ namespace ap {
 	private:
 		bool explain(const char *);
 		void mark();
-		bool flush;
-		double elap;
-		LARGE_INTEGER timer;
-		double dtimer;
-		//en::animinstance cup;
-		en::Draws *teacup;
-		
-		en::Text *top;
-		en::Text *wit;
-		en::Text *stat;
-		en::Draws *spread;
-		
+
+		int frame;
+		bool next;
 	};
 }
 

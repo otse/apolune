@@ -28,6 +28,9 @@
     <Filter Include="Source Files\objects">
       <UniqueIdentifier>{5d453610-dfb3-41a4-9ad5-f3dceeea2f76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ll">
+      <UniqueIdentifier>{c68b78b6-0563-4d1f-8475-018a160c6b73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -165,9 +168,6 @@
     <ClInclude Include="..\..\src\ap\start.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ll\stb_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\en\stltempl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -195,11 +195,17 @@
     <ClInclude Include="..\..\src\ap\world.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ll\sfmlphysfs.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\awesome.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ll\sfmlphysfs.hpp">
+      <Filter>Source Files\ll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ll\js_delegate.h">
+      <Filter>Source Files\ll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ll\method_dispatcher.h">
+      <Filter>Source Files\ll</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -278,9 +284,6 @@
     <ClCompile Include="..\..\src\en\texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\ll\files.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\ll\load.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -341,11 +344,14 @@
     <ClCompile Include="..\..\src\ap\objects\table.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\ll\sfmlphysfs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\boilerplate.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ll\files.cpp">
+      <Filter>Source Files\ll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ll\sfmlphysfs.cpp">
+      <Filter>Source Files\ll</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

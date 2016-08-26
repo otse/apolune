@@ -58,6 +58,7 @@ ais::Chicken *ap::chicken;
 Awesomium::WebCore *ap::webcore;
 Awesomium::WebView *ap::webview;
 Awesomium::WebSession *ap::websession;
+MethodDispatcher ap::madness;
 en::FBO *ap::web;
 
 using namespace en;
@@ -73,7 +74,9 @@ using namespace en;
 #include "ap/shards/debugbox.cpp"
 
 void switches();
-
+void awesome();
+void secondpass();
+void react();
 
 int wmain(int argc, wchar_t* argv[]) {
 	ap::log.open(LOGFILE);
@@ -95,9 +98,6 @@ int wmain(int argc, wchar_t* argv[]) {
 	
 	return 0;
 }
-
-void switches() {}
-
 
 bool ap::commentary() {
 	
@@ -132,17 +132,45 @@ void ap::launchworld() {
 	ap::debugbox::init();
 }
 
+
 void envars::make() {
+	awesome();
+
+	en::Region *r = new en::Region { 0,0,1024,1024 };
+
+	ap::web = new en::FBO(&en::BLACK, *r);
+	ap::web->gdraws().sw(en::width);
+	ap::web->gdraws().sh(en::height);
+	ap::web->gdraws().yflip = false;
+
+	en::add(&ap::web->gdraws());
+
+	loader = new Loader();
+	en::add(loader);
+}
+
+void awesome() {
 	using namespace Awesomium;
 	using namespace boilerplate;
 
-
-	WebStringArray arr = WebStringArray();
-	std::string glStr = "--use-gl=desktop";
-	arr.Push(Awesomium::WebString::CreateFromUTF8(glStr.c_str(), glStr.size()));
+	//WebStringArray arr = WebStringArray();
+	//std::string glStr = "--use-gl=desktop";
+	//arr.Push(Awesomium::WebString::CreateFromUTF8(glStr.c_str(), glStr.size()));
 
 	WebConfig c = WebConfig();
-	c.additional_options = arr;
+	JSValue result = ap::webview->CreateGlobalJavascriptObject(WSLit("app"));
+
+	if (result.IsObject()) {
+		// Bind our custom method to it.
+		JSObject& app_object = result.ToObject();
+		/*madness.Bind(app_object,
+			WSLit("sayHello"),
+			JSDelegate(this, &TutorialApp::OnSayHello));*/
+	}
+
+	// Bind our method dispatcher to the WebView
+	ap::webview->set_js_method_handler(&madness);
+	//c.additional_options = arr;
 
 	WebPreferences prefs;
 	prefs.enable_gpu_acceleration = true;
@@ -156,10 +184,8 @@ void envars::make() {
 
 	ap::webcore = WebCore::Initialize(c);
 	WebString empty = WebString::CreateFromUTF8("", strlen(""));
-
 	ap::websession = ap::webcore->CreateWebSession(empty, prefs);
-
-	ap::webview = ap::webcore->CreateWebView(en::width, en::height, ap::websession);
+	ap::webview = ap::webcore->CreateWebView(1024, 1024, ap::websession);
 	ap::webview->session()->AddDataSource(WSLit("baze"), new Baze());
 
 	using namespace std;
@@ -168,16 +194,7 @@ void envars::make() {
 
 	WebURL url(WSLit("asset://baze/htmls/first.html"));
 	ap::webview->LoadURL(url);
-
-	en::Region *r = new en::Region { 0,0,en::width,en::height };
-
-	ap::web = new en::FBO(&en::BLACK, *r);
-	ap::web->gdraws().yflip = false;
-
-	en::add(&ap::web->gdraws());
-
-	//loader = new Loader();
-	//en::add(loader);
+	//JSValue result = web_view->CreateGlobalJavascriptObject(WSLit("app"));
 }
 
 bool second() {
@@ -192,10 +209,6 @@ bool second() {
 	
 	return false;
 }
-
-
-void secondpass();
-void react();
 
 void envars::frame() {
 	//draws.resort = true;
@@ -213,7 +226,6 @@ void envars::frame() {
 	webview->InjectMouseMove(mou::mx, mou::my);
 
 	//webview->InjectMouseDown(kMouseButton_Left);
-
 	//webview->InjectMouseUp(kMouseButton_Left);
 
 	webcore->Update();

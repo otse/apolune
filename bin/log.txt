@@ -1,4 +1,33 @@
 0.12
 hi ô_ô
 extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
+'Midrash.json' successfully read
+Midrash.json versions 0.12
 'htmls/first.html' successfully read
+'htmls/css.css' successfully read
+'fonts/normal2.png' successfully read
+'fonts/monospace1.png' successfully read
+'fonts/monospace2.png' successfully read
+'fonts/statfont.png' successfully read
+'fonts/valuefont.png' successfully read
+'fonts/buttonfont.png' successfully read
+'fonts/valuefontchangeable.png' successfully read
+'fonts/clifont.png' successfully read
+'guipieces.png' successfully read
+'scenes/hangar.png' successfully read
+'lights/hangarlight.png' successfully read
+'earth.png' successfully read
+'craft/grid.png' successfully read
+'craft/parts.png' successfully read
+'objects/apexcoolchair.png' successfully read
+'objects/apexcooltable.png' successfully read
+'objects/bonetable.png' successfully read
+'objects/apexconsole.png' successfully read
+'objects/apexbrainjar.png' successfully read
+'objects/tier3switch.png' successfully read
+'ais/chicken.png' successfully read
+'ais/tentacle.png' successfully read
+'effects/groundmist.png' successfully read
+'effects/playerdeath.png' successfully read
+'effects/sparkle1.png' successfully read
+'effects/bubbles.png' successfully read

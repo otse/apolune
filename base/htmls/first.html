@@ -4,6 +4,7 @@
 <head>
 
 <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Code+Pro' rel='stylesheet' type='text/css'> -->
+<link rel="stylesheet" type="text/css" href="css.css">
 
 <style>
 html {
@@ -15,21 +16,33 @@ html {
 }
 
 body {
-	background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#d6d6d6 100%);
-	
-	font-family: Courier, 'Segoe UI Light', 'Segoe UI';
-	font-size: 11px;
+	font-family: 'Segoe UI Light', 'Segoe UI';
+	font-size: 14px;
     color: #484848;
-    color: #505050;
+    color: #686868;
+    color: #828282;
+
+    text-shadow: 1px 1px white;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    margin: 0;
+}
+
+.limit {
+	background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#d6d6d6 100%);
+	bbackground: white;
+
+	width: 1024px;
+    height: 768px;
 }
 
 .box {
-    text-shadow: 1px 1px white;
     /* background: rgba(235, 235, 235, 0.5); */
     margin-left: auto;
     margin-right: auto;
     width: 400px;
     text-align: center;
+
 }
 
 .box:hover {
@@ -46,16 +59,43 @@ body {
 	display: table-cell;
 	vertical-align: middle;
 }
+
+.pixel {
+	position: absolute;
+	display: block;
+	top: 300px;
+	height: 300px;
+	width: 1px;
+	background: red;
+}
 </style>
 </head>
 <body>
 
+<div class="limit">
 	<div class="tabel"><div class="cel">
 			<div class="box">
 				This might take a whi-- Never mind
 			</div>
 	</div></div>
-	
+
+	<!--<div class="pixel" style="left: 400px;"></div>
+	<div class="pixel" style="left: 402px;"></div>
+	<div class="pixel" style="left: 404px;"></div>
+	<div class="pixel" style="left: 406px;"></div>
+	<div class="pixel" style="left: 408px;"></div>
+	<div class="pixel" style="left: 410px;"></div>
+	<div class="pixel" style="left: 412px;"></div>
+	<div class="pixel" style="left: 414px;"></div>
+	<div class="pixel" style="left: 416px;"></div>
+	<div class="pixel" style="left: 418px;"></div>
+	<div class="pixel" style="left: 420px;"></div>
+	<div class="pixel" style="left: 422px;"></div>
+	<div class="pixel" style="left: 424px;"></div>
+	<div class="pixel" style="left: 426px;"></div>
+	<div class="pixel" style="left: 428px;"></div>
+	<div class="pixel" style="left: 430px;"></div>-->
+</div>
 
 </body>
 </html>
