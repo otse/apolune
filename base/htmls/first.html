@@ -72,23 +72,26 @@ body {
 .now {
 	display: inline-block;
 	text-align: center;
+	mmargin-bottom: 25px;
 }
 
 .em {
+	display: inline-block;
 	margin-left: 1ex;
 	color: #c3c3c3;
 }
 
+.dots { position: absolute; display: inline-block; }
 .dot {
 	display: inline-block;
 	font-family: Courier;
 	font-size: 11px;
 	color: #7886bb;
 	color: #748fce;
-	bbackground: rgb(235, 235, 235);
+	/* background: rgb(235, 235, 235); */
 	text-transform: lowercase;
-	padding: 4px;
-	/* border: 1px solid #c3c3c3; */
+	padding: 2px 4px;
+	/* border: 1px solid #ffffff; */
 	margin: 2px;
 	/* border-radius: 3px; */
 }
@@ -106,7 +109,7 @@ body {
 
 		//var word = words[Math.floor( Math.random() * words.length )]
 		var word = words[increments]
-		$('.box').append( $('<span class="dot">'+word+'</span>') );
+		$('.dots').append( $('<span class="dot">'+word+'</span>') );
 
 		increments++;
 
@@ -119,7 +122,10 @@ body {
 	<div class="tabel"><div class="cel">
 			<div class="box">
 				<div class="now">This might take a whi-- Never mind</div>
-				<span class="em">&mdash;</span>				
+				<div class="dots">
+					<span class="em">&mdash;</span>
+				
+				</div>
 			</div>
 	</div></div>
 

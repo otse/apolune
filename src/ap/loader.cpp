@@ -127,7 +127,7 @@ void ap::Loader::step() {
 			break;
 
 		case END :
-			if (frame < 60)
+			if (frame < 20)
 				break;
 
 			if (!started) {
