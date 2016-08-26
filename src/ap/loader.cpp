@@ -21,7 +21,8 @@ ap::Loader::Loader()
 	: en::Draws(en::GDEF, nullptr, &en::regfluke) ,
 	state(BEGIN),
 	next(true),
-	frame(0)
+	frame(0),
+	started(false)
 	{}
 
 ap::Loader::~Loader() {
@@ -129,7 +130,11 @@ void ap::Loader::step() {
 			if (frame < 60)
 				break;
 
-			menu = new start::Menu();
+			if (!started) {
+				started = true;
+				WebURL url(WSLit("asset://baze/htmls/start.html"));
+				as::view->LoadURL(url);
+			}
 			
 			break;
 

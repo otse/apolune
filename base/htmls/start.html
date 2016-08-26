@@ -17,23 +17,30 @@ html {
 body {
 	font-family: 'Segoe UI Light', 'Segoe UI';
 	font-size: 14px;
-    color: #484848;
-    color: #686868;
-    color: #828282;
+	color: #484848;
+	color: #686868;
+	color: #828282;
 
-    text-shadow: 1px 1px white;
-    lletter-spacing: 1px;
-    ttext-transform: lowercase;
-    margin: 0;
+	ttext-shadow: 1px 1px white;
+	lletter-spacing: 1px;
+	ttext-transform: lowercase;
+	margin: 0;
 }
 
+#limit {
+	background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#d6d6d6 100%);
+    background: #3e414a;
+
+	width: 1024px;
+	height: 768px;
+}
 
 .box {
-    /* background: rgba(235, 235, 235, 0.5); */
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
-    text-align: center;
+	/* background: rgba(235, 235, 235, 0.5); */
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+	text-align: center;
 
 }
 
@@ -50,25 +57,56 @@ body {
 .cel {
 	display: table-cell;
 	vertical-align: middle;
+	text-align: center;
 }
 
-.pixel {
-	position: absolute;
-	display: block;
-	top: 300px;
-	height: 300px;
-	width: 1px;
-	background: red;
+.options {
+	display: inline-block;
+	margin-left: 50px;
+    margin-left: 300px;
+    margin-bottom: 210px;
+}
+
+.options .option {
+	ffont-family: Courier;
+	ffont-size: 11px;
+	ccolor: white;
+	text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+
+    font-family: Georgia;
+    font-size: 17px;
+    color: #444444;
+
+    letter-spacing: 1px;
+
+    box-sizing: border-box;
+    
+    margin: 5px;
+    padding: 15px;
+    width: 200px;
+    background: #e4e4e4;
+}
+
+.options .option:before{ content: ''; }
+.options .option:after{ content: ''; }
+
+.options .option .in {
+	display: inline-block;
+}
+
+.options .option:hover {
+	color: orange;
 }
 </style>
 </head>
 <body>
 
 <div id="limit">
+
 	<div class="tabel"><div class="cel">
 			<div class="options">
-				<div class="option">start</div>
-				<div class="option">quit</div>
+				<div class="option"><div class="in">Start</div></div>
+				<div class="option"><div class="in">Quit</div></div>
 			</div>
 	</div></div>
 

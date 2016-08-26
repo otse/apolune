@@ -28,9 +28,9 @@ namespace ap {
 	private:
 		bool explain(const char *);
 		void mark();
-
 		int frame;
 		bool next;
+		bool started;
 	};
 }
 

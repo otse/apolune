@@ -36,7 +36,4 @@ explain("Textures");
 'effects/playerdeath.png' successfully read
 'effects/sparkle1.png' successfully read
 'effects/bubbles.png' successfully read
-removing Draws in remove loop 
-~Loader
-pressed button
-pressed button
+'htmls/start.html' successfully read
