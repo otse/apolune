@@ -136,9 +136,31 @@ void envars::make() {
 	using namespace Awesomium;
 	using namespace boilerplate;
 
-	ap::webcore = WebCore::Initialize(WebConfig());
-	ap::webview = ap::webcore->CreateWebView(en::width, en::height);
-	ap::webview->session()->AddDataSource(WSLit("baze"), new MyDataSource());
+
+	WebStringArray arr = WebStringArray();
+	std::string glStr = "--use-gl=desktop";
+	arr.Push(Awesomium::WebString::CreateFromUTF8(glStr.c_str(), glStr.size()));
+
+	WebConfig c = WebConfig();
+	c.additional_options = arr;
+
+	WebPreferences prefs;
+	prefs.enable_gpu_acceleration = true;
+	prefs.enable_web_gl = true;
+	prefs.enable_javascript = true;
+	prefs.allow_file_access_from_file_url = true;
+	prefs.allow_running_insecure_content = true;
+	prefs.allow_universal_access_from_file_url = true;
+	prefs.enable_web_security = false;
+	prefs.enable_smooth_scrolling = true;
+
+	ap::webcore = WebCore::Initialize(c);
+	WebString empty = WebString::CreateFromUTF8("", strlen(""));
+
+	ap::websession = ap::webcore->CreateWebSession(empty, prefs);
+
+	ap::webview = ap::webcore->CreateWebView(en::width, en::height, ap::websession);
+	ap::webview->session()->AddDataSource(WSLit("baze"), new Baze());
 
 	using namespace std;
 
@@ -188,7 +210,13 @@ void envars::frame() {
 	react();
 
 	//if (webview->IsLoading())
-		webcore->Update();
+	webview->InjectMouseMove(mou::mx, mou::my);
+
+	//webview->InjectMouseDown(kMouseButton_Left);
+
+	//webview->InjectMouseUp(kMouseButton_Left);
+
+	webcore->Update();
 
 	BitmapSurface* surface = (BitmapSurface*) webview->surface();
 

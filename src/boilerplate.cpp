@@ -52,20 +52,10 @@ namespace boilerplate {
 		return cpychr(loc.c_str());
 	}
 
-	void boilerplate::MyDataSource::OnRequest(int request_id, const ResourceRequest& request, const WebString& path) {
-
-		LOG("MyDataSource requesting " << path)
+	void boilerplate::Baze::OnRequest(int request_id, const ResourceRequest& request, const WebString& path) {
 		basefile bf = gbasefile(ToString(path).c_str());
-
-		LOG(bf.buf)
-
 		const unsigned char* a = reinterpret_cast<const unsigned char*>(cpychr(bf.buf));
-
-		// LOG(a)
-
-		//if (path == WSLit("first.html")) {
 		SendResponse( request_id, strlen(bf.buf), a, WSLit("text/html") );
-		//}
 	};
 
 }

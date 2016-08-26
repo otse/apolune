@@ -25,10 +25,10 @@ namespace boilerplate {
 	basefile gbasefile(const char *n);
 	const char* toroaming(basefile bf);
 
-	class MyDataSource : public DataSource {
+	class Baze : public DataSource {
 	public:
-		MyDataSource() { }
-		virtual ~MyDataSource(void){}
+		Baze() { }
+		virtual ~Baze(void){}
 
 		virtual void OnRequest(int, const ResourceRequest&, const WebString&);
 	};
