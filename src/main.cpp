@@ -169,7 +169,7 @@ void awesome() {
 	}
 
 	// Bind our method dispatcher to the WebView
-	ap::webview->set_js_method_handler(&madness);
+	//ap::webview->set_js_method_handler(&madness);
 	//c.additional_options = arr;
 
 	WebPreferences prefs;

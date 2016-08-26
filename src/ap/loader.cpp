@@ -6,6 +6,7 @@
 #include <sstream>
 #include <iomanip>
 
+#include "awesome.h"
 #include "loader.h"
 
 #include "../en/engine.h"
@@ -31,6 +32,10 @@ void ap::Loader::draw() {}
 
 bool ap::Loader::explain(const char *n) {
 	if (frame>0) return false;
+
+	std::string syringe = "explain(" + std::string(n) + ");";
+
+	ap::webview->ExecuteJavascript(WSLit(syringe.c_str()), WSLit(""));
 
 	return true;
 }
