@@ -70,7 +70,7 @@ void ap::Loader::step() {
 			}
 			// -~-~-~-
 
-			if (frame < 30)
+			if (frame < 60)
 				break;
 
 			frame = 0;
@@ -85,7 +85,7 @@ void ap::Loader::step() {
 
 			// -~-~-~-
 
-			if (frame < 20)
+			if (frame < 40)
 				break;
 
 			frame = 0;
@@ -126,9 +126,10 @@ void ap::Loader::step() {
 			break;
 
 		case END :
-			if (frame == 2) {
-				menu = new start::Menu();
-			}
+			if (frame < 60)
+				break;
+
+			menu = new start::Menu();
 			
 			break;
 

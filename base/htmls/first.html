@@ -19,14 +19,14 @@ html {
 body {
 	font-family: 'Segoe UI Light', 'Segoe UI';
 	font-size: 14px;
-    color: #484848;
-    color: #686868;
-    color: #828282;
+	color: #484848;
+	color: #686868;
+	color: #828282;
 
-    text-shadow: 1px 1px white;
-    letter-spacing: 1px;
-    text-transform: lowercase;
-    margin: 0;
+	text-shadow: 1px 1px white;
+	lletter-spacing: 1px;
+	ttext-transform: lowercase;
+	margin: 0;
 }
 
 .limit {
@@ -34,16 +34,7 @@ body {
 	bbackground: white;
 
 	width: 1024px;
-    height: 768px;
-}
-
-.box {
-    /* background: rgba(235, 235, 235, 0.5); */
-    margin-left: auto;
-    margin-right: auto;
-    width: 400px;
-    text-align: center;
-
+	height: 768px;
 }
 
 .box:hover {
@@ -70,27 +61,56 @@ body {
 	background: red;
 }
 
+.box {
+	/* background: rgba(235, 235, 235, 0.5); */
+	margin-left: auto;
+	margin-right: auto;
+	
+	wwidth: 400px;
+	text-align: center;
+
+}
+
+.now {
+	display: inline-block;
+	text-align: center;
+}
+
+.em {
+	margin-left: 1ex;
+	color: #c3c3c3;
+}
+
 .dot {
 	display: inline-block;
-    background: white;
-    border: 1px solid gainsboro;
-    width: 0.75ex;
-    height: 1ex;
-    margin-left: 1ex;
-    border-radius: 3px;
+	font-family: Courier;
+	font-size: 11px;
+	color: #7886bb;
+	color: #748fce;
+	bbackground: rgb(235, 235, 235);
+	text-transform: lowercase;
+	padding: 4px;
+	/* border: 1px solid #c3c3c3; */
+	margin: 2px;
+	/* border-radius: 3px; */
 }
 </style>
 
 <script>
+	words = [
+	 'Rusted,', 'Furnace,', 'Daybreak,', 'Homecoming.', 'One', 'Freight car'
+	]
 	increments = 0;
 
 	function explain(q) {
-		$('.box').html(q);
+		$('.now').html(q + '...');
+		$('.box').append( $('') );
+
+		//var word = words[Math.floor( Math.random() * words.length )]
+		var word = words[increments]
+		$('.box').append( $('<span class="dot">'+word+'</span>') );
 
 		increments++;
-
-		for (var i = 0; i < increments; i ++ )
-			$('.box').append( $('<span class="dot">') );
 
 	};
 </script>
@@ -100,9 +120,8 @@ body {
 <div class="limit">
 	<div class="tabel"><div class="cel">
 			<div class="box">
-				This might take a whi-- Never mind
-
-				<span class="dot"></span>
+				<div class="now">This might take a whi-- Never mind</div>
+				<span class="em">&mdash;</span>				
 			</div>
 	</div></div>
 
