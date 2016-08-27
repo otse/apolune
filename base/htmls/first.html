@@ -3,9 +3,9 @@
 <html>
 <head>
 
-<!-- <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Code+Pro' rel='stylesheet' type='text/css'> -->
 <link rel="stylesheet" type="text/css" href="css.css">
 <script type="text/javascript" src="../jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js.js"></script>
 
 <style>
 html {
@@ -30,6 +30,7 @@ body {
 }
 
 #limit {
+	position: relative;
 	background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#d6d6d6 100%);
 	bbackground: white;
 
@@ -114,7 +115,12 @@ body {
 		increments++;
 
 	};
+
+	$(document).ready(function() {
+		mstats();
+	});
 </script>
+
 </head>
 <body>
 

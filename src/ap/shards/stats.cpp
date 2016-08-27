@@ -30,6 +30,7 @@ void ap::stats::rebuild() {
 }
 
 void ap::stats::rbfps() {
+	return;
 	std::ostringstream strs;
 	strs << ap::fps;
 	
@@ -44,6 +45,7 @@ void ap::stats::rbfps() {
 }
 
 void ap::stats::rbdelta() {
+	return;
 	std::ostringstream strs;
 	strs << en::delta;
 	
@@ -58,6 +60,7 @@ void ap::stats::rbdelta() {
 }
 
 void ap::stats::rbdraws() {
+	return;
 	std::ostringstream strs;
 	
 	strs << en::Draws::GCOUNT();
@@ -72,6 +75,7 @@ void ap::stats::rbdraws() {
 }
 
 void ap::stats::rbsprites() {
+	return;
 	std::ostringstream strs;
 	strs << Sprite::GCOUNT();
 	
@@ -86,6 +90,7 @@ void ap::stats::rbsprites() {
 }
 
 void showcolissions() {
+	return;
 	/*std::ostringstream strs;
 	strs << ap::world->sprites.v.size();
 	

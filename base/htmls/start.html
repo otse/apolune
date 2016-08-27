@@ -3,7 +3,9 @@
 <html>
 <head>
 
-<!-- <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono|Source+Code+Pro' rel='stylesheet' type='text/css'> -->
+<link rel="stylesheet" type="text/css" href="css.css">
+<script type="text/javascript" src="../jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js.js"></script>
 
 <style>
 html {
@@ -21,13 +23,14 @@ body {
 	color: #686868;
 	color: #828282;
 
-	ttext-shadow: 1px 1px white;
+	text-shadow: 1px 1px white;
 	lletter-spacing: 1px;
 	ttext-transform: lowercase;
 	margin: 0;
 }
 
 #limit {
+	position: relative;
     background: #e2e2e2;
     width: 1024px;
     height: 768px;
@@ -98,6 +101,12 @@ body {
 }
 
 </style>
+
+<script>
+	$(document).ready(function() {
+		mstats();
+	});
+</script>
 </head>
 <body>
 

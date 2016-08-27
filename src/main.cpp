@@ -209,6 +209,23 @@ bool second() {
 		dsecond = dnow;
 		fps = frameCount;
 		frameCount = 0;
+
+		std::string fps;
+		fps.reserve(20);
+		fps += "sfps(\"";
+		fps += std::to_string(ap::fps);
+		fps += "\");";
+
+		as::view->ExecuteJavascript(WSLit(fps.c_str()), WSLit(""));
+
+		std::string delta;
+		delta.reserve(30);
+		delta += "sdelta(\"";
+		delta += std::to_string(en::delta);
+		delta += "\");";
+
+		as::view->ExecuteJavascript(WSLit(delta.c_str()), WSLit(""));
+
 		return true;
 	}
 	
@@ -219,7 +236,7 @@ void envars::frame() {
 	//draws.resort = true;
 	//draws.sort();
 	
-	if ( world && second() )
+	if ( second() )
 		secondpass();
 		
 	frameCount ++;
@@ -227,7 +244,6 @@ void envars::frame() {
 	oar::poll();
 	react();
 
-	//if (webview->IsLoading())
 	ap::as::view->InjectMouseMove(mou::mx, mou::my);
 
 	//webview->InjectMouseDown(kMouseButton_Left);
@@ -253,7 +269,7 @@ void envars::frame() {
 }
 
 void secondpass() {
-	stats::rebuild();
+	//stats::rebuild();
 }
 
 void react() {

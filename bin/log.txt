@@ -4,6 +4,7 @@ extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
 'htmls/first.html' successfully read
 'htmls/css.css' successfully read
 'jquery-3.1.0.min.js' successfully read
+'htmls/js.js' successfully read
 explain("System");
 'Midrash.json' successfully read
 Midrash.json versions 0.12
