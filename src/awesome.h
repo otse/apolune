@@ -19,5 +19,7 @@ namespace ap {
 		extern MethodDispatcher madness;
 
 		extern en::FBO *web;
+
+		extern JSObject global;
 	}
 }

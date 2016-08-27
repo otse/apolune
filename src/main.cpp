@@ -53,18 +53,9 @@ std::uniform_real_distribution<double> ap::randy(.0, 1);
 
 ais::Chicken *ap::chicken;
 
-#include "awesome.h"
-#include "ll/method_dispatcher.h"
-
-Awesomium::WebCore *ap::as::core;
-Awesomium::WebView *ap::as::view;
-Awesomium::WebSession *ap::as::session;
-MethodDispatcher ap::as::madness;
-en::FBO *ap::as::web;
-
 using namespace en;
 
-
+#include "awesome.h"
 #include "boilerplate.h"
 
 #include "ap/gui/all.h"
@@ -180,26 +171,19 @@ void awesome() {
 	view = core->CreateWebView(1024, 1024, session);
 	view->session()->AddDataSource(WSLit("baze"), new Baze());
 
-	JSValue result = view->CreateGlobalJavascriptObject(WSLit("app"));
+	JSValue var(view->CreateGlobalJavascriptObject(WSLit("app")));
+	global = var.ToObject();
 
-	if (result.IsObject()) {
-		// Bind our custom method to it.
-		JSObject& app_object = result.ToObject();
-		/*madness.Bind(app_object,
-		WSLit("sayHello"),
-		JSDelegate(this, &TutorialApp::OnSayHello));*/
-	}
-
-	using namespace std;
-
+	/*madness.Bind(app_object,
+	WSLit("sayHello"),
+	JSDelegate(this, &TutorialApp::OnSayHello));*/
+	
 	//std::replace(file.begin(), file.end(), '\\', '/');
-
 	WebURL url(WSLit("asset://baze/htmls/first.html"));
 	view->LoadURL(url);
 
 	loader = new Loader();
 	en::add(loader);
-	//JSValue result = web_view->CreateGlobalJavascriptObject(WSLit("app"));
 }
 
 bool second() {
@@ -209,22 +193,9 @@ bool second() {
 		dsecond = dnow;
 		fps = frameCount;
 		frameCount = 0;
-
-		std::string fps;
-		fps.reserve(20);
-		fps += "sfps(\"";
-		fps += std::to_string(ap::fps);
-		fps += "\");";
-
-		as::view->ExecuteJavascript(WSLit(fps.c_str()), WSLit(""));
-
-		std::string delta;
-		delta.reserve(30);
-		delta += "sdelta(\"";
-		delta += std::to_string(en::delta);
-		delta += "\");";
-
-		as::view->ExecuteJavascript(WSLit(delta.c_str()), WSLit(""));
+		
+		as::global.SetPropertyAsync(WSLit("fps"), JSValue(ap::fps));
+		as::global.SetPropertyAsync(WSLit("delta"), JSValue(en::delta));
 
 		return true;
 	}
@@ -245,6 +216,8 @@ void envars::frame() {
 	react();
 
 	ap::as::view->InjectMouseMove(mou::mx, mou::my);
+
+	as::view->ExecuteJavascript(WSLit("second();"), WSLit(""));
 
 	//webview->InjectMouseDown(kMouseButton_Left);
 	//webview->InjectMouseUp(kMouseButton_Left);

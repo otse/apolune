@@ -347,6 +347,9 @@
     <ClCompile Include="..\..\src\ll\sfmlphysfs.cpp">
       <Filter>Source Files\ll</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\awesome.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Win32Project1.rc">

@@ -22,3 +22,8 @@ function sfps(v) {
 function sdelta(v) {
 	queer.delta.html(v);
 }
+
+function second() {
+	sfps(app.fps);
+	sdelta(app.delta);
+}
