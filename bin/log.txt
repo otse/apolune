@@ -2,10 +2,13 @@
 hi ô_ô
 extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
 'htmls/first.html' successfully read
+OnBeginLoadingFrame
 'htmls/css.css' successfully read
 'jquery-3.1.0.min.js' successfully read
 'htmls/js.js' successfully read
+OnDocumentReady
 explain("System");
+OnFinishLoadingFrame
 'Midrash.json' successfully read
 Midrash.json versions 0.12
 explain("Scripts");
@@ -38,3 +41,6 @@ explain("Textures");
 'effects/sparkle1.png' successfully read
 'effects/bubbles.png' successfully read
 'htmls/start.html' successfully read
+OnBeginLoadingFrame
+OnDocumentReady
+OnFinishLoadingFrame

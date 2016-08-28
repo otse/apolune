@@ -21,19 +21,25 @@ body {
 	font-size: 14px;
 	color: #484848;
 	color: #686868;
-	color: #828282;
+	color: #828282; /* light */
+	color: #bdbdbd; /* dark */
 
 	text-shadow: 1px 1px white;
 	lletter-spacing: 1px;
 	ttext-transform: lowercase;
 	margin: 0;
+	bbackground-color: transparent;
 }
 
 #limit {
 	position: relative;
-    background: #e2e2e2;
-    width: 1024px;
-    height: 768px;
+	background: #e2e2e2;
+
+	width: 1024px;
+	height: 768px;
+
+	width: 512px;
+	height: 384px;
 }
 
 .box {
@@ -57,47 +63,75 @@ body {
 
 .cel {
 	display: table-cell;
-	vvertical-align: middle;
-	text-align: right;
+	vertical-align: middle;
+	text-align: center;
 }
 
 .options {
     display: inline-block;
-    text-align: left;
-    margin: 200px;
-    padding: 5px;
-    background: #464646;
+    text-align: center;
+    margin: 15px;
+    padding: 1px;
+    bbackground: #464646;
 }
 
 .options .option {
     font-family: courier;
     font-size: 11px;
-    color: #dedede;
+    color: #ff8f00;
+    /* border: 1px solid #585858; */
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-    /* text-shadow: 0 0 2px rgba(0, 0, 0, 0.1); */
     letter-spacing: -1px;
     text-transform: lowercase;
     box-sizing: border-box;
     margin: 5px;
-    /* padding: 15px; */
-    width: 150px;
+    padding: 5px;
+    width: 120px;
 }
 .options .option:hover {
-	/* color: orange; */
+    color: #484848;
 	bborder-left: 5px solid #ffca6a;
-	background: #fafafa;
+	bbackground: #fafafa;
 }
 
 .options .option:before{ content: ''; }
 .options .option:after{ content: ''; }
 
-.options .option .in {
-    display: block;
-    bborder: 1px solid #bdbdbd;
-    width: 100%;
-    height: 100%;
-    ppadding: 15px;
+.button {
+	display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 10%;
+    color: rgb(213, 112, 112);
+    background: rgb(189, 30, 1);
+    background: -webkit-radial-gradient(center, ellipse cover, #991414 0%,#930C0C 50%,#5A1818 100%);
+    border: 2px solid rgb(79, 20, 20);
+    outline: 1px solid rgba(65, 65, 65, 0.2);
     box-sizing: border-box;
+    float: right;
+    text-shadow: none;
+    xbox-shadow: 0 0 10px rgba(21, 21, 21, 1);
+    text-align: center;
+    padding-top: 5px;
+    font-size: 8px;
+}
+
+.altbutton {
+display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 10%;
+    color: rgb(197, 197, 197);
+    background: -webkit-radial-gradient(center, ellipse cover, #3b5586 0%,#3e5986 50%,#334269 100%);
+    border: 2px solid rgba(0, 0, 0, 0.14);
+    outline: 1px solid rgba(65, 65, 65, 0.2);
+    box-sizing: border-box;
+    float: right;
+    text-shadow: none;
+    box-shadow: 0 0 5px rgba(21, 21, 21, .5);
+    text-align: center;
+    padding-top: 5px;
+    font-size: 8px;
 }
 
 </style>
@@ -114,8 +148,9 @@ body {
 
 	<div class="tabel"><div class="cel">
 			<div class="options">
-				<div class="option"><div class="in">Start</div></div>
-				<div class="option"><div class="in">Quit</div></div>
+				<div class="option">Start</div>
+				<div class="option">Quit</div>
+				<div class="altbutton">off</div>
 			</div>
 	</div></div>
 

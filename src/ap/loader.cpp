@@ -10,6 +10,7 @@
 #include "loader.h"
 
 #include "../en/engine.h"
+#include "../en/fbo.h"
 #include "../en/font.h"
 #include "../en/text.h"
 
@@ -52,7 +53,6 @@ void ap::Loader::step() {
 
 	switch(state) {
 		case ERR :
-
 			explain("ERRORRR");
             
             LOG("ERROR lol")
@@ -71,7 +71,7 @@ void ap::Loader::step() {
 			}
 			// -~-~-~-
 
-			if (frame < 60)
+			if (frame < 20)
 				break;
 
 			frame = 0;
@@ -86,7 +86,7 @@ void ap::Loader::step() {
 
 			// -~-~-~-
 
-			if (frame < 40)
+			if (frame < 20)
 				break;
 
 			frame = 0;
@@ -101,7 +101,7 @@ void ap::Loader::step() {
 
 			// -~-~-~-
 
-			if (frame < 10)
+			if (frame < 20)
 				break;
 
 			frame = 0;
@@ -118,7 +118,7 @@ void ap::Loader::step() {
 			}
 			// -~-~-~-
 
-			if (frame < 30)
+			if (frame < 20)
 				break;
 
 			frame = 0;
@@ -134,6 +134,12 @@ void ap::Loader::step() {
 				started = true;
 				WebURL url(WSLit("asset://baze/htmls/start.html"));
 				as::view->LoadURL(url);
+
+				/*Draws &d = as::web->gdraws();
+				d.sw(en::width);
+				d.sh(en::height);
+				d.gregion()->x = 0;
+				d.gregion()->y = 0;*/
 			}
 			
 			break;

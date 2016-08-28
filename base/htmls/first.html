@@ -21,9 +21,11 @@ body {
 	font-size: 14px;
 	color: #484848;
 	color: #686868;
-	color: #828282;
+	color: #828282; /* light */
+	color: #bdbdbd; /* dark */
 
-	text-shadow: 1px 1px white;
+	text-shadow: 1px 1px white; /* light */
+	text-shadow: 1px 1px #383838; /* dark */
 	lletter-spacing: 1px;
 	ttext-transform: lowercase;
 	margin: 0;
@@ -31,11 +33,16 @@ body {
 
 #limit {
 	position: relative;
-	background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#d6d6d6 100%);
+	background: -webkit-radial-gradient(center, ellipse cover, #ffffff 0%,#d6d6d6 100%); /* light */
+	background: -webkit-radial-gradient(center, ellipse cover, #272727 0%,#101010 100%); /* dark */
+    background: -webkit-radial-gradient(center, ellipse cover, #1f1f1f 0%,#101010 100%); /* darker */
 	bbackground: white;
 
 	width: 1024px;
 	height: 768px;
+
+	width: 512px;
+	height: 384px;
 }
 
 /* .box:hover { color: black; } */
@@ -78,11 +85,12 @@ body {
 
 .em {
 	display: inline-block;
+	display: none;
 	margin-left: 1ex;
-	color: #c3c3c3;
+	ccolor: #c3c3c3;
 }
 
-.dots { position: absolute; display: inline-block; }
+.dots { position: relative; display: block; text-align: center; }
 .dot {
 	display: inline-block;
 	font-family: Courier;
@@ -105,7 +113,7 @@ body {
 	increments = 0;
 
 	function explain(q) {
-		$('.now').html(q + '...');
+		$('.now').html(q + ' ...');
 		$('.box').append( $('') );
 
 		//var word = words[Math.floor( Math.random() * words.length )]
@@ -116,12 +124,7 @@ body {
 	};
 
 	$(document).ready(function() {
-		/*setInterval(function() {
-			fps(app.fps);
-			delta(app.delta);
-		}, 1000);*/
-
-		mstats();
+		//mstats();
 	});
 </script>
 

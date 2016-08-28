@@ -132,9 +132,12 @@ void envars::make() {
 
 	using namespace ap::as;
 	web = new en::FBO(&en::BLACK, *r);
-	web->gdraws().sw(en::width);
-	web->gdraws().sh(en::height);
-	web->gdraws().yflip = false;
+	Draws &d = web->gdraws();
+	d.sw(en::width*2);
+	d.sh(en::height*2);
+	//d.gregion()->x = r->w / 4;
+	//d.gregion()->y = r->h / 4;
+	d.yflip = false;
 
 	en::add(&web->gdraws());
 }
@@ -168,8 +171,11 @@ void awesome() {
 	core = WebCore::Initialize(c);
 	WebString empty = WebString::CreateFromUTF8("", strlen(""));
 	session = core->CreateWebSession(empty, prefs);
+
 	view = core->CreateWebView(1024, 1024, session);
 	view->session()->AddDataSource(WSLit("baze"), new Baze());
+	view->SetTransparent(true);
+	view->set_load_listener(&load);
 
 	JSValue var(view->CreateGlobalJavascriptObject(WSLit("app")));
 	global = var.ToObject();
@@ -215,12 +221,15 @@ void envars::frame() {
 	oar::poll();
 	react();
 
-	ap::as::view->InjectMouseMove(mou::mx, mou::my);
+	ap::as::view->InjectMouseMove(mou::mx/2, mou::my/2);
 
 	as::view->ExecuteJavascript(WSLit("second();"), WSLit(""));
 
-	//webview->InjectMouseDown(kMouseButton_Left);
-	//webview->InjectMouseUp(kMouseButton_Left);
+	if (en::mou::PRESSED == en::mou::left)
+		as::view->InjectMouseDown(kMouseButton_Left);
+
+	if (en::mou::PRESSED == en::mou::right)
+		as::view->InjectMouseDown(kMouseButton_Right);
 
 	BitmapSurface* surface = (BitmapSurface*)ap::as::view->surface();
 
