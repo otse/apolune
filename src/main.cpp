@@ -227,9 +227,13 @@ void envars::frame() {
 
 	if (en::mou::PRESSED == en::mou::left)
 		as::view->InjectMouseDown(kMouseButton_Left);
+	else if (en::mou::RELEASED == en::mou::left)
+		as::view->InjectMouseUp(kMouseButton_Left);
 
 	if (en::mou::PRESSED == en::mou::right)
 		as::view->InjectMouseDown(kMouseButton_Right);
+	else if (en::mou::RELEASED == en::mou::right)
+		as::view->InjectMouseUp(kMouseButton_Right);
 
 	BitmapSurface* surface = (BitmapSurface*)ap::as::view->surface();
 

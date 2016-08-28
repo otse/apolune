@@ -75,7 +75,7 @@ body {
     bbackground: #464646;
 }
 
-.options .option {
+.main {
     font-family: courier;
     font-size: 11px;
     color: #ff8f00;
@@ -88,15 +88,14 @@ body {
     padding: 5px;
     width: 120px;
 }
-.options .option:hover {
+.main:hover {
     color: #484848;
 	bborder-left: 5px solid #ffca6a;
 	bbackground: #fafafa;
 }
-
-.options .option:before{ content: ''; }
-.options .option:after{ content: ''; }
-
+.main:active {
+	padding: 6px 4px 4px 6px;
+}
 .button {
 	display: inline-block;
     width: 25px;
@@ -148,8 +147,8 @@ display: inline-block;
 
 	<div class="tabel"><div class="cel">
 			<div class="options">
-				<div class="option">Start</div>
-				<div class="option">Quit</div>
+				<div class="main">Start</div>
+				<div class="main">Quit</div>
 				<div class="altbutton">off</div>
 			</div>
 	</div></div>
