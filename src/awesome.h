@@ -30,10 +30,10 @@ namespace ap {
 		public:
 			//Load();
 			//~Load();
-			void ap::as::Load::OnBeginLoadingFrame(Awesomium::WebView* caller, int64 frame_id, bool is_main_frame, const Awesomium::WebURL& url, bool is_error_page);
-			void ap::as::Load::OnFailLoadingFrame(Awesomium::WebView* caller, int64 frame_id, bool is_main_frame, const Awesomium::WebURL& url, int error_code,const Awesomium::WebString& error_desc);
-			void ap::as::Load::OnFinishLoadingFrame(Awesomium::WebView* caller, int64 frame_id, bool is_main_frame, const Awesomium::WebURL& url);
-			virtual void ap::as::Load::OnDocumentReady(Awesomium::WebView* caller, const Awesomium::WebURL& url);
+			virtual void OnBeginLoadingFrame(Awesomium::WebView*, int64 frame_id, bool is_main_frame, const Awesomium::WebURL& url, bool is_error_page);
+			virtual void OnFailLoadingFrame(Awesomium::WebView*, int64 frame_id, bool is_main_frame, const Awesomium::WebURL& url, int error_code,const Awesomium::WebString& error_desc);
+			virtual void OnFinishLoadingFrame(Awesomium::WebView*, int64 frame_id, bool is_main_frame, const Awesomium::WebURL& url);
+			virtual void OnDocumentReady(Awesomium::WebView*, const Awesomium::WebURL& url);
 		};
 
 		extern Load load;
