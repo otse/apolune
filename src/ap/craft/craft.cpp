@@ -91,21 +91,26 @@ void ap::craft::Craft::add(Part *p) {
 
 	const Region normal = grid.gnormal();
 
-	LOG("added part, new grid dims are " << normal.w << " " << normal.h)
+	LOG("gnormal " << normal.x << " " << normal.y << " " << normal.w << " " << normal.h)
 
-	int ww = normal.w*48;
-	int hh = normal.h*48;
+	int w = normal.w + 1;
+	int h = normal.h + 1;
 
-	r.w = ww;
-	r.h = hh;
+	if (normal.x < 0) w += -normal.x;
+	if (normal.y < 0) h += -normal.y;
 
-	sprite->sx(r.x*48);
-	sprite->sy(r.y*48);
+	w *= 48;
+	h *= 48;
 
-	sprite->sw(ww);
-	sprite->sh(hh);
+	ship->x = normal.x * 48;
+	ship->y = normal.y * 48;
 
-	ship->resize(ww,hh);
+	sprite->sx(normal.x*48);
+	sprite->sy(normal.y*48);
+	sprite->sw(w);
+	sprite->sh(h);
+
+	ship->resize(w,h);
 
 }
 
