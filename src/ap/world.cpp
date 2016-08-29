@@ -75,17 +75,7 @@ void ap::World::step() {
 	}}
 	
 	// remove
-	{std::list<Sprite *>::iterator it;
-	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
-		Sprite *s = *it;
-		/*if ( s->remove ) {
-			//LOG("removing Sprite in World remove loop ")
-			it = sprites.l.erase(it);
-			s->remove = false;
-			if ( s->delete_ )
-				delete s;
-		}*/
-	}}
+	sprites.l.remove_if([](const Sprite* p) { return p->remove; });
 	
 	cursorlight->sx(en::mou::mx - 75);
 	cursorlight->sy(en::mou::my - 75);
