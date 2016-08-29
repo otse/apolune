@@ -87,8 +87,8 @@ void ap::World::step() {
 		}*/
 	}}
 	
-	cursorlight->sx(en::mou::mx);
-	cursorlight->sy(en::mou::my);
+	cursorlight->sx(en::mou::mx - 75);
+	cursorlight->sy(en::mou::my - 75);
 	
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glClearColor(0, 0, 0, 0);
@@ -249,9 +249,9 @@ void ap::World::load() {
 	//asteroid::Asteroid *ast = new asteroid::Asteroid();
 	//add(ast);
 	
-	cursorlight = new Light(lights::CURSOR, en::mou::mx, en::mou::my);
+	cursorlight = new Sprite(en::GDEF, &textures::cursorlight, &regions::cursorlight);
 	cursorlight->world = false;
-	cursorlight->light->world = false;
+	this->lights.v.push_back(cursorlight);
 	
 	/*Sprite *mist = new Sprite(en::GDEF, &textures::groundmist, &regions::groundmist);
 	mist->sx(900);

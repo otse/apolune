@@ -31,7 +31,7 @@ namespace ap {
 
 		craft::Craft *craft;
 		
-		Light *cursorlight;
+		Sprite *cursorlight;
 
 		std::vector<std::list<Sprite *>::iterator> group;
 		en::List<Sprite *> sprites;

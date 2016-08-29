@@ -222,7 +222,6 @@
     <ClCompile Include="..\..\src\ap\craft\wall.cpp" />
     <ClCompile Include="..\..\src\ap\def.cpp" />
     <ClCompile Include="..\..\src\ap\emitter.cpp" />
-    <ClCompile Include="..\..\src\ap\hangar.cpp" />
     <ClCompile Include="..\..\src\ap\light.cpp" />
     <ClCompile Include="..\..\src\ap\loader.cpp" />
     <ClCompile Include="..\..\src\ap\mover.cpp" />

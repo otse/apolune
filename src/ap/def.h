@@ -45,6 +45,7 @@ namespace ap {
 		
 		extern en::Texture hangar;
 		extern en::Texture hangarlight;
+		extern en::Texture cursorlight;
 		
 		extern en::Texture sheet;
 		extern en::Texture guy;
@@ -141,7 +142,6 @@ namespace ap {
 		extern en::Region fluotube;
 		extern en::Region fluotubelight;
 		extern en::Region cursorlight;
-
 		
 		extern en::Region dust;
 		extern en::Region groundmist;
@@ -231,11 +231,6 @@ namespace ap {
 		extern en::Color OBJECTHOVER;
 		extern en::Color TOOLTIP;
 		extern en::Color GUIGRAY;
-	}
-	
-	namespace lights {
-		extern const Light::Model CURSOR;
-		extern const Light::Model FLUOTUBE;
 	}
 	
 	typedef float speed_ms_t;

@@ -51,9 +51,9 @@ void ap::Hangar::post() {
 
 	//grid.attach(craft);
 	
-	Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
-	Light *light2 = new Light(lights::FLUOTUBE, 1307-911, 754-527);
-	Light *light3 = new Light(lights::FLUOTUBE, 1379-911, 754-527);
+	//Light *light1 = new Light(lights::FLUOTUBE, 1235-911, 754-527);
+	//Light *light2 = new Light(lights::FLUOTUBE, 1307-911, 754-527);
+	//Light *light3 = new Light(lights::FLUOTUBE, 1379-911, 754-527);
 	//Light *light4 = new Light(lights::FLUOTUBE, 1194/2, 402/2);
 	//Light *light4 = new Light(lights::FLUOTUBE, 1283, 772);
 	//Light *light5 = new Light(lights::FLUOTUBE, 1364, 772);

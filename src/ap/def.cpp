@@ -28,6 +28,7 @@ en::Texture textures::guipieces("guipieces.png");
 
 en::Texture textures::hangar("scenes/hangar.png");
 en::Texture textures::hangarlight("lights/hangarlight.png");
+en::Texture textures::cursorlight("lights/cursorlight.png");
 
 en::Texture textures::sheet("sheet.png");
 en::Texture textures::guy("guy.png");
@@ -75,7 +76,7 @@ en::Region regions::asteroid = {0,0,46,49};
 en::Region regions::masteroid = {0,321,46,49};
 en::Region regions::fluotube = {841,1,24,4};
 en::Region regions::fluotubelight = {694,1,140,140};
-en::Region regions::cursorlight = {840,15,50,50};
+en::Region regions::cursorlight = {0,0,50,50};
 en::Region regions::dust = {840,15,50,50};
 en::Region regions::ventfume = {0,0,40,40};
 en::Region regions::chicken = {18,0,18,18};
@@ -192,18 +193,6 @@ en::Color colors::OBJECTHOVER = {.7f, .7f, 1};
 en::Color colors::TOOLTIP = {.8f, .8f, .8};
 en::Color colors::GUIGRAY = {222/255.f, 222/255.f, 222/255.f};
 
-// # lights
-const Light::Model lights::CURSOR = {
-		Light::CURSOR,
-		{0},
-		regions::cursorlight
-};
-
-const Light::Model lights::FLUOTUBE = {
-		Light::FLUOTUBE,
-		regions::fluotube,
-		regions::fluotubelight
-};
 
 // # animations
 const en::Anim ap::anims::teacup(nullptr, .2, false,
@@ -403,6 +392,7 @@ void ap::loadtex() {
 	
 	textures::hangar.load();
 	textures::hangarlight.load();
+	textures::cursorlight.load();
 	
 	textures::guy.load();
 	textures::backdrop.load();

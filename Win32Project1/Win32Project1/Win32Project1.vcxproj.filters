@@ -206,9 +206,6 @@
     <ClCompile Include="..\..\src\ap\emitter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\ap\hangar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\ap\light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
