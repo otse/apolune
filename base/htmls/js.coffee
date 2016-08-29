@@ -42,21 +42,69 @@ class Overlay
 		;
 
 	build: ->
-		limit.append (@shipping = new Popper 'shipping').popper
-		limit.append (@view = new Popper 'view', 'right').popper
+		limit.append (@shipping = new Popper 'shipping').element
+		limit.append (@view = new Popper 'view', 'right').element
 
-		@view.add new Option
+		@view.add new Option 'gay'
 		1
 
 class Popper
 	constructor: (@name, @class = '') ->
-		@popper = $ "<div class=\"popper #{@class}\">#{@name}</div>"
+		@options = []
+
+		@insides = null
+
+		@element = $ "<div class=\"popper\">"
+		@button = $ "<div class=\"button #{@class}\">#{@name}</div>"
+
+		that = this
+		@element.mouseenter -> that.expire false
+		@element.mouseleave -> that.expire true
+
+		@button.click -> that.expand()
+
+		@element.append @button
+
+		@time = 0
+		;
 
 	add: (item) ->
-		options.push new Option
+		@options.push new Option
+		1
+
+	expand: ->
+		console.log 'expanding'
+		@insides = $ '<div class="insides">'
+
+		for o in @options
+			@insides.append o.element
+
+		@element.append @insides
+		1
+
+	expire: (yea) ->
+		console.log "expire  #{yea}"
+		that = this
+		if yea
+			@time = setTimeout ->
+				that.vanish()
+			, 1000 
+			1
+		else
+			clearTimeout @time
+		0
+
+	vanish: ->
+		return unless @insides?
+		
+		@insides.remove()
+		@insides = null
+		0
+
 
 class Option
-	constructor: (@name = 'an option') ->
+	constructor: (@name = 'an option', @class = '') ->
+		@element = $ "<div class=\"option #{@class}\">#{@name}</div>"
 		;
 
 
