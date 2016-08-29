@@ -25,6 +25,7 @@ explain("Textures");
 'guipieces.png' successfully read
 'scenes/hangar.png' successfully read
 'lights/hangarlight.png' successfully read
+'guy.png' successfully read
 'earth.png' successfully read
 'craft/grid.png' successfully read
 'craft/parts.png' successfully read
@@ -37,6 +38,7 @@ explain("Textures");
 'ais/chicken.png' successfully read
 'ais/tentacle.png' successfully read
 'effects/groundmist.png' successfully read
+'effects/ventfume.png' successfully read
 'effects/playerdeath.png' successfully read
 'effects/sparkle1.png' successfully read
 'effects/bubbles.png' successfully read
@@ -45,12 +47,23 @@ OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
 start
-start
-start
-start
-start
-start
-start
-start
-start
-start
+world ctor
+world load
+added part, new grid dims are 0 0
+ply ctor
+ok
+added part, new grid dims are 1 0
+added part, new grid dims are 1 0
+added part, new grid dims are 1 0
+added part, new grid dims are 1 0
+added part, new grid dims are 1 0
+added part, new grid dims are 2 0
+added part, new grid dims are 2 0
+added part, new grid dims are 2 0
+added part, new grid dims are 2 0
+added part, new grid dims are 2 0
+added part, new grid dims are 2 0
+added part, new grid dims are 2 0
+added part, new grid dims are 2 0
+added part, new grid dims are 2 0
+added part, new grid dims are 2 0

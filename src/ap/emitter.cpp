@@ -162,11 +162,14 @@ void ap::Emitter::draw() {
 	
 	for ( it = p.begin(); it < p.end(); it ++) {
 		Particle *o = *it;
-		if ( o->remove ) {
+		/*if ( o->remove ) {
 			rm(o);
 			delete o;
-		}
+		}*/
 	}
+
+	p.erase(std::remove_if(p.begin(), p.end(), [](const Particle* p) { return p->remove; }), p.end());
+
 	
 	for ( it = p.begin(); it < p.end(); it ++)
 		((Particle *)*it) ->draw();

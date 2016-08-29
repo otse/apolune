@@ -110,11 +110,8 @@ bool ap::commentary() {
 }
 
 void ap::launchworld() {
-	
 	world = new World();
-	
 	world->load();
-	
 }
 
 

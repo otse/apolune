@@ -48,6 +48,8 @@ en::Draws::Draws(Group g, Texture *t, Region *r) :
 	
 en::Draws::~Draws() {
 	COUNT --;
+
+	//LOG("~Draws")
 	
 	//if ( bclearr)
 		//delete r;

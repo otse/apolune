@@ -78,13 +78,13 @@ void ap::World::step() {
 	{std::list<Sprite *>::iterator it;
 	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
 		Sprite *s = *it;
-		if ( s->remove ) {
+		/*if ( s->remove ) {
 			//LOG("removing Sprite in World remove loop ")
 			it = sprites.l.erase(it);
 			s->remove = false;
 			if ( s->delete_ )
 				delete s;
-		}
+		}*/
 	}}
 	
 	cursorlight->sx(en::mou::mx);

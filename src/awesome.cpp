@@ -116,4 +116,7 @@ void ap::as::mawe() {
 
 void ap::as::start(WebView* caller, const JSArray& args) {
 	LOG("start")
+
+	web->gdraws().remove = true;
+	ap::launchworld();
 }

@@ -245,17 +245,21 @@ void en::drawsstep() {
 	
 	// remove
 	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); ) {
+	for ( it = draws.l.begin(); it != draws.l.end(); it++ ) {
 		Draws *d = *it;
-		if ( d->remove ) {
+		/*if ( d->remove ) {
 			LOG("removing Draws in remove loop ")
 			it = draws.l.erase(it);
 			d->remove = false; // ?
-			if ( d->delete_ )
+			if (d->delete_) {
+				LOG("deleting d")
 				delete d;
+			}
 		}
-		else it++;
-	}}
+		else*/ 
+	}
+
+	draws.l.remove_if([](const Draws* p) { return p->remove; }); }
 	
 	// add late
 	{std::vector<Draws *>::iterator it;
@@ -263,6 +267,7 @@ void en::drawsstep() {
 		Draws *d = *it;
 		d->step();
 		add(d);
+		LOG("added late draws")
 	}}
 	late.v.clear();
 	
