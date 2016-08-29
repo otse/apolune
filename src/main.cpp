@@ -14,9 +14,6 @@
 #include "ap/ply.h"
 #include "ap/def.h"
 
-#include "ap/gui/all.h"
-
-
 #include "Q:/jsoncpp-master/include/json/json.h"
 
 #include <sstream> // for json, stats
@@ -58,12 +55,9 @@ using namespace en;
 #include "awesome.h"
 #include "boilerplate.h"
 
-#include "ap/gui/all.h"
 #include "ap/craft/all.h"
 #include "ap/ais/chicken.h"
 
-#include "ap/shards/stats.cpp"
-#include "ap/shards/debugbox.cpp"
 
 void switches();
 void awesome();
@@ -121,76 +115,17 @@ void ap::launchworld() {
 	
 	world->load();
 	
-	ap::debugbox::init();
 }
 
 
 void envars::make() {
-	awesome();
-
-	en::Region *r = new en::Region { 0,0,1024,1024 };
-
-	using namespace ap::as;
-	web = new en::FBO(&en::BLACK, *r);
-	Draws &d = web->gdraws();
-	d.sw(en::width*2);
-	d.sh(en::height*2);
-	//d.gregion()->x = r->w / 4;
-	//d.gregion()->y = r->h / 4;
-	d.yflip = false;
-
-	en::add(&web->gdraws());
-}
-
-void awesome() {
-	using namespace Awesomium;
-	using namespace boilerplate;
-
-	//WebStringArray arr = WebStringArray();
-	//std::string glStr = "--use-gl=desktop";
-	//arr.Push(Awesomium::WebString::CreateFromUTF8(glStr.c_str(), glStr.size()));
-
-	WebConfig c = WebConfig();
-
-	// Bind our method dispatcher to the WebView
-	//ap::webview->set_js_method_handler(&madness);
-	//c.additional_options = arr;
-
-	WebPreferences prefs;
-	prefs.enable_gpu_acceleration = true;
-	prefs.enable_web_gl = true;
-	prefs.enable_javascript = true;
-	prefs.allow_file_access_from_file_url = true;
-	prefs.allow_running_insecure_content = true;
-	prefs.allow_universal_access_from_file_url = true;
-	prefs.enable_web_security = false;
-	prefs.enable_smooth_scrolling = true;
-
-	using namespace ap::as;
-
-	core = WebCore::Initialize(c);
-	WebString empty = WebString::CreateFromUTF8("", strlen(""));
-	session = core->CreateWebSession(empty, prefs);
-
-	view = core->CreateWebView(1024, 1024, session);
-	view->session()->AddDataSource(WSLit("baze"), new Baze());
-	view->SetTransparent(true);
-	view->set_load_listener(&load);
-
-	JSValue var(view->CreateGlobalJavascriptObject(WSLit("app")));
-	global = var.ToObject();
-
-	/*madness.Bind(app_object,
-	WSLit("sayHello"),
-	JSDelegate(this, &TutorialApp::OnSayHello));*/
-	
-	//std::replace(file.begin(), file.end(), '\\', '/');
-	WebURL url(WSLit("asset://baze/htmls/first.html"));
-	view->LoadURL(url);
+	ap::as::mawe();
 
 	loader = new Loader();
 	en::add(loader);
 }
+
+
 
 bool second() {
 	static double dsecond = 0.;

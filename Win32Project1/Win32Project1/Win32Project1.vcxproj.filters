@@ -60,16 +60,10 @@
     <ClInclude Include="..\..\src\ap\craft\all.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ap\gui\all.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\en\anim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\ap\asteroid\asteroid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\ap\gui\box.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\ap\gui\button.h">
@@ -90,9 +84,6 @@
     <ClInclude Include="..\..\src\ap\objects\console.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ap\context.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\ap\craft\craft.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -100,9 +91,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\en\draws.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\ap\gui\element.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\ap\emitter.h">
@@ -127,9 +115,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\ap\hangar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\ap\gui\label.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\ap\light.h">
@@ -316,18 +301,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\ap\craft\grid.cpp">
       <Filter>Source Files\craft</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\ap\gui\element.cpp">
-      <Filter>Source Files\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\ap\gui\label.cpp">
-      <Filter>Source Files\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\ap\gui\button.cpp">
-      <Filter>Source Files\gui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\ap\gui\box.cpp">
-      <Filter>Source Files\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\ap\objects\chair.cpp">
       <Filter>Source Files\objects</Filter>

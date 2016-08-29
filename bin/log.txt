@@ -2,10 +2,10 @@
 hi ô_ô
 extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
 'htmls/first.html' successfully read
+OnBeginLoadingFrame
 'htmls/css.css' successfully read
 'jquery-3.1.0.min.js' successfully read
 'htmls/js.js' successfully read
-OnBeginLoadingFrame
 OnDocumentReady
 explain("System");
 OnFinishLoadingFrame
@@ -44,3 +44,13 @@ explain("Textures");
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
+start
+start
+start
+start
+start
+start
+start
+start
+start
+start

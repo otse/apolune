@@ -160,7 +160,6 @@
     <ClInclude Include="..\..\src\ap\asteroid\asteroid.h" />
     <ClInclude Include="..\..\src\ap\asteroid\rock.h" />
     <ClInclude Include="..\..\src\ap\cli.h" />
-    <ClInclude Include="..\..\src\ap\context.h" />
     <ClInclude Include="..\..\src\ap\craft\all.h" />
     <ClInclude Include="..\..\src\ap\craft\craft.h" />
     <ClInclude Include="..\..\src\ap\craft\grid.h" />
@@ -170,11 +169,7 @@
     <ClInclude Include="..\..\src\ap\craft\wall.h" />
     <ClInclude Include="..\..\src\ap\def.h" />
     <ClInclude Include="..\..\src\ap\emitter.h" />
-    <ClInclude Include="..\..\src\ap\gui\all.h" />
-    <ClInclude Include="..\..\src\ap\gui\box.h" />
     <ClInclude Include="..\..\src\ap\gui\button.h" />
-    <ClInclude Include="..\..\src\ap\gui\element.h" />
-    <ClInclude Include="..\..\src\ap\gui\label.h" />
     <ClInclude Include="..\..\src\ap\hangar.h" />
     <ClInclude Include="..\..\src\ap\light.h" />
     <ClInclude Include="..\..\src\ap\loader.h" />
@@ -227,10 +222,6 @@
     <ClCompile Include="..\..\src\ap\craft\wall.cpp" />
     <ClCompile Include="..\..\src\ap\def.cpp" />
     <ClCompile Include="..\..\src\ap\emitter.cpp" />
-    <ClCompile Include="..\..\src\ap\gui\box.cpp" />
-    <ClCompile Include="..\..\src\ap\gui\button.cpp" />
-    <ClCompile Include="..\..\src\ap\gui\element.cpp" />
-    <ClCompile Include="..\..\src\ap\gui\label.cpp" />
     <ClCompile Include="..\..\src\ap\hangar.cpp" />
     <ClCompile Include="..\..\src\ap\light.cpp" />
     <ClCompile Include="..\..\src\ap\loader.cpp" />

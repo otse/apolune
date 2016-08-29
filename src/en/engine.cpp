@@ -80,8 +80,7 @@ void en::boot(int argc, wchar_t* argv[]) {
 			en::ppi = true;
 		}
 
-		else if (wcscmp(argv[1], L"-thing") == 0)
-			;
+		else if (wcscmp(argv[1], L"-thing") == 0) {}
 	}
 
 	int windoww = width;

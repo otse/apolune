@@ -3,12 +3,17 @@
 #include "awesome.h"
 #include "ll/method_dispatcher.h"
 
+#include "boilerplate.h"
+
+#include "en/draws.h"
+#include "en/fbo.h"
+
 using namespace ap::as;
 
 Awesomium::WebCore *ap::as::core;
 Awesomium::WebView *ap::as::view;
 Awesomium::WebSession *ap::as::session;
-//MethodDispatcher ap::as::madness;
+MethodDispatcher ap::as::dispatcher;
 
 en::FBO *ap::as::web;
 
@@ -49,4 +54,66 @@ void ap::as::Load::OnFinishLoadingFrame(Awesomium::WebView* caller,
 void ap::as::Load::OnDocumentReady(Awesomium::WebView* caller,
 	const Awesomium::WebURL& url) {
 	LOG("OnDocumentReady")
+}
+
+void ap::as::mawe() {
+	using namespace Awesomium;
+	using namespace boilerplate;
+
+	//WebStringArray arr = WebStringArray();
+	//std::string glStr = "--use-gl=desktop";
+	//arr.Push(Awesomium::WebString::CreateFromUTF8(glStr.c_str(), glStr.size()));
+
+	WebConfig c = WebConfig();
+
+	// Bind our method dispatcher to the WebView
+	//ap::webview->set_js_method_handler(&madness);
+	//c.additional_options = arr;
+
+	WebPreferences prefs;
+	prefs.enable_gpu_acceleration = true;
+	prefs.enable_web_gl = true;
+	prefs.enable_javascript = true;
+	prefs.allow_file_access_from_file_url = true;
+	prefs.allow_running_insecure_content = true;
+	prefs.allow_universal_access_from_file_url = true;
+	prefs.enable_web_security = false;
+	prefs.enable_smooth_scrolling = true;
+
+	using namespace ap::as;
+
+	core = WebCore::Initialize(c);
+	WebString empty = WebString::CreateFromUTF8("", strlen(""));
+	session = core->CreateWebSession(empty, prefs);
+
+	view = core->CreateWebView(1024, 1024, session);
+	view->session()->AddDataSource(WSLit("baze"), new Baze());
+	view->SetTransparent(true);
+	view->set_load_listener(&load);
+	view->set_js_method_handler(&dispatcher);
+
+	JSValue var(view->CreateGlobalJavascriptObject(WSLit("app")));
+	global = var.ToObject();
+
+	dispatcher.Bind(global, WSLit("start"), JSDelegate(&start));
+
+	WebURL url(WSLit("asset://baze/htmls/first.html"));
+	view->LoadURL(url);
+
+	en::Region *r = new en::Region{ 0,0,1024,1024 };
+
+	using namespace ap::as;
+	web = new en::FBO(&en::BLACK, *r);
+	en::Draws &d = web->gdraws();
+	d.sw(en::width * 2);
+	d.sh(en::height * 2);
+	//d.gregion()->x = r->w / 4;
+	//d.gregion()->y = r->h / 4;
+	d.yflip = false;
+
+	en::add(&web->gdraws());
+}
+
+void ap::as::start(WebView* caller, const JSArray& args) {
+	LOG("start")
 }

@@ -12,12 +12,16 @@
 
 using namespace Awesomium;
 
+class MethodDispatcher;// : public Awesomium::JSMethodHandler;
+
 namespace ap {
 	namespace as {
+		void mawe();
+
 		extern WebCore *core;
 		extern WebView *view;
 		extern WebSession *session;
-		//extern MethodDispatcher madness;
+		extern MethodDispatcher dispatcher;
 
 		extern en::FBO *web;
 
@@ -26,6 +30,7 @@ namespace ap {
 		typedef std::map<std::wstring, JSDelegate> DelegateMap;
 		extern DelegateMap delegateMap;
 
+		
 		class Load : public Awesomium::WebViewListener::Load {
 		public:
 			//Load();
@@ -37,5 +42,10 @@ namespace ap {
 		};
 
 		extern Load load;
+
+		namespace func {}
+
+		void start(WebView* caller, const JSArray& args);
+
 	}
 }
