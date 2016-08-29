@@ -21,13 +21,25 @@
 }
 
 .popper {
-	position: absolute;
+	pposition: absolute;
 	display: inline-block;
-	top: 0;
-	left: 0;
+	ttop: 0;
+	lleft: 0;
 	margin: 5px;
-    background: #f7f7f7;
+	color: #748fce;
+    bbackground: #f7f7f7;
     padding: 0 2px;
+    margin: 2px;
     ttext-shadow: 0 0 1px rgba(0,0,0,0);
     transform: translateZ(0);
 }
+
+.popper.right {
+	ffloat: right;
+	/*position: absolute;
+	right: 5px;
+	left: 5px;*/
+}
+
+.popper:hover { background: #e7e7e7; }
+.popper:active { color: black; ppadding: 3px 1px 1px 3px; }

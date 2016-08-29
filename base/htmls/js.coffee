@@ -42,13 +42,21 @@ class Overlay
 		;
 
 	build: ->
-		limit.append (@shipping = new Popper()).popper
+		limit.append (@shipping = new Popper 'shipping').popper
+		limit.append (@view = new Popper 'view', 'right').popper
+
+		@view.add new Option
 		1
 
 class Popper
-	constructor: ->
-		@popper = $ '<div class="popper">creative menu</div>'
+	constructor: (@name, @class = '') ->
+		@popper = $ "<div class=\"popper #{@class}\">#{@name}</div>"
 
+	add: (item) ->
+		options.push new Option
+
+class Option
+	constructor: (@name = 'an option') ->
 		;
 
 

@@ -50,7 +50,8 @@
     }
 
     Overlay.prototype.build = function() {
-      limit.append((this.shipping = new Popper()).popper);
+      limit.append((this.shipping = new Popper('shipping')).popper);
+      limit.append((this.quick = new Popper('controls', 'right')).popper);
       return 1;
     };
 
@@ -59,8 +60,10 @@
   })();
 
   Popper = (function() {
-    function Popper() {
-      this.popper = $('<div class="popper">creative menu</div>');
+    function Popper(name, _class) {
+      this.name = name;
+      this["class"] = _class != null ? _class : '';
+      this.popper = $("<div class=\"popper " + this["class"] + "\">" + this.name + "</div>");
     }
 
     return Popper;

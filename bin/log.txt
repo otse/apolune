@@ -58,3 +58,27 @@ ok
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
+gnormal 0 0 1 0
+gnormal -1 0 1 0
+gnormal -1 -1 1 0
+gnormal -1 -1 1 0
+gnormal -2 -1 1 0
+gnormal -2 -1 1 1
+gnormal -2 -1 1 1
+gnormal -2 -1 1 1
+gnormal -2 -1 1 1
+gnormal -2 -1 1 1
+gnormal -2 -1 1 1
+gnormal -2 -1 1 2
+gnormal -2 -1 1 2
+gnormal -2 -1 1 2
+gnormal -2 -1 1 2
+gnormal -2 -1 2 2
+gnormal -2 -1 2 2
+gnormal -2 -1 2 2
+gnormal -2 -1 2 2
+gnormal -2 -1 2 3
+gnormal -2 -1 2 3
+gnormal -2 -1 2 3
+gnormal -2 -1 2 3
+gnormal -2 -1 2 3
