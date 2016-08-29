@@ -1,3 +1,8 @@
+#limit { /* extends */
+	text-transform: lowercase;
+	color: #b3b3b3;
+}
+
 #stats {
 	font-family: Courier;
 	font-size: 8px;
@@ -23,15 +28,15 @@
 .popper {
 	position: relative;
 	display: inline-block;
-	margin: 2px;
+	margin: 1px;
 }
 
 .popper > .button {
 	position: relative;
 	display: inline-block;
-	color: #748fce;
+	color: #b3b3b3;
     bbackground: #f7f7f7;
-    padding: 0 2px;
+    padding: 3px;
     mmargin: 2px;
     ttext-shadow: 0 0 1px rgba(0,0,0,0);
     transform: translateZ(0);
@@ -52,3 +57,16 @@
 
 .popper > .button:hover { background: #e7e7e7; }
 .popper > .button:active { color: black; ppadding: 3px 1px 1px 3px; }
+
+.insides > .option {
+	color: #b3b3b3;
+    color: #585858;
+    background: rgb(235, 235, 235);
+    padding: 1px;
+}
+
+.insides > .option > .value {
+	display: inline-block;
+	color: #748fce;
+	ccolor: #3E83C0;;
+}

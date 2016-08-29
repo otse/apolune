@@ -50,7 +50,7 @@ class Overlay
 
 class Popper
 	constructor: (@name, @class = '') ->
-		@options = []
+		@things = []
 
 		@insides = null
 
@@ -69,34 +69,32 @@ class Popper
 		;
 
 	add: (item) ->
-		@options.push new Option
+		@things.push new Value 'scale', 3
+		@things.push new Value 'cross section', 'on'
 		1
 
 	expand: ->
-		console.log 'expanding'
 		@insides = $ '<div class="insides">'
 
-		for o in @options
+		for o in @things
 			@insides.append o.element
 
 		@element.append @insides
 		1
 
 	expire: (yea) ->
-		console.log "expire  #{yea}"
+		console.log "expire #{yea}"
 		that = this
 		if yea
 			@time = setTimeout ->
 				that.vanish()
-			, 1000 
-			1
+			, 300
 		else
 			clearTimeout @time
 		0
 
 	vanish: ->
 		return unless @insides?
-		
 		@insides.remove()
 		@insides = null
 		0
@@ -106,6 +104,17 @@ class Option
 	constructor: (@name = 'an option', @class = '') ->
 		@element = $ "<div class=\"option #{@class}\">#{@name}</div>"
 		;
+
+class Value
+	constructor: (@name = 'a value', @value, @class = '') ->
+		@element = null
+
+		@build()
+		;
+
+	build: ->
+		@element = $ "<div class=\"option #{@class}\">#{@name}: <div class=\"value\">#{@value}</div></div>"
+		1
 
 
 
