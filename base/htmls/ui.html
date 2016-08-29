@@ -18,7 +18,7 @@ html {
 
 body {
 	font-family: 'Segoe UI Light', 'Segoe UI';
-	font-size: 14px;
+	font-size: 9px;
 	color: #828282; /* light */
 
 	ttext-shadow: 1px 1px white;
@@ -46,11 +46,27 @@ body {
 	vertical-align: middle;
 	text-align: center;
 }
+
+/* the elements */
+
+.button1 {
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	left: 0;
+	margin: 5px;
+    background: #f7f7f7;
+    padding: 0 2px;
+    ttext-shadow: 0 0 1px rgba(0,0,0,0);
+    transform: translateZ(0);
+}
 </style>
 
 <script>
 	$(document).ready(function() {
-		mstats();
+		js.boot();
+		js.mstats();
+		js.overlay();
 	});
 </script>
 </head>
@@ -58,9 +74,9 @@ body {
 
 <div id="limit">
 
-	<div class="tabel"><div class="cel">
+	<!--<div class="tabel"><div class="cel">
 			
-	</div></div>
+	</div></div>-->
 
 </div>
 

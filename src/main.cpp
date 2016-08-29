@@ -155,7 +155,7 @@ void envars::frame() {
 
 	ap::as::view->InjectMouseMove(mou::mx/2, mou::my/2);
 
-	as::view->ExecuteJavascript(WSLit("second();"), WSLit(""));
+	as::view->ExecuteJavascript(WSLit("js.second();"), WSLit(""));
 
 	if (en::mou::PRESSED == en::mou::left)
 		as::view->InjectMouseDown(kMouseButton_Left);
