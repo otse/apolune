@@ -22,9 +22,6 @@
     <Filter Include="Source Files\craft">
       <UniqueIdentifier>{1e599f86-17a2-4a8f-a78c-cf13930d9d6b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gui">
-      <UniqueIdentifier>{5f780a5e-9ecb-441b-9821-c43db8f3d7c5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\objects">
       <UniqueIdentifier>{5d453610-dfb3-41a4-9ad5-f3dceeea2f76}</UniqueIdentifier>
     </Filter>

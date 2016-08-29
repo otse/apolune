@@ -117,6 +117,10 @@ void ap::as::mawe() {
 void ap::as::start(WebView* caller, const JSArray& args) {
 	LOG("start")
 
-	web->gdraws().remove = true;
+	//web->gdraws().remove = true;
+
+	WebURL url(WSLit("asset://baze/htmls/ui.html"));
+	view->LoadURL(url);
+
 	ap::launchworld();
 }

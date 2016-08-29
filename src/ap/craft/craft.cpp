@@ -99,7 +99,6 @@ void ap::craft::Craft::add(Part *p) {
 	r.w = ww;
 	r.h = hh;
 
-
 	sprite->sx(r.x*48);
 	sprite->sy(r.y*48);
 

@@ -32,6 +32,7 @@ explain("Textures");
 'objects/apexcoolchair.png' successfully read
 'objects/apexcooltable.png' successfully read
 'objects/bonetable.png' successfully read
+'objects/apexradio.png' successfully read
 'objects/apexconsole.png' successfully read
 'objects/apexbrainjar.png' successfully read
 'objects/tier3switch.png' successfully read
@@ -52,18 +53,80 @@ world load
 added part, new grid dims are 0 0
 ply ctor
 ok
+'htmls/ui.html' successfully read
+OnBeginLoadingFrame
+OnDocumentReady
+OnFinishLoadingFrame
 added part, new grid dims are 1 0
 added part, new grid dims are 1 0
 added part, new grid dims are 1 0
 added part, new grid dims are 1 0
-added part, new grid dims are 1 0
 added part, new grid dims are 2 0
-added part, new grid dims are 2 0
-added part, new grid dims are 2 0
-added part, new grid dims are 2 0
-added part, new grid dims are 2 0
-added part, new grid dims are 2 0
-added part, new grid dims are 2 0
-added part, new grid dims are 2 0
-added part, new grid dims are 2 0
-added part, new grid dims are 2 0
+added part, new grid dims are 3 0
+added part, new grid dims are 3 0
+added part, new grid dims are 3 1
+added part, new grid dims are 3 1
+added part, new grid dims are 3 2
+added part, new grid dims are 3 3
+added part, new grid dims are 3 3
+added part, new grid dims are 3 3
+added part, new grid dims are 3 3
+added part, new grid dims are 3 3
+added part, new grid dims are 3 3
+added part, new grid dims are 4 3
+added part, new grid dims are 5 3
+added part, new grid dims are 5 3
+added part, new grid dims are 5 3
+added part, new grid dims are 6 3
+added part, new grid dims are 7 3
+added part, new grid dims are 8 3
+added part, new grid dims are 8 4
+added part, new grid dims are 8 5
+added part, new grid dims are 8 6
+added part, new grid dims are 8 7
+added part, new grid dims are 8 8
+added part, new grid dims are 8 9
+added part, new grid dims are 8 10
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
+added part, new grid dims are 8 11
