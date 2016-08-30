@@ -45,12 +45,12 @@ class Overlay
 		limit.append (@shipping = new Popper 'shipping').element
 		limit.append (@view = new Popper 'view', 'right').element
 
-		@view.add new Option 'gay'
+		@view.add new Item 'gay'
 		1
 
 class Popper
 	constructor: (@name, @class = '') ->
-		@things = []
+		@items = []
 
 		@insides = null
 
@@ -69,14 +69,14 @@ class Popper
 		;
 
 	add: (item) ->
-		@things.push new Value 'scale', 3
-		@things.push new Value 'cross section', 'on'
+		@items.push new Value 'scale', 3
+		@items.push new Clicky 'cross section', ['on', 'off']
 		1
 
 	expand: ->
 		@insides = $ '<div class="insides">'
 
-		for o in @things
+		for o in @items
 			@insides.append o.element
 
 		@element.append @insides
@@ -95,14 +95,14 @@ class Popper
 
 	vanish: ->
 		return unless @insides?
-		@insides.remove()
+		# @insides.remove()
 		@insides = null
 		0
 
 
-class Option
-	constructor: (@name = 'an option', @class = '') ->
-		@element = $ "<div class=\"option #{@class}\">#{@name}</div>"
+class Item
+	constructor: (@name = 'an item', @class = '') ->
+		@element = $ "<div class=\"item #{@class}\">#{@name}</div>"
 		;
 
 class Value
@@ -113,7 +113,20 @@ class Value
 		;
 
 	build: ->
-		@element = $ "<div class=\"option #{@class}\">#{@name}: <div class=\"value\">#{@value}</div></div>"
+		@element = $ "<div class=\"item #{@class}\">#{@name} <div class=\"value\">#{@value}</div></div>"
+		1
+
+class Clicky
+	constructor: (@name = 'a value', @values, @class = '') ->
+		@element = null
+
+		@build()
+		;
+
+	build: ->
+		@element = $ "<div class=\"item clicky #{@class}\">#{@name} <div class=\"value\">#{@values[0]}</div></div>"
+
+
 		1
 
 

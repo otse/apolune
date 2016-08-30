@@ -28,14 +28,16 @@
 .popper {
 	position: relative;
 	display: inline-block;
+	font-family: Courier;
+    font-size: 11px;
+    color: #585858;
 	margin: 1px;
 }
 
 .popper > .button {
 	position: relative;
 	display: inline-block;
-	color: #b3b3b3;
-    bbackground: #f7f7f7;
+    background: rgb(235, 235, 235);
     padding: 3px;
     mmargin: 2px;
     ttext-shadow: 0 0 1px rgba(0,0,0,0);
@@ -45,7 +47,7 @@
 .popper > .insides {
     position: absolute;
     display: block;
-    width: 110px;
+    wwidth: 110px;
 }
 
 .popper.right {
@@ -58,15 +60,27 @@
 .popper > .button:hover { background: #e7e7e7; }
 .popper > .button:active { color: black; ppadding: 3px 1px 1px 3px; }
 
-.insides > .option {
-	color: #b3b3b3;
-    color: #585858;
+.insides > .item {
+	display: inline-block;
+	letter-spacing: -1;
     background: rgb(235, 235, 235);
     padding: 1px;
+    white-space: nowrap;
 }
 
-.insides > .option > .value {
+.insides > .item > .value {
 	display: inline-block;
 	color: #748fce;
-	ccolor: #3E83C0;;
+	letter-spacing: normal;
+	ccolor: #3E83C0;
+    padding: 1px 2px;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.insides > .item.clicky > .value {
+    border: 1px solid rgb(245, 245, 245);
+    border-radius: 2px;
+    border-right-color: rgb(166, 166, 166);
+    border-bottom-color: rgb(166, 166, 166);
+    background: rgb(210, 210, 210);
 }

@@ -46,6 +46,14 @@ void ap::as::Load::OnFinishLoadingFrame(Awesomium::WebView* caller,
 	int64 frame_id,
 	bool is_main_frame,
 	const Awesomium::WebURL& url) {
+	if (nullptr != ap::world) {
+		LOG("yeahs")
+		en::Draws &d = web->gdraws();
+		d.sx(0);
+		d.sy(0);
+		d.sw(en::width);
+		d.sh(en::height);
+	}
 	LOG("OnFinishLoadingFrame")
 }
 

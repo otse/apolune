@@ -153,7 +153,10 @@ void envars::frame() {
 	oar::poll();
 	react();
 
-	ap::as::view->InjectMouseMove(mou::mx/2, mou::my/2);
+	if (nullptr == ap::world)
+		ap::as::view->InjectMouseMove(mou::mx / 2, mou::my / 2);
+	else
+		ap::as::view->InjectMouseMove(mou::mx, mou::my);
 
 	as::view->ExecuteJavascript(WSLit("js.second();"), WSLit(""));
 
