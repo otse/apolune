@@ -52,7 +52,8 @@
     Overlay.prototype.build = function() {
       limit.append((this.shipping = new Popper('shipping')).element);
       limit.append((this.view = new Popper('view', 'right')).element);
-      this.view.add(new Item('gay'));
+      this.view.add(new Clicky('zoom', ['3x', '2x', '1x']));
+      this.view.add(new Clicky('cross section', ['on', 'off']));
       return 1;
     };
 
@@ -84,8 +85,7 @@
     }
 
     Popper.prototype.add = function(item) {
-      this.items.push(new Clicky('zoom', ['3x', '2x', '1x']));
-      this.items.push(new Clicky('cross section', ['on', 'off']));
+      this.items.push(item);
       return 1;
     };
 
@@ -118,7 +118,7 @@
       if (this.insides == null) {
         return;
       }
-      this.insides.remove();
+      this.insides.detach();
       this.insides = null;
       return 0;
     };
@@ -172,10 +172,10 @@
       this.button = this.element.find('.value');
       that = this;
       this.button.click(function() {
-        console.log('lool');
+        console.log('lool', that);
         that.i = that.i + 1 === that.values.length ? 0 : that.i + 1;
         $(this).html(that.values[that.i]);
-        return 1;
+        return void 0;
       });
       return 1;
     };

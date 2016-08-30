@@ -45,7 +45,8 @@ class Overlay
 		limit.append (@shipping = new Popper 'shipping').element
 		limit.append (@view = new Popper 'view', 'right').element
 
-		@view.add new Item 'gay'
+		@view.add new Clicky 'zoom', ['3x', '2x', '1x']
+		@view.add new Clicky 'cross section', ['on', 'off']
 		1
 
 class Popper
@@ -69,8 +70,7 @@ class Popper
 		;
 
 	add: (item) ->
-		@items.push new Clicky 'zoom', ['3x', '2x', '1x']
-		@items.push new Clicky 'cross section', ['on', 'off']
+		@items.push item
 		1
 
 	expand: ->
@@ -94,7 +94,7 @@ class Popper
 
 	vanish: ->
 		return unless @insides?
-		@insides.remove()
+		@insides.detach()
 		@insides = null
 		0
 
@@ -130,10 +130,10 @@ class Clicky
 
 		that = this
 		@button.click ->
-			console.log 'lool'
+			console.log 'lool', that
 			that.i = if that.i + 1 is that.values.length then 0 else that.i + 1
 			$(this).html that.values[that.i]
-			1
+			undefined
 
 		1
 
