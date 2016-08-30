@@ -37,7 +37,7 @@
 .popper > .button {
 	position: relative;
 	display: inline-block;
-    background: rgb(235, 235, 235);
+    bbackground: rgb(235, 235, 235);
     padding: 3px;
     mmargin: 2px;
     ttext-shadow: 0 0 1px rgba(0,0,0,0);
@@ -57,7 +57,7 @@
 	left: 5px;*/
 }
 
-.popper > .button:hover { background: #e7e7e7; }
+.popper > .button:hover { bbackground: #e7e7e7; color: white; }
 .popper > .button:active { color: black; ppadding: 3px 1px 1px 3px; }
 
 .insides > .item {
@@ -65,6 +65,7 @@
 	letter-spacing: -1;
     background: rgb(235, 235, 235);
     padding: 1px;
+    padding-left: 4px;
     white-space: nowrap;
 }
 
@@ -83,4 +84,13 @@
     border-right-color: rgb(166, 166, 166);
     border-bottom-color: rgb(166, 166, 166);
     background: rgb(210, 210, 210);
+}
+
+.insides > .item.clicky > .value:hover {
+    background: white;
+}
+
+.insides > .item.clicky > .value:active {
+    border: 1px solid rgb(210, 210, 210);
+    background: transparent;
 }

@@ -119,6 +119,7 @@
       if (this.insides == null) {
         return;
       }
+      this.insides.remove();
       this.insides = null;
       return 0;
     };
@@ -162,11 +163,20 @@
       this.values = values;
       this["class"] = _class != null ? _class : '';
       this.element = null;
+      this.i = 0;
       this.build();
     }
 
     Clicky.prototype.build = function() {
-      this.element = $("<div class=\"item clicky " + this["class"] + "\">" + this.name + " <div class=\"value\">" + this.values[0] + "</div></div>");
+      var that;
+      this.element = $("<div class=\"item clicky " + this["class"] + "\">" + this.name + " <div class=\"value\">" + this.values[this.i] + "</div></div>");
+      this.button = this.element.find('.value');
+      that = this;
+      this.button.click(function() {
+        that.i = that.i + 1 === that.values.length ? 0 : that.i + 1;
+        $(this).html(that.values[that.i]);
+        return 1;
+      });
       return 1;
     };
 

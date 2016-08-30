@@ -95,7 +95,7 @@ class Popper
 
 	vanish: ->
 		return unless @insides?
-		# @insides.remove()
+		@insides.remove()
 		@insides = null
 		0
 
@@ -120,12 +120,20 @@ class Clicky
 	constructor: (@name = 'a value', @values, @class = '') ->
 		@element = null
 
+		@i = 0
 		@build()
 		;
 
 	build: ->
-		@element = $ "<div class=\"item clicky #{@class}\">#{@name} <div class=\"value\">#{@values[0]}</div></div>"
+		@element = $ "<div class=\"item clicky #{@class}\">#{@name} <div class=\"value\">#{@values[@i]}</div></div>"
 
+		@button = @element.find '.value'
+
+		that = this
+		@button.click ->
+			that.i = if that.i + 1 is that.values.length then 0 else that.i + 1
+			$(this).html that.values[that.i]
+			1
 
 		1
 
