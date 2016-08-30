@@ -69,7 +69,7 @@ class Popper
 		;
 
 	add: (item) ->
-		@items.push new Value 'scale', 3
+		@items.push new Clicky 'zoom', ['3x', '2x', '1x']
 		@items.push new Clicky 'cross section', ['on', 'off']
 		1
 
@@ -83,7 +83,6 @@ class Popper
 		1
 
 	expire: (yea) ->
-		console.log "expire #{yea}"
 		that = this
 		if yea
 			@time = setTimeout ->
@@ -131,6 +130,7 @@ class Clicky
 
 		that = this
 		@button.click ->
+			console.log 'lool'
 			that.i = if that.i + 1 is that.values.length then 0 else that.i + 1
 			$(this).html that.values[that.i]
 			1

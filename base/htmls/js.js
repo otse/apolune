@@ -84,7 +84,7 @@
     }
 
     Popper.prototype.add = function(item) {
-      this.items.push(new Value('scale', 3));
+      this.items.push(new Clicky('zoom', ['3x', '2x', '1x']));
       this.items.push(new Clicky('cross section', ['on', 'off']));
       return 1;
     };
@@ -103,7 +103,6 @@
 
     Popper.prototype.expire = function(yea) {
       var that;
-      console.log("expire " + yea);
       that = this;
       if (yea) {
         this.time = setTimeout(function() {
@@ -173,6 +172,7 @@
       this.button = this.element.find('.value');
       that = this;
       this.button.click(function() {
+        console.log('lool');
         that.i = that.i + 1 === that.values.length ? 0 : that.i + 1;
         $(this).html(that.values[that.i]);
         return 1;
