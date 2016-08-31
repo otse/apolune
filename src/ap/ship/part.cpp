@@ -4,9 +4,9 @@
 
 #include "../def.h"
 
-using namespace ap::craft;
+using namespace ap::ship;
 
-ap::craft::Part::Part(Tile &t, const Model m, TYPE type) :
+ap::ship::Part::Part(Tile &t, const Model m, TYPE type) :
 	ap::Sprite(en::GDEF, m.t, m.r) ,
 	tile(t),
 	craft(t.grid.craft),
@@ -24,29 +24,29 @@ ap::craft::Part::Part(Tile &t, const Model m, TYPE type) :
 	fbo = craft.gfbo();
 }
 
-ap::craft::Part::~Part() {
+ap::ship::Part::~Part() {
 	
 }
 
-void ap::craft::Part::step() {
+void ap::ship::Part::step() {
 	Sprite::step();
 }
 
-void ap::craft::Part::draw() {
+void ap::ship::Part::draw() {
 	Sprite::draw();
 }
 
-void ap::craft::Part::click() {
+void ap::ship::Part::click() {
 	
 }
 
-void ap::craft::Part::hover(mou::Hover h) {
+void ap::ship::Part::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {} else {}
 }
 
-void ap::craft::Part::connect () {}
+void ap::ship::Part::connect () {}
 
-void ap::craft::Part::refit () {}
+void ap::ship::Part::refit () {}
 
 	/*Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
 	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
@@ -62,7 +62,7 @@ void ap::craft::Part::refit () {}
 /* ###########################
    ## Getters & Setters
    ########################### */
-/*Part::TYPE ap::craft::Part::gtype() {
+/*Part::TYPE ap::ship::Part::gtype() {
 	return type;
 }*/
 

@@ -5,7 +5,7 @@
 
 #include "../def.h"
 
-using namespace ap::craft;
+using namespace ap::ship;
 
 
 const Wall::Model Wall::iris = {
@@ -99,7 +99,7 @@ const Wall::Model Wall::quad2 = {
 		}, 100};
 
 
-ap::craft::Wall::Wall(Tile &t) : Part(t, single.m, WALL) ,
+ap::ship::Wall::Wall(Tile &t) : Part(t, single.m, WALL) ,
 	model(&single),
 	outline(nullptr)
 	{
@@ -109,16 +109,16 @@ ap::craft::Wall::Wall(Tile &t) : Part(t, single.m, WALL) ,
 
 }
 
-ap::craft::Wall::~Wall() {
+ap::ship::Wall::~Wall() {
 	
 }
 
 
-void ap::craft::Wall::step() {
+void ap::ship::Wall::step() {
 	//Part::step();
 }
 
-void ap::craft::Wall::draw2(bool rear) {
+void ap::ship::Wall::draw2(bool rear) {
 	int r = rotate;
 
 	if ( rear ) {
@@ -135,12 +135,12 @@ void ap::craft::Wall::draw2(bool rear) {
 	rotate = r;
 }
 
-void ap::craft::Wall::click() {
+void ap::ship::Wall::click() {
 	
 }
 
 
-void ap::craft::Wall::hover(mou::Hover h) {
+void ap::ship::Wall::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {
 		
 	} else {
@@ -157,7 +157,7 @@ void ap::craft::Wall::hover(mou::Hover h) {
 #define LEFT 		walls[6]
 #define TOPLEFT 	walls[7]
 
-void ap::craft::Wall::refit() {
+void ap::ship::Wall::refit() {
 	Tile **all = tile.gneighbors();
 
 	bool walls[8]; // = {false};
@@ -243,7 +243,7 @@ void ap::craft::Wall::refit() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-//void ap::craft::Tile::sgrid(int c, int r) {
+//void ap::ship::Tile::sgrid(int c, int r) {
 	//cols = c;
 	//rows = r;
 

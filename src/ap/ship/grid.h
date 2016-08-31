@@ -1,5 +1,5 @@
-#ifndef apcraftgrid_H
-#define apcraftgrid_H
+#ifndef apshipgrid_H
+#define apshipgrid_H
 
 #include "../../h.h"
 
@@ -9,10 +9,10 @@
 
 namespace ap {
 	
-	namespace craft {
+	namespace ship {
 		class Grid : public Sprite {
 		public:
-			Grid(Craft &);
+			Grid(Ship &);
 			~Grid();
 
 			virtual void step();
@@ -22,13 +22,13 @@ namespace ap {
 
 			std::unordered_map <std::string, Tile *> tilesum;
 			
-			Craft &craft;
+			Ship &craft;
 
 			const Region &gnormal();
 
 			Tile &mtile(int,int);
 
-			//Craft &gcraft();
+			//Ship &gcraft();
 			int x;
 			int y;
 

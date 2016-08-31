@@ -8,11 +8,11 @@
 
 namespace ap {
 	
-	namespace craft {
-		class Craft : public Sprite {
+	namespace ship {
+		class Ship : public Sprite {
 		public:
-			Craft();
-			~Craft();
+			Ship();
+			~Ship();
 
 			virtual void click();
 			virtual void hover(mou::Hover h);

@@ -233,7 +233,7 @@ void ap::World::load() {
 	// this->add( hangar );
 	// hangar->post();
 
-	craft = new craft::Craft();
+	craft = new ship::Ship();
 	add(craft);
 
 	//asteroid::Asteroid *ast = new asteroid::Asteroid();

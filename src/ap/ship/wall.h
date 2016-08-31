@@ -1,5 +1,5 @@
-#ifndef apcraftwall_H
-#define apcraftwall_H
+#ifndef apshipwall_H
+#define apshipwall_H
 
 #include "../../h.h"
 
@@ -7,7 +7,7 @@
 
 namespace ap {
 	
-	namespace craft {
+	namespace ship {
 		class Wall : public Part {
 		public:
 			struct Model {

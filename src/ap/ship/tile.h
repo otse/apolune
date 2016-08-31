@@ -1,5 +1,5 @@
-#ifndef apcrafttile_H
-#define apcrafttile_H
+#ifndef apshiptile_H
+#define apshiptile_H
 
 #include "../../h.h"
 
@@ -7,7 +7,7 @@
 
 namespace ap {
 	
-	namespace craft {
+	namespace ship {
 		class Tile : public Sprite {
 		public:
 			Tile(Grid &, int, int);

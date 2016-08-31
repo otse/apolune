@@ -80,10 +80,10 @@ namespace ap {
 		class Button;
 	}
 	
-	namespace craft {
+	namespace ship {
 		class Grid;
 		class Tile;
-		class Craft;
+		class Ship;
 		class Part;
 		class Truss;
 		class Wall;

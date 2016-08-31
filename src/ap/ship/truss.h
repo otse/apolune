@@ -1,5 +1,5 @@
-#ifndef apcrafttruss_H
-#define apcrafttruss_H
+#ifndef apshiptruss_H
+#define apshiptruss_H
 
 #include "../../h.h"
 
@@ -7,7 +7,7 @@
 
 namespace ap {
 	
-	namespace craft {
+	namespace ship {
 		class Truss : public Part {
 		public:
 			struct Model {

@@ -8,7 +8,7 @@
 
 
 
-ap::craft::Grid::Grid(Craft &o) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
+ap::ship::Grid::Grid(Ship &o) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
 	craft(o),
 	normal( {0,0,0,0} )
 	{
@@ -18,11 +18,11 @@ ap::craft::Grid::Grid(Craft &o) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) 
 	//LOG ( "is empty " << tilesum.size() )
 }
 
-ap::craft::Grid::~Grid() {
+ap::ship::Grid::~Grid() {
 	
 }
 
-ap::craft::Tile &ap::craft::Grid::mtile(int x, int y) {
+ap::ship::Tile &ap::ship::Grid::mtile(int x, int y) {
 
 	Tile *t = new Tile(*this, x, y);
 
@@ -36,7 +36,7 @@ ap::craft::Tile &ap::craft::Grid::mtile(int x, int y) {
 	return *t;
 }
 
-void ap::craft::Grid::expandfrom(Tile &t) {
+void ap::ship::Grid::expandfrom(Tile &t) {
 	for (int i = 0; i < 8; i ++) {
 		int x = t.gx(), y = t.gy();
 
@@ -73,7 +73,7 @@ void ap::craft::Grid::expandfrom(Tile &t) {
 }
 
 
-void ap::craft::Grid::step() {
+void ap::ship::Grid::step() {
 
 }
 
@@ -81,8 +81,8 @@ void ap::craft::Grid::step() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-const Region &ap::craft::Grid::gnormal() { return normal; }
+const Region &ap::ship::Grid::gnormal() { return normal; }
 
-//ap::craft::Craft &ap::craft::Grid::gcraft() {
-//	return craft;
+//ap::ship::Ship &ap::ship::Grid::gcraft() {
+//	return ship;
 //}

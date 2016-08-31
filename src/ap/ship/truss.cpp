@@ -4,7 +4,7 @@
 
 #include "../def.h"
 
-using namespace ap::craft;
+using namespace ap::ship;
 
 const Truss::Model Truss::single = {
 		{
@@ -43,7 +43,7 @@ const Truss::Model Truss::quad = {
 		}, 100, 100};
 
 
-ap::craft::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
+ap::ship::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
 	model(&single),
 	wall(nullptr),
 	outline(nullptr),
@@ -55,7 +55,7 @@ ap::craft::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
 	wall = new Wall(tile);
 }
 
-ap::craft::Truss::~Truss() {
+ap::ship::Truss::~Truss() {
 
 	for (int i = 0; i < 4; i ++)
 		if ( nullptr != junctions[i] )
@@ -63,14 +63,14 @@ ap::craft::Truss::~Truss() {
 
 }
 
-void ap::craft::Truss::step() {
+void ap::ship::Truss::step() {
 	Part::step();
 
 	if ( nullptr != wall )
 		wall->step();
 }
 
-void ap::craft::Truss::draw() {
+void ap::ship::Truss::draw() {
 	if ( nullptr != wall )
 		wall->draw2(true);
 
@@ -85,12 +85,12 @@ void ap::craft::Truss::draw() {
 		wall->draw2(false);
 }
 
-void ap::craft::Truss::click() {
+void ap::ship::Truss::click() {
 	
 }
 
 
-void ap::craft::Truss::hover(mou::Hover h) {
+void ap::ship::Truss::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {
 		
 	} else {
@@ -98,7 +98,7 @@ void ap::craft::Truss::hover(mou::Hover h) {
 	}
 }
 
-void ap::craft::Truss::connect() {
+void ap::ship::Truss::connect() {
 	Tile **all = tile.gneighbors();
 
 	for (int i = 0; i < 8; i ++) {
@@ -110,7 +110,7 @@ void ap::craft::Truss::connect() {
 	refit();
 }
 
-void ap::craft::Truss::junction(int i, int r) {
+void ap::ship::Truss::junction(int i, int r) {
 	Sprite *j = new Sprite(en::GDEF, &textures::parts, &ap::regions::trussjunction);
 	j->world = false;
 	j->rotate = r;
@@ -131,7 +131,7 @@ void ap::craft::Truss::junction(int i, int r) {
 #define LEFT 		trusses[6]
 #define TOPLEFT 	trusses[7]
 
-void ap::craft::Truss::refit() {
+void ap::ship::Truss::refit() {
 	Tile **all = tile.gneighbors();
 
 	bool trusses[8]; // = {false};
@@ -270,7 +270,7 @@ void ap::craft::Truss::refit() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-Wall *ap::craft::Truss::gwall() {
+Wall *ap::ship::Truss::gwall() {
 	return wall;
 }
 

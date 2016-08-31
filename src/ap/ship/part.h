@@ -1,5 +1,5 @@
-#ifndef apcraftpart_H
-#define apcraftpart_H
+#ifndef apshippart_H
+#define apshippart_H
 
 #include "../../h.h"
 
@@ -7,7 +7,7 @@
 
 namespace ap {
 	
-	namespace craft {
+	namespace ship {
 
 		class Part : public Sprite {
 		public: enum TYPE {
@@ -29,7 +29,7 @@ namespace ap {
 			virtual void draw();
 
 			Tile &tile;
-			Craft &craft;
+			Ship &craft;
 			Emitter *em;
 
 			//TYPE gtype();

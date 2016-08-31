@@ -5,7 +5,7 @@
 #include "../../en/fbo.h"
 
 
-ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
+ap::ship::Ship::Ship() : ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
 	r({0,0,48,48}),
 	grid(*this),
 	crosssection(true)
@@ -27,11 +27,11 @@ ap::craft::Craft::Craft() : ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
 	//crosssection = true;
 }
 
-ap::craft::Craft::~Craft() {
+ap::ship::Ship::~Ship() {
 
 }
 
-void ap::craft::Craft::step() {
+void ap::ship::Ship::step() {
 	std::vector<Part *>::iterator it;
 	for ( it = parts.v.begin(); it < parts.v.end(); it ++) {
 		Part *p = *it;
@@ -39,12 +39,12 @@ void ap::craft::Craft::step() {
 	}
 }
 
-void ap::craft::Craft::pose() {
+void ap::ship::Ship::pose() {
 	sprite->sx(gx());
 	sprite->sy(gy());
 }
 
-void ap::craft::Craft::draw() {
+void ap::ship::Ship::draw() {
 
 	// LOG("gw " << ship->gw() << " " << ship->gh());
 
@@ -84,7 +84,7 @@ void ap::craft::Craft::draw() {
 	sprite->draw();
 }
 
-void ap::craft::Craft::add(Part *p) {
+void ap::ship::Ship::add(Part *p) {
 	parts.v.push_back(p);
 
 	// re fbo;
@@ -114,19 +114,19 @@ void ap::craft::Craft::add(Part *p) {
 
 }
 
-void ap::craft::Craft::refbo() {
+void ap::ship::Ship::refbo() {
 	//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 
 }
 
-void ap::craft::Craft::click() {}
-void ap::craft::Craft::hover(mou::Hover h) {}
+void ap::ship::Ship::click() {}
+void ap::ship::Ship::hover(mou::Hover h) {}
 
 
 /* ###########################
    ## Getters & Setters
    ########################### */
-en::FBO *ap::craft::Craft::gfbo() {
+en::FBO *ap::ship::Ship::gfbo() {
 	return ship;
 }
 
