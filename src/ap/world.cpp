@@ -12,7 +12,7 @@
 #include "hangar.h"
 #include "emitter.h"
 
-#include "craft/all.h"
+#include "ship/all.h"
 #include "asteroid/all.h"
 
 #include "def.h"

@@ -26,7 +26,7 @@
       <UniqueIdentifier>{c68b78b6-0563-4d1f-8475-018a160c6b73}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\ship">
-      <UniqueIdentifier>{fca54be7-02a1-47db-83f0-ca115bdf4010}</UniqueIdentifier>
+      <UniqueIdentifier>{9b556292-edef-4bc3-8065-c0d152d6c62d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,9 +54,6 @@
     <ClInclude Include="..\..\src\ap\asteroid\all.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ap\craft\all.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\en\anim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,9 +76,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\ap\objects\console.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\ap\craft\craft.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\ap\def.h">
@@ -174,8 +168,23 @@
     <ClInclude Include="..\..\src\ap\ship\all.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ap\ship\ship.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\src\ap\ship\craft.h">
+      <Filter>Source Files\ship</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ap\ship\grid.h">
+      <Filter>Source Files\ship</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ap\ship\part.h">
+      <Filter>Source Files\ship</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ap\ship\tile.h">
+      <Filter>Source Files\ship</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ap\ship\truss.h">
+      <Filter>Source Files\ship</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ap\ship\wall.h">
+      <Filter>Source Files\ship</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -290,16 +299,16 @@
     <ClCompile Include="..\..\src\awesome.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\ap\ship\ship.cpp">
+    <ClCompile Include="..\..\src\ap\ship\craft.cpp">
       <Filter>Source Files\ship</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\ap\ship\grid.cpp">
       <Filter>Source Files\ship</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\ap\ship\tile.cpp">
+    <ClCompile Include="..\..\src\ap\ship\part.cpp">
       <Filter>Source Files\ship</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\ap\ship\part.cpp">
+    <ClCompile Include="..\..\src\ap\ship\tile.cpp">
       <Filter>Source Files\ship</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\ap\ship\truss.cpp">
