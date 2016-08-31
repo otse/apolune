@@ -27,9 +27,11 @@ namespace ap {
 		
 		speed_ps speed = 1;
 		
+		double orientation;
 		virtual void sx(double);
 		virtual void sy(double);
 	protected:
+
 		Emitter *breath;
 		Emitter *spawnplosion;
 

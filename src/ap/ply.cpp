@@ -19,7 +19,8 @@ ap::Ply::Ply()
 		) ,
 		heading(HEADING_RIGHT),
 		use(false),
-		tbulb(0)
+		tbulb(0),
+		orientation(0)
 	{
 	LOG("ply ctor")
 	//dim(0, 0, 14, 38);
@@ -71,11 +72,11 @@ void ap::Ply::key() {
 	bool e = oar::keys[sf::Keyboard::E] != oar::UP;
 
 	if (q) {
-		rotate += .2;
+		orientation += .2;
 	}
 
 	if (e) {
-		rotate -= .2;
+		orientation -= .2;
 	}
 
 	if ( !(a&&d)&&(a||d) ) {

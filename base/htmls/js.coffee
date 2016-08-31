@@ -45,6 +45,7 @@ class Overlay
 		limit.append (@shipping = new Popper 'shipping').element
 		limit.append (@view = new Popper 'view', 'right').element
 
+		@view.add new Clicky 'orientation', ['on ship', 'float']
 		@view.add new Clicky 'zoom', ['3x', '2x', '1x']
 		@view.add new Clicky 'cross section', ['on', 'off']
 		1
@@ -101,7 +102,7 @@ class Popper
 
 class Item
 	constructor: (@name = 'an item', @class = '') ->
-		@element = $ "<div class=\"item #{@class}\">#{@name}</div>"
+		@element = $ "<div><div class=\"item #{@class}\">#{@name}</div></div>"
 		;
 
 class Value
@@ -112,7 +113,7 @@ class Value
 		;
 
 	build: ->
-		@element = $ "<div class=\"item #{@class}\">#{@name} <div class=\"value\">#{@value}</div></div>"
+		@element = $ "<div><div class=\"item #{@class}\">#{@name} <div class=\"value\">#{@value}</div></div></div>"
 		1
 
 class Clicky
@@ -124,7 +125,7 @@ class Clicky
 		;
 
 	build: ->
-		@element = $ "<div class=\"item clicky #{@class}\">#{@name} <div class=\"value\">#{@values[@i]}</div></div>"
+		@element = $ "<div><div class=\"item clicky #{@class}\">#{@name} <div class=\"value\">#{@values[@i]}</div></div></div>"
 
 		@button = @element.find '.value'
 

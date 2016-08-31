@@ -24,28 +24,21 @@ ap::Sprite::~Sprite() {
 
 void ap::Sprite::translate() {
 	if (world) {
+		//LOG("ply at " << ply->gx() << ", " << ply->gy() << " xof yof at " << xof << ", " << yof)
 
 		// original translation
-		int ox = gx() + ap::xof - ply->gx();
-		int oy = gy() + ap::yof - ply->gy();
+		int ox = gx() - ply->gx();
+		int oy = gy() - ply->gy();
 
-		// pivot around player
-		double centerx = gx();
-		double centery = gy();
+		int x = ox;
+		int y = oy;
 
-		float r = (360 - ply->rotate) * DEGTORAD;
-		
-		double x = ply->gx() + gx();
-		double y = ply->gy() - gy();
-
-		double newx = centerx + (x - centerx)*cos(r) - (y - centery)*sin(r);
-		double newy = centery + (x - centerx)*sin(r) + (y - centery)*cos(r);
-
-		glTranslatef(newx, newy, 0.f);
+		glTranslatef(xof, yof, 0);
+		glRotatef(ply->orientation, 0, 0, 1);
+		glTranslatef(ox, oy, 0);
 	}
 	else
 		Draws::translate();
-
 
 }
 

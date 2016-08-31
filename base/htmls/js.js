@@ -52,6 +52,7 @@
     Overlay.prototype.build = function() {
       limit.append((this.shipping = new Popper('shipping')).element);
       limit.append((this.view = new Popper('view', 'right')).element);
+      this.view.add(new Clicky('orientation', ['on ship', 'float']));
       this.view.add(new Clicky('zoom', ['3x', '2x', '1x']));
       this.view.add(new Clicky('cross section', ['on', 'off']));
       return 1;
@@ -131,7 +132,7 @@
     function Item(name, _class) {
       this.name = name != null ? name : 'an item';
       this["class"] = _class != null ? _class : '';
-      this.element = $("<div class=\"item " + this["class"] + "\">" + this.name + "</div>");
+      this.element = $("<div><div class=\"item " + this["class"] + "\">" + this.name + "</div></div>");
     }
 
     return Item;
@@ -148,7 +149,7 @@
     }
 
     Value.prototype.build = function() {
-      this.element = $("<div class=\"item " + this["class"] + "\">" + this.name + " <div class=\"value\">" + this.value + "</div></div>");
+      this.element = $("<div><div class=\"item " + this["class"] + "\">" + this.name + " <div class=\"value\">" + this.value + "</div></div></div>");
       return 1;
     };
 
@@ -168,7 +169,7 @@
 
     Clicky.prototype.build = function() {
       var that;
-      this.element = $("<div class=\"item clicky " + this["class"] + "\">" + this.name + " <div class=\"value\">" + this.values[this.i] + "</div></div>");
+      this.element = $("<div><div class=\"item clicky " + this["class"] + "\">" + this.name + " <div class=\"value\">" + this.values[this.i] + "</div></div></div>");
       this.button = this.element.find('.value');
       that = this;
       this.button.click(function() {

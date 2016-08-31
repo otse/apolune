@@ -250,10 +250,9 @@ void ap::World::load() {
 	
 	ply = new Ply();
 	ply->sx(0);
-	ply->sy(-34*2);
+	ply->sy(0);
 	//ply->nodraw = true;
-	this->add( ply ); // tiny willy
-
+	this->add( ply );
 	
 	//LOG(ply->D->designation)
 	
