@@ -47,7 +47,7 @@ void ap::as::Load::OnFinishLoadingFrame(Awesomium::WebView* caller,
 	bool is_main_frame,
 	const Awesomium::WebURL& url) {
 	if (nullptr != ap::world) {
-		LOG("yeahs")
+		LOG("webview 1:1 for ui")
 		en::Draws &d = web->gdraws();
 		d.sx(0);
 		d.sy(0);

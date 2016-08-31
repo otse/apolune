@@ -172,7 +172,6 @@
       this.button = this.element.find('.value');
       that = this;
       this.button.click(function() {
-        console.log('lool', that);
         that.i = that.i + 1 === that.values.length ? 0 : that.i + 1;
         $(this).html(that.values[that.i]);
         return void 0;

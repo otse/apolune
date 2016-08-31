@@ -130,7 +130,7 @@ class Clicky
 
 		that = this
 		@button.click ->
-			console.log 'lool', that
+			# blegh
 			that.i = if that.i + 1 is that.values.length then 0 else that.i + 1
 			$(this).html that.values[that.i]
 			undefined

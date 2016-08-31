@@ -162,11 +162,6 @@
     <ClInclude Include="..\..\src\ap\cli.h" />
     <ClInclude Include="..\..\src\ap\craft\all.h" />
     <ClInclude Include="..\..\src\ap\craft\craft.h" />
-    <ClInclude Include="..\..\src\ap\craft\grid.h" />
-    <ClInclude Include="..\..\src\ap\craft\part.h" />
-    <ClInclude Include="..\..\src\ap\craft\tile.h" />
-    <ClInclude Include="..\..\src\ap\craft\truss.h" />
-    <ClInclude Include="..\..\src\ap\craft\wall.h" />
     <ClInclude Include="..\..\src\ap\def.h" />
     <ClInclude Include="..\..\src\ap\emitter.h" />
     <ClInclude Include="..\..\src\ap\gui\button.h" />
@@ -181,6 +176,8 @@
     <ClInclude Include="..\..\src\ap\objects\table.h" />
     <ClInclude Include="..\..\src\ap\planet.h" />
     <ClInclude Include="..\..\src\ap\ply.h" />
+    <ClInclude Include="..\..\src\ap\ship\all.h" />
+    <ClInclude Include="..\..\src\ap\ship\ship.h" />
     <ClInclude Include="..\..\src\ap\sprite.h" />
     <ClInclude Include="..\..\src\ap\world.h" />
     <ClInclude Include="..\..\src\awesome.h" />
@@ -214,12 +211,6 @@
     <ClCompile Include="..\..\src\ap\bulk.cpp" />
     <ClCompile Include="..\..\src\ap\cli.cpp" />
     <ClCompile Include="..\..\src\ap\context.cpp" />
-    <ClCompile Include="..\..\src\ap\craft\craft.cpp" />
-    <ClCompile Include="..\..\src\ap\craft\grid.cpp" />
-    <ClCompile Include="..\..\src\ap\craft\part.cpp" />
-    <ClCompile Include="..\..\src\ap\craft\tile.cpp" />
-    <ClCompile Include="..\..\src\ap\craft\truss.cpp" />
-    <ClCompile Include="..\..\src\ap\craft\wall.cpp" />
     <ClCompile Include="..\..\src\ap\def.cpp" />
     <ClCompile Include="..\..\src\ap\emitter.cpp" />
     <ClCompile Include="..\..\src\ap\light.cpp" />
@@ -232,6 +223,12 @@
     <ClCompile Include="..\..\src\ap\objects\table.cpp" />
     <ClCompile Include="..\..\src\ap\planet.cpp" />
     <ClCompile Include="..\..\src\ap\ply.cpp" />
+    <ClCompile Include="..\..\src\ap\ship\grid.cpp" />
+    <ClCompile Include="..\..\src\ap\ship\part.cpp" />
+    <ClCompile Include="..\..\src\ap\ship\ship.cpp" />
+    <ClCompile Include="..\..\src\ap\ship\tile.cpp" />
+    <ClCompile Include="..\..\src\ap\ship\truss.cpp" />
+    <ClCompile Include="..\..\src\ap\ship\wall.cpp" />
     <ClCompile Include="..\..\src\ap\sprite.cpp" />
     <ClCompile Include="..\..\src\ap\world.cpp" />
     <ClCompile Include="..\..\src\awesome.cpp" />
