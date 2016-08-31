@@ -6,7 +6,7 @@
 
 
 ap::ship::Ship::Ship() : ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
-	r({0,0,48,48}),
+	r({0,0,16,16}),
 	grid(*this),
 	crosssection(true)
 	{
@@ -101,14 +101,14 @@ void ap::ship::Ship::add(Part *p) {
 	if (normal.x < 0) w += -normal.x;
 	if (normal.y < 0) h += -normal.y;
 
-	w *= 48;
-	h *= 48;
+	w *= 16;
+	h *= 16;
 
-	ship->x = normal.x * 48;
-	ship->y = normal.y * 48;
+	ship->x = normal.x * 16;
+	ship->y = normal.y * 16;
 
-	sprite->sx(normal.x*48);
-	sprite->sy(normal.y*48);
+	sprite->sx(normal.x*16);
+	sprite->sy(normal.y*16);
 	sprite->sw(w);
 	sprite->sh(h);
 

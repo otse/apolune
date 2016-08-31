@@ -12,8 +12,8 @@ ap::ship::Part::Part(Tile &t, const Model m, TYPE type) :
 	craft(t.grid.craft),
 	type(type)
 	{
-	sx(t.gx()*48);
-	sy(t.gy()*48);
+	sx(t.gx()*16);
+	sy(t.gy()*16);
 	world = false;
 
 	em = new Emitter(Emitter::placesparks);

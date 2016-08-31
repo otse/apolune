@@ -49,14 +49,14 @@ void ap::asteroid::Asteroid::fillerup() {
 }
 
 void ap::asteroid::Asteroid::add(Rock *r) {
-	int ww = dims[0]*48;
-	int hh = dims[1]*48;
+	int ww = dims[0]*16;
+	int hh = dims[1]*16;
 
 	r.w = ww;
 	r.h = hh;
 
-	sprite->sx(gx2()*48);
-	sprite->sy(gy2()*48);
+	sprite->sx(gx2()*16);
+	sprite->sy(gy2()*16);
 
 	sprite->sw(ww);
 	sprite->sh(hh);

@@ -19,13 +19,13 @@ ap::ship::Tile::Tile(Grid &grid, int x, int y) :
 	neighbors {nullptr}
 	{
 	//nodraw = true;
-	scale = 3;
+	scale = 1;
 
 	sw(r->w*scale);
 	sh(r->h*scale);
 
-	sx(grid.gx() + (x*48));
-	sy(grid.gy() + (y*48));
+	sx(grid.gx() + (x*16));
+	sy(grid.gy() + (y*16));
 
 	// expand();
 }

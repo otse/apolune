@@ -32,7 +32,7 @@ void ap::Mover::step() {
 void ap::Mover::cycle() {
 	switch ( type ) {
 		case PLAYER :
-			momentum = ( en::delta * 140 );
+			momentum = ( en::delta * 46 );
 			break;
 	}
 	cycled = true;
