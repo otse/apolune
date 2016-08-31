@@ -66,7 +66,18 @@ void ap::Ply::key() {
 	bool d = oar::keys[sf::Keyboard::D] != oar::UP;
 	bool w = oar::keys[sf::Keyboard::W] != oar::UP;
 	bool s = oar::keys[sf::Keyboard::S] != oar::UP;
-	
+
+	bool q = oar::keys[sf::Keyboard::Q] != oar::UP;
+	bool e = oar::keys[sf::Keyboard::E] != oar::UP;
+
+	if (q) {
+		rotate += .2;
+	}
+
+	if (e) {
+		rotate -= .2;
+	}
+
 	if ( !(a&&d)&&(a||d) ) {
 		cycle();
 		sregion( anims::walk.progress(animi) );

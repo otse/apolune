@@ -23,12 +23,30 @@ ap::Sprite::~Sprite() {
 }
 
 void ap::Sprite::translate() {
-	if ( world )
-		glTranslatef(
-			gx() + ap::xof - ply->gx(),
-			gy() + ap::yof - ply->gy(), 0.f);
+	if (world) {
+
+		// original translation
+		int ox = gx() + ap::xof - ply->gx();
+		int oy = gy() + ap::yof - ply->gy();
+
+		// pivot around player
+		double centerx = gx();
+		double centery = gy();
+
+		float r = (360 - ply->rotate) * DEGTORAD;
+		
+		double x = ply->gx() + gx();
+		double y = ply->gy() - gy();
+
+		double newx = centerx + (x - centerx)*cos(r) - (y - centery)*sin(r);
+		double newy = centery + (x - centerx)*sin(r) + (y - centery)*cos(r);
+
+		glTranslatef(newx, newy, 0.f);
+	}
 	else
 		Draws::translate();
+
+
 }
 
 void ap::Sprite::step() { Draws::step(); }

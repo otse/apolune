@@ -37,6 +37,8 @@ void ap::ship::Ship::step() {
 		Part *p = *it;
 		p->step();
 	}
+
+	//sprite->rotate += 0.001;
 }
 
 void ap::ship::Ship::pose() {

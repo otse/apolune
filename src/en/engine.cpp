@@ -97,7 +97,7 @@ void en::boot(int argc, wchar_t* argv[]) {
 	}
 
 	RenderWindow window(VideoMode(windoww, windowh), envars::windowname, envars::windowstyle);
-	window.setVerticalSyncEnabled(true);
+	//window.setVerticalSyncEnabled(true);
 	
 	GLenum GlewInitResult;
 	GlewInitResult = glewInit();

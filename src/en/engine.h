@@ -18,6 +18,9 @@
 typedef long clock_t;
 typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
 
+#define DEGTORAD 0.0174532925199432957
+#define RADTODEG 57.295779513082320876
+
 namespace envars {
 	void resize(int, int);
 	void make();
