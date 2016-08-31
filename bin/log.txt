@@ -59,3 +59,33 @@ OnBeginLoadingFrame
 OnDocumentReady
 webview 1:1 for ui
 OnFinishLoadingFrame
+gnormal -1 0 0 0
+gnormal -1 -1 0 0
+gnormal -1 -1 0 1
+gnormal -1 -1 1 1
+gnormal -1 -1 1 1
+gnormal -1 -1 1 1
+gnormal -1 -1 1 1
+gnormal -1 -1 1 1
+gnormal -2 -1 1 1
+gnormal -2 -2 1 1
+gnormal -2 -2 1 2
+gnormal -2 -2 2 2
+gnormal -3 -2 2 2
+gnormal -3 -2 3 2
+gnormal -3 -2 3 2
+gnormal -3 -2 3 2
+gnormal -3 -2 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -3 3 3
+gnormal -3 -4 3 3
+gnormal -3 -4 3 4
