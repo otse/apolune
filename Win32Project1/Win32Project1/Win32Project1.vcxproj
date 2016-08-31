@@ -175,7 +175,7 @@
     <ClInclude Include="..\..\src\ap\planet.h" />
     <ClInclude Include="..\..\src\ap\ply.h" />
     <ClInclude Include="..\..\src\ap\ship\all.h" />
-    <ClInclude Include="..\..\src\ap\ship\craft.h" />
+    <ClInclude Include="..\..\src\ap\ship\ship.h" />
     <ClInclude Include="..\..\src\ap\ship\grid.h" />
     <ClInclude Include="..\..\src\ap\ship\part.h" />
     <ClInclude Include="..\..\src\ap\ship\tile.h" />
@@ -226,7 +226,7 @@
     <ClCompile Include="..\..\src\ap\objects\table.cpp" />
     <ClCompile Include="..\..\src\ap\planet.cpp" />
     <ClCompile Include="..\..\src\ap\ply.cpp" />
-    <ClCompile Include="..\..\src\ap\ship\craft.cpp" />
+    <ClCompile Include="..\..\src\ap\ship\ship.cpp" />
     <ClCompile Include="..\..\src\ap\ship\grid.cpp" />
     <ClCompile Include="..\..\src\ap\ship\part.cpp" />
     <ClCompile Include="..\..\src\ap\ship\tile.cpp" />

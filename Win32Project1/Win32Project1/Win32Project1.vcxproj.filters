@@ -165,12 +165,6 @@
     <ClInclude Include="..\..\src\ll\method_dispatcher.h">
       <Filter>Source Files\ll</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ap\ship\all.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\ap\ship\craft.h">
-      <Filter>Source Files\ship</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\ap\ship\grid.h">
       <Filter>Source Files\ship</Filter>
     </ClInclude>
@@ -184,6 +178,12 @@
       <Filter>Source Files\ship</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\ap\ship\wall.h">
+      <Filter>Source Files\ship</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ap\ship\ship.h">
+      <Filter>Source Files\ship</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ap\ship\all.h">
       <Filter>Source Files\ship</Filter>
     </ClInclude>
   </ItemGroup>
@@ -299,9 +299,6 @@
     <ClCompile Include="..\..\src\awesome.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\ap\ship\craft.cpp">
-      <Filter>Source Files\ship</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\ap\ship\grid.cpp">
       <Filter>Source Files\ship</Filter>
     </ClCompile>
@@ -315,6 +312,9 @@
       <Filter>Source Files\ship</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\ap\ship\wall.cpp">
+      <Filter>Source Files\ship</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ap\ship\ship.cpp">
       <Filter>Source Files\ship</Filter>
     </ClCompile>
   </ItemGroup>
