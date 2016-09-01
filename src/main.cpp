@@ -135,6 +135,7 @@ bool second() {
 		as::global.SetPropertyAsync(WSLit("fps"), JSValue(ap::fps));
 		as::global.SetPropertyAsync(WSLit("delta"), JSValue(en::delta));
 
+		LOG(fps);
 		return true;
 	}
 	
@@ -172,6 +173,7 @@ void envars::frame() {
 
 	BitmapSurface* surface = (BitmapSurface*)ap::as::view->surface();
 
+	//if (world == nullptr)
 	if (NULL != surface) {
 		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ap::as::web->gfbid());
 		glBindTexture(GL_TEXTURE_2D, ap::as::web->gtid());
@@ -184,6 +186,7 @@ void envars::frame() {
 	
 	en::drawsstep();
 
+	//if (world == nullptr)
 	ap::as::core->Update();
 	
 	return;

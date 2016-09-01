@@ -104,6 +104,7 @@ void ap::as::mawe() {
 	global = var.ToObject();
 
 	dispatcher.Bind(global, WSLit("start"), JSDelegate(&start));
+	dispatcher.Bind(global, WSLit("scale"), JSDelegate(&scale));
 
 	WebURL url(WSLit("asset://baze/htmls/first.html"));
 	view->LoadURL(url);
@@ -131,4 +132,21 @@ void ap::as::start(WebView* caller, const JSArray& args) {
 	view->LoadURL(url);
 
 	ap::launchworld();
+}
+
+void ap::as::scale(WebView* caller, const JSArray& args) {
+	WebString value = args[0].ToString();
+
+	LOG("scale " << ToString(value))
+
+	if (value == WSLit("3x")) {
+		en::scale = 0.3;
+	}
+	else if (value == WSLit("2x")) {
+		en::scale = 0.5;
+	}
+	else if (value == WSLit("1x")) {
+		en::scale = 1;
+	}
+
 }

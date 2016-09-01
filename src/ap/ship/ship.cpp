@@ -84,6 +84,8 @@ void ap::ship::Ship::draw() {
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ap::world->foreground->gfbid() );
 
 	sprite->draw();
+
+	en::s2d();
 }
 
 void ap::ship::Ship::add(Part *p) {

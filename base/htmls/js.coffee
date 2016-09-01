@@ -45,9 +45,9 @@ class Overlay
 		limit.append (@shipping = new Popper 'shipping').element
 		limit.append (@view = new Popper 'view', 'right').element
 
-		@view.add new Clicky 'orientation', ['on ship', 'float']
-		@view.add new Clicky 'zoom', ['3x', '2x', '1x']
-		@view.add new Clicky 'cross section', ['on', 'off']
+		@view.add new Clicky name: 'orientation', values: ['on ship', 'float']
+		@view.add new Clicky name: 'zoom', values: ['3x', '2x', '1x'], cpp: 'scale'
+		@view.add new Clicky name: 'cross section', values: ['on', 'off']
 		1
 
 class Popper
@@ -101,12 +101,17 @@ class Popper
 
 
 class Item
-	constructor: (@name = 'an item', @class = '') ->
+	constructor: (o) ->
+		@name = o.name
+
 		@element = $ "<div><div class=\"item #{@class}\">#{@name}</div></div>"
 		;
 
 class Value
-	constructor: (@name = 'a value', @value, @class = '') ->
+	constructor: (o) ->
+		@name = o.name
+		@value = o.value
+
 		@element = null
 
 		@build()
@@ -117,7 +122,11 @@ class Value
 		1
 
 class Clicky
-	constructor: (@name = 'a value', @values, @class = '') ->
+	constructor: (o) ->
+		@name = o.name
+		@values = o.values
+		@cpp = o.cpp
+
 		@element = null
 
 		@i = 0
@@ -130,13 +139,16 @@ class Clicky
 		@button = @element.find '.value'
 
 		that = this
-		@button.click ->
-			# blegh
-			that.i = if that.i + 1 is that.values.length then 0 else that.i + 1
-			$(this).html that.values[that.i]
-			undefined
+		@button.click -> that.change this
 
 		1
+
+	change: (j) ->
+		@i = if @i + 1 is @values.length then 0 else @i + 1
+		value = @values[@i]
+		$(j).html value
+		app[@cpp] value if @cpp?
+		undefined
 
 
 

@@ -84,7 +84,9 @@ void ap::World::step() {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
+	//glPushMatrix();
 	// draw
+
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::list<Sprite *>::iterator it;
 	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
@@ -139,6 +141,8 @@ void ap::World::step() {
 	en::Draws &d = foreground->gdraws();
 	d.sall(x,y,w,h);
 	d.draw();
+
+	//glPopMatrix();
 }
 
 void ap::World::resize() {

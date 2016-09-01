@@ -39,6 +39,7 @@ const int en::GROUP_SATURATION = 100;
 bool en::twdd = false;
 int en::width = 800;
 int en::height = 600;
+float en::scale = 1;
 int en::WindowHandle = 0;
 bool en::focus = true;
 Draws *en::groups[en::Group::COUNT] = { nullptr };
@@ -372,7 +373,8 @@ void en::cdelta() {
 void en::s2d() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0, en::width, en::height, 0, 0, 1);
+
+	glOrtho(0, en::width * scale, en::height * scale, 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
 	
 	glDisable(GL_DEPTH_TEST);

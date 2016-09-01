@@ -46,6 +46,7 @@ namespace ap {
 		namespace func {}
 
 		void start(WebView* caller, const JSArray& args);
+		void scale(WebView* caller, const JSArray& args);
 
 	}
 }

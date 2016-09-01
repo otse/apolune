@@ -107,6 +107,7 @@ namespace en {
 
 	extern int width;
 	extern int height;
+	extern float scale;
 	
 	extern int WindowHandle;
 	

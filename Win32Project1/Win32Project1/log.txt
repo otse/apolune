@@ -1,4 +1,3 @@
 0.12
 hi ô_ô
 extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
-ERROR lol

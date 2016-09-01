@@ -52,9 +52,19 @@
     Overlay.prototype.build = function() {
       limit.append((this.shipping = new Popper('shipping')).element);
       limit.append((this.view = new Popper('view', 'right')).element);
-      this.view.add(new Clicky('orientation', ['on ship', 'float']));
-      this.view.add(new Clicky('zoom', ['3x', '2x', '1x']));
-      this.view.add(new Clicky('cross section', ['on', 'off']));
+      this.view.add(new Clicky({
+        name: 'orientation',
+        values: ['on ship', 'float']
+      }));
+      this.view.add(new Clicky({
+        name: 'zoom',
+        values: ['3x', '2x', '1x'],
+        cpp: 'scale'
+      }));
+      this.view.add(new Clicky({
+        name: 'cross section',
+        values: ['on', 'off']
+      }));
       return 1;
     };
 
@@ -129,9 +139,8 @@
   })();
 
   Item = (function() {
-    function Item(name, _class) {
-      this.name = name != null ? name : 'an item';
-      this["class"] = _class != null ? _class : '';
+    function Item(o) {
+      this.name = o.name;
       this.element = $("<div><div class=\"item " + this["class"] + "\">" + this.name + "</div></div>");
     }
 
@@ -140,10 +149,9 @@
   })();
 
   Value = (function() {
-    function Value(name, value, _class) {
-      this.name = name != null ? name : 'a value';
-      this.value = value;
-      this["class"] = _class != null ? _class : '';
+    function Value(o) {
+      this.name = o.name;
+      this.value = o.value;
       this.element = null;
       this.build();
     }
@@ -158,10 +166,10 @@
   })();
 
   Clicky = (function() {
-    function Clicky(name, values, _class) {
-      this.name = name != null ? name : 'a value';
-      this.values = values;
-      this["class"] = _class != null ? _class : '';
+    function Clicky(o) {
+      this.name = o.name;
+      this.values = o.values;
+      this.cpp = o.cpp;
       this.element = null;
       this.i = 0;
       this.build();
@@ -173,11 +181,20 @@
       this.button = this.element.find('.value');
       that = this;
       this.button.click(function() {
-        that.i = that.i + 1 === that.values.length ? 0 : that.i + 1;
-        $(this).html(that.values[that.i]);
-        return void 0;
+        return that.change(this);
       });
       return 1;
+    };
+
+    Clicky.prototype.change = function(j) {
+      var value;
+      this.i = this.i + 1 === this.values.length ? 0 : this.i + 1;
+      value = this.values[this.i];
+      $(j).html(value);
+      if (this.cpp != null) {
+        app[this.cpp](value);
+      }
+      return void 0;
     };
 
     return Clicky;
