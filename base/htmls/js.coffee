@@ -45,9 +45,9 @@ class Overlay
 		limit.append (@shipping = new Popper 'shipping').element
 		limit.append (@view = new Popper 'view', 'right').element
 
-		@view.add new Clicky name: 'orientation', values: ['on ship', 'float']
-		@view.add new Clicky name: 'zoom', values: ['3x', '2x', '1x'], cpp: 'scale'
+		@view.add new Clicky name: 'zoom level', values: ['3x', '2x', '1x'], cpp: 'scale'
 		@view.add new Clicky name: 'cross section', values: ['on', 'off']
+		@view.add new Clicky name: 'orient', values: ['ship', 'free']
 		1
 
 class Popper

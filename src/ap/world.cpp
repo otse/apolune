@@ -84,7 +84,8 @@ void ap::World::step() {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	//glPushMatrix();
+	glPushMatrix();
+	//glScalef(en::scale, en::scale, 1);
 	// draw
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
@@ -142,7 +143,7 @@ void ap::World::step() {
 	d.sall(x,y,w,h);
 	d.draw();
 
-	//glPopMatrix();
+	glPopMatrix();
 }
 
 void ap::World::resize() {

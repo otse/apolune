@@ -53,17 +53,17 @@
       limit.append((this.shipping = new Popper('shipping')).element);
       limit.append((this.view = new Popper('view', 'right')).element);
       this.view.add(new Clicky({
-        name: 'orientation',
-        values: ['on ship', 'float']
-      }));
-      this.view.add(new Clicky({
-        name: 'zoom',
+        name: 'zoom level',
         values: ['3x', '2x', '1x'],
         cpp: 'scale'
       }));
       this.view.add(new Clicky({
         name: 'cross section',
         values: ['on', 'off']
+      }));
+      this.view.add(new Clicky({
+        name: 'orient',
+        values: ['ship', 'free']
       }));
       return 1;
     };

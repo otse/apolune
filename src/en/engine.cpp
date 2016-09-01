@@ -374,7 +374,12 @@ void en::s2d() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	glOrtho(0, en::width * scale, en::height * scale, 0, 0, 1);
+	// l r b t
+	int l = 0 - scale;
+	int r = en::width + scale;
+	int b = en::height + scale;
+	int t = 0 - scale;
+	glOrtho(l, r, b, t, -1, 1.F);
 	glMatrixMode(GL_MODELVIEW);
 	
 	glDisable(GL_DEPTH_TEST);
