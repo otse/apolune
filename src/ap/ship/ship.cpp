@@ -47,10 +47,10 @@ void ap::ship::Ship::pose() {
 }
 
 void ap::ship::Ship::draw() {
-
 	// LOG("gw " << ship->gw() << " " << ship->gh());
-
 	//glPushMatrix();
+
+	flat();
 
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ship->gfbid() );
 
@@ -85,7 +85,7 @@ void ap::ship::Ship::draw() {
 
 	sprite->draw();
 
-	en::s2d();
+	threed();
 }
 
 void ap::ship::Ship::add(Part *p) {

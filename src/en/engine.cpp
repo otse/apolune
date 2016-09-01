@@ -36,10 +36,11 @@ int mou::wheel = 0;
 oar::KEY_STATE oar::keys[sf::Keyboard::KeyCount] = { oar::UP };
 
 const int en::GROUP_SATURATION = 100;
-bool en::twdd = false;
+
 int en::width = 800;
 int en::height = 600;
-float en::scale = 1;
+bool en::pixels = false;
+
 int en::WindowHandle = 0;
 bool en::focus = true;
 Draws *en::groups[en::Group::COUNT] = { nullptr };
@@ -330,9 +331,7 @@ void en::cleanup() {
 		keys[key] = STILL_DOWN;
 */
 
-void en::render(void) {
-	s2d();
-	
+void en::render(void) {	
 	//glClear(GL_COLOR_BUFFER_BIT);
 	
 	cdelta();
@@ -367,24 +366,26 @@ void en::cdelta() {
 	
 }
 
-/**
- * useful for render-to-texture
- */
-void en::s2d() {
+
+void en::flat() {
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, width, height, 0, 0, 1);
+	pixels = true;
+
+	glMatrixMode(GL_MODELVIEW);
+	
+	//glDisable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+}
+
+void en::threed() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	// l r b t
-	int l = 0 - scale;
-	int r = en::width + scale;
-	int b = en::height + scale;
-	int t = 0 - scale;
-	glOrtho(l, r, b, t, -1, 1.F);
+	glFrustum(-1.0, 1.0, -1.0, 1.0, 5, 100);
+	pixels = false;
+
 	glMatrixMode(GL_MODELVIEW);
-	
-	glDisable(GL_DEPTH_TEST);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	
-	//twdd = true;
 }

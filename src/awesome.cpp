@@ -140,13 +140,13 @@ void ap::as::scale(WebView* caller, const JSArray& args) {
 	LOG("scale " << ToString(value))
 
 	if (value == WSLit("3x")) {
-		en::scale = 0;
+		ap::scale = 3;
 	}
 	else if (value == WSLit("2x")) {
-		en::scale = -en::width/2;
+		ap::scale = 2;
 	}
 	else if (value == WSLit("1x")) {
-		en::scale = -en::width/3;
+		ap::scale = 1;
 	}
 
 }

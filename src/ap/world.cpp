@@ -82,11 +82,10 @@ void ap::World::step() {
 	
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glClearColor(0, 0, 0, 0);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
+	threed();
 	glPushMatrix();
-	//glScalef(en::scale, en::scale, 1);
-	// draw
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::list<Sprite *>::iterator it;
@@ -95,7 +94,7 @@ void ap::World::step() {
 		s->draw();
 	}}
 	
-	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, lightmap->gfbid() );
+	/*glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, lightmap->gfbid() );
 	
 	glClearColor(0, 0, 0, .40f); // alpha is intensity of the ambient darkness
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -107,7 +106,7 @@ void ap::World::step() {
 	// draw lights into foreground
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glBlendFunc(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA); // perfect for pasting lightmap
-	lightmap->gdraws().draw();
+	lightmap->gdraws().draw();*/
 	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
 	

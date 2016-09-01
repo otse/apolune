@@ -33,9 +33,12 @@ void ap::Sprite::translate() {
 		int x = ox;
 		int y = oy;
 
-		glTranslatef(xof, yof, 0);
+		x = 0;
+		y = 0;
+
+		//glTranslatef(xof, yof, 0);
 		glRotatef(ply->orientation, 0, 0, 1);
-		glTranslatef(ox, oy, 0);
+		glTranslatef(x, y, 0);
 	}
 	else
 		Draws::translate();

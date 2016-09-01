@@ -49,7 +49,7 @@ explain("Textures");
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
-254
+240
 start
 world ctor
 world load
@@ -61,20 +61,5 @@ OnBeginLoadingFrame
 OnDocumentReady
 webview 1:1 for ui
 OnFinishLoadingFrame
-409
-scale 2x
-416
-scale 1x
-407
 404
-428
-409
-427
-scale 3x
-scale 2x
-413
-scale 1x
-422
-427
-422
-429
+414

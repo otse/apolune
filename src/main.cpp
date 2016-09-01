@@ -116,13 +116,12 @@ void ap::launchworld() {
 
 
 void envars::make() {
+	en::flat();
 	ap::as::mawe();
 
 	loader = new Loader();
 	en::add(loader);
 }
-
-
 
 bool second() {
 	static double dsecond = 0.;

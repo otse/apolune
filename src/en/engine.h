@@ -117,9 +117,10 @@ namespace en {
 	void cleanup();
 	void idle();
 	
-	extern bool twdd;
-	void s2d();
-	void s3d();
+	void flat();
+	void threed();
+	extern bool pixels;
+
 	extern en::Region regfluke;
 	
 	extern std::string *extraction;
