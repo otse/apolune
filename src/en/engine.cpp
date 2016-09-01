@@ -385,6 +385,10 @@ void en::threed() {
 	glLoadIdentity();
 
 	glFrustum(-1.0, 1.0, -1.0, 1.0, 5, 100);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+
 	pixels = false;
 
 	glMatrixMode(GL_MODELVIEW);
