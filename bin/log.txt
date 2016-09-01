@@ -8,58 +8,10 @@ OnBeginLoadingFrame
 'jquery-3.1.0.min.js' successfully read
 'htmls/js.js' successfully read
 OnDocumentReady
-explain("System");
 OnFinishLoadingFrame
-'Midrash.json' successfully read
-Midrash.json versions 0.12
-explain("Scripts");
-explain("Sounds");
-explain("Textures");
-'fonts/normal2.png' successfully read
-'fonts/monospace1.png' successfully read
-'fonts/monospace2.png' successfully read
-'fonts/statfont.png' successfully read
-'fonts/valuefont.png' successfully read
-'fonts/buttonfont.png' successfully read
-'fonts/valuefontchangeable.png' successfully read
-'fonts/clifont.png' successfully read
-'guipieces.png' successfully read
-'scenes/hangar.png' successfully read
-'lights/hangarlight.png' successfully read
-'lights/cursorlight.png' successfully read
-'guy.png' successfully read
-'earth.png' successfully read
-'craft/grid.png' successfully read
-'craft/parts.png' successfully read
-'objects/apexcoolchair.png' successfully read
-'objects/apexcooltable.png' successfully read
-'objects/bonetable.png' successfully read
-'objects/apexradio.png' successfully read
-'objects/apexconsole.png' successfully read
-'objects/apexbrainjar.png' successfully read
-'objects/tier3switch.png' successfully read
-'ais/chicken.png' successfully read
-'ais/tentacle.png' successfully read
-'effects/groundmist.png' successfully read
-'effects/ventfume.png' successfully read
-'effects/playerdeath.png' successfully read
-'effects/sparkle1.png' successfully read
-'effects/bubbles.png' successfully read
-'htmls/start.html' successfully read
-OnBeginLoadingFrame
-OnDocumentReady
-OnFinishLoadingFrame
-240
-start
-world ctor
-world load
-gnormal 0 0 0 0
-ply ctor
-ok
-'htmls/ui.html' successfully read
-OnBeginLoadingFrame
-OnDocumentReady
-webview 1:1 for ui
-OnFinishLoadingFrame
-404
-414
+273
+421
+164
+451
+483
+459

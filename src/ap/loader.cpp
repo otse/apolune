@@ -135,6 +135,8 @@ void ap::Loader::step() {
 				WebURL url(WSLit("asset://baze/htmls/start.html"));
 				as::view->LoadURL(url);
 
+				LOG("Loading start menu")
+
 				/*Draws &d = as::web->gdraws();
 				d.sw(en::width);
 				d.sh(en::height);

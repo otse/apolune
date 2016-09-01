@@ -117,7 +117,7 @@ void en::boot(int argc, wchar_t* argv[]) {
 	
 	//shaders();
 	
-	glClearColor(1.0f, 0.0f, 1.0f, 0.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 	glEnable(GL_TEXTURE_2D);
 	
 	// depreciated
@@ -375,7 +375,7 @@ void en::flat() {
 
 	glMatrixMode(GL_MODELVIEW);
 	
-	//glDisable(GL_DEPTH_TEST);
+	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
@@ -388,4 +388,6 @@ void en::threed() {
 	pixels = false;
 
 	glMatrixMode(GL_MODELVIEW);
+
+	//glDepthMask(GL_FALSE); // todo: ...
 }

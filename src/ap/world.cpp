@@ -130,7 +130,7 @@ void ap::World::step() {
 	//backdrop->sw(w);
 	//backdrop->sh(h);
 
-	glClearColor(1, 0, 1, 1);
+	glClearColor(1, 0, 0, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	stars->gdraws().rotate += en::delta * .5;

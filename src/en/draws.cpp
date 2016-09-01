@@ -142,46 +142,56 @@ void en::Draws::draw() {
 		
 		float w_ = gw();
 		float h_ = gh();
-				
+
+		if (!pixels) {
+			w_ = 1;
+			h_ = 1;
+		}
+		
+		if (!pixels) {
+			glVertex3f(0.0f, 1.0f, 0.0f);
+			glVertex3f(-1.0f, -1.0f, 0.0f);
+			glVertex3f(1.0f, -1.0f, 0.0f);
+		}
 		// no flippage today
-		if ( ! xflip && ! yflip ) {
+		else if ( ! xflip && ! yflip ) {
 			glTexCoord2f(ntx, nty); // left top
-			glVertex2f(0, 0);
+			glVertex3f(0, 0, 0);
 
 			glTexCoord2f(ntw, nty); // right top
-			glVertex2f(w_, 0);
+			glVertex3f(w_, 0, 0);
 
 			glTexCoord2f(ntw, nth); // right bottom
-			glVertex2f(w_, h_);
+			glVertex3f(w_, h_, 0);
 
 			glTexCoord2f(ntx, nth); // left bottom
-			glVertex2f(0, h_);
+			glVertex3f(0, h_, 0);
 		}
 		else if ( xflip ) {
 			glTexCoord2f(ntw, nty); // right top
-			glVertex2f(0, 0);
+			glVertex3f(0, 0, 0);
 
 			glTexCoord2f(ntx, nty); // left top
-			glVertex2f(w_, 0);
+			glVertex3f(w_, 0, 0);
 
 			glTexCoord2f(ntx, nth); // left bottom
-			glVertex2f(w_, h_);
+			glVertex3f(w_, h_, 0);
 
 			glTexCoord2f(ntw, nth); // right bottom
-			glVertex2f(0, h_);
+			glVertex3f(0, h_, 0);
 			
 		} else if ( yflip ) {
 			glTexCoord2f(ntx, nth); // left bottom
-			glVertex2f(0, 0);
+			glVertex3f(0, 0, 0);
 
 			glTexCoord2f(ntw, nth); // right bottom
-			glVertex2f(w_, 0);
+			glVertex3f(w_, 0, 0);
 
 			glTexCoord2f(ntw, nty); // right top
-			glVertex2f(w_, h_);
+			glVertex3f(w_, h_, 0);
 
 			glTexCoord2f(ntx, nty); // left top
-			glVertex2f(0, h_);
+			glVertex3f(0, h_, 0);
 		}
 		
 		glDisable(GL_TEXTURE_2D);

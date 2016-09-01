@@ -182,8 +182,28 @@ void envars::frame() {
 	
 	if ( world )
 		world->step();
+
+	glClear(GL_COLOR_BUFFER_BIT);
+	/*threed();
+
 	
-	en::drawsstep();
+	glPushMatrix();
+	glTranslatef(0, 0, 0);
+	//glDisable(GL_TEXTURE_2D);
+	glColor4f(1, 1, 1, 1);
+
+	glBegin(GL_TRIANGLES);
+		glVertex3f(0.0f, 1.0f, 0.0f);
+		glVertex3f(-1.0f, -1.0f, 0.0f);
+		glVertex3f(1.0f, -1.0f, 0.0f);
+	glEnd();
+
+	glPopMatrix();*/
+
+	//en::drawsstep();
+
+	//flat();
+	as::web->gdraws().draw();
 
 	//if (world == nullptr)
 	ap::as::core->Update();
