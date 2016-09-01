@@ -183,14 +183,16 @@ void envars::frame() {
 	if ( world )
 		world->step();
 
-	glClear(GL_COLOR_BUFFER_BIT);
-	/*threed();
 
+	threed();
 	
+	glClear(GL_COLOR_BUFFER_BIT);
+	glLoadIdentity();
+
 	glPushMatrix();
 	glTranslatef(0, 0, 0);
 	//glDisable(GL_TEXTURE_2D);
-	glColor4f(1, 1, 1, 1);
+	glColor4f(0, 1, 1, 1);
 
 	glBegin(GL_TRIANGLES);
 		glVertex3f(0.0f, 1.0f, 0.0f);
@@ -198,11 +200,19 @@ void envars::frame() {
 		glVertex3f(1.0f, -1.0f, 0.0f);
 	glEnd();
 
-	glPopMatrix();*/
+	glTranslatef(3.0f, 0.0f, 0.0f);						// Move Right 3 Units
+	glBegin(GL_QUADS);									// Draw A Quad
+		glVertex3f(-1.0f, 1.0f, 0.0f);					// Top Left
+		glVertex3f(1.0f, 1.0f, 0.0f);					// Top Right
+		glVertex3f(1.0f, -1.0f, 0.0f);					// Bottom Right
+		glVertex3f(-1.0f, -1.0f, 0.0f);					// Bottom Left
+	glEnd();											// Done Drawing The Quad
 
-	//en::drawsstep();
+	glPopMatrix();
 
-	//flat();
+	en::drawsstep();
+
+	flat();
 	as::web->gdraws().draw();
 
 	//if (world == nullptr)
