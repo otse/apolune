@@ -135,6 +135,7 @@
 
     Popper.prototype.expire = function(yea) {
       var that;
+      return;
       that = this;
       if (yea) {
         this.time = setTimeout(function() {

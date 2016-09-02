@@ -50,24 +50,18 @@ Loading start menu
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
-258
-start
-world ctor
-world load
-gnormal 0 0 0 0
-ply ctor
-made world
-'htmls/ui.html' successfully read
-OnBeginLoadingFrame
-OnDocumentReady
-webview 1:1 for ui
-OnFinishLoadingFrame
-374
-376
-408
-401
-406
-402
-388
-388
-384
+206
+470
+369
+485
+506
+517
+512
+486
+505
+508
+519
+516
+502
+509
+509

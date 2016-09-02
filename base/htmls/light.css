@@ -1,0 +1,111 @@
+#limit { /* extends */
+	text-transform: lowercase;
+	color: #b3b3b3;
+}
+
+#stats {
+	font-family: Courier;
+	font-size: 8px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin: 5px;
+}
+
+#stats .value {
+	display: inline-block;
+	ccolor: #c3c3c3;
+}
+
+#fps {
+	
+}
+
+#overlay {
+
+}
+
+.popper {
+	position: relative;
+	display: inline-block;
+	font-family: Courier;
+    font-size: 11px;
+    color: #585858;
+	margin: 1px;
+}
+
+.popper > .button {
+	position: relative;
+	display: inline-block;
+    bbackground: rgb(235, 235, 235);
+    padding: 3px;
+    mmargin: 2px;
+    ttext-shadow: 0 0 1px rgba(0,0,0,0);
+    transform: translateZ(0);
+}
+
+.popper > .insides {
+    position: absolute;
+    display: block;
+    wwidth: 110px;
+}
+
+.popper.right {
+	ffloat: right;
+	/*position: absolute;
+	right: 5px;
+	left: 5px;*/
+}
+
+.popper > .button:hover { bbackground: #e7e7e7; color: white; }
+.popper > .button:active { color: black; ppadding: 3px 1px 1px 3px; }
+
+.insides .item {
+	display: inline-block;
+	letter-spacing: -1;
+    background: rgb(235, 235, 235);
+    padding: 1px;
+    padding-left: 4px;
+    white-space: nowrap;
+    text-shadow: 1px 1px 0 white;
+}
+
+.insides .item > .shortcut {
+    display: inline-block;
+    display: none;
+    letter-spacing: normal;
+    text-decoration: underline;
+    text-transform: uppercase;
+    ccolor: #a9a9a9;
+    padding: 1px 2px;
+    bborder: 1px solid rgba(0, 0, 0, 0);
+    bbackground: white;
+    border-radius: 2px;
+    padding: 0;
+}
+
+.insides .item > .value {
+	display: inline-block;
+	color: #748fce;
+	letter-spacing: normal;
+	ccolor: #3E83C0;
+    padding: 1px 2px;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.insides .item.clicky > .value {
+    border: 1px solid rgb(245, 245, 245);
+    border-radius: 2px;
+    border-right-color: rgb(166, 166, 166);
+    border-bottom-color: rgb(166, 166, 166);
+    background: rgb(210, 210, 210);
+}
+
+.insides .item.clicky > .value:hover {
+    background: white;
+}
+
+.insides .item.clicky > .value:active {
+    border: 1px solid rgb(210, 210, 210);
+    background: transparent;
+}

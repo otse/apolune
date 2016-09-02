@@ -95,6 +95,8 @@ class Popper
 		1
 
 	expire: (yea) ->
+		return
+		
 		that = this
 		if yea
 			@time = setTimeout ->
