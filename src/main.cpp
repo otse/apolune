@@ -26,7 +26,7 @@ std::ofstream ap::log;
 const char *envars::windowname = "Ap";
 int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close;
 
-double ap::zoom = 3;
+double ap::zoom = 1;
 double ap::zoomto = 1;
 double ap::zoomspeed = 1;
 

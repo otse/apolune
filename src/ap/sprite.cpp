@@ -24,22 +24,18 @@ ap::Sprite::~Sprite() {
 
 void ap::Sprite::translate() {
 	if (world) {
-		//LOG("ply at " << ply->gx() << ", " << ply->gy() << " xof yof at " << xof << ", " << yof)
-
-		// original translation
-		int ox = gx() - ply->gx();
-		int oy = gy() - ply->gy();
-
-		int x = ox;
-		int y = oy;
+		int x = gx() - ply->gx();
+		int y = gy() - ply->gy();
 
 		glTranslatef(xof, yof, 0);
+
+		glScalef(ap::scale, ap::scale, 1); // the aswer for all your scaling
 		glRotatef(ply->orientation, 0, 0, 1);
+
 		glTranslatef(x, y, 0);
 	}
 	else
 		Draws::translate();
-
 }
 
 void ap::Sprite::step() { Draws::step(); }

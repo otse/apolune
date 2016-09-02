@@ -84,8 +84,6 @@ void ap::World::step() {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
-	glPushMatrix();
-	//glScalef(ap::scale, ap::scale, 1);
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::list<Sprite *>::iterator it;
@@ -101,6 +99,9 @@ void ap::World::step() {
 	
 	lighting();
 	
+	//glPushMatrix(); // before scale
+	//glScalef(ap::scale, ap::scale, 1);
+
 	// draw lights into foreground
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glBlendFunc(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA); // perfect for pasting lightmap
@@ -140,7 +141,7 @@ void ap::World::step() {
 	d.sall(x,y,w,h);
 	d.draw();
 
-	glPopMatrix();
+	//glPopMatrix(); // pop scale
 }
 
 void ap::World::rescale() {

@@ -377,11 +377,13 @@ void en::flat() {
 	r = width;
 	b = height;
 	t = 0;
-	glOrtho(0, width, height, 0, 0, 1);
+	glOrtho(l, r, b, t, -1, 1);
+
 	pixels = true;
 
 	glMatrixMode(GL_MODELVIEW);
-	
+	glLoadIdentity();
+
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

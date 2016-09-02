@@ -38,7 +38,7 @@ void ap::ship::Ship::step() {
 		p->step();
 	}
 
-	sprite->rotate += 0.001;
+	//sprite->rotate += 0.001;
 }
 
 void ap::ship::Ship::pose() {
@@ -48,10 +48,8 @@ void ap::ship::Ship::pose() {
 
 void ap::ship::Ship::draw() {
 	// LOG("gw " << ship->gw() << " " << ship->gh());
-	//glPushMatrix();
 
-	//flat();
-
+		
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, fbo->gfbid() );
 
 	glPushAttrib(GL_VIEWPORT_BIT);
@@ -79,13 +77,11 @@ void ap::ship::Ship::draw() {
 	glOrtho(0, en::width, en::height, 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
 
-	//glPopMatrix();
-
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ap::world->foreground->gfbid() );
 
 	sprite->draw();
 
-	//threed();
+	flat();
 }
 
 void ap::ship::Ship::add(Part *p) {
