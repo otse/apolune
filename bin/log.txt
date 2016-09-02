@@ -1,3 +1,452 @@
 0.12
 hi ô_ô
 extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
+0
+'htmls/first.html' successfully read
+OnBeginLoadingFrame
+'htmls/css.css' successfully read
+'jquery-3.1.0.min.js' successfully read
+'htmls/js.js' successfully read
+OnDocumentReady
+explain("System");
+OnFinishLoadingFrame
+'Midrash.json' successfully read
+Midrash.json versions 0.12
+explain("Scripts");
+explain("Sounds");
+explain("Textures");
+'fonts/normal2.png' successfully read
+'fonts/monospace1.png' successfully read
+'fonts/monospace2.png' successfully read
+'fonts/statfont.png' successfully read
+'fonts/valuefont.png' successfully read
+'fonts/buttonfont.png' successfully read
+'fonts/valuefontchangeable.png' successfully read
+'fonts/clifont.png' successfully read
+'guipieces.png' successfully read
+'scenes/hangar.png' successfully read
+'lights/hangarlight.png' successfully read
+'lights/cursorlight.png' successfully read
+'guy.png' successfully read
+'earth.png' successfully read
+'craft/grid.png' successfully read
+'craft/parts.png' successfully read
+'objects/apexcoolchair.png' successfully read
+'objects/apexcooltable.png' successfully read
+'objects/bonetable.png' successfully read
+'objects/apexradio.png' successfully read
+'objects/apexconsole.png' successfully read
+'objects/apexbrainjar.png' successfully read
+'objects/tier3switch.png' successfully read
+'ais/chicken.png' successfully read
+'ais/tentacle.png' successfully read
+'effects/groundmist.png' successfully read
+'effects/ventfume.png' successfully read
+'effects/playerdeath.png' successfully read
+'effects/sparkle1.png' successfully read
+'effects/bubbles.png' successfully read
+Loading start menu
+'htmls/start.html' successfully read
+OnBeginLoadingFrame
+OnDocumentReady
+OnFinishLoadingFrame
+229
+start
+world ctor
+world load
+gnormal 0 0 0 0
+ply ctor
+ok
+'htmls/ui.html' successfully read
+OnBeginLoadingFrame
+OnDocumentReady
+webview 1:1 for ui
+OnFinishLoadingFrame
+342
+321
+370
+scale 2x
+354
+scale 1x
+350
+scale 3x
+scale 2x
+scale 1x
+418
+scale 3x
+scale 2x
+335
+scale 1x
+scale 3x
+379
+scale 2x
+scale 1x
+404
+scale 3x
+scale 2x
+343
+scale 1x
+402
+369
+scale 3x
+322
+scale 2x
+scale 1x
+416
+341
+389
+428
+299
+356
+379
+304
+419
+331
+371
+422
+378
+289
+353
+331
+380
+385
+336
+416
+365
+312
+422
+383
+344
+400
+342
+402
+369
+352
+434
+373
+364
+423
+371
+363
+412
+368
+407
+379
+390
+431
+363
+395
+345
+340
+422
+377
+383
+424
+393
+384
+422
+325
+390
+406
+339
+407
+348
+292
+429
+395
+414
+349
+328
+428
+377
+368
+430
+355
+366
+416
+334
+369
+348
+298
+412
+376
+350
+410
+289
+331
+397
+340
+413
+364
+361
+425
+344
+361
+387
+314
+419
+402
+384
+410
+341
+395
+424
+339
+367
+419
+359
+421
+357
+329
+411
+285
+361
+400
+294
+355
+362
+338
+413
+344
+374
+430
+363
+369
+420
+346
+417
+396
+377
+432
+345
+394
+386
+361
+432
+395
+282
+396
+381
+346
+432
+408
+379
+426
+357
+403
+390
+359
+416
+353
+388
+372
+348
+422
+382
+381
+409
+351
+348
+428
+362
+325
+383
+304
+382
+399
+357
+421
+329
+347
+398
+309
+376
+404
+325
+339
+335
+329
+414
+396
+332
+427
+330
+342
+432
+387
+414
+374
+387
+428
+366
+390
+413
+363
+376
+425
+332
+423
+337
+346
+419
+389
+417
+387
+366
+407
+402
+330
+440
+336
+357
+416
+311
+416
+402
+380
+445
+357
+366
+408
+328
+377
+412
+371
+388
+365
+363
+441
+335
+410
+372
+404
+374
+387
+365
+427
+397
+347
+414
+278
+336
+scale 3x
+329
+scale 2x
+371
+424
+scale 1x
+368
+scale 3x
+351
+scale 2x
+441
+scale 1x
+331
+390
+362
+scale 3x
+327
+scale 2x
+420
+scale 1x
+400
+scale 3x
+301
+scale 2x
+scale 1x
+439
+scale 3x
+316
+scale 2x
+scale 1x
+409
+408
+scale 3x
+scale 2x
+354
+scale 1x
+scale 3x
+384
+373
+scale 2x
+365
+scale 1x
+427
+323
+scale 3x
+377
+scale 2x
+386
+scale 1x
+scale 3x
+353
+scale 2x
+scale 1x
+scale 3x
+344
+scale 2x
+scale 1x
+415
+scale 3x
+scale 2x
+346
+417
+scale 1x
+371
+scale 3x
+381
+scale 2x
+419
+scale 1x
+scale 3x
+380
+scale 2x
+scale 1x
+376
+389
+gnormal 0 0 1 0
+285
+400
+gnormal -1 0 1 0
+357
+290
+396
+292
+348
+scale 3x
+375
+314
+333
+330
+331
+gnormal -2 0 1 0
+383
+gnormal -2 -1 1 0
+276
+gnormal -3 -1 1 0
+275
+gnormal -3 -2 1 0
+335
+323
+322
+scale 2x
+339
+scale 1x
+256
+scale 3x
+269
+scale 2x
+314
+scale 1x
+253
+289
+scale 3x
+208
+284
+287
+307
+scale 2x
+346
+scale 1x
+279
+320

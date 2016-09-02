@@ -77,15 +77,15 @@ void ap::World::step() {
 	// remove
 	sprites.l.remove_if([](const Sprite* p) { return p->remove; });
 	
-	cursorlight->sx(en::mou::mx - 75);
-	cursorlight->sy(en::mou::my - 75);
+	cursorlight->sx(en::mou::mx);
+	cursorlight->sy(en::mou::my);
 	
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glClearColor(0, 0, 0, 0);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
 	
-	threed();
 	glPushMatrix();
+	glScalef(ap::scale, ap::scale, 1);
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::list<Sprite *>::iterator it;
@@ -94,19 +94,17 @@ void ap::World::step() {
 		s->draw();
 	}}
 	
-	/*glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, lightmap->gfbid() );
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, lightmap->gfbid() );
 	
 	glClearColor(0, 0, 0, .40f); // alpha is intensity of the ambient darkness
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	lighting();
 	
-	//glPopAttrib();
-	
 	// draw lights into foreground
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glBlendFunc(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA); // perfect for pasting lightmap
-	lightmap->gdraws().draw();*/
+	lightmap->gdraws().draw();
 	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
 	

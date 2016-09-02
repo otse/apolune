@@ -143,52 +143,7 @@ bool second() {
 
 void envars::frame() {
 	//draws.resort = true;
-	//draws.sort();
-
-	glViewport(0, 0, en::width, en::height);						// Reset The Current Viewport
-
-
-	glViewport(0, 0, width, height);						// Reset The Current Viewport
-	glMatrixMode(GL_PROJECTION);						// Select The Projection Matrix
-	glLoadIdentity();									// Reset The Projection Matrix
-	//glFrustum(-1.0, 1.0, -1.0, 1.0, 0.1, 5);			// In Stead Of GluPerspective
-	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
-	glLoadIdentity();									// Reset The Modelview Matrix
-
-	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
-	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);				// Black Background
-	glClearDepth(1.0f);									// Depth Buffer Setup
-	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
-	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
-	
-
-
-	glClear(GL_COLOR_BUFFER_BIT);
-	glLoadIdentity();
-
-	glPushMatrix();
-	glTranslatef(0, 0, 0);
-	//glDisable(GL_TEXTURE_2D);
-	glColor4f(1, 0, 0, 1);
-
-	glBegin(GL_TRIANGLES);
-	glVertex3f(0.0f, 1.0f, 0.0f);
-	glVertex3f(-1.0f, -1.0f, 0.0f);
-	glVertex3f(1.0f, -1.0f, 0.0f);
-	glEnd();
-
-	glTranslatef(3.0f, 0.0f, 0.0f);						// Move Right 3 Units
-	glBegin(GL_QUADS);									// Draw A Quad
-	glVertex3f(-1.0f, 1.0f, 0.0f);					// Top Left
-	glVertex3f(1.0f, 1.0f, 0.0f);					// Top Right
-	glVertex3f(1.0f, -1.0f, 0.0f);					// Bottom Right
-	glVertex3f(-1.0f, -1.0f, 0.0f);					// Bottom Left
-	glEnd();											// Done Drawing The Quad
-
-	glPopMatrix();
-
-	return;
+	//draws.sort()
 	
 	if ( second() )
 		secondpass();
@@ -228,36 +183,8 @@ void envars::frame() {
 	if ( world )
 		world->step();
 
-
-	threed();
-	
-	glClear(GL_COLOR_BUFFER_BIT);
-	glLoadIdentity();
-
-	glPushMatrix();
-	glTranslatef(0, 0, 0);
-	//glDisable(GL_TEXTURE_2D);
-	glColor4f(0, 1, 1, 1);
-
-	glBegin(GL_TRIANGLES);
-		glVertex3f(0.0f, 1.0f, 0.0f);
-		glVertex3f(-1.0f, -1.0f, 0.0f);
-		glVertex3f(1.0f, -1.0f, 0.0f);
-	glEnd();
-
-	glTranslatef(3.0f, 0.0f, 0.0f);						// Move Right 3 Units
-	glBegin(GL_QUADS);									// Draw A Quad
-		glVertex3f(-1.0f, 1.0f, 0.0f);					// Top Left
-		glVertex3f(1.0f, 1.0f, 0.0f);					// Top Right
-		glVertex3f(1.0f, -1.0f, 0.0f);					// Bottom Right
-		glVertex3f(-1.0f, -1.0f, 0.0f);					// Bottom Left
-	glEnd();											// Done Drawing The Quad
-
-	glPopMatrix();
-
 	en::drawsstep();
 
-	flat();
 	as::web->gdraws().draw();
 
 	//if (world == nullptr)
