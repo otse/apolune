@@ -52,7 +52,6 @@ namespace en {
 		virtual void translate();
 		virtual bool onscreen();
 		
-		
 		virtual double gx() const;
 		virtual double gy() const;
 		virtual double gw() const;

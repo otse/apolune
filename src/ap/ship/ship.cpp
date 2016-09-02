@@ -10,9 +10,9 @@ ap::ship::Ship::Ship() : ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
 	grid(*this),
 	crosssection(true)
 	{
-	ship = new en::FBO(&en::BLACK, r);
+	fbo = new en::FBO(&en::BLACK, r);
 
-	sprite = new Sprite(en::GDEF, ship, &r);
+	sprite = new Sprite(en::GDEF, fbo, &r);
 	sprite->yflip = true;
 	sprite->scale = 1;
 
@@ -52,14 +52,14 @@ void ap::ship::Ship::draw() {
 
 	//flat();
 
-	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ship->gfbid() );
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, fbo->gfbid() );
 
 	glPushAttrib(GL_VIEWPORT_BIT);
-	glViewport(0,0, ship->gw(), ship->gh() );
+	glViewport(0,0, fbo->gw(), fbo->gh() );
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0, ship->gw(), ship->gh() , 0, 0, 1);
+	glOrtho(0, fbo->gw(), fbo->gh() , 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
 
 	glClearColor(0, 0, 0, 0);
@@ -103,18 +103,20 @@ void ap::ship::Ship::add(Part *p) {
 	if (normal.x < 0) w += -normal.x;
 	if (normal.y < 0) h += -normal.y;
 
-	w *= 16;
-	h *= 16;
+	int factor = 48;
 
-	ship->x = normal.x * 16;
-	ship->y = normal.y * 16;
+	w *= factor;
+	h *= factor;
 
-	sprite->sx(normal.x*16);
-	sprite->sy(normal.y*16);
+	fbo->x = normal.x * factor;
+	fbo->y = normal.y * factor;
+
+	sprite->sx(normal.x * factor);
+	sprite->sy(normal.y * factor);
 	sprite->sw(w);
 	sprite->sh(h);
 
-	ship->resize(w,h);
+	fbo->resize(w,h);
 
 }
 
@@ -131,7 +133,7 @@ void ap::ship::Ship::hover(mou::Hover h) {}
    ## Getters & Setters
    ########################### */
 en::FBO *ap::ship::Ship::gfbo() {
-	return ship;
+	return fbo;
 }
 
 //float ap::Ply::gy() {

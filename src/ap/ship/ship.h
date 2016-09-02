@@ -33,7 +33,7 @@ namespace ap {
 
 		protected:
 			en::Region r;
-			en::FBO *ship;
+			en::FBO *fbo;
 			Sprite *sprite;
 
 			en::Vector<Part *> parts;
