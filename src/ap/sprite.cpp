@@ -24,8 +24,8 @@ ap::Sprite::~Sprite() {
 
 void ap::Sprite::translate() {
 	if (world) {
-		int x = gx() - ply->gx();
-		int y = gy() - ply->gy();
+		int x = gx() - camerax;
+		int y = gy() - cameray;
 
 		glTranslatef(xof, yof, 0);
 

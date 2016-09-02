@@ -24,7 +24,7 @@ ap::Ply::Ply()
 	{
 	LOG("ply ctor")
 	//dim(0, 0, 14, 38);
-	sworld(false);
+	sworld(true);
 
 	spawnplosion = new Emitter(Emitter::spawnplosion);
     ap::world->add(spawnplosion);
@@ -49,9 +49,9 @@ void ap::Ply::step() {
 	}
 }
 
-void ap::Ply::translate() {
+/*void ap::Ply::translate() {
 	glTranslatef(xof, yof, 0); // xof and yof are idiots
-}
+}*/
 
 void ap::Ply::move() {
 	

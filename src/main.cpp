@@ -30,6 +30,9 @@ double ap::zoom = 1;
 double ap::zoomto = 1;
 double ap::zoomspeed = 1;
 
+int ap::camerax = 0;
+int ap::cameray = 0;
+
 int ap::fps = 0;
 int ap::frameCount = 0;
 int ap::scale = 3;

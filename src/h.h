@@ -120,6 +120,9 @@ namespace ap {
 	extern double zoomto;
 	extern double zoomspeed;
 
+	extern int camerax;
+	extern int cameray;
+
 	extern bool pointingcoords; // niy
 	
 	void loadtex();

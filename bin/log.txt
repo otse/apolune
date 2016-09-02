@@ -50,7 +50,7 @@ Loading start menu
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
-232
+226
 start
 world ctor
 world load
@@ -62,5 +62,216 @@ OnBeginLoadingFrame
 OnDocumentReady
 webview 1:1 for ui
 OnFinishLoadingFrame
-419
-370
+375
+393
+405
+400
+399
+407
+399
+400
+409
+401
+414
+402
+400
+400
+398
+389
+scale 2x
+395
+scale 1x
+406
+394
+scale 3x
+scale 2x
+388
+scale 1x
+407
+scale 3x
+scale 2x
+402
+scale 1x
+405
+scale 3x
+scale 2x
+383
+scale 1x
+scale 3x
+408
+403
+401
+386
+391
+412
+405
+394
+385
+398
+402
+408
+398
+401
+397
+375
+395
+409
+346
+331
+368
+388
+402
+380
+362
+352
+385
+402
+394
+407
+393
+360
+363
+356
+359
+401
+398
+402
+396
+385
+gnormal 0 -1 0 0
+381
+365
+393
+381
+377
+381
+gnormal -1 -1 0 0
+358
+gnormal -1 -1 0 0
+gnormal -1 -1 0 1
+gnormal -1 -1 0 2
+339
+gnormal -1 -1 1 2
+gnormal -1 -1 1 2
+gnormal -1 -1 2 2
+306
+gnormal -1 -1 2 2
+gnormal -1 -1 2 2
+302
+gnormal -1 -2 2 2
+gnormal -1 -2 2 2
+gnormal -1 -3 2 2
+290
+gnormal -1 -3 2 2
+gnormal -1 -3 2 2
+279
+gnormal -2 -3 2 2
+gnormal -2 -3 2 2
+gnormal -3 -3 2 2
+258
+gnormal -3 -3 2 2
+gnormal -3 -3 2 2
+gnormal -3 -3 2 2
+247
+gnormal -3 -3 2 2
+gnormal -3 -3 2 2
+237
+246
+246
+246
+252
+253
+249
+248
+240
+248
+244
+scale 2x
+249
+scale 1x
+252
+scale 3x
+250
+scale 2x
+scale 1x
+248
+scale 3x
+scale 2x
+252
+scale 1x
+scale 3x
+252
+scale 2x
+252
+scale 1x
+scale 3x
+246
+249
+scale 2x
+scale 1x
+253
+246
+246
+252
+scale 3x
+249
+248
+scale 2x
+252
+249
+254
+220
+253
+246
+251
+253
+scale 1x
+240
+244
+gnormal -3 -3 2 2
+gnormal -3 -3 3 3
+gnormal -3 -3 4 4
+230
+gnormal -3 -3 5 4
+226
+gnormal -3 -3 5 4
+gnormal -3 -3 5 4
+gnormal -3 -3 5 4
+220
+213
+gnormal -3 -3 5 4
+198
+gnormal -3 -3 5 4
+gnormal -3 -3 5 5
+gnormal -3 -3 5 6
+203
+gnormal -3 -3 5 7
+195
+gnormal -3 -3 6 7
+gnormal -3 -3 7 7
+192
+gnormal -3 -3 8 7
+gnormal -3 -3 9 7
+gnormal -3 -3 10 7
+gnormal -3 -3 11 7
+167
+gnormal -3 -3 12 7
+gnormal -3 -3 13 7
+gnormal -3 -3 14 7
+gnormal -3 -3 15 7
+gnormal -3 -3 16 7
+169
+gnormal -3 -3 17 7
+167
+scale 3x
+163
+159
+148
+166
+167
+167
+169
+171
+170
+173
+169

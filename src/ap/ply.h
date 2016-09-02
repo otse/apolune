@@ -21,7 +21,7 @@ namespace ap {
 		virtual void step();
 		
 	//protected:
-		virtual void translate();
+		//virtual void translate();
 		
 		bool guse();
 		

@@ -66,6 +66,13 @@ void ap::World::step() {
 	//sprites.sort();
 
 	// todo: sprites need a late-add vector
+
+	// sort here
+	std::sort(sprites.l.begin(), sprites.l.end(),
+		[](const Sprite & a, const Sprite & b) -> bool
+	{
+		return a.mProperty > b.mProperty;
+	});
 	
 	// step
 	{std::list<Sprite *>::iterator it;
@@ -285,7 +292,7 @@ void ap::World::load() {
 	ap::xof = (en::width/2)-(ply->gw()/2);
 	ap::yof = (en::height/2)-(ply->gh()/2)+100;
 
-	LOG("ok")
+	LOG("made world")
 }
 
 void ap::World::add(Sprite *p) {
