@@ -13,7 +13,7 @@
 ap::Ply::Ply()
 	: ap::Mover::Mover(
 		PLAYER,
-		en::GPLAYER,
+		SORT_PLAYER,
 		&textures::guy,
 		&regions::ply
 		) ,

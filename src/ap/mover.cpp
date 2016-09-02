@@ -4,7 +4,7 @@
 
 using namespace ap;
 
-ap::Mover::Mover(Type type, en::group_t g, en::Texture *t, en::Region *r) : ap::Sprite(g, t,r) ,
+ap::Mover::Mover(Type type, en::sort_t g, en::Texture *t, en::Region *r) : ap::Sprite(g, t,r) ,
 	cycled(false),
 	solid(false),
 	type(type),

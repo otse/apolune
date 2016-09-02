@@ -12,7 +12,7 @@ const Chair::Model Chair::apexcool = {
 			}, 0, 0 };
 
 ap::objects::Chair::Chair(const Chair::Model m) :
-	ap::Object::Object(en::GDEF, m.m.t, m.m.r) ,
+	ap::Object::Object(SORT_UNIMPORTANT, m.m.t, m.m.r) ,
 	m(m)
 	{
 	//tip = "It looks comfy.";

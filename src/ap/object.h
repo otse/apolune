@@ -11,7 +11,7 @@ using namespace en;
 namespace ap {
 	class Object : public Sprite {
 	public:
-		Object(en::group_t, en::Texture *, en::Region *);
+		Object(en::sort_t, en::Texture *, en::Region *);
 		~Object();
 		
 		virtual void click();

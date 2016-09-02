@@ -16,7 +16,7 @@ ap::asteroid::Asteroid::Asteroid()
 	{
 	Asteroid::count ++;
 
-	sprite = new Sprite(en::GDEF, &fbo, &region);
+	sprite = new Sprite(SORT_UNIMPORTANT, &fbo, &region);
 	sprite->yflip = true;
 	sprite->scale = 1;
 

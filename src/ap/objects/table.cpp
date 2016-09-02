@@ -19,7 +19,7 @@ const Table::Model Table::apexcool = {
 		}};
 		
 ap::objects::Table::Table(const Table::Model m) :
-	ap::Object::Object(en::GDEF, m.m.t, m.m.r) ,
+	ap::Object::Object(SORT_UNIMPORTANT, m.m.t, m.m.r) ,
 	m(m)
 	{
 	//tip = "It looks comfy.";

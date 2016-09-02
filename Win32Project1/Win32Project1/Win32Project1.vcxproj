@@ -217,7 +217,6 @@
     <ClCompile Include="..\..\src\ap\asteroid\rock.cpp" />
     <ClCompile Include="..\..\src\ap\bulk.cpp" />
     <ClCompile Include="..\..\src\ap\cli.cpp" />
-    <ClCompile Include="..\..\src\ap\context.cpp" />
     <ClCompile Include="..\..\src\ap\def.cpp" />
     <ClCompile Include="..\..\src\ap\emitter.cpp" />
     <ClCompile Include="..\..\src\ap\light.cpp" />

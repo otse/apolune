@@ -112,7 +112,7 @@ const Emitter::Model Emitter::placesparks = {
 };
 
 ap::Emitter::Emitter(const Model &m) :
-	ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
+	ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	m(m),
 	kill(en::dnow+m.emitterkill),
 	timer(0.0),
@@ -181,7 +181,7 @@ const Emitter::Model &ap::Emitter::gm() {
 // PARTICLE
 
 ap::Particle::Particle(Emitter *const e) :
-	ap::Sprite(en::GDEF, e->m.m.t, e->m.m.r ) ,
+	ap::Sprite(SORT_UNIMPORTANT, e->m.m.t, e->m.m.r ) ,
 	e(e),
 	spawn(en::dnow),
 	kill(en::dnow + e->m.particlekill),

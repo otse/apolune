@@ -18,7 +18,7 @@ namespace ap {
 			int h;
 		};
 		
-		Sprite(group_t, Texture *, Region *);
+		Sprite(sort_t, Texture *, Region *);
 		//Sprite(const Model);
 		virtual ~Sprite();
 		
@@ -46,12 +46,6 @@ namespace ap {
 		void sworld(bool);
 		bool isinside(en::Region *);
 		
-		inline void sorder(int i)
-		{
-			en::Draws::sorder(i);
-			//ap::world->resort = true;
-		}
-		
 		static int GCOUNT() { return COUNT; }
 	protected:
 		double ax;
@@ -67,7 +61,7 @@ namespace ap {
 	
 	class Simpleanim : public Sprite {
 	public:
-		Simpleanim(group_t, en::Texture *, en::Region *, const en::Anim &);
+		Simpleanim(sort_t, en::Texture *, en::Region *, const en::Anim &);
 		virtual ~Simpleanim();
 		
 		const en::Anim &anim;

@@ -111,7 +111,7 @@ void ap::ship::Truss::connect() {
 }
 
 void ap::ship::Truss::junction(int i, int r) {
-	Sprite *j = new Sprite(en::GDEF, &textures::parts, &ap::regions::trussjunction);
+	Sprite *j = new Sprite(SORT_UNIMPORTANT, &textures::parts, &ap::regions::trussjunction);
 	j->world = false;
 	j->rotate = r;
 

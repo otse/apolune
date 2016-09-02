@@ -130,10 +130,10 @@ namespace ap {
 	
 	void launchworld();
 
-	group_t PLAYER = 11;
-	group_t HIGHEST = 10;
-	group_t NORMAL = 5;
-	group_t BACKGROUND = 5;
+	const static en::sort_t SORT_PLAYER = 11;
+	const static en::sort_t SORT_HIGH = 10;
+	const static en::sort_t SORT_UNIMPORTANT = 5;
+	const static en::sort_t SORT_BACKGROUND = 4;
 }
 
 #endif

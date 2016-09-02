@@ -35,8 +35,6 @@ int mou::wheel = 0;
 
 oar::KEY_STATE oar::keys[sf::Keyboard::KeyCount] = { oar::UP };
 
-const int en::GROUP_SATURATION = 100;
-
 int en::width = 800;
 int en::height = 600;
 float en::scale = 1;
@@ -44,7 +42,6 @@ bool en::pixels = false; // to switch between perspective, unused
 
 int en::WindowHandle = 0;
 bool en::focus = true;
-Draws *en::groups[en::group_t::COUNT] = { nullptr };
 
 Vector<Draws *> en::late;
 List<Draws *> en::draws;

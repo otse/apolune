@@ -5,7 +5,7 @@
 #include "../def.h"
 
 ap::objects::Console::Console() :
-	ap::Object::Object(en::GDEF, &textures::tier3switch, &regions::tier3switch) //,
+	ap::Object::Object(SORT_UNIMPORTANT, &textures::tier3switch, &regions::tier3switch) //,
 	//anim(nullptr)
 	{
 	LOG("terminal")

@@ -8,7 +8,7 @@
 using namespace ap::ship;
 
 ap::ship::Tile::Tile(Grid &grid, int x, int y) :
-	ap::Sprite(en::GDEF, &textures::craftgrid, &regions::tile) ,
+	ap::Sprite(SORT_UNIMPORTANT, &textures::craftgrid, &regions::tile) ,
 	x(x),
 	y(y),
 	grid(grid),

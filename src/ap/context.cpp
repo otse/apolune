@@ -5,7 +5,7 @@
 // context
 
 ap::Context::Context()
-	: en::Draws::Draws( en::GGUI, nullptr, nullptr ) ,
+	: en::Draws::Draws(SORT_UNIMPORTANT, nullptr, nullptr ) ,
 	active(-1)	
 	{
 	

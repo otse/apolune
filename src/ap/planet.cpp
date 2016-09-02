@@ -8,7 +8,7 @@
 
 
 ap::Planet::Planet(float x, float y, Type type)
-	: en::Draws( en::GDEF, nullptr, nullptr) ,
+	: en::Draws( SORT_UNIMPORTANT, nullptr, nullptr) ,
 	type(type)
 	{
 	//LOG("planet ctor")

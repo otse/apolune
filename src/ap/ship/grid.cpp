@@ -8,7 +8,7 @@
 
 
 
-ap::ship::Grid::Grid(Ship &o) : ap::Sprite(en::GDEF, nullptr, &en::regfluke ) ,
+ap::ship::Grid::Grid(Ship &o) : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	craft(o),
 	normal( {0,0,0,0} )
 	{

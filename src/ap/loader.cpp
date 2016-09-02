@@ -19,7 +19,7 @@
 
 
 ap::Loader::Loader()
-	: en::Draws(en::GDEF, nullptr, &en::regfluke) ,
+	: en::Draws(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	state(BEGIN),
 	next(true),
 	frame(0),

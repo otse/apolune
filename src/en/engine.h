@@ -39,6 +39,7 @@ namespace en {
 	class Shader;
 	class Anim;
 	
+	typedef int sort_t;
 	struct Region {public: int x, y, w, h;};
 	struct Color {float r, g, b;};
 	

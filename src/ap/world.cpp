@@ -68,11 +68,7 @@ void ap::World::step() {
 	// todo: sprites need a late-add vector
 
 	// sort here
-	std::sort(sprites.l.begin(), sprites.l.end(),
-		[](const Sprite & a, const Sprite & b) -> bool
-	{
-		return a.mProperty > b.mProperty;
-	});
+	sprites.l.sort([](const Sprite *a, const Sprite *b) { return a->group < b->group; });
 	
 	// step
 	{std::list<Sprite *>::iterator it;
@@ -202,7 +198,7 @@ void ap::World::makestars() {
 		int j = floor(ilrand() * 4);
 		en::Region &r = anims::sparkle1.rgetframe( j );
 				
-		en::Draws star(en::GDEF, &textures::sparkle1, &r);
+		en::Draws star(SORT_UNIMPORTANT, &textures::sparkle1, &r);
 		
 		float a;
 		if (ilrand()<.06)
@@ -237,7 +233,7 @@ void ap::World::load() {
 		
 	using namespace en;
 	backdrop = new en::Draws(
-			GDEF,
+			SORT_UNIMPORTANT,
 			&textures::backdrop,
 			&regions::backdrop);
 	// don't add; we render the backdrop last, manually
@@ -253,11 +249,11 @@ void ap::World::load() {
 	//asteroid::Asteroid *ast = new asteroid::Asteroid();
 	//add(ast);
 	
-	cursorlight = new Sprite(en::GDEF, &textures::cursorlight, &regions::cursorlight);
+	cursorlight = new Sprite(SORT_UNIMPORTANT, &textures::cursorlight, &regions::cursorlight);
 	cursorlight->world = false;
 	this->lights.v.push_back(cursorlight);
 	
-	/*Sprite *mist = new Sprite(en::GDEF, &textures::groundmist, &regions::groundmist);
+	/*Sprite *mist = new Sprite(SORT_UNIMPORTANT, &textures::groundmist, &regions::groundmist);
 	mist->sx(900);
 	mist->sy(539);
 	this->add(mist);*/

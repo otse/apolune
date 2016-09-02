@@ -11,7 +11,7 @@
 
 using namespace en;
 
-en::Text::Text(en::group_t g, const Font &font, en::Color *c, const char *quote)
+en::Text::Text(en::sort_t g, const Font &font, en::Color *c, const char *quote)
 	: Draws(g, 0, &regfluke) ,
 	f(font),
 	q(quote),
@@ -27,7 +27,7 @@ en::Text::Text(en::group_t g, const Font &font, en::Color *c, const char *quote)
 	for( int i = 0; i<l ;i++) {
 		char c = q[i];
 		const glyph &g = f.getglyph(c);
-		Draws *d = new Draws(GDEF, &font.gtexture(), const_cast<Region *>(&g.r));
+		Draws *d = new Draws(0, &font.gtexture(), const_cast<Region *>(&g.r));
 		//d->name = "glyph";
 		d->scolor(this->color);
 		//d->sfit(true);

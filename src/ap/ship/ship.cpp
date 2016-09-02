@@ -5,14 +5,14 @@
 #include "../../en/fbo.h"
 
 
-ap::ship::Ship::Ship() : ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
+ap::ship::Ship::Ship() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	r({0,0,16,16}),
 	grid(*this),
 	crosssection(true)
 	{
 	fbo = new en::FBO(&en::BLACK, r);
 
-	sprite = new Sprite(en::GDEF, fbo, &r);
+	sprite = new Sprite(SORT_UNIMPORTANT, fbo, &r);
 	sprite->yflip = true;
 	sprite->scale = 3;
 

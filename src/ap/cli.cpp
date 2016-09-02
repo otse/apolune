@@ -9,7 +9,7 @@
 
 
 
-ap::CLI::CLI() : en::Draws(en::GDUMP, nullptr, &en::regfluke) ,
+ap::CLI::CLI() : en::Draws(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	pane(nullptr)
 	{
 
@@ -18,7 +18,7 @@ ap::CLI::CLI() : en::Draws(en::GDUMP, nullptr, &en::regfluke) ,
 
 	sy(en::height-r->h);
 	sh(r->h);
-	pane = new Draws(en::GDUMP, nullptr, r);
+	pane = new Draws(SORT_UNIMPORTANT, nullptr, r);
 	pane->scolor(&colors::CLIPANE);
 	pane->sy(gy());
 	add(pane);
@@ -48,7 +48,7 @@ void ap::CLI::mention(const char *q) {
 
 	const Font &f = clifont; // alias
 
-	Text *t = new en::Text(en::GDUMP, f, &en::WHITE, str->c_str());
+	Text *t = new en::Text(SORT_UNIMPORTANT, f, &en::WHITE, str->c_str());
 	int l = texts.size();
 	int s = (str->at(0)=='|')?11:0;
 	t->sy(gy()+10+(l*f.gh())+l);

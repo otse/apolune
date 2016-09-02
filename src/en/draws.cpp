@@ -9,7 +9,7 @@
 using namespace en;
 int en::Draws::COUNT = 0;
 
-en::Draws::Draws(group_t g, Texture *t, Region *r) :
+en::Draws::Draws(sort_t g, Texture *t, Region *r) :
 	group(g),
 	texture(t),
 	r(r),
@@ -264,7 +264,6 @@ void en::Draws::sy(double p) { y = p; }
 void en::Draws::sw(double p) { w = p; }
 void en::Draws::sh(double p) { h = p; }
 
-void en::Draws::sorder(order_t p) { order = p; }
 void en::Draws::stexture(en::Texture *t) { texture = t; }
 Region *en::Draws::gregion() { return r; }
 void en::Draws::sregion(Region *r) { this->r = r; }

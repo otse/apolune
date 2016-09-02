@@ -2,7 +2,7 @@
 
 #include "ai.h"
 
-ap::AI::AI(en::Texture *t, en::Region *r) : ap::Object::Object(en::GPLAYER, t, r) {
+ap::AI::AI(en::Texture *t, en::Region *r) : ap::Object::Object(SORT_PLAYER, t, r) {
 
 }
 

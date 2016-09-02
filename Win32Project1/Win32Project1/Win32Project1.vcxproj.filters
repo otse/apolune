@@ -197,9 +197,6 @@
     <ClCompile Include="..\..\src\ap\cli.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\ap\context.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\ap\def.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

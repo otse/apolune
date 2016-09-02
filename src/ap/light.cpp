@@ -6,7 +6,7 @@
 using namespace en;
 
 ap::Light::Light(const Model &m, int x, int y) :
-	ap::Sprite(GDEF, &textures::sheet, const_cast<Region *>(&m.r) ) ,
+	ap::Sprite(SORT_UNIMPORTANT, &textures::sheet, const_cast<Region *>(&m.r) ) ,
 	model(m)
 {
 	

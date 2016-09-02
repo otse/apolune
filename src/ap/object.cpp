@@ -6,7 +6,7 @@
 #include "ply.h"
 #include "def.h"
 
-ap::Object::Object(en::group_t g, en::Texture *t, en::Region *r) :
+ap::Object::Object(en::sort_t g, en::Texture *t, en::Region *r) :
 	ap::Sprite::Sprite(g, t, r) ,
 	activaterange(0),
 	tooltip(nullptr),
@@ -78,7 +78,7 @@ void ap::Object::tooltipping() {
 	if ( thovering >= 0.35 ) {
 		if ( ! tooltip ) {
 
-			tooltip = new en::Text(en::GDUMP, f, &en::WHITE, tip);
+			tooltip = new en::Text(SORT_UNIMPORTANT, f, &en::WHITE, tip);
 			//tooltip->scale = 2;
 			tooltip->position();
 

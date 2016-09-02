@@ -7,7 +7,7 @@
 using namespace ap::ship;
 
 ap::ship::Part::Part(Tile &t, const Model m, TYPE type) :
-	ap::Sprite(en::GDEF, m.t, m.r) ,
+	ap::Sprite(SORT_UNIMPORTANT, m.t, m.r) ,
 	tile(t),
 	craft(t.grid.craft),
 	type(type)

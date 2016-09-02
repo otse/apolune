@@ -23,7 +23,7 @@ namespace ap {
 			ASTEROID
 		};
 		
-		Mover(Type, en::group_t, en::Texture *, en::Region *);
+		Mover(Type, en::sort_t, en::Texture *, en::Region *);
 		~Mover();
 		
 		virtual void translate();
