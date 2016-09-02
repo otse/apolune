@@ -80,8 +80,8 @@ void ap::World::step() {
 	// remove
 	sprites.l.remove_if([](const Sprite* p) { return p->remove; });
 	
-	cursorlight->sx(en::mou::mx);
-	cursorlight->sy(en::mou::my);
+	cursorlight->sx(en::mou::mx-75);
+	cursorlight->sy(en::mou::my-75);
 	
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glClearColor(0, 0, 0, 0);
@@ -238,11 +238,6 @@ void ap::World::load() {
 			&regions::backdrop);
 	// don't add; we render the backdrop last, manually
 	
-	// hangar = new Hangar();
-	//hangar->nodraw = true;
-	// this->add( hangar );
-	// hangar->post();
-
 	craft = new ship::Ship();
 	add(craft);
 
@@ -251,12 +246,9 @@ void ap::World::load() {
 	
 	cursorlight = new Sprite(SORT_UNIMPORTANT, &textures::cursorlight, &regions::cursorlight);
 	cursorlight->world = false;
+	cursorlight->sw(cursorlight->gw()*3);
+	cursorlight->sh(cursorlight->gh()*3);
 	this->lights.v.push_back(cursorlight);
-	
-	/*Sprite *mist = new Sprite(SORT_UNIMPORTANT, &textures::groundmist, &regions::groundmist);
-	mist->sx(900);
-	mist->sy(539);
-	this->add(mist);*/
 	
 	ply = new Ply();
 	ply->sx(0);
@@ -264,27 +256,6 @@ void ap::World::load() {
 	//ply->nodraw = true;
 	this->add( ply );
 	
-	//LOG(ply->D->designation)
-	
-	/*
-	std::sort(sprites.begin(), sprites.end(), en::Drawscmp()); 
-	
-	static bool printed = false;
-	
-	if ( ! printed ) {
-		printed = true;
-		
-		LOG("order of sprites")
-		for ( sprites_t::iterator i = sprites.begin(); i < sprites.end(); i ++)
-		{
-			Sprite *d = *i;
-			LOG("'" << d->name << "' order " << d->order)
-		}
-	}
-	*/
-	
-	// set world offsets
-
 	ap::xof = (en::width/2)-(ply->gw()/2);
 	ap::yof = (en::height/2)-(ply->gh()/2)+100;
 
@@ -293,29 +264,8 @@ void ap::World::load() {
 
 void ap::World::add(Sprite *p) {
 	sprites.l.push_back(p);
-	//s->loc = sprites.size()-1;
-	//sploc = s->loc;
-	
-	//LOG("s->loc = " << s->loc);
 }
 
-//void ap::World::rm(Sprite *s) {
-	//v.
-//}
-
-/*
-void ap::rm(Sprite *s) {
-	//if ( nullptr == s )
-		//return;
-	
-	std::list<Sprite *>::iterator it;
-	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
-		if ( *it == s ) {
-			sprites.l.erase(it);
-			break;
-		}
-	}
-}*/
 
 void ap::World::steroids() {
 
