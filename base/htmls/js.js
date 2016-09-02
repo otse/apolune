@@ -18,6 +18,9 @@
 
   js.boot = function() {
     limit = $('#limit');
+    if (-1 !== document.location.href.indexOf('black')) {
+      $('body').css('background', 'black');
+    }
     return 1;
   };
 
