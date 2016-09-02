@@ -18,6 +18,7 @@
 #include "def.h"
 
 #include "../en/shader.h"
+#include "../awesome.h"
 
 en::Region starsreg = { 0, 0, (en::width*3), (en::height*3) };
 en::Region *leasurearea = new (en::Region) { 980, 242, 1190-980, 602-242 };
@@ -76,6 +77,10 @@ void ap::World::step() {
 		Sprite *s = *it;
 		s->step();
 	}}
+
+	camerax = ply->gx();
+	cameray = ply->gy();
+	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(ply->orientation));
 	
 	// remove
 	sprites.l.remove_if([](const Sprite* p) { return p->remove; });

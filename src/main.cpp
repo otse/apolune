@@ -136,6 +136,7 @@ bool second() {
 		
 		as::global.SetPropertyAsync(WSLit("fps"), JSValue(ap::fps));
 		as::global.SetPropertyAsync(WSLit("delta"), JSValue(en::delta));
+		as::view->ExecuteJavascript(WSLit("js.second();"), WSLit(""));
 
 		LOG(fps);
 		return true;
@@ -161,7 +162,7 @@ void envars::frame() {
 	else
 		ap::as::view->InjectMouseMove(mou::mx, mou::my);
 
-	as::view->ExecuteJavascript(WSLit("js.second();"), WSLit(""));
+	as::view->ExecuteJavascript(WSLit("js.animate();"), WSLit(""));
 
 	if (en::mou::PRESSED == en::mou::left)
 		as::view->InjectMouseDown(kMouseButton_Left);

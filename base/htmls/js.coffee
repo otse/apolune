@@ -1,6 +1,7 @@
 root = exports ? this
 
 js = {}
+poppers = []
 queer = {}
 overlay = null
 
@@ -9,6 +10,7 @@ limit = 0
 
 js.boot = ->
 	limit = $ '#limit'
+
 	1
 
 js.mstats = ->
@@ -28,12 +30,18 @@ js.mstats = ->
 js.second = () ->
 	queer.fps.html app.fps
 	queer.delta.html app.delta
+
 	0
 
 js.overlay = ->
 	root.overlay = overlay = new Overlay
 	app?.overlay = overlay
 	1
+
+js.animate = (timestamp) ->
+	p.update() for p in poppers
+
+	return
 
 class Overlay
 	constructor: ->
@@ -47,6 +55,7 @@ class Overlay
 
 		@view.add new Clicky name: 'zoom level', values: ['3x', '2x', '1x'], cpp: 'scale'
 		@view.add new Clicky name: 'cross section', values: ['on', 'off']
+		@view.add new Value name: 'orientation', value: 0, suffix: '&deg;', cpp: 'orientation'
 		@view.add new Clicky name: 'orient', values: ['ship', 'free']
 		1
 
@@ -68,6 +77,8 @@ class Popper
 		@element.append @button
 
 		@time = 0
+
+		poppers.push this
 		;
 
 	add: (item) ->
@@ -99,6 +110,10 @@ class Popper
 		@insides = null
 		0
 
+	update: ->
+		return unless @insides?
+		
+		o.update() for o in @items
 
 class Item
 	constructor: (o) ->
@@ -107,10 +122,17 @@ class Item
 		@element = $ "<div><div class=\"item #{@class}\">#{@name}</div></div>"
 		;
 
-class Value
+	# @ Overriden
+	update: ->
+
+		0
+
+class Value extends Item
 	constructor: (o) ->
 		@name = o.name
 		@value = o.value
+		@suffix = o.suffix or ''
+		@cpp = o.cpp
 
 		@element = null
 
@@ -118,10 +140,21 @@ class Value
 		;
 
 	build: ->
-		@element = $ "<div><div class=\"item #{@class}\">#{@name} <div class=\"value\">#{@value}</div></div></div>"
+		@element = $ "<div><div class=\"item #{@class}\">#{@name} <div class=\"value\">#{@value}#{@suffix}</div></div></div>"
+
+		@value = @element.find '.value'
 		1
 
-class Clicky
+	# @Overrides
+	update: ->
+		return unless @cpp?
+
+		console.log "update app #{@cpp} value /w #{app[@cpp]}"
+
+		@value.html "#{app[@cpp].toFixed 1}#{@suffix}"
+		0
+
+class Clicky extends Item
 	constructor: (o) ->
 		@name = o.name
 		@values = o.values
@@ -150,7 +183,10 @@ class Clicky
 		app[@cpp] value if @cpp?
 		undefined
 
+	# @Override
+	update: ->
 
+		0
 
 root.Overlay = Overlay
 root.js = js
