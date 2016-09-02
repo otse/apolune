@@ -79,6 +79,11 @@ void ap::Ply::key() {
 		orientation -= .2;
 	}
 
+	if (orientation > 360)
+		orientation -= 360;
+	else if (orientation < 0)
+		orientation += 360;
+
 	if ( !(a&&d)&&(a||d) ) {
 		cycle();
 		sregion( anims::walk.progress(animi) );
