@@ -9,16 +9,7 @@
 using namespace en;
 int en::Draws::COUNT = 0;
 
-/*en::Draws::Draws(Group g, Texture *t ) {
-	region *r = new region;
-	*r = {(0,0,t->gw(),t->gh())};
-	bclearr = true;
-	Draws(g, t, r);
-}*/
-
-//en::Draws::Draws(void) {}
-
-en::Draws::Draws(Group g, Texture *t, Region *r) :
+en::Draws::Draws(group_t g, Texture *t, Region *r) :
 	group(g),
 	texture(t),
 	r(r),
@@ -36,35 +27,16 @@ en::Draws::Draws(Group g, Texture *t, Region *r) :
 	hovering(false),
 	held(false),
 	animi({0,0,false}),
-	order(0),
 	remove(false),
 	delete_(true),
 	nodraw(false),
 	fbo(nullptr)
 	{
-		//stackorder();
 		COUNT ++;
 	}
 	
 en::Draws::~Draws() {
 	COUNT --;
-
-	//LOG("~Draws")
-	
-	//if ( bclearr)
-		//delete r;
-}
-
-/**
- * @deprecated groups work a litle different now
- */
-void en::Draws::stackorder() {
-	//if ( GNONE == group ) return;
-	
-	//if ( ++ en::groups[group] == ((group+1) * GROUP_SATURATION) )
-		//en::groups[group] = group * GROUP_SATURATION;
-	
-	//order = en::groups[group];
 }
 
 void en::Draws::translate() {

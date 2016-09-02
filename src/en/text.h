@@ -9,7 +9,7 @@ namespace en {
 	
 	class Text : public Draws {
 	public:
-		Text(Group g, const Font &, Color *, const char *);
+		Text(group_t g, const Font &, Color *, const char *);
 		virtual ~Text();
 		/*@ovr*/ virtual void draw();
 		

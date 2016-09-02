@@ -129,6 +129,11 @@ namespace ap {
 	void bulk();
 	
 	void launchworld();
+
+	group_t PLAYER = 11;
+	group_t HIGHEST = 10;
+	group_t NORMAL = 5;
+	group_t BACKGROUND = 5;
 }
 
 #endif

@@ -18,7 +18,7 @@ namespace ap {
 			int h;
 		};
 		
-		Sprite(Group, Texture *, Region *);
+		Sprite(group_t, Texture *, Region *);
 		//Sprite(const Model);
 		virtual ~Sprite();
 		
@@ -67,7 +67,7 @@ namespace ap {
 	
 	class Simpleanim : public Sprite {
 	public:
-		Simpleanim(en::Group, en::Texture *, en::Region *, const en::Anim &);
+		Simpleanim(group_t, en::Texture *, en::Region *, const en::Anim &);
 		virtual ~Simpleanim();
 		
 		const en::Anim &anim;

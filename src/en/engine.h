@@ -50,8 +50,6 @@ namespace en {
 
 	#include "stltempl.h"
 	
-	enum Group {GNONE = -1,GDEF = 0,GPLAYER,GGUI,GDUMP,COUNT};
-	
 	namespace mou {
 		enum Button {LEFT,MIDDLE,RIGHT};
 		enum Click {PRESSED,RELEASED,DRAG,IDLE};
@@ -84,9 +82,6 @@ namespace en {
 		enum KEY_STATE {UP, DOWN, STILL_DOWN};
 		extern KEY_STATE keys[];
 	}
-	
-	extern const int GROUP_SATURATION;
-	extern Draws *groups[];
 
 	void roaming();
 	extern PHYSFS_File *base;

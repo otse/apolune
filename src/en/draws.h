@@ -25,7 +25,7 @@ namespace en {
 		
 		//Draws(Group, Texture *);
 		//Draws(void);
-		Draws(Group, Texture *, Region *);
+		Draws(group_t, Texture *, Region *);
 		virtual ~Draws();
 
 		FBO *fbo;		
@@ -35,10 +35,8 @@ namespace en {
 		bool remove;
 		bool delete_;
 		
-		Group group;
-		order_t order;
-		void sorder(order_t);
-		void stackorder();
+		typedef int group_t;
+		group_t group;
 		
 		const char *name;
 		

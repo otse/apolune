@@ -6,7 +6,7 @@
 
 int ap::Sprite::COUNT = 0;
 
-ap::Sprite::Sprite(en::Group g, en::Texture *t, en::Region *r)
+ap::Sprite::Sprite(en::group_t g, en::Texture *t, en::Region *r)
 	: en::Draws(g, t, r) ,
 	world(true)
 	{
@@ -70,7 +70,7 @@ int ap::Sprite::gscrx() const { return Draws::gx() + ap::xof - ply->gx(); }
 int ap::Sprite::gscry() const { return Draws::gy() + ap::yof - ply->gy(); }
 
 
-ap::Simpleanim::Simpleanim(en::Group g, en::Texture *t, en::Region *r, const en::Anim &a) :
+ap::Simpleanim::Simpleanim(group_t g, en::Texture *t, en::Region *r, const en::Anim &a) :
 	ap::Sprite::Sprite(g, t, r) ,
 	anim(a) {
 	

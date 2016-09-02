@@ -11,7 +11,7 @@
 
 using namespace en;
 
-en::Text::Text(en::Group g, const Font &font, en::Color *c, const char *quote)
+en::Text::Text(en::group_t g, const Font &font, en::Color *c, const char *quote)
 	: Draws(g, 0, &regfluke) ,
 	f(font),
 	q(quote),

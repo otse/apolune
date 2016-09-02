@@ -44,7 +44,7 @@ bool en::pixels = false; // to switch between perspective, unused
 
 int en::WindowHandle = 0;
 bool en::focus = true;
-Draws *en::groups[en::Group::COUNT] = { nullptr };
+Draws *en::groups[en::group_t::COUNT] = { nullptr };
 
 Vector<Draws *> en::late;
 List<Draws *> en::draws;

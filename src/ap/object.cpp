@@ -6,7 +6,7 @@
 #include "ply.h"
 #include "def.h"
 
-ap::Object::Object(en::Group g, en::Texture *t, en::Region *r) :
+ap::Object::Object(en::group_t g, en::Texture *t, en::Region *r) :
 	ap::Sprite::Sprite(g, t, r) ,
 	activaterange(0),
 	tooltip(nullptr),
