@@ -103,6 +103,7 @@ void ap::as::mawe() {
 	view->set_js_method_handler(&dispatcher);
 
 	JSValue var(view->CreateGlobalJavascriptObject(WSLit("app")));
+	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(0));
 	global = var.ToObject();
 
 	dispatcher.Bind(global, WSLit("start"), JSDelegate(&start));

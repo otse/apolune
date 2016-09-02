@@ -67,11 +67,13 @@
       this.view.add(new Clicky({
         name: 'zoom level',
         values: ['3x', '2x', '1x'],
+        shortcut: '1-3',
         cpp: 'scale'
       }));
       this.view.add(new Clicky({
         name: 'cross section',
-        values: ['on', 'off']
+        values: ['on', 'off'],
+        shortcut: 'C'
       }));
       this.view.add(new Value({
         name: 'orientation',
@@ -174,7 +176,9 @@
   Item = (function() {
     function Item(o) {
       this.name = o.name;
-      this.element = $("<div><div class=\"item " + this["class"] + "\">" + this.name + "</div></div>");
+      this.shortcut = o.shortcut || '';
+      this.cpp = o.cpp;
+      this.element = null;
     }
 
     Item.prototype.update = function() {
@@ -189,11 +193,9 @@
     extend(Value, superClass);
 
     function Value(o) {
-      this.name = o.name;
       this.value = o.value;
       this.suffix = o.suffix || '';
-      this.cpp = o.cpp;
-      this.element = null;
+      Value.__super__.constructor.call(this, o);
       this.build();
     }
 
@@ -220,9 +222,8 @@
     extend(Clicky, superClass);
 
     function Clicky(o) {
-      this.name = o.name;
       this.values = o.values;
-      this.cpp = o.cpp;
+      Clicky.__super__.constructor.call(this, o);
       this.element = null;
       this.i = 0;
       this.build();
@@ -230,7 +231,7 @@
 
     Clicky.prototype.build = function() {
       var that;
-      this.element = $("<div><div class=\"item clicky " + this["class"] + "\">" + this.name + " <div class=\"value\">" + this.values[this.i] + "</div></div></div>");
+      this.element = $("<div><div class=\"item clicky " + this["class"] + "\">" + this.name + " <div class=\"shortcut\">" + this.shortcut + "</div> <div class=\"value\">" + this.values[this.i] + "</div></div></div>");
       this.button = this.element.find('.value');
       that = this;
       this.button.click(function() {

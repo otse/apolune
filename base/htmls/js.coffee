@@ -53,8 +53,8 @@ class Overlay
 		limit.append (@shipping = new Popper 'shipping').element
 		limit.append (@view = new Popper 'view', 'right').element
 
-		@view.add new Clicky name: 'zoom level', values: ['3x', '2x', '1x'], cpp: 'scale'
-		@view.add new Clicky name: 'cross section', values: ['on', 'off']
+		@view.add new Clicky name: 'zoom level', values: ['3x', '2x', '1x'], shortcut: '1-3', cpp: 'scale'
+		@view.add new Clicky name: 'cross section', values: ['on', 'off'], shortcut: 'C'
 		@view.add new Value name: 'orientation', value: 0, suffix: '&deg;', cpp: 'orientation'
 		@view.add new Clicky name: 'orient', values: ['ship', 'free']
 		1
@@ -118,9 +118,15 @@ class Popper
 class Item
 	constructor: (o) ->
 		@name = o.name
+		@shortcut = o.shortcut or ''
+		@cpp = o.cpp
 
-		@element = $ "<div><div class=\"item #{@class}\">#{@name}</div></div>"
+		@element = null
+
+		# @build()
 		;
+	# build: ->
+		# @element = $ "<div><div class=\"item #{@class}\">#{@name}</div></div>"
 
 	# @ Overriden
 	update: ->
@@ -129,12 +135,11 @@ class Item
 
 class Value extends Item
 	constructor: (o) ->
-		@name = o.name
+		
 		@value = o.value
 		@suffix = o.suffix or ''
-		@cpp = o.cpp
 
-		@element = null
+		super o
 
 		@build()
 		;
@@ -156,9 +161,10 @@ class Value extends Item
 
 class Clicky extends Item
 	constructor: (o) ->
-		@name = o.name
+
 		@values = o.values
-		@cpp = o.cpp
+
+		super o
 
 		@element = null
 
@@ -167,7 +173,7 @@ class Clicky extends Item
 		;
 
 	build: ->
-		@element = $ "<div><div class=\"item clicky #{@class}\">#{@name} <div class=\"value\">#{@values[@i]}</div></div></div>"
+		@element = $ "<div><div class=\"item clicky #{@class}\">#{@name} <div class=\"shortcut\">#{@shortcut}</div> <div class=\"value\">#{@values[@i]}</div></div></div>"
 
 		@button = @element.find '.value'
 
