@@ -11,8 +11,9 @@ limit = 0
 js.boot = ->
 	limit = $ '#limit'
 
-	$('body').css 'background', 'black' if -1 isnt document.location.href.indexOf 'black'
+	js.black = -1 isnt document.location.href.indexOf 'black'
 
+	$('body').css 'background', 'black' if js.black
 	1
 
 js.mstats = ->
@@ -97,7 +98,7 @@ class Popper
 		1
 
 	expire: (yea) ->
-		return
+		return if js.black
 
 		that = this
 		if yea

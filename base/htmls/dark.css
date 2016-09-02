@@ -63,12 +63,10 @@
 .insides .item {
     display: inline-block;
     letter-spacing: -1;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 7px;
+    background: #101010;
+    padding: 8px;
     margin-top: 1px;
-    /* border-bottom: 1px solid #212121; */
-    /* border-top: 1px solid #151515; */
-    /* padding-left: 4px; */
+    bborder: 1px solid rgba(255, 255, 255, 0.1);
     white-space: nowrap;
 }
 
@@ -90,12 +88,12 @@
     display: inline-block;
     color: #b1b1b1;
     letter-spacing: normal;
-    color: #53728e;
     padding: 1px 2px;
     border: 1px solid rgba(0, 0, 0, 0);
 }
 
 .insides .item.clicky > .value {
+    color: #53728e;
     /* border: 1px solid rgba(245, 245, 245, 0.06); */
     /* border-radius: 2px; */
     /* border-right-color: rgb(166, 166, 166); */

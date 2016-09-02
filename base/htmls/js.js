@@ -18,7 +18,8 @@
 
   js.boot = function() {
     limit = $('#limit');
-    if (-1 !== document.location.href.indexOf('black')) {
+    js.black = -1 !== document.location.href.indexOf('black');
+    if (js.black) {
       $('body').css('background', 'black');
     }
     return 1;
@@ -138,7 +139,9 @@
 
     Popper.prototype.expire = function(yea) {
       var that;
-      return;
+      if (js.black) {
+        return;
+      }
       that = this;
       if (yea) {
         this.time = setTimeout(function() {

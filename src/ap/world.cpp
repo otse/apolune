@@ -78,8 +78,8 @@ void ap::World::step() {
 		s->step();
 	}}
 
-	camerax = ply->gx();
-	cameray = ply->gy();
+	camerax = ply->gx() + (26 / 2);
+	cameray = ply->gy() + (34 / 2);
 	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(ply->orientation));
 	
 	// remove
