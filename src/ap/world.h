@@ -17,6 +17,7 @@ namespace ap {
 		void load();
 		void step();
 		void resize();
+		void rescale();
 		void fbos();
 		
 		void add(Sprite *);

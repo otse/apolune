@@ -39,7 +39,8 @@ const int en::GROUP_SATURATION = 100;
 
 int en::width = 800;
 int en::height = 600;
-bool en::pixels = false;
+float en::scale = 1;
+bool en::pixels = false; // to switch between perspective, unused
 
 int en::WindowHandle = 0;
 bool en::focus = true;
@@ -370,6 +371,12 @@ void en::cdelta() {
 void en::flat() {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+
+	int l, r, b, t;
+	l = 0;
+	r = width;
+	b = height;
+	t = 0;
 	glOrtho(0, width, height, 0, 0, 1);
 	pixels = true;
 
@@ -378,6 +385,9 @@ void en::flat() {
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+
 }
 
 void en::threed() {

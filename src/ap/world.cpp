@@ -85,7 +85,7 @@ void ap::World::step() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	glPushMatrix();
-	glScalef(ap::scale, ap::scale, 1);
+	//glScalef(ap::scale, ap::scale, 1);
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::list<Sprite *>::iterator it;
@@ -108,10 +108,10 @@ void ap::World::step() {
 	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
 	
-	if ( ply->isinside(leasurearea) )
+	/*if ( ply->isinside(leasurearea) )
 		zoomto = 1.5;
 	else
-		zoomto = 1;
+		zoomto = 1;*/
 	
 	ZOOMPART
 	
@@ -141,6 +141,10 @@ void ap::World::step() {
 	d.draw();
 
 	glPopMatrix();
+}
+
+void ap::World::rescale() {
+	// this may be better than gl
 }
 
 void ap::World::resize() {

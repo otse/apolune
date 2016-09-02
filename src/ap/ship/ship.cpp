@@ -14,7 +14,7 @@ ap::ship::Ship::Ship() : ap::Sprite(en::GDEF, nullptr, &en::regfluke) ,
 
 	sprite = new Sprite(en::GDEF, fbo, &r);
 	sprite->yflip = true;
-	sprite->scale = 1;
+	sprite->scale = 3;
 
 	sprite->sw(r.w);
 	sprite->sh(r.h);
@@ -103,7 +103,7 @@ void ap::ship::Ship::add(Part *p) {
 	if (normal.x < 0) w += -normal.x;
 	if (normal.y < 0) h += -normal.y;
 
-	int factor = 48;
+	int factor = 16;
 
 	w *= factor;
 	h *= factor;

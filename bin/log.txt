@@ -50,10 +50,9 @@ Loading start menu
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
-230
-450
-461
-473
+227
+453
+445
 start
 world ctor
 world load
@@ -65,42 +64,89 @@ OnBeginLoadingFrame
 OnDocumentReady
 webview 1:1 for ui
 OnFinishLoadingFrame
-407
+396
 402
-scale 2x
-427
-scale 1x
-scale 3x
-428
-scale 2x
-scale 1x
-431
-441
-419
-scale 3x
+408
+380
+410
+417
+417
+418
 422
-scale 2x
-428
-scale 1x
-434
-scale 3x
+409
+409
+410
 424
-scale 2x
-scale 1x
-428
-scale 3x
-427
-426
-scale 2x
+409
+411
+409
 421
-scale 1x
-scale 3x
-433
-scale 2x
-436
-425
-scale 1x
-425
-431
-429
+430
 423
+406
+409
+404
+403
+406
+scale 2x
+scale 1x
+403
+scale 3x
+395
+358
+392
+scale 2x
+408
+scale 1x
+416
+scale 3x
+416
+398
+398
+338
+326
+331
+406
+408
+409
+410
+417
+412
+415
+415
+416
+416
+392
+404
+415
+428
+413
+407
+390
+417
+431
+419
+384
+409
+392
+410
+397
+414
+406
+416
+408
+426
+412
+405
+418
+407
+417
+425
+432
+412
+397
+381
+426
+416
+425
+415

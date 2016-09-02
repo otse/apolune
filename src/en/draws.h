@@ -63,8 +63,8 @@ namespace en {
 		void sall(double, double, double, double);
 		virtual void sx(double);
 		virtual void sy(double);
-		void sw(double);
-		void sh(double);
+		virtual void sw(double);
+		virtual void sh(double);
 		
 		void stexture(Texture *);
 		void sregion(Region *);

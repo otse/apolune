@@ -1,12 +1,14 @@
 #include "stdafx.h"
 
 #include "awesome.h"
+#include "ap/world.h"
+#include "en/draws.h"
+#include "en/fbo.h"
+
 #include "ll/method_dispatcher.h"
 
 #include "boilerplate.h"
 
-#include "en/draws.h"
-#include "en/fbo.h"
 
 using namespace ap::as;
 
@@ -140,13 +142,15 @@ void ap::as::scale(WebView* caller, const JSArray& args) {
 	LOG("scale " << ToString(value))
 
 	if (value == WSLit("3x")) {
-		ap::scale = 3;
+		ap::zoomto = 3;
 	}
 	else if (value == WSLit("2x")) {
-		ap::scale = 2;
+		ap::zoomto = 2;
 	}
 	else if (value == WSLit("1x")) {
-		ap::scale = 1;
+		ap::zoomto = 1;
 	}
+
+	world->rescale(); // not used
 
 }
