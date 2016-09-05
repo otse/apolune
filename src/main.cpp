@@ -117,7 +117,6 @@ void ap::launchworld() {
 	world->load();
 }
 
-
 void envars::make() {
 	en::flat();
 	ap::as::mawe();
@@ -138,7 +137,7 @@ bool second() {
 		as::global.SetPropertyAsync(WSLit("delta"), JSValue(en::delta));
 		as::view->ExecuteJavascript(WSLit("js.second();"), WSLit(""));
 
-		LOG(fps);
+		//LOG(fps);
 		return true;
 	}
 	
@@ -186,12 +185,14 @@ void envars::frame() {
 	
 	if ( world )
 		world->step();
-
+	
 	en::drawsstep();
 
+	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
 	as::web->gdraws().draw();
 
-	//if (world == nullptr)
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
+
 	ap::as::core->Update();
 	
 	return;

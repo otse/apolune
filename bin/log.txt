@@ -1,7 +1,6 @@
 0.12
 hi ô_ô
 extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
-0
 'htmls/first.html' successfully read
 OnBeginLoadingFrame
 'htmls/css.css' successfully read
@@ -50,18 +49,33 @@ Loading start menu
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
-206
-470
-369
-485
-506
-517
-512
-486
-505
-508
-519
-516
-502
-509
-509
+start
+world ctor
+world load
+gnormal 0 0 0 0
+ply ctor
+made world
+'htmls/ui.html' successfully read
+OnBeginLoadingFrame
+'htmls/dark.css' successfully read
+OnDocumentReady
+webview 1:1 for ui
+OnFinishLoadingFrame
+gnormal -1 0 0 0
+gnormal -1 0 1 0
+gnormal -1 -1 1 0
+gnormal -1 -1 1 1
+gnormal -1 -1 1 2
+gnormal -1 -2 1 2
+gnormal -2 -2 1 2
+gnormal -2 -2 2 2
+gnormal -2 -2 3 2
+gnormal -3 -2 3 2
+gnormal -3 -3 3 2
+gnormal -3 -3 3 3
+scale 2x
+scale 1x
+scale 3x
+scale 2x
+scale 1x
+scale 3x

@@ -93,8 +93,8 @@ void en::Draws::draw() {
 		
 		texture->bind();
 		
-		if ( program )
-			glUseProgram(*program);
+		//if ( program )
+			//glUseProgram(*program);
 		
 		glColor4f(color->r, color->g, color->b, a);
 		

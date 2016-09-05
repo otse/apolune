@@ -62,6 +62,7 @@ void en::roaming() {
 	PHYSFS_setSaneConfig("w/e", "apolune", "7z", 0, 0);
 	//PHYSFS_addToSearchPath("base", 0);
 	PHYSFS_addToSearchPath("../base", 1);
+	//PHYSFS_addToSearchPath("base", 1);
 	
 	char *appdata = getenv("APPDATA");
 	extraction = new std::string(appdata);
@@ -115,7 +116,7 @@ void en::boot(int argc, wchar_t* argv[]) {
 	
 	//shaders();
 	
-	glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
+	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 	glEnable(GL_TEXTURE_2D);
 	
 	// depreciated

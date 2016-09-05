@@ -98,7 +98,6 @@ void ap::as::mawe() {
 
 	view = core->CreateWebView(1024, 1024, session);
 	view->session()->AddDataSource(WSLit("baze"), new Baze());
-	view->SetTransparent(true);
 	view->set_load_listener(&load);
 	view->set_js_method_handler(&dispatcher);
 
@@ -123,7 +122,7 @@ void ap::as::mawe() {
 	//d.gregion()->y = r->h / 4;
 	d.yflip = false;
 
-	en::add(&web->gdraws());
+	//en::add(&web->gdraws());
 }
 
 void ap::as::start(WebView* caller, const JSArray& args) {
@@ -133,6 +132,7 @@ void ap::as::start(WebView* caller, const JSArray& args) {
 
 	WebURL url(WSLit("asset://baze/htmls/ui.html"));
 	view->LoadURL(url);
+	view->SetTransparent(true);
 
 	ap::launchworld();
 }

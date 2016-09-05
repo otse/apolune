@@ -13,7 +13,7 @@ js.boot = ->
 
 	js.black = -1 isnt document.location.href.indexOf 'black'
 
-	$('body').css 'background', 'black' if js.black
+	$('#limit').css 'background', 'black' if js.black
 	1
 
 js.mstats = ->
@@ -60,6 +60,8 @@ class Overlay
 		@view.add new Clicky name: 'cross section', values: ['on', 'off'], shortcut: 'C'
 		@view.add new Value name: 'orientation', value: 0, suffix: '&deg;', cpp: 'orientation'
 		@view.add new Clicky name: 'orient', values: ['ship', 'free']
+
+		new Notice text: "You arrive in space. The maelstrom in the distance is whirling. Worlds are far apart, but you can build a craft."
 		1
 
 class Popper
@@ -183,14 +185,14 @@ class Clicky extends Item
 		@button = @element.find '.value'
 
 		that = this
-		@button.click -> that.change this
+		@element.click -> that.change this
 
 		1
 
 	change: (j) ->
 		@i = if @i + 1 is @values.length then 0 else @i + 1
 		value = @values[@i]
-		$(j).html value
+		$(j).find('.value').html value
 		app[@cpp] value if @cpp?
 		undefined
 
@@ -198,6 +200,37 @@ class Clicky extends Item
 	update: ->
 
 		0
+
+class Notice
+	constructor: (o) ->
+		@text = o.text
+
+		@build()
+		;
+
+	build: ->
+		# $('.notice').remove()
+
+		@element = $ "<div class=\"notice\"></div>"
+		text = $ "<div class=\"text\">&mdash; #{@text} &mdash;</div>"
+		close = $ "<a class=\"button\" href=\"javascript:;\">Close</a>"
+
+		@element.append text
+		@element.append close
+
+		close = @element.find '.button'
+
+		that = this
+		close.click -> that.cleanup()
+
+		$('.cel').append @element
+		1
+
+	cleanup: ->
+		@element.remove()
+		1
+
+
 
 root.Overlay = Overlay
 root.js = js

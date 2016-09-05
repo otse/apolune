@@ -196,7 +196,7 @@ void ap::World::makestars() {
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
 	
-	for ( int i = 0; i < 7000; i ++ ) {
+	for ( int i = 0; i < 10000; i ++ ) {
 		int x = ilrand() * stars->gw();
 		int y = ilrand() * stars->gh();
 		
