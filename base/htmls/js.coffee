@@ -59,12 +59,46 @@ class Overlay
 
 		@shipping.add new BlockChooser ''
 
-		@view.add new Clicky name: 'zoom level', values: ['3x', '2x', '1x'], shortcut: '1-3', cpp: 'scale'
-		@view.add new Clicky name: 'cross section', values: ['on', 'off'], shortcut: 'C'
-		@view.add new Value name: 'orientation', value: 0, suffix: '&deg;', cpp: 'orientation'
-		@view.add new Clicky name: 'orient', values: ['ship', 'free']
+		@view.add new Clicky
+				name: 'zoom level'
+				values: ['3x', '2x', '1x']
+				shortcut: '1-3'
+				cpp: 'scale'
+				tooltip: 'the default of 3x best brings out the pixels'
+
+		@view.add new Clicky
+				name: 'cross section'
+				values: ['on', 'off']
+				shortcut: 'C'
+				cpp: 'crossSection'
+				tooltip: 'Cross sectioning your craft lets you see through the outer hull'
+
+		@view.add new Value
+				name: 'orientation'
+				value: 0
+				suffix: '&deg;'
+				cpp: 'orientation'
+
+		@view.add new Clicky
+				name: 'orient'
+				values: ['ship', 'free']
 
 		new Notice text: "You arrive in space. The maelstrom in the distance is whirling. Worlds are far apart, but you can build a craft."
+		1
+
+class Tooltip
+	constructor: (@o) ->
+		@element = $ "<div class=\"tooltip\">#{@o.o.tooltip}</div>"
+
+		@o.element.append @element
+
+		@o.tooltip = this # unuse
+
+		;
+
+	rm: ->
+		@o.tooltip = null
+		@element.remove()
 		1
 
 class Popper
@@ -112,67 +146,84 @@ class Popper
 			, 300
 		else
 			clearTimeout @time
-		0
+		1
 
 	vanish: ->
 		return unless @insides?
 		@insides.detach()
 		@insides = null
-		0
+		1
 
 	update: ->
 		return unless @insides?
 		
 		o.update() for o in @items
+		1
 
 class Item
-	constructor: (o) ->
-		@name = o.name
-		@shortcut = o.shortcut or ''
-		@cpp = o.cpp
+	constructor: (@o) ->
+		@o.class ?= ''
+		@o.suffix ?= ''
+		@o.tooltip ?= 'Possibly explodes the known universe'
 
 		@element = null
-
-		# @build()
 		;
-	# build: ->
-		# @element = $ "<div><div class=\"item #{@class}\">#{@name}</div></div>"
 
-	# @ Overriden
-	update: ->
+	# @Overriden
+	build: -> 0
 
-		0
+	register: ->
+		that = this
+
+		@element.mouseenter -> that.explain true
+		@element.mouseleave -> that.explain false
+		1
+
+	explain: (fuse) ->
+		return unless @o.tooltip
+
+		that = this
+
+		if fuse and not @tooltip?
+			@time = setTimeout ->
+				new Tooltip that
+			, 500
+		else
+			clearTimeout @time
+			@tooltip.rm()
+
+		1
+
+	# @Overriden
+	update: -> 1
 
 class Value extends Item
 	constructor: (o) ->
 		
-		@value = o.value
-		@suffix = o.suffix or ''
-
 		super o
 
 		@build()
+
+		@register()
 		;
 
 	build: ->
-		@element = $ "<div><div class=\"item #{@class}\">#{@name}: <div class=\"value\">#{@value}#{@suffix}</div></div></div>"
+		@element = $ "<div class=\"item #{@o.class}\">#{@o.name}: <div class=\"value\">#{@o.value}#{@o.suffix}</div></div>"
 
 		@value = @element.find '.value'
 		1
 
-	# @Overrides
+	# @Override
 	update: ->
 		return unless @cpp?
 
-		console.log "update app #{@cpp} value /w #{app[@cpp]}"
+		console.log "update app #{@o.cpp} value /w #{app[@o.cpp]}"
 
-		@value.html "#{app[@cpp].toFixed 1}#{@suffix}"
-		0
+		@o.value.html "#{app[@o.cpp].toFixed 1}#{@o.suffix}"
+		1
 
 class Clicky extends Item
 	constructor: (o) ->
-
-		@values = o.values
 
 		super o
 
@@ -180,10 +231,12 @@ class Clicky extends Item
 
 		@i = 0
 		@build()
+
+		@register()
 		;
 
 	build: ->
-		@element = $ "<div><div class=\"item clicky #{@class}\">#{@name}: <div class=\"shortcut\">#{@shortcut}</div> <div class=\"value\">#{@values[@i]}</div></div></div>"
+		@element = $ "<div class=\"item clicky #{@o.class}\">#{@o.name}: <div class=\"shortcut\">#{@o.shortcut}</div> <div class=\"value\">#{@o.values[@i]}</div></div>"
 
 		@button = @element.find '.value'
 
@@ -193,16 +246,16 @@ class Clicky extends Item
 		1
 
 	change: (j) ->
-		@i = if @i + 1 is @values.length then 0 else @i + 1
-		value = @values[@i]
+		@i = if @i + 1 is @o.values.length then 0 else @i + 1
+		value = @o.values[@i]
 		$(j).find('.value').html value
-		app[@cpp] value if @cpp?
+		app[@o.cpp] value if @o.cpp?
 		undefined
 
 	# @Override
 	update: ->
 
-		0
+		1
 
 class Notice
 	constructor: (o) ->

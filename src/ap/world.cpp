@@ -209,10 +209,10 @@ void ap::World::makestars() {
 		double randy = ilrand();
 		if (randy<.03)
 			a = a = ilrand();
-		else if (randy<.30)
-			a = a = ilrand() * .25;
+		else if (randy<.20)
+			a = a = ilrand() * .2;
 		else
-			a = ilrand() * .1;
+			a = ilrand() * .05;
 
 		star.sa(a);
 		star.rotate = ilrand() * 360;

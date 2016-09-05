@@ -155,3 +155,10 @@ void ap::as::scale(WebView* caller, const JSArray& args) {
 	world->rescale(); // not used
 
 }
+
+void ap::as::crossSection(WebView* caller, const JSArray& args) {
+	WebString value = args[0].ToString();
+
+	return;
+
+}

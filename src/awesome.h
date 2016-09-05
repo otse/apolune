@@ -45,9 +45,11 @@ namespace ap {
 
 		namespace func {}
 
-		typedef int(*my_callback_function_type)(int, double, std::string);
+		typedef void(*as_t)(WebView*, const JSArray&);
+
 		void start(WebView* caller, const JSArray& args);
 		void scale(WebView* caller, const JSArray& args);
+		void crossSection(WebView* caller, const JSArray& args);
 
 	}
 }

@@ -25,6 +25,17 @@
 
 }
 
+.tooltip {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    color: #c1c1c1;
+    padding: 8px;
+    bborder-top: 1px solid gray;
+    bborder-bottom: 1px solid gray;
+	background: rgba(98, 153, 255, 0.4);
+}
+
 .notice {
     display: inline-block;
     text-transform: none;
@@ -94,6 +105,7 @@
 .popper > .button:active { color: black; ppadding: 3px 1px 1px 3px; }
 
 .insides .item {
+	position: relative;
     display: inline-block;
     letter-spacing: -1;
     padding: 6px;
