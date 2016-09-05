@@ -55,6 +55,9 @@ class Overlay
 	build: ->
 		limit.append (@shipping = new Popper 'shipping').element
 		limit.append (@view = new Popper 'view', 'right').element
+		limit.append (@placeholder = new Popper 'placeholder', 'right').element
+
+		@shipping.add new BlockChooser ''
 
 		@view.add new Clicky name: 'zoom level', values: ['3x', '2x', '1x'], shortcut: '1-3', cpp: 'scale'
 		@view.add new Clicky name: 'cross section', values: ['on', 'off'], shortcut: 'C'
@@ -152,7 +155,7 @@ class Value extends Item
 		;
 
 	build: ->
-		@element = $ "<div><div class=\"item #{@class}\">#{@name} <div class=\"value\">#{@value}#{@suffix}</div></div></div>"
+		@element = $ "<div><div class=\"item #{@class}\">#{@name}: <div class=\"value\">#{@value}#{@suffix}</div></div></div>"
 
 		@value = @element.find '.value'
 		1
@@ -180,7 +183,7 @@ class Clicky extends Item
 		;
 
 	build: ->
-		@element = $ "<div><div class=\"item clicky #{@class}\">#{@name} <div class=\"shortcut\">#{@shortcut}</div> <div class=\"value\">#{@values[@i]}</div></div></div>"
+		@element = $ "<div><div class=\"item clicky #{@class}\">#{@name}: <div class=\"shortcut\">#{@shortcut}</div> <div class=\"value\">#{@values[@i]}</div></div></div>"
 
 		@button = @element.find '.value'
 
@@ -230,6 +233,12 @@ class Notice
 		@element.remove()
 		1
 
+class BlockChooser
+	constructor: ->
+		;
+
+	build: ->
+		;
 
 
 root.Overlay = Overlay
