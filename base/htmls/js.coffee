@@ -13,7 +13,11 @@ js.boot = ->
 
 	js.black = -1 isnt document.location.href.indexOf 'black'
 
-	$('#limit').css 'background', 'black' if js.black
+	limit.css 'background', 'black' if js.black
+
+	limit.css 'width', app?.w
+	limit.css 'height', app?.h
+
 	1
 
 js.mstats = ->
@@ -83,7 +87,8 @@ class Overlay
 				name: 'orient'
 				values: ['ship', 'free']
 
-		new Notice text: "You arrive in space. The maelstrom in the distance is whirling. Worlds are far apart, but you can build a craft."
+		# new Notice text: "You arrive in space. The maelstrom in the distance is whirling. Worlds are far apart, but you can build a craft."
+
 		1
 
 class Tooltip
@@ -166,6 +171,8 @@ class Item
 		@o.suffix ?= ''
 		@o.tooltip ?= 'Possibly explodes the known universe'
 
+		@tooltip = null
+
 		@element = null
 		;
 
@@ -190,7 +197,7 @@ class Item
 			, 500
 		else
 			clearTimeout @time
-			@tooltip.rm()
+			@tooltip?.rm()
 
 		1
 

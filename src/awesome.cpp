@@ -5,6 +5,8 @@
 #include "en/draws.h"
 #include "en/fbo.h"
 
+#include "ap/ship/all.h"
+
 #include "ll/method_dispatcher.h"
 
 #include "boilerplate.h"
@@ -96,22 +98,27 @@ void ap::as::mawe() {
 	WebString empty = WebString::CreateFromUTF8("", strlen(""));
 	session = core->CreateWebSession(empty, prefs);
 
-	view = core->CreateWebView(1024, 1024, session);
+	view = core->CreateWebView(en::width, en::height, session);
 	view->session()->AddDataSource(WSLit("baze"), new Baze());
 	view->set_load_listener(&load);
 	view->set_js_method_handler(&dispatcher);
 
 	JSValue var(view->CreateGlobalJavascriptObject(WSLit("app")));
-	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(0));
+
 	global = var.ToObject();
+
+	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(0));
+	as::global.SetPropertyAsync(WSLit("w"), JSValue(en::width/2));
+	as::global.SetPropertyAsync(WSLit("h"), JSValue(en::height/2));
 
 	dispatcher.Bind(global, WSLit("start"), JSDelegate(&start));
 	dispatcher.Bind(global, WSLit("scale"), JSDelegate(&scale));
+	dispatcher.Bind(global, WSLit("crossSection"), JSDelegate(&crossSection));
 
 	WebURL url(WSLit("asset://baze/htmls/first.html"));
 	view->LoadURL(url);
 
-	en::Region *r = new en::Region{ 0,0,1024,1024 };
+	en::Region *r = new en::Region{ 0,0,en::width,en::height };
 
 	using namespace ap::as;
 	web = new en::FBO(&en::BLACK, *r);
@@ -131,6 +138,8 @@ void ap::as::start(WebView* caller, const JSArray& args) {
 	//web->gdraws().remove = true;
 
 	WebURL url(WSLit("asset://baze/htmls/ui.html"));
+	as::global.SetPropertyAsync(WSLit("w"), JSValue(en::width));
+	as::global.SetPropertyAsync(WSLit("h"), JSValue(en::height));
 	view->LoadURL(url);
 	view->SetTransparent(true);
 
@@ -159,6 +168,14 @@ void ap::as::scale(WebView* caller, const JSArray& args) {
 void ap::as::crossSection(WebView* caller, const JSArray& args) {
 	WebString value = args[0].ToString();
 
+	if (value == WSLit("on")) {
+		ap::world->craft->crosssection = true;
+		LOG("LOL")
+	}
+	else if (value == WSLit("off")) {
+		ap::world->craft->crosssection = false;
+		LOG("NO")
+	}
 	return;
 
 }

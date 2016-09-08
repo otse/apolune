@@ -24,7 +24,7 @@ using namespace ap;
 
 std::ofstream ap::log;
 const char *envars::windowname = "Ap";
-int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close;
+int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close | sf::Style::Fullscreen;
 
 double ap::zoom = 1;
 double ap::zoomto = 1;
@@ -76,8 +76,8 @@ int wmain(int argc, wchar_t* argv[]) {
 	
 	rng.seed(seed);
 
-	en::width = 1024;
-	en::height = 768;
+	en::width = 1920;
+	en::height = 1080;
 
 	//switches();
 	

@@ -56,8 +56,48 @@ gnormal 0 0 0 0
 ply ctor
 made world
 'htmls/ui.html' successfully read
-OnBeginLoadingFrame
 'htmls/dark.css' successfully read
+OnBeginLoadingFrame
 OnDocumentReady
 webview 1:1 for ui
 OnFinishLoadingFrame
+NO
+LOL
+NO
+gnormal -1 0 0 0
+gnormal -1 0 0 1
+gnormal -1 0 0 1
+gnormal -1 0 1 1
+gnormal -1 0 1 1
+gnormal -1 0 1 2
+gnormal -1 0 1 2
+gnormal -1 0 1 2
+gnormal -1 0 1 3
+gnormal -1 0 1 3
+gnormal -1 0 1 3
+gnormal -2 0 1 3
+gnormal -2 0 1 3
+gnormal -2 0 1 3
+gnormal -3 0 1 3
+gnormal -3 0 2 3
+gnormal -3 0 2 3
+gnormal -3 0 2 3
+gnormal -3 0 2 3
+gnormal -3 0 3 3
+gnormal -3 0 3 3
+gnormal -3 0 3 3
+gnormal -3 0 3 3
+gnormal -3 0 4 3
+gnormal -3 0 4 3
+gnormal -3 0 4 3
+gnormal -3 0 4 3
+gnormal -3 0 4 3
+gnormal -3 0 4 3
+gnormal -3 0 4 3
+gnormal -3 0 4 3
+gnormal -3 -1 4 3
+gnormal -3 -1 4 3
+gnormal -3 -1 4 3
+gnormal -3 -1 4 3
+gnormal -3 -1 4 3
+LOL

@@ -20,8 +20,10 @@
     limit = $('#limit');
     js.black = -1 !== document.location.href.indexOf('black');
     if (js.black) {
-      $('#limit').css('background', 'black');
+      limit.css('background', 'black');
     }
+    limit.css('width', typeof app !== "undefined" && app !== null ? app.w : void 0);
+    limit.css('height', typeof app !== "undefined" && app !== null ? app.h : void 0);
     return 1;
   };
 
@@ -94,9 +96,6 @@
         name: 'orient',
         values: ['ship', 'free']
       }));
-      new Notice({
-        text: "You arrive in space. The maelstrom in the distance is whirling. Worlds are far apart, but you can build a craft."
-      });
       return 1;
     };
 
@@ -218,6 +217,7 @@
       if ((base2 = this.o).tooltip == null) {
         base2.tooltip = 'Possibly explodes the known universe';
       }
+      this.tooltip = null;
       this.element = null;
     }
 
@@ -238,7 +238,7 @@
     };
 
     Item.prototype.explain = function(fuse) {
-      var that;
+      var ref, that;
       if (!this.o.tooltip) {
         return;
       }
@@ -249,7 +249,9 @@
         }, 500);
       } else {
         clearTimeout(this.time);
-        this.tooltip.rm();
+        if ((ref = this.tooltip) != null) {
+          ref.rm();
+        }
       }
       return 1;
     };
