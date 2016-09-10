@@ -169,7 +169,7 @@ class Item
 	constructor: (@o) ->
 		@o.class ?= ''
 		@o.suffix ?= ''
-		@o.tooltip ?= 'Possibly explodes the known universe'
+		@o.tooltip ?= 'Explodes the known universe'
 
 		@tooltip = null
 
@@ -222,11 +222,11 @@ class Value extends Item
 
 	# @Override
 	update: ->
-		return unless @cpp?
+		return unless @o.cpp?
 
 		console.log "update app #{@o.cpp} value /w #{app[@o.cpp]}"
 
-		@o.value.html "#{app[@o.cpp].toFixed 1}#{@o.suffix}"
+		@value.html "#{app[@o.cpp].toFixed 1}#{@o.suffix}"
 		1
 
 class Clicky extends Item

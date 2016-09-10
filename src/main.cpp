@@ -137,7 +137,7 @@ bool second() {
 		as::global.SetPropertyAsync(WSLit("delta"), JSValue(en::delta));
 		as::view->ExecuteJavascript(WSLit("js.second();"), WSLit(""));
 
-		//LOG(fps);
+		LOG(fps);
 		return true;
 	}
 	
@@ -156,10 +156,10 @@ void envars::frame() {
 	oar::poll();
 	react();
 
-	if (nullptr == ap::world)
-		ap::as::view->InjectMouseMove(mou::mx / 2, mou::my / 2);
+	if (nullptr == world)
+		as::view->InjectMouseMove(mou::mx / 2, mou::my / 2);
 	else
-		ap::as::view->InjectMouseMove(mou::mx, mou::my);
+		as::view->InjectMouseMove(mou::mx, mou::my);
 
 	as::view->ExecuteJavascript(WSLit("js.animate();"), WSLit(""));
 
@@ -173,14 +173,10 @@ void envars::frame() {
 	else if (en::mou::RELEASED == en::mou::right)
 		as::view->InjectMouseUp(kMouseButton_Right);
 
-	BitmapSurface* surface = (BitmapSurface*)ap::as::view->surface();
+	as::Zurface* surface = (as::Zurface*) as::view->surface();
 
-	//if (world == nullptr)
 	if (NULL != surface) {
-		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ap::as::web->gfbid());
-		glBindTexture(GL_TEXTURE_2D, ap::as::web->gtid());
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, en::width, en::height, 0, GL_BGRA_EXT, GL_UNSIGNED_BYTE, surface->buffer());
-		glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
+		
 	}
 	
 	if ( world )
@@ -189,11 +185,13 @@ void envars::frame() {
 	en::drawsstep();
 
 	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+	
+	//if(world)
 	as::web->gdraws().draw();
 
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
 
-	ap::as::core->Update();
+	as::core->Update();
 	
 	return;
 }

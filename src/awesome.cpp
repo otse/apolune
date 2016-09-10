@@ -68,6 +68,49 @@ void ap::as::Load::OnDocumentReady(Awesomium::WebView* caller,
 	LOG("OnDocumentReady")
 }
 
+Awesomium::Surface* ap::as::ZurfaceFactory::CreateSurface(Awesomium::WebView* view, int width, int height) {
+	//return (Zurface*) surface;
+	Zurface *a = new Zurface();
+	return a;
+};
+
+void ap::as::ZurfaceFactory::DestroySurface(Awesomium::Surface* surface) {
+	Zurface *a = (Zurface*) surface;
+	delete a;
+};
+
+void ap::as::Zurface::Paint(unsigned char* src_buffer, int src_row_span, const Awesomium::Rect& src_rect, const Awesomium::Rect& dest_rect) {
+	
+	if (!web) return;
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, web->gfbid());
+	glBindTexture(GL_TEXTURE_2D, web->gtid());
+
+	const int start = src_row_span * src_rect.height;
+
+	unsigned char *thing = new unsigned char[6000000];
+	for (int row = 0; row < dest_rect.height; row++) {
+		memcpy(
+			thing + row,
+			src_buffer + (row + src_rect.y) * src_row_span + (src_rect.x * 4),
+			dest_rect.width * 4);
+	}
+
+	unsigned char* a = &src_buffer[0];
+	glTexSubImage2D(GL_TEXTURE_2D, 0, dest_rect.x, dest_rect.y, dest_rect.width, dest_rect.height, GL_BGRA_EXT, GL_UNSIGNED_BYTE, thing);
+
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
+};
+
+void ap::as::Zurface::Scroll(int dx, int dy, const Awesomium::Rect& clip_rect) {
+
+};
+
+class Zurface : public Awesomium::Surface {
+public:
+	virtual void Paint(unsigned char* src_buffer, int src_row_span, const Awesomium::Rect& src_rect, const Awesomium::Rect& dest_rect);
+	virtual void Scroll(int dx, int dy, const Awesomium::Rect& clip_rect);
+};
+
 void ap::as::mawe() {
 	using namespace Awesomium;
 	using namespace boilerplate;
@@ -99,6 +142,7 @@ void ap::as::mawe() {
 	session = core->CreateWebSession(empty, prefs);
 
 	view = core->CreateWebView(en::width, en::height, session);
+	core->set_surface_factory(new ZurfaceFactory);
 	view->session()->AddDataSource(WSLit("baze"), new Baze());
 	view->set_load_listener(&load);
 	view->set_js_method_handler(&dispatcher);
@@ -108,6 +152,7 @@ void ap::as::mawe() {
 	global = var.ToObject();
 
 	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(0));
+
 	as::global.SetPropertyAsync(WSLit("w"), JSValue(en::width/2));
 	as::global.SetPropertyAsync(WSLit("h"), JSValue(en::height/2));
 

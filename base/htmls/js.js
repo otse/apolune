@@ -215,7 +215,7 @@
         base1.suffix = '';
       }
       if ((base2 = this.o).tooltip == null) {
-        base2.tooltip = 'Possibly explodes the known universe';
+        base2.tooltip = 'Explodes the known universe';
       }
       this.tooltip = null;
       this.element = null;
@@ -280,11 +280,11 @@
     };
 
     Value.prototype.update = function() {
-      if (this.cpp == null) {
+      if (this.o.cpp == null) {
         return;
       }
       console.log("update app " + this.o.cpp + " value /w " + app[this.o.cpp]);
-      this.o.value.html("" + (app[this.o.cpp].toFixed(1)) + this.o.suffix);
+      this.value.html("" + (app[this.o.cpp].toFixed(1)) + this.o.suffix);
       return 1;
     };
 
