@@ -44,8 +44,8 @@
 
 #Q > .off {
     position: absolute;
-    right: 5px;
-    top: 5px;
+    right: 10px;
+    top: 10px;
     display: inline-block;
     width: 39px;
     height: 31px;
@@ -74,6 +74,7 @@
 #Q > .label {
     position: absolute;
     display: inline-block;
+    display: none;
     left: 10px;
     top: 10px;
     color: rgba(255,255,255,.25);
