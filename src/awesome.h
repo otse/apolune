@@ -52,6 +52,7 @@ namespace ap {
 			virtual void Scroll(int dx, int dy, const Awesomium::Rect& clip_rect);
 		};
 
+		void step();
 
 		extern Load load;
 

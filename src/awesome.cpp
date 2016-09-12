@@ -84,19 +84,12 @@ void ap::as::Zurface::Paint(unsigned char* src_buffer, int src_row_span, const A
 	if (!web) return;
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, web->gfbid());
 	glBindTexture(GL_TEXTURE_2D, web->gtid());
-
-	const int start = src_row_span * src_rect.height;
-
-	unsigned char *thing = new unsigned char[6000000];
-	for (int row = 0; row < dest_rect.height; row++) {
-		memcpy(
-			thing + row,
-			src_buffer + (row + src_rect.y) * src_row_span + (src_rect.x * 4),
-			dest_rect.width * 4);
-	}
+	
+	//unsigned char *thing = new unsigned char[src_row_span * src_rect.height];
 
 	unsigned char* a = &src_buffer[0];
-	glTexSubImage2D(GL_TEXTURE_2D, 0, dest_rect.x, dest_rect.y, dest_rect.width, dest_rect.height, GL_BGRA_EXT, GL_UNSIGNED_BYTE, thing);
+
+	glTexSubImage2D(GL_TEXTURE_2D, 0, dest_rect.x, dest_rect.y, dest_rect.width, dest_rect.height, GL_BGRA_EXT, GL_UNSIGNED_BYTE, a);
 
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 };
@@ -170,8 +163,6 @@ void ap::as::mawe() {
 	en::Draws &d = web->gdraws();
 	d.sw(en::width * 2);
 	d.sh(en::height * 2);
-	//d.gregion()->x = r->w / 4;
-	//d.gregion()->y = r->h / 4;
 	d.yflip = false;
 
 	//en::add(&web->gdraws());
@@ -223,4 +214,22 @@ void ap::as::crossSection(WebView* caller, const JSArray& args) {
 	}
 	return;
 
+}
+
+void ap::as::step() {
+	if (en::mou::PRESSED == en::mou::left)
+		view->InjectMouseDown(kMouseButton_Left);
+	else if (en::mou::RELEASED == en::mou::left)
+		view->InjectMouseUp(kMouseButton_Left);
+
+	if (en::mou::PRESSED == en::mou::right)
+		view->InjectMouseDown(kMouseButton_Right);
+	else if (en::mou::RELEASED == en::mou::right)
+		view->InjectMouseUp(kMouseButton_Right);
+
+	if (oar::DOWN == oar::keys[sf::Keyboard::Q]) {
+		LOG("INVOKING QQ")
+
+		view->ExecuteJavascript(WSLit("js.mkq();"), WSLit(""));
+	}
 }

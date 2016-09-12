@@ -7,3 +7,66 @@ OnBeginLoadingFrame
 'htmls/css.css' successfully read
 'jquery-3.1.0.min.js' successfully read
 'htmls/js.js' successfully read
+explain("System");
+OnDocumentReady
+OnFinishLoadingFrame
+'Midrash.json' successfully read
+Midrash.json versions 0.12
+explain("Scripts");
+explain("Sounds");
+explain("Textures");
+'fonts/normal2.png' successfully read
+'fonts/monospace1.png' successfully read
+'fonts/monospace2.png' successfully read
+'fonts/statfont.png' successfully read
+'fonts/valuefont.png' successfully read
+'fonts/buttonfont.png' successfully read
+'fonts/valuefontchangeable.png' successfully read
+'fonts/clifont.png' successfully read
+'guipieces.png' successfully read
+'scenes/hangar.png' successfully read
+'lights/hangarlight.png' successfully read
+'lights/cursorlight.png' successfully read
+'guy.png' successfully read
+'earth.png' successfully read
+'craft/grid.png' successfully read
+'craft/parts.png' successfully read
+'objects/apexcoolchair.png' successfully read
+'objects/apexcooltable.png' successfully read
+'objects/bonetable.png' successfully read
+'objects/apexradio.png' successfully read
+'objects/apexconsole.png' successfully read
+'objects/apexbrainjar.png' successfully read
+'objects/tier3switch.png' successfully read
+'ais/chicken.png' successfully read
+'ais/tentacle.png' successfully read
+'effects/groundmist.png' successfully read
+'effects/ventfume.png' successfully read
+'effects/playerdeath.png' successfully read
+'effects/sparkle1.png' successfully read
+'effects/bubbles.png' successfully read
+Loading start menu
+'htmls/start.html' successfully read
+OnBeginLoadingFrame
+OnDocumentReady
+OnFinishLoadingFrame
+1239
+start
+world ctor
+world load
+gnormal 0 0 0 0
+ply ctor
+made world
+'htmls/ui.html' successfully read
+2482
+OnBeginLoadingFrame
+'htmls/dark.css' successfully read
+OnDocumentReady
+webview 1:1 for ui
+OnFinishLoadingFrame
+INVOKING QQ
+1380
+INVOKING QQ
+INVOKING QQ
+1546
+1546

@@ -1,52 +1,83 @@
 root = exports ? this
 
-js = {}
-poppers = []
-queer = {}
-overlay = null
+js =
+	q: null
+	overlay: null # bad generic name, change into `context` or `menu`
+	poppers: []
+	jays: {}
 
-limit = 0
 
+js.mkq = ->
+	js.q?.boom() or js.q = new Q
+	1
+
+app?.Q = ->
+	js.q?.boom() or js.q = new Q
+	1
+
+class Q
+	constructor: ->
+		@build()
+		;
+
+	build: ->
+		@element = $ '<div id="Q"></div>'
+
+		@off = $ '<div id="off">off</div>'
+		@off.click => @boom()
+
+		@element.append @off
+		@element.append "you are very gay"
+
+		js.jays.cel.empty().append @element
+		1
+
+	boom: ->
+		@element.remove()
+		js.q = null
+		1
 
 js.boot = ->
-	limit = $ '#limit'
+	@jays.limit = $ '#limit'
+	@jays.cel = $ '.cel'
+	@jays.poppers = $ '#poppers'
 
-	js.black = -1 isnt document.location.href.indexOf 'black'
+	@black = -1 isnt document.location.href.indexOf 'black'
 
-	limit.css 'background', 'black' if js.black
+	@jays.limit.css 'background', 'url(stars.png)' if js.black
 
-	limit.css 'width', app?.w
-	limit.css 'height', app?.h
+	@jays.limit.css 'width', app?.w
+	@jays.limit.css 'height', app?.h
 
 	1
 
 js.mstats = ->
-	queer.stats = $ '<div id="stats">'
+	@jays.stats = $ '<div id="stats">'
 	fps = $ '<div>fps: <div class="value" id="fps">0</div></div>'
 	delta = $ '<div>delta: <div class="value" id="delta">0</div></div>'
 
-	queer.stats.append fps
-	queer.stats.append delta
+	@jays.stats.append fps
+	@jays.stats.append delta
 
-	$('#limit').append queer.stats
+	@jays.limit.append @jays.stats
 
-	queer.fps = $ '#fps'
-	queer.delta = $ '#delta'
+	@jays.fps = $ '#fps'
+	@jays.delta = $ '#delta'
 	0
 
 js.second = () ->
-	queer.fps.html app.fps
-	queer.delta.html app.delta
+	@jays.fps.html app.fps
+	@jays.delta.html app.delta
 
 	0
 
-js.overlay = ->
+js.mkoverlay = ->
 	root.overlay = overlay = new Overlay
 	app?.overlay = overlay
 	1
 
 js.animate = (timestamp) ->
-	p.update() for p in poppers
+	p.update() for p in this.poppers
 
 	return
 
@@ -57,9 +88,9 @@ class Overlay
 		;
 
 	build: ->
-		limit.append (@shipping = new Popper 'shipping').element
-		limit.append (@view = new Popper 'view', 'right').element
-		limit.append (@placeholder = new Popper 'placeholder', 'right').element
+		js.jays.poppers.append (@shipping = new Popper 'shipping').element
+		js.jays.poppers.append (@view = new Popper 'view', 'right').element
+		js.jays.poppers.append (@placeholder = new Popper 'placeholder', 'right').element
 
 		@shipping.add new BlockChooser ''
 
@@ -115,17 +146,16 @@ class Popper
 		@element = $ "<div class=\"popper\">"
 		@button = $ "<div class=\"button #{@class}\">#{@name}</div>"
 
-		that = this
-		@element.mouseenter -> that.expire false
-		@element.mouseleave -> that.expire true
+		@element.mouseenter => @expire false
+		@element.mouseleave => @expire true
 
-		@button.click -> that.expand()
+		@button.click => @expand()
 
 		@element.append @button
 
 		@time = 0
 
-		poppers.push this
+		js.poppers.push this
 		;
 
 	add: (item) ->
@@ -144,10 +174,9 @@ class Popper
 	expire: (yea) ->
 		return if js.black
 
-		that = this
 		if yea
-			@time = setTimeout ->
-				that.vanish()
+			@time = setTimeout =>
+				@vanish()
 			, 300
 		else
 			clearTimeout @time
@@ -180,20 +209,16 @@ class Item
 	build: -> 0
 
 	register: ->
-		that = this
-
-		@element.mouseenter -> that.explain true
-		@element.mouseleave -> that.explain false
+		@element.mouseenter => @explain true
+		@element.mouseleave => @explain false
 		1
 
 	explain: (fuse) ->
 		return unless @o.tooltip
 
-		that = this
-
 		if fuse and not @tooltip?
-			@time = setTimeout ->
-				new Tooltip that
+			@time = setTimeout =>
+				new Tooltip this
 			, 500
 		else
 			clearTimeout @time
@@ -286,7 +311,7 @@ class Notice
 		that = this
 		close.click -> that.cleanup()
 
-		$('.cel').append @element
+		js.jays.append @element
 		1
 
 	cleanup: ->
@@ -302,4 +327,5 @@ class BlockChooser
 
 
 root.Overlay = Overlay
+root.Q = Q # for debug
 root.js = js

@@ -163,30 +163,14 @@ void envars::frame() {
 
 	as::view->ExecuteJavascript(WSLit("js.animate();"), WSLit(""));
 
-	if (en::mou::PRESSED == en::mou::left)
-		as::view->InjectMouseDown(kMouseButton_Left);
-	else if (en::mou::RELEASED == en::mou::left)
-		as::view->InjectMouseUp(kMouseButton_Left);
+	as::step();
 
-	if (en::mou::PRESSED == en::mou::right)
-		as::view->InjectMouseDown(kMouseButton_Right);
-	else if (en::mou::RELEASED == en::mou::right)
-		as::view->InjectMouseUp(kMouseButton_Right);
-
-	as::Zurface* surface = (as::Zurface*) as::view->surface();
-
-	if (NULL != surface) {
-		
-	}
-	
 	if ( world )
 		world->step();
 	
 	en::drawsstep();
 
 	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-	
-	//if(world)
 	as::web->gdraws().draw();
 
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
