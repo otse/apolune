@@ -22,8 +22,9 @@ class Q
 
 	build: ->
 		@element = $ '<div id="Q"></div>'
+		@element.append '<div class="label">Personal Physical Assistant 111a</div>'
 
-		@off = $ '<div id="off">off</div>'
+		@off = $ '<div class="off">off</div>'
 		@off.click => @boom()
 
 		@element.append @off

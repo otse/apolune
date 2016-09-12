@@ -34,7 +34,8 @@
 
     Q.prototype.build = function() {
       this.element = $('<div id="Q"></div>');
-      this.off = $('<div id="off">off</div>');
+      this.element.append('<div class="label">Personal Physical Assistant 111a</div>');
+      this.off = $('<div class="off">off</div>');
       this.off.click((function(_this) {
         return function() {
           return _this.boom();
