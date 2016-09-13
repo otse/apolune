@@ -1,6 +1,7 @@
 var parts = [
 	{
 		"name": "hull",
+		"class": "hull",
 		"url": "parts/hull.png"
 	}
 ]

@@ -105,7 +105,10 @@ class Q
 	mkparts: ->
 		for o in js.parts
 			console.log o
-			part = $ "<div class=\"part\"><img src=\"#{o.url}\" />"
+			part = $ "<div class=\"part #{o.class}\"><!--<img src=\"#{o.url}\" />-->"
+
+			that = o
+			part.click -> app['part'](o.name) # cpp func
 
 			@jays.parts.append part
 		1

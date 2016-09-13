@@ -50,6 +50,55 @@ Loading start menu
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
-1134
-2571
-2550
+1434
+start
+world ctor
+world load
+gnormal 0 0 0 0
+ply ctor
+made world
+'htmls/ui.html' successfully read
+OnBeginLoadingFrame
+'htmls/dark.css' successfully read
+'htmls/Q.css' successfully read
+'htmls/parts.json' successfully read
+OnDocumentReady
+webview 1:1 for ui
+OnFinishLoadingFrame
+1191
+1590
+1606
+gnormal -1 -1 0 0
+gnormal -1 -1 0 0
+1390
+1261
+gnormal -1 -1 1 0
+gnormal -1 -1 1 0
+1189
+gnormal -1 -1 1 0
+gnormal -1 -1 2 0
+gnormal -1 -1 2 0
+859
+gnormal -1 -1 2 1
+gnormal -1 -1 2 1
+730
+gnormal -1 -1 2 1
+638
+gnormal -2 -1 2 1
+658
+gnormal -2 -1 2 1
+578
+598
+607
+600
+616
+611
+615
+606
+600
+624
+580
+INVOKING QQ
+573
+588
+588

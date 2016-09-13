@@ -121,12 +121,16 @@
     };
 
     Q.prototype.mkparts = function() {
-      var i, len, o, part, ref;
+      var i, len, o, part, ref, that;
       ref = js.parts;
       for (i = 0, len = ref.length; i < len; i++) {
         o = ref[i];
         console.log(o);
-        part = $("<div class=\"part\"><img src=\"" + o.url + "\" />");
+        part = $("<div class=\"part " + o["class"] + "\"><!--<img src=\"" + o.url + "\" />-->");
+        that = o;
+        part.click(function() {
+          return app['part'](o.name);
+        });
         this.jays.parts.append(part);
       }
       return 1;
