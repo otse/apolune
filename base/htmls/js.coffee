@@ -1,11 +1,13 @@
 root = exports ? this
 
+root.parts ?= null
+
 js =
 	q: null
 	overlay: null # bad generic name, change into `context` or `menu`
 	poppers: []
 	jays: {}
-
+	parts: parts
 
 js.mkq = ->
 	js.q?.boom() or js.q = new Q
@@ -15,28 +17,6 @@ app?.Q = ->
 	js.q?.boom() or js.q = new Q
 	1
 
-class Q
-	constructor: ->
-		@build()
-		;
-
-	build: ->
-		@element = $ '<div id="Q"></div>'
-		@element.append '<div class="label">Personal Physical Assistant 111a</div>'
-
-		@off = $ '<div class="off">off</div>'
-		@off.click => @boom()
-
-		@element.append @off
-		@element.append "you are very gay"
-
-		js.jays.cel.empty().append @element
-		1
-
-	boom: ->
-		@element.remove()
-		js.q = null
-		1
 
 js.boot = ->
 	@jays.limit = $ '#limit'
@@ -54,8 +34,8 @@ js.boot = ->
 
 js.mstats = ->
 	@jays.stats = $ '<div id="stats">'
-	fps = $ '<div>fps: <div class="value" id="fps">0</div></div>'
-	delta = $ '<div>delta: <div class="value" id="delta">0</div></div>'
+	fps = $ '<div><!--fps: --><div class="value" id="fps">0</div></div>'
+	delta = $ '<div><!--delta: --><div class="value" id="delta">0</div></div>'
 
 	@jays.stats.append fps
 	@jays.stats.append delta
@@ -80,7 +60,55 @@ js.mkoverlay = ->
 js.animate = (timestamp) ->
 	p.update() for p in this.poppers
 
-	return
+	undefined
+
+class Q
+	constructor: ->
+		@jays = {}
+
+		@build()
+		;
+
+	build: ->
+		@jays.element = $ '<div id="Q"></div>'
+		@jays.element.append '<div class="label">Personal Physical Assistant 111a</div>'
+
+		@jays.off = $ '<div class="off">off</div>'
+		@jays.off.click => @boom()
+
+		@jays.knob = $ '<div class="knob">'
+		@jays.knob.append '<div class="x"><div class="xx"><div class="xxx">'
+
+		@jays.screen = $ '<div class="screen">'
+
+		@jays.boot = $ '<div class="boot">'
+		@jays.boot.append 'Loading...'
+
+		@jays.parts = $ '<div class="parts">'
+		@mkparts()
+
+		@jays.screen.append @jays.boot
+		@jays.screen.append @jays.parts
+
+		@jays.element.append @jays.off
+		@jays.element.append @jays.knob
+		@jays.element.append @jays.screen
+
+		js.jays.cel.empty().append @jays.element
+		1
+
+	boom: ->
+		@jays.element.remove()
+		js.q = null
+		1
+
+	mkparts: ->
+		for o in js.parts
+			console.log o
+			part = $ "<div class=\"part\"><img src=\"#{o.url}\" />"
+
+			@jays.parts.append part
+		1
 
 class Overlay
 	constructor: ->

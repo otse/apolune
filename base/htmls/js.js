@@ -6,11 +6,16 @@
 
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
+  if (root.parts == null) {
+    root.parts = null;
+  }
+
   js = {
     q: null,
     overlay: null,
     poppers: [],
-    jays: {}
+    jays: {},
+    parts: parts
   };
 
   js.mkq = function() {
@@ -26,36 +31,6 @@
       return 1;
     };
   }
-
-  Q = (function() {
-    function Q() {
-      this.build();
-    }
-
-    Q.prototype.build = function() {
-      this.element = $('<div id="Q"></div>');
-      this.element.append('<div class="label">Personal Physical Assistant 111a</div>');
-      this.off = $('<div class="off">off</div>');
-      this.off.click((function(_this) {
-        return function() {
-          return _this.boom();
-        };
-      })(this));
-      this.element.append(this.off);
-      this.element.append("you are very gay");
-      js.jays.cel.empty().append(this.element);
-      return 1;
-    };
-
-    Q.prototype.boom = function() {
-      this.element.remove();
-      js.q = null;
-      return 1;
-    };
-
-    return Q;
-
-  })();
 
   js.boot = function() {
     this.jays.limit = $('#limit');
@@ -73,8 +48,8 @@
   js.mstats = function() {
     var delta, fps;
     this.jays.stats = $('<div id="stats">');
-    fps = $('<div>fps: <div class="value" id="fps">0</div></div>');
-    delta = $('<div>delta: <div class="value" id="delta">0</div></div>');
+    fps = $('<div><!--fps: --><div class="value" id="fps">0</div></div>');
+    delta = $('<div><!--delta: --><div class="value" id="delta">0</div></div>');
     this.jays.stats.append(fps);
     this.jays.stats.append(delta);
     this.jays.limit.append(this.jays.stats);
@@ -105,7 +80,61 @@
       p = ref[i];
       p.update();
     }
+    return void 0;
   };
+
+  Q = (function() {
+    function Q() {
+      this.jays = {};
+      this.build();
+    }
+
+    Q.prototype.build = function() {
+      this.jays.element = $('<div id="Q"></div>');
+      this.jays.element.append('<div class="label">Personal Physical Assistant 111a</div>');
+      this.jays.off = $('<div class="off">off</div>');
+      this.jays.off.click((function(_this) {
+        return function() {
+          return _this.boom();
+        };
+      })(this));
+      this.jays.knob = $('<div class="knob">');
+      this.jays.knob.append('<div class="x"><div class="xx"><div class="xxx">');
+      this.jays.screen = $('<div class="screen">');
+      this.jays.boot = $('<div class="boot">');
+      this.jays.boot.append('Loading...');
+      this.jays.parts = $('<div class="parts">');
+      this.mkparts();
+      this.jays.screen.append(this.jays.boot);
+      this.jays.screen.append(this.jays.parts);
+      this.jays.element.append(this.jays.off);
+      this.jays.element.append(this.jays.knob);
+      this.jays.element.append(this.jays.screen);
+      js.jays.cel.empty().append(this.jays.element);
+      return 1;
+    };
+
+    Q.prototype.boom = function() {
+      this.jays.element.remove();
+      js.q = null;
+      return 1;
+    };
+
+    Q.prototype.mkparts = function() {
+      var i, len, o, part, ref;
+      ref = js.parts;
+      for (i = 0, len = ref.length; i < len; i++) {
+        o = ref[i];
+        console.log(o);
+        part = $("<div class=\"part\"><img src=\"" + o.url + "\" />");
+        this.jays.parts.append(part);
+      }
+      return 1;
+    };
+
+    return Q;
+
+  })();
 
   Overlay = (function() {
     function Overlay() {
