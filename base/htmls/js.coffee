@@ -25,7 +25,7 @@ js.boot = ->
 
 	@black = -1 isnt document.location.href.indexOf 'black'
 
-	@jays.limit.css 'background', 'url(stars.png)' if js.black
+	@jays.limit.css 'background', 'url(stars.png)' if @black
 
 	@jays.limit.css 'width', app?.w
 	@jays.limit.css 'height', app?.h

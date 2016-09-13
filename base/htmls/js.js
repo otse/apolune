@@ -37,7 +37,7 @@
     this.jays.cel = $('.cel');
     this.jays.poppers = $('#poppers');
     this.black = -1 !== document.location.href.indexOf('black');
-    if (js.black) {
+    if (this.black) {
       this.jays.limit.css('background', 'url(stars.png)');
     }
     this.jays.limit.css('width', typeof app !== "undefined" && app !== null ? app.w : void 0);
