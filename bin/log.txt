@@ -50,7 +50,7 @@ Loading start menu
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
-1434
+1557
 start
 world ctor
 world load
@@ -58,47 +58,84 @@ gnormal 0 0 0 0
 ply ctor
 made world
 'htmls/ui.html' successfully read
-OnBeginLoadingFrame
 'htmls/dark.css' successfully read
 'htmls/Q.css' successfully read
 'htmls/parts.json' successfully read
+OnBeginLoadingFrame
 OnDocumentReady
 webview 1:1 for ui
 OnFinishLoadingFrame
-1191
-1590
-1606
-gnormal -1 -1 0 0
-gnormal -1 -1 0 0
-1390
-1261
-gnormal -1 -1 1 0
-gnormal -1 -1 1 0
-1189
-gnormal -1 -1 1 0
-gnormal -1 -1 2 0
-gnormal -1 -1 2 0
-859
-gnormal -1 -1 2 1
-gnormal -1 -1 2 1
-730
-gnormal -1 -1 2 1
-638
-gnormal -2 -1 2 1
-658
-gnormal -2 -1 2 1
-578
-598
-607
-600
-616
-611
-615
-606
-600
-624
-580
+1222
+1588
 INVOKING QQ
-573
-588
-588
+1580
+1596
+INVOKING QQ
+INVOKING QQ
+1590
+1580
+INVOKING QQ
+1625
+INVOKING QQ
+1589
+INVOKING QQ
+INVOKING QQ
+1586
+INVOKING QQ
+1558
+1628
+INVOKING QQ
+1606
+INVOKING QQ
+1592
+INVOKING QQ
+INVOKING QQ
+1562
+INVOKING QQ
+INVOKING QQ
+INVOKING QQ
+INVOKING QQ
+INVOKING QQ
+INVOKING QQ
+1556
+INVOKING QQ
+INVOKING QQ
+1590
+INVOKING QQ
+INVOKING QQ
+1561
+INVOKING QQ
+INVOKING QQ
+INVOKING QQ
+1583
+INVOKING QQ
+INVOKING QQ
+INVOKING QQ
+1559
+INVOKING QQ
+INVOKING QQ
+1537
+INVOKING QQ
+INVOKING QQ
+1570
+INVOKING QQ
+1588
+1584
+INVOKING QQ
+INVOKING QQ
+1575
+1557
+1587
+1575
+1577
+1585
+1542
+1579
+1584
+1589
+INVOKING QQ
+INVOKING QQ
+1591
+1565
+INVOKING QQ
+1550
