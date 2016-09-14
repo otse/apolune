@@ -3,5 +3,10 @@ var parts = [
 		"name": "hull",
 		"class": "hull",
 		"url": "parts/hull.png"
+	},
+	{
+		"name": "hull angled",
+		"class": "hullangled",
+		"url": "parts/hull_angled.png"
 	}
 ]

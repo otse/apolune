@@ -15,7 +15,8 @@
     overlay: null,
     poppers: [],
     jays: {},
-    parts: parts
+    parts: parts,
+    part: null
   };
 
   js.mkq = function() {
@@ -90,6 +91,7 @@
     }
 
     Q.prototype.build = function() {
+      var ref, ref1;
       this.jays.element = $('<div id="Q"></div>');
       this.jays.element.append('<div class="label">Personal Physical Assistant 111a</div>');
       this.jays.off = $('<div class="off">off</div>');
@@ -111,25 +113,41 @@
       this.jays.element.append(this.jays.knob);
       this.jays.element.append(this.jays.screen);
       js.jays.cel.empty().append(this.jays.element);
+      js.part = $(".part[data-name='" + ((ref = js.part) != null ? ref.name : void 0) + "']");
+      if ((ref1 = js.part) != null) {
+        ref1.addClass('selected');
+      }
       return 1;
     };
 
     Q.prototype.boom = function() {
-      this.jays.element.remove();
+      var ref;
+      js.part = (ref = js.part) != null ? ref.data('part') : void 0;
       js.q = null;
+      this.jays.element.remove();
       return 1;
     };
 
     Q.prototype.mkparts = function() {
       var i, len, o, part, ref, that;
+      that = this;
       ref = js.parts;
       for (i = 0, len = ref.length; i < len; i++) {
         o = ref[i];
         console.log(o);
-        part = $("<div class=\"part " + o["class"] + "\"><!--<img src=\"" + o.url + "\" />-->");
-        that = o;
+        part = $("<div data-name=\"" + o.name + "\" class=\"part " + o["class"] + "\"><!--<img src=\"" + o.url + "\" />-->");
+        part.data('part', o);
         part.click(function() {
-          return app['part'](o.name);
+          var jay, ref1;
+          jay = $(this);
+          if (typeof app !== "undefined" && app !== null) {
+            app['part'](jay.data('part').name);
+          }
+          if ((ref1 = js.part) != null) {
+            ref1.removeClass('selected');
+          }
+          jay.addClass('selected');
+          return js.part = jay;
         });
         this.jays.parts.append(part);
       }

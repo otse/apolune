@@ -8,6 +8,7 @@ js =
 	poppers: []
 	jays: {}
 	parts: parts
+	part: null
 
 js.mkq = ->
 	js.q?.boom() or js.q = new Q
@@ -85,6 +86,7 @@ class Q
 		@jays.boot.append 'Loading...'
 
 		@jays.parts = $ '<div class="parts">'
+
 		@mkparts()
 
 		@jays.screen.append @jays.boot
@@ -95,22 +97,37 @@ class Q
 		@jays.element.append @jays.screen
 
 		js.jays.cel.empty().append @jays.element
+
+
+		js.part = $ ".part[data-name='#{js.part?.name}']"
+		js.part?.addClass 'selected'
 		1
 
 	boom: ->
-		@jays.element.remove()
+		js.part = js.part?.data 'part'
 		js.q = null
+		@jays.element.remove()
 		1
 
 	mkparts: ->
+		that = this
+
 		for o in js.parts
 			console.log o
-			part = $ "<div class=\"part #{o.class}\"><!--<img src=\"#{o.url}\" />-->"
+			part = $ "<div data-name=\"#{o.name}\" class=\"part #{o.class}\"><!--<img src=\"#{o.url}\" />-->"
+			part.data 'part', o
 
-			that = o
-			part.click -> app['part'](o.name) # cpp func
+			part.click ->
+				jay = $ this
+				app?['part'](jay.data('part').name)#
+				js.part?.removeClass 'selected'
+				jay.addClass 'selected'
+				js.part = jay
 
 			@jays.parts.append part
+
+		# js.part?.addClass 'selected'
+
 		1
 
 class Overlay
