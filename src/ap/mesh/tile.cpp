@@ -3,6 +3,7 @@
 #include "tile.h"
 
 #include "../def.h"
+#include "../ship/all.h" // until ship -> mesh refactor is done
 
 using namespace ap::mesh;
 
@@ -57,7 +58,7 @@ void ap::mesh::Tile::click() {
 		return;
 
 	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
-		Truss *p = new Truss(*this);
+		ship::Truss *p = new ship::Truss(*this);
 		attach(p);
 	}
 }

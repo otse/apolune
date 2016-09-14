@@ -1,15 +1,16 @@
 #include "stdafx.h"
 
-#include "all.h"
+#include "ship.h"
 
 #include "../../en/fbo.h"
 
 using namespace ap::ship;
+using namespace ap::mesh;
 
 ap::ship::Ship::Ship() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	r({0,0,16,16}),
-	grid(*this, 8),
-	grid2(*this, 16),
+	grid(8),
+	grid2(16),
 	crosssection(true)
 	{
 	fbo = new en::FBO(&en::BLACK, r);
@@ -132,7 +133,7 @@ void ap::ship::Ship::hover(mou::Hover h) {}
 /* ###########################
    ## Getters & Setters
    ########################### */
-en::FBO *ap::ship::Ship::gfbo() const { return fbo; }
+FBO *ap::ship::Ship::gfbo() const { return fbo; }
 Grid &ap::ship::Ship::ggrid() { return grid; }
 Grid &ap::ship::Ship::ggrid2() { return grid2; }
 

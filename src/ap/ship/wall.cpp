@@ -6,6 +6,7 @@
 #include "../def.h"
 
 using namespace ap::ship;
+using namespace ap::mesh;
 
 
 const Wall::Model Wall::iris = {
@@ -127,8 +128,9 @@ void ap::ship::Wall::draw2(bool rear) {
 		rotate = 0;
 	}
 
-	else if ( ! craft.crosssection )
-		sregion(model->m.r);
+	// refactorate
+	//else if ( ! craft.crosssection )
+		//sregion(model->m.r);
 
 	draw();
 

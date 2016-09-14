@@ -43,6 +43,8 @@
 #define RANDRANGE(base, var) \
 	((ap::ilrand() * var) + base) \
 
+using namespace en;
+
 
 namespace ap {
 	class CLI;
@@ -79,12 +81,16 @@ namespace ap {
 		class Menu;
 		class Button;
 	}
-	
-	namespace ship {
+
+	namespace mesh {
 		class Grid;
 		class Tile;
-		class Ship;
 		class Part;
+
+	}
+	
+	namespace ship {
+		class Ship;
 		class Truss;
 		class Wall;
 	}

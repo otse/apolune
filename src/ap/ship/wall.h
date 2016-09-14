@@ -3,12 +3,12 @@
 
 #include "../../h.h"
 
-#include "part.h"
+#include "all.h"
 
 namespace ap {
 	
 	namespace ship {
-		class Wall : public Part {
+		class Wall : public mesh::Part {
 		public:
 			struct Model {
 				Draws::Model m;
@@ -26,7 +26,7 @@ namespace ap {
 			static const Model tri2;
 			static const Model quad2;
 
-			Wall(Tile &);
+			Wall(mesh::Tile &);
 			~Wall();
 
 			virtual void click();

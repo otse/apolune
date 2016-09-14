@@ -20,7 +20,7 @@ ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :
 	em->sy(gy()+t.grid.gy()+16);
 	ap::world->add(em);
 
-	fbo = tile.grid.gfbo();
+	//fbo = tile.grid.gfbo();
 }
 
 ap::mesh::Part::~Part() {

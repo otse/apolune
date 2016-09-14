@@ -5,6 +5,8 @@
 #include "../def.h"
 
 using namespace ap::ship;
+using namespace ap::mesh;
+
 
 const Truss::Model Truss::single = {
 		{
@@ -81,8 +83,8 @@ void ap::ship::Truss::draw() {
 	if ( nullptr != junctions[2] ) junctions[2]->draw();
 	if ( nullptr != junctions[3] ) junctions[3]->draw();
 
-	if ( ! craft.crosssection && nullptr != wall )
-		wall->draw2(false);
+	//if ( ! craft.crosssection && nullptr != wall )
+		//wall->draw2(false);
 }
 
 void ap::ship::Truss::click() {
@@ -117,7 +119,7 @@ void ap::ship::Truss::junction(int i, int r) {
 
 	j->sx(gx());
 	j->sy(gy());
-	j->fbo = craft.gfbo();
+	//j->fbo = craft.gfbo(); // refactorate
 
 	junctions[i] = j;
 }

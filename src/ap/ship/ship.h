@@ -24,7 +24,7 @@ namespace ap {
 			void pose();
 
 			en::FBO *gfbo() const;
-			void add(Part *);
+			void add(mesh::Part *);
 
 			mesh::Grid &ggrid();
 			mesh::Grid &ggrid2();
@@ -38,7 +38,7 @@ namespace ap {
 			en::FBO *fbo;
 			Sprite *sprite;
 
-			en::Vector<Part *> parts;
+			en::Vector<mesh::Part *> parts;
 
 			mesh::Grid grid;
 			mesh::Grid grid2;

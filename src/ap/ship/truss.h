@@ -25,7 +25,7 @@ namespace ap {
 
 			static const Draws::Model jjunction;
 
-			Truss(Tile &);
+			Truss(mesh::Tile &);
 			~Truss();
 
 			virtual void click();
