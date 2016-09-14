@@ -12,7 +12,7 @@ namespace ap {
 	namespace mesh {
 		class Grid : public Sprite {
 		public:
-			Grid(int);
+			Grid(int, Draws::Model);
 			~Grid();
 
 			virtual void step();
@@ -35,6 +35,7 @@ namespace ap {
 		protected:
 			int points;
 			Region normal;
+			Draws::Model tilemodel;
 
 		};
 	}

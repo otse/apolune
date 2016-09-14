@@ -16,10 +16,11 @@ ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :
 	world = false;
 
 	em = new Emitter(Emitter::placesparks);
-	em->sx(gx()+t.grid.gx()+16);
-	em->sy(gy()+t.grid.gy()+16);
+	em->sx(gx()+t.ggrid().gx()+16);
+	em->sy(gy()+t.ggrid().gy()+16);
 	ap::world->add(em);
 
+	// refactorate
 	//fbo = tile.grid.gfbo();
 }
 

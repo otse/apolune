@@ -5,7 +5,8 @@
 #include "../def.h"
 
 
-ap::mesh::Grid::Grid(int points) : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
+ap::mesh::Grid::Grid(int points, Draws::Model m) : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
+	tilemodel(m),
 	points(points),
 	normal( {0,0,0,0} ),
 	enabled(false)

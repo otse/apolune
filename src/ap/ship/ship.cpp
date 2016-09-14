@@ -26,6 +26,8 @@ ap::ship::Ship::Ship() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	Tile &t = grid.mtile(0,0);
 	Tile &t2 = grid2.mtile(0,0);
 
+	grid2.enabled = true;
+
 	Truss *p = new Truss(t2);
 	t.attach(p);
 

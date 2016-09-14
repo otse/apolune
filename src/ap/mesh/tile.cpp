@@ -7,8 +7,18 @@
 
 using namespace ap::mesh;
 
-ap::mesh::Tile::Tile(Grid &grid, int x, int y) :
-	ap::Sprite(SORT_UNIMPORTANT, &textures::craftgrid, &regions::tile) ,
+const Draws::Model Tile::eight = {
+	&ap::textures::parts,
+	&ap::regions::trusssingle
+};
+
+const Draws::Model Tile::sixteen = {
+	&ap::textures::parts,
+	&ap::regions::trusssingle
+};
+
+ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
+	ap::Sprite(SORT_UNIMPORTANT, m.t, m.r) ,
 	x(x),
 	y(y),
 	grid(grid),
@@ -24,8 +34,8 @@ ap::mesh::Tile::Tile(Grid &grid, int x, int y) :
 	sw(r->w*scale);
 	sh(r->h*scale);
 
-	sx(grid.gx() + (x*8));
-	sy(grid.gy() + (y*8));
+	sx(grid.gx() + (x*grid.gpoints()));
+	sy(grid.gy() + (y*grid.gpoints()));
 
 	// expand();
 }
@@ -51,6 +61,11 @@ void ap::mesh::Tile::step() {
 		}
 	}*/
 
+}
+
+void ap::mesh::Tile::draw() {
+	if (ggrid().enabled)
+		Sprite::draw();
 }
 
 void ap::mesh::Tile::click() {
@@ -133,6 +148,7 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 //	return grid;
 //}
 
+Grid &ap::mesh::Tile::ggrid() { return grid; }
 Part *ap::mesh::Tile::gpart() { return part; }
 
 /*Tile *ap::mesh::Tile::gtop() { return top; }

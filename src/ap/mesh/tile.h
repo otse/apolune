@@ -11,11 +11,16 @@ namespace ap {
 	namespace mesh {
 		class Tile : public Sprite {
 		public:
-			Tile(Grid &, int, int);
+
+			static const Draws::Model eight;
+			static const Draws::Model sixteen;
+
+			Tile(Grid &, Model m, int, int);
 			~Tile();
 
 			virtual void click();
 			virtual void hover(mou::Hover h);
+			virtual void draw();
 
 			virtual void step();
 
@@ -24,17 +29,17 @@ namespace ap {
 			void hasneighbor(int,int);
 			void link();
 
-			Grid &grid;
-
 			int gx();
 			int gy();
 
+			Grid &ggrid();
 			Part *gpart();
 			Tile **gneighbors();
 
 		protected:
 			void expand();
 
+			Grid &grid;
 			Part *part;
 			Tile *neighbors[8];
 
