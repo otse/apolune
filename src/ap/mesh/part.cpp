@@ -1,15 +1,14 @@
 #include "stdafx.h"
 
-#include "all.h"
+#include "part.h"
 
 #include "../def.h"
 
-using namespace ap::ship;
+using namespace ap::mesh;
 
-ap::ship::Part::Part(Tile &t, const Model m, TYPE type) :
+ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :
 	ap::Sprite(SORT_UNIMPORTANT, m.t, m.r) ,
 	tile(t),
-	craft(t.grid.craft),
 	type(type)
 	{
 	sx(t.gx()*16);
@@ -21,32 +20,32 @@ ap::ship::Part::Part(Tile &t, const Model m, TYPE type) :
 	em->sy(gy()+t.grid.gy()+16);
 	ap::world->add(em);
 
-	fbo = craft.gfbo();
+	fbo = tile.grid.gfbo();
 }
 
-ap::ship::Part::~Part() {
+ap::mesh::Part::~Part() {
 	
 }
 
-void ap::ship::Part::step() {
+void ap::mesh::Part::step() {
 	Sprite::step();
 }
 
-void ap::ship::Part::draw() {
+void ap::mesh::Part::draw() {
 	Sprite::draw();
 }
 
-void ap::ship::Part::click() {
+void ap::mesh::Part::click() {
 	
 }
 
-void ap::ship::Part::hover(mou::Hover h) {
+void ap::mesh::Part::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {} else {}
 }
 
-void ap::ship::Part::connect () {}
+void ap::mesh::Part::connect () {}
 
-void ap::ship::Part::refit () {}
+void ap::mesh::Part::refit () {}
 
 	/*Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
 	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
@@ -62,7 +61,7 @@ void ap::ship::Part::refit () {}
 /* ###########################
    ## Getters & Setters
    ########################### */
-/*Part::TYPE ap::ship::Part::gtype() {
+/*Part::TYPE ap::mesh::Part::gtype() {
 	return type;
 }*/
 

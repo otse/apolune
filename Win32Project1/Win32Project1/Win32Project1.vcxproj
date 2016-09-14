@@ -170,6 +170,10 @@
     <ClInclude Include="..\..\src\ap\hangar.h" />
     <ClInclude Include="..\..\src\ap\light.h" />
     <ClInclude Include="..\..\src\ap\loader.h" />
+    <ClInclude Include="..\..\src\ap\mesh\grid.h" />
+    <ClInclude Include="..\..\src\ap\mesh\mesh.h" />
+    <ClInclude Include="..\..\src\ap\mesh\part.h" />
+    <ClInclude Include="..\..\src\ap\mesh\tile.h" />
     <ClInclude Include="..\..\src\ap\mover.h" />
     <ClInclude Include="..\..\src\ap\net\conn.h" />
     <ClInclude Include="..\..\src\ap\object.h" />
@@ -180,9 +184,6 @@
     <ClInclude Include="..\..\src\ap\ply.h" />
     <ClInclude Include="..\..\src\ap\ship\all.h" />
     <ClInclude Include="..\..\src\ap\ship\ship.h" />
-    <ClInclude Include="..\..\src\ap\ship\grid.h" />
-    <ClInclude Include="..\..\src\ap\ship\part.h" />
-    <ClInclude Include="..\..\src\ap\ship\tile.h" />
     <ClInclude Include="..\..\src\ap\ship\truss.h" />
     <ClInclude Include="..\..\src\ap\ship\wall.h" />
     <ClInclude Include="..\..\src\ap\sprite.h" />
@@ -221,6 +222,9 @@
     <ClCompile Include="..\..\src\ap\emitter.cpp" />
     <ClCompile Include="..\..\src\ap\light.cpp" />
     <ClCompile Include="..\..\src\ap\loader.cpp" />
+    <ClCompile Include="..\..\src\ap\mesh\grid.cpp" />
+    <ClCompile Include="..\..\src\ap\mesh\part.cpp" />
+    <ClCompile Include="..\..\src\ap\mesh\tile.cpp" />
     <ClCompile Include="..\..\src\ap\mover.cpp" />
     <ClCompile Include="..\..\src\ap\net\conn.cpp" />
     <ClCompile Include="..\..\src\ap\object.cpp" />
@@ -230,9 +234,6 @@
     <ClCompile Include="..\..\src\ap\planet.cpp" />
     <ClCompile Include="..\..\src\ap\ply.cpp" />
     <ClCompile Include="..\..\src\ap\ship\ship.cpp" />
-    <ClCompile Include="..\..\src\ap\ship\grid.cpp" />
-    <ClCompile Include="..\..\src\ap\ship\part.cpp" />
-    <ClCompile Include="..\..\src\ap\ship\tile.cpp" />
     <ClCompile Include="..\..\src\ap\ship\truss.cpp" />
     <ClCompile Include="..\..\src\ap\ship\wall.cpp" />
     <ClCompile Include="..\..\src\ap\sprite.cpp" />

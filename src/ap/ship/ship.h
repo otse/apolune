@@ -5,6 +5,7 @@
 
 #include "../../en/fbo.h"
 #include "../sprite.h"
+#include "all.h"
 
 namespace ap {
 	
@@ -22,10 +23,11 @@ namespace ap {
 
 			void pose();
 
-			en::FBO *gfbo();
+			en::FBO *gfbo() const;
 			void add(Part *);
 
-			Grid grid;
+			mesh::Grid &ggrid();
+			mesh::Grid &ggrid2();
 			
 			void refbo();
 
@@ -37,6 +39,9 @@ namespace ap {
 			Sprite *sprite;
 
 			en::Vector<Part *> parts;
+
+			mesh::Grid grid;
+			mesh::Grid grid2;
 		};
 	}
 }

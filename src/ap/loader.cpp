@@ -136,12 +136,6 @@ void ap::Loader::step() {
 				as::view->LoadURL(url);
 
 				LOG("Loading start menu")
-
-				/*Draws &d = as::web->gdraws();
-				d.sw(en::width);
-				d.sh(en::height);
-				d.gregion()->x = 0;
-				d.gregion()->y = 0;*/
 			}
 			
 			break;

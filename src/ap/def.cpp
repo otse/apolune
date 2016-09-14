@@ -84,7 +84,7 @@ en::Region regions::tentacle = {40,0,40,48};
 en::Region regions::tentaclepopped = {0,48*2,40,48};
 
 en::Region regions::tilenew = {32,0,16,16};
-en::Region regions::tile = {0,0,16,16};
+en::Region regions::tile = {0,0,8,8};
 en::Region regions::tileover = {16,0,16,16};
 
 en::Region regions::trusssingle = {0,0,16,16};

@@ -8,7 +8,7 @@
 namespace ap {
 	
 	namespace ship {
-		class Truss : public Part {
+		class Truss : public mesh::Part {
 		public:
 			struct Model {
 				Draws::Model m;

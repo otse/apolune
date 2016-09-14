@@ -1,28 +1,26 @@
 #include "stdafx.h"
 
 #include "grid.h"
-#include "all.h"
 
 #include "../def.h"
-#include "tile.h"
 
 
-
-ap::ship::Grid::Grid(Ship &o) : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
-	craft(o),
-	normal( {0,0,0,0} )
+ap::mesh::Grid::Grid(int points) : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
+	points(points),
+	normal( {0,0,0,0} ),
+	enabled(false)
 	{
-	sx(craft.gx());
-	sy(craft.gy());
+	sx(0);
+	sy(0);
 
 	//LOG ( "is empty " << tilesum.size() )
 }
 
-ap::ship::Grid::~Grid() {
+ap::mesh::Grid::~Grid() {
 	
 }
 
-ap::ship::Tile &ap::ship::Grid::mtile(int x, int y) {
+ap::mesh::Tile &ap::mesh::Grid::mtile(int x, int y) {
 
 	Tile *t = new Tile(*this, x, y);
 
@@ -36,7 +34,7 @@ ap::ship::Tile &ap::ship::Grid::mtile(int x, int y) {
 	return *t;
 }
 
-void ap::ship::Grid::expandfrom(Tile &t) {
+void ap::mesh::Grid::expandfrom(Tile &t) {
 	for (int i = 0; i < 8; i ++) {
 		int x = t.gx(), y = t.gy();
 
@@ -73,7 +71,7 @@ void ap::ship::Grid::expandfrom(Tile &t) {
 }
 
 
-void ap::ship::Grid::step() {
+void ap::mesh::Grid::step() {
 
 }
 
@@ -81,8 +79,9 @@ void ap::ship::Grid::step() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-const Region &ap::ship::Grid::gnormal() { return normal; }
+const Region &ap::mesh::Grid::gnormal() const { return normal; }
+int ap::mesh::Grid::gpoints() const { return points; }
 
-//ap::ship::Ship &ap::ship::Grid::gcraft() {
+//ap::mesh::Ship &ap::mesh::Grid::gcraft() {
 //	return ship;
 //}

@@ -1,13 +1,14 @@
-#ifndef apshiptile_H
-#define apshiptile_H
+#ifndef apmeshtile_H
+#define apmeshtile_H
 
 #include "../../h.h"
 
 #include "../sprite.h"
+#include "mesh.h"
 
 namespace ap {
 	
-	namespace ship {
+	namespace mesh {
 		class Tile : public Sprite {
 		public:
 			Tile(Grid &, int, int);

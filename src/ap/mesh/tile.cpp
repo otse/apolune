@@ -1,13 +1,12 @@
 #include "stdafx.h"
 
 #include "tile.h"
-#include "all.h"
 
 #include "../def.h"
 
-using namespace ap::ship;
+using namespace ap::mesh;
 
-ap::ship::Tile::Tile(Grid &grid, int x, int y) :
+ap::mesh::Tile::Tile(Grid &grid, int x, int y) :
 	ap::Sprite(SORT_UNIMPORTANT, &textures::craftgrid, &regions::tile) ,
 	x(x),
 	y(y),
@@ -24,18 +23,18 @@ ap::ship::Tile::Tile(Grid &grid, int x, int y) :
 	sw(r->w*scale);
 	sh(r->h*scale);
 
-	sx(grid.gx() + (x*16));
-	sy(grid.gy() + (y*16));
+	sx(grid.gx() + (x*8));
+	sy(grid.gy() + (y*8));
 
 	// expand();
 }
 
-ap::ship::Tile::~Tile() {
+ap::mesh::Tile::~Tile() {
 	
 }
 
 
-void ap::ship::Tile::step() {
+void ap::mesh::Tile::step() {
 	Sprite::step();
 
 	/*if (spawned != -1 ) {
@@ -53,7 +52,7 @@ void ap::ship::Tile::step() {
 
 }
 
-void ap::ship::Tile::click() {
+void ap::mesh::Tile::click() {
 	if ( nullptr != part )
 		return;
 
@@ -64,25 +63,25 @@ void ap::ship::Tile::click() {
 }
 
 
-void ap::ship::Tile::attach(Part *p) {
+void ap::mesh::Tile::attach(Part *p) {
 	part = p;
 	grid.expandfrom(*this);
 	p->connect();
-	grid.craft.add(p);
+	//grid.craft.add(p);
 }
 
 
-void ap::ship::Tile::hasneighbor(int x, int y) {
+void ap::mesh::Tile::hasneighbor(int x, int y) {
 
 }
 
-void ap::ship::Tile::sneighbor(Tile &t, int i) {
+void ap::mesh::Tile::sneighbor(Tile &t, int i) {
 	neighbors[i] = &t;
 }
 
 int opposites[8] = {4,5,6,7,0,1,2,3};
 
-void ap::ship::Tile::link() {
+void ap::mesh::Tile::link() {
 	for (int i = 0; i < 8; i ++) {
 		int x = this->x, y = this->y;
 
@@ -109,7 +108,7 @@ void ap::ship::Tile::link() {
 	fitted = true;
 }
 
-void ap::ship::Tile::hover(mou::Hover h) {
+void ap::mesh::Tile::hover(mou::Hover h) {
 
 	if ( ! fitted )
 		link();
@@ -129,24 +128,24 @@ void ap::ship::Tile::hover(mou::Hover h) {
 /* ###########################
    ## Getters & Setters
    ########################### */
-//Grid &ap::ship::Tile::ggrid() {
+//Grid &ap::mesh::Tile::ggrid() {
 //	return grid;
 //}
 
-Part *ap::ship::Tile::gpart() { return part; }
+Part *ap::mesh::Tile::gpart() { return part; }
 
-/*Tile *ap::ship::Tile::gtop() { return top; }
-Tile *ap::ship::Tile::gtopleft() { return topleft; }
-Tile *ap::ship::Tile::gtopright() { return topright; }
-Tile *ap::ship::Tile::gbottom() { return bottom; }
-Tile *ap::ship::Tile::gbottomleft() { return bottomleft; }
-Tile *ap::ship::Tile::gbottomright() { return bottomright; }
-Tile *ap::ship::Tile::gleft() { return left; }
-Tile *ap::ship::Tile::gright() { return right; }*/
+/*Tile *ap::mesh::Tile::gtop() { return top; }
+Tile *ap::mesh::Tile::gtopleft() { return topleft; }
+Tile *ap::mesh::Tile::gtopright() { return topright; }
+Tile *ap::mesh::Tile::gbottom() { return bottom; }
+Tile *ap::mesh::Tile::gbottomleft() { return bottomleft; }
+Tile *ap::mesh::Tile::gbottomright() { return bottomright; }
+Tile *ap::mesh::Tile::gleft() { return left; }
+Tile *ap::mesh::Tile::gright() { return right; }*/
 
-Tile **ap::ship::Tile::gneighbors() { return neighbors; }
+Tile **ap::mesh::Tile::gneighbors() { return neighbors; }
 
-//Tile *ap::ship::Tile::gright() { return right; }
+//Tile *ap::mesh::Tile::gright() { return right; }
 
-int ap::ship::Tile::gx() { return x; }
-int ap::ship::Tile::gy() { return y; }
+int ap::mesh::Tile::gx() { return x; }
+int ap::mesh::Tile::gy() { return y; }
