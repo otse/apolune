@@ -119,7 +119,7 @@ class Q
 
 			part.click ->
 				jay = $ this
-				app?['part'](jay.data('part').name)#
+				app?['part']?(jay.data('part').name)#
 				js.part?.removeClass 'selected'
 				jay.addClass 'selected'
 				js.part = jay

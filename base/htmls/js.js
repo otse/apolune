@@ -141,7 +141,9 @@
           var jay, ref1;
           jay = $(this);
           if (typeof app !== "undefined" && app !== null) {
-            app['part'](jay.data('part').name);
+            if (typeof app['part'] === "function") {
+              app['part'](jay.data('part').name);
+            }
           }
           if ((ref1 = js.part) != null) {
             ref1.removeClass('selected');
