@@ -9,8 +9,8 @@ using namespace ap::mesh;
 
 ap::ship::Ship::Ship() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	r({0,0,16,16}),
-	grid(8),
-	grid2(16),
+	grid(8, Tile::eight),
+	grid2(16, Tile::sixteen),
 	crosssection(true)
 	{
 	fbo = new en::FBO(&en::BLACK, r);
@@ -26,10 +26,11 @@ ap::ship::Ship::Ship() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	Tile &t = grid.mtile(0,0);
 	Tile &t2 = grid2.mtile(0,0);
 
+	grid.enabled = false;
 	grid2.enabled = true;
 
 	Truss *p = new Truss(t2);
-	t.attach(p);
+	t2.attach(p);
 
 	//crosssection = true;
 }

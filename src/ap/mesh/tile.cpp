@@ -5,16 +5,17 @@
 #include "../def.h"
 #include "../ship/all.h" // until ship -> mesh refactor is done
 
-using namespace ap::mesh;
+using namespace ap;
+using namespace mesh;
 
 const Draws::Model Tile::eight = {
-	&ap::textures::parts,
-	&ap::regions::trusssingle
+	&ap::textures::craftgrid,
+	&ap::regions::tile
 };
 
 const Draws::Model Tile::sixteen = {
-	&ap::textures::parts,
-	&ap::regions::trusssingle
+	&ap::textures::craftgrid,
+	&ap::regions::tile16
 };
 
 ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
@@ -28,11 +29,9 @@ ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
 
 	neighbors {nullptr}
 	{
-	//nodraw = true;
-	scale = 1;
 
-	sw(r->w*scale);
-	sh(r->h*scale);
+	sw(r->w);
+	sh(r->h);
 
 	sx(grid.gx() + (x*grid.gpoints()));
 	sy(grid.gy() + (y*grid.gpoints()));
@@ -64,11 +63,14 @@ void ap::mesh::Tile::step() {
 }
 
 void ap::mesh::Tile::draw() {
-	if (ggrid().enabled)
+	if (grid.enabled)
 		Sprite::draw();
 }
 
 void ap::mesh::Tile::click() {
+	if (!grid.enabled)
+		return;
+
 	if ( nullptr != part )
 		return;
 
@@ -80,9 +82,10 @@ void ap::mesh::Tile::click() {
 
 
 void ap::mesh::Tile::attach(Part *p) {
-	part = p;
+	// refactorate
+	//part = p;
 	grid.expandfrom(*this);
-	p->connect();
+	///p->connect();
 	//grid.craft.add(p);
 }
 
@@ -125,17 +128,20 @@ void ap::mesh::Tile::link() {
 }
 
 void ap::mesh::Tile::hover(mou::Hover h) {
+	if (!grid.enabled)
+		return;
 
 	if ( ! fitted )
 		link();
 
 	if ( mou::HOVER_IN == h ) {
-		sregion(&regions::tileover);
+		//sregion(&regions::tileover);
 		nodraw = false;
 	} else {
-		sregion(&regions::tile);
-		if ( part )
-			nodraw = true;
+		//sregion(&regions::tile);
+		nodraw = false;
+		//if ( part )
+			//nodraw = true;
 	}
 
 }

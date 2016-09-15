@@ -137,7 +137,9 @@ namespace ap {
 
 		extern en::Region tilenew;
 		extern en::Region tile;
+		extern en::Region tile16;
 		extern en::Region tileover;
+		extern en::Region tileover16;
 		
 		extern en::Region fluotube;
 		extern en::Region fluotubelight;

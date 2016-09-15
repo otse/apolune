@@ -3,6 +3,8 @@
 #include "part.h"
 
 #include "../def.h"
+#include "../world.h"
+#include "../ship/all.h"
 
 using namespace ap::mesh;
 
@@ -13,7 +15,7 @@ ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :
 	{
 	sx(t.gx()*16);
 	sy(t.gy()*16);
-	world = false;
+	//world = false;
 
 	em = new Emitter(Emitter::placesparks);
 	em->sx(gx()+t.ggrid().gx()+16);
@@ -21,7 +23,7 @@ ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :
 	ap::world->add(em);
 
 	// refactorate
-	//fbo = tile.grid.gfbo();
+	//fbo = ap::world->craft->gfbo();
 }
 
 ap::mesh::Part::~Part() {

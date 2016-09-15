@@ -87,6 +87,9 @@ en::Region regions::tilenew = {32,0,16,16};
 en::Region regions::tile = {0,0,8,8};
 en::Region regions::tileover = {16,0,16,16};
 
+en::Region regions::tile16 = { 0,0,16,16 };
+
+
 en::Region regions::trusssingle = {0,0,16,16};
 en::Region regions::trussuni = {16,0,16,16};
 en::Region regions::trussduo = {32,0,16,16};

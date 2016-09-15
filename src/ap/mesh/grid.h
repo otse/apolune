@@ -35,7 +35,7 @@ namespace ap {
 		protected:
 			int points;
 			Region normal;
-			Draws::Model tilemodel;
+			const Draws::Model tilemodel;
 
 		};
 	}

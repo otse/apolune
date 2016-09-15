@@ -1,5 +1,5 @@
-#ifndef apcraftcraft_H
-#define apcraftcraft_H
+#ifndef apshipship_H
+#define apshipship_H
 
 #include "../../h.h"
 

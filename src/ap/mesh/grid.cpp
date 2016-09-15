@@ -23,7 +23,7 @@ ap::mesh::Grid::~Grid() {
 
 ap::mesh::Tile &ap::mesh::Grid::mtile(int x, int y) {
 
-	Tile *t = new Tile(*this, x, y);
+	Tile *t = new Tile(*this, tilemodel, x, y);
 
 	std::string xy = std::to_string(x) + "," + std::to_string(y);
 	std::pair<std::string, Tile *> teddybear(xy, t);
