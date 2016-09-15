@@ -19,7 +19,7 @@ const Draws::Model Tile::sixteen = {
 };
 
 ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
-	ap::Sprite(SORT_UNIMPORTANT, m.t, m.r) ,
+	ap::Sprite(SORT_HIGH, m.t, m.r) ,
 	x(x),
 	y(y),
 	grid(grid),
@@ -72,9 +72,10 @@ void ap::mesh::Tile::click() {
 		return;
 
 	if ( nullptr != part )
-		return;
+		return; // invoke partclick?
 
 	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
+		// todo: are we within radius?
 		ship::Truss *p = new ship::Truss(*this);
 		attach(p);
 	}
@@ -83,9 +84,9 @@ void ap::mesh::Tile::click() {
 
 void ap::mesh::Tile::attach(Part *p) {
 	// refactorate
-	//part = p;
+	part = p;
 	grid.expandfrom(*this);
-	///p->connect();
+	p->connect();
 	//grid.craft.add(p);
 }
 
@@ -135,13 +136,12 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 		link();
 
 	if ( mou::HOVER_IN == h ) {
-		//sregion(&regions::tileover);
+		sregion(&regions::tileover);
 		nodraw = false;
 	} else {
-		//sregion(&regions::tile);
-		nodraw = false;
-		//if ( part )
-			//nodraw = true;
+		sregion(&regions::tile);
+		if ( part )
+			nodraw = true;
 	}
 
 }

@@ -7,10 +7,10 @@
 using namespace ap::ship;
 using namespace ap::mesh;
 
-ap::ship::Ship::Ship() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
+ap::ship::Ship::Ship() : Mass() ,
 	r({0,0,16,16}),
-	grid(8, Tile::eight),
-	grid2(16, Tile::sixteen),
+	grid(*this, 8, Tile::eight),
+	grid2(*this, 16, Tile::sixteen),
 	crosssection(true)
 	{
 	fbo = new en::FBO(&en::BLACK, r);

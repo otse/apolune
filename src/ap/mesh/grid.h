@@ -12,7 +12,7 @@ namespace ap {
 	namespace mesh {
 		class Grid : public Sprite {
 		public:
-			Grid(int, Draws::Model);
+			Grid(Mass &, int, Draws::Model);
 			~Grid();
 
 			virtual void step();
@@ -23,6 +23,7 @@ namespace ap {
 			std::unordered_map <std::string, Tile *> tilesum;
 
 			int gpoints() const;
+			const Mass &gmass() const;
 			const Region &gnormal() const;
 
 			Tile &mtile(int,int);
@@ -34,6 +35,7 @@ namespace ap {
 
 		protected:
 			int points;
+			Mass &mass;
 			Region normal;
 			const Draws::Model tilemodel;
 

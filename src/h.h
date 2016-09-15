@@ -83,6 +83,7 @@ namespace ap {
 	}
 
 	namespace mesh {
+		class Mass;
 		class Grid;
 		class Tile;
 		class Part;

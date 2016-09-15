@@ -10,7 +10,7 @@
 namespace ap {
 	
 	namespace ship {
-		class Ship : public Sprite {
+		class Ship : public mesh::Mass {
 		public:
 			Ship();
 			~Ship();

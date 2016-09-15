@@ -5,7 +5,8 @@
 #include "../def.h"
 
 
-ap::mesh::Grid::Grid(int points, Draws::Model m) : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
+ap::mesh::Grid::Grid(Mass &mass, int points, Draws::Model m) : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke),
+	mass(mass),
 	tilemodel(m),
 	points(points),
 	normal( {0,0,0,0} ),
@@ -80,6 +81,7 @@ void ap::mesh::Grid::step() {
 /* ###########################
    ## Getters & Setters
    ########################### */
+const ap::mesh::Mass &ap::mesh::Grid::gmass() const { return mass; }
 const Region &ap::mesh::Grid::gnormal() const { return normal; }
 int ap::mesh::Grid::gpoints() const { return points; }
 

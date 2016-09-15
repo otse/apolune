@@ -192,6 +192,9 @@
     <ClInclude Include="..\..\src\ap\mesh\mesh.h">
       <Filter>Source Files\mesh</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\ap\mesh\mass.h">
+      <Filter>Source Files\mesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -318,6 +321,9 @@
       <Filter>Source Files\mesh</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\ap\mesh\part.cpp">
+      <Filter>Source Files\mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ap\mesh\mass.cpp">
       <Filter>Source Files\mesh</Filter>
     </ClCompile>
   </ItemGroup>
