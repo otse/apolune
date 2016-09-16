@@ -67,8 +67,8 @@ void ap::mesh::Mass::add(Part *p) {
 
 	int x = normal.x - 1;
 	int y = normal.y - 1;
-	int w = normal.w + 2;
-	int h = normal.h + 2;
+	int w = normal.w + 3;
+	int h = normal.h + 3;
 
 	if (normal.x < 0) w += -normal.x;
 	if (normal.y < 0) h += -normal.y;
@@ -101,7 +101,7 @@ void ap::mesh::Mass::draw() {
 	glOrtho(0, obf->gw(), obf->gh(), 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
 
-	glClearColor(0, 0, 0, 0);
+	glClearColor(0, 1, 0, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
