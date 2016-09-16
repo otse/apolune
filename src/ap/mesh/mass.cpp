@@ -16,7 +16,7 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	{
 
 	Draws::r = &r;
-	fbo = obf = new en::FBO(&en::BLACK, r);
+	stexture(fbo = obf = new en::FBO(&en::BLACK, r));
 
 	yflip = true;
 	sw(r.w);
