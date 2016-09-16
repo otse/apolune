@@ -25,9 +25,9 @@ ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
 	x(x),
 	y(y),
 	grid(grid),
+	seethrough(nullptr),
 	part(nullptr),
 	spawned(0),
-	fitted(false),
 
 	neighbors {nullptr}
 	{
@@ -37,6 +37,8 @@ ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
 
 	sx(grid.gx() + (x*grid.gpoints()));
 	sy(grid.gy() + (y*grid.gpoints()));
+
+	link();
 
 	// expand();
 }
@@ -117,15 +119,12 @@ void ap::mesh::Tile::link() {
 		}
 	}
 
-	fitted = true;
+
 }
 
 void ap::mesh::Tile::hover(mou::Hover h) {
 	if (!grid.enabled)
 		return;
-
-	if ( ! fitted )
-		link();
 
 	if ( mou::HOVER_IN == h ) {
 		sregion(&regions::tileover);

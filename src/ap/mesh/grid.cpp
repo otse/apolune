@@ -50,6 +50,8 @@ ap::mesh::Tile &ap::mesh::Grid::mtile(int x, int y) {
 }
 
 void ap::mesh::Grid::expandfrom(Tile &t) {
+	LOG("link")
+
 	for (int i = 0; i < 8; i ++) {
 		int x = t.gx(), y = t.gy();
 
@@ -82,7 +84,7 @@ void ap::mesh::Grid::expandfrom(Tile &t) {
 	if ( t.gx() > normal.w ) normal.w = t.gx();
 	if ( t.gy() > normal.h ) normal.h = t.gy();
 
-	t.link();
+	//t.link();
 }
 
 

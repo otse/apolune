@@ -39,7 +39,8 @@ namespace ap {
 
 		protected:
 			void expand();
-
+			
+			Part *seethrough;
 			Part *part;
 			Tile *neighbors[8];
 
@@ -48,8 +49,6 @@ namespace ap {
 
 			double spawned;
 
-		private:
-			bool fitted;
 		};
 	}
 }

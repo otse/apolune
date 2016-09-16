@@ -44,7 +44,6 @@ void ap::mesh::Mass::step() {
 
 
 void ap::mesh::Mass::clicked(Tile &t) {
-	LOG("CLICKED TILE")
 
 	if ( nullptr != t.gpart() )
 		return; // invoke partclick?
@@ -101,7 +100,7 @@ void ap::mesh::Mass::draw() {
 	glOrtho(0, obf->gw(), obf->gh(), 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
 
-	glClearColor(0, 1, 0, 1);
+	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
@@ -124,8 +123,9 @@ void ap::mesh::Mass::draw() {
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	// flat(); // hmmm
+	// flat(); // tsts
 }
+
 /* ###########################
    ## Getters & Setters
    ########################### */
