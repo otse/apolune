@@ -326,6 +326,9 @@
     <ClCompile Include="..\..\src\ap\mesh\mass.cpp">
       <Filter>Source Files\mesh</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\ap\mesh\mesh.cpp">
+      <Filter>Source Files\mesh</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Win32Project1.rc">

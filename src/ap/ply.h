@@ -2,8 +2,10 @@
 #define apply_H
 
 #include "../h.h"
-#include "mover.h"
+
 #include "def.h"
+#include "mover.h"
+#include "mesh/part.h"
 
 
 namespace ap {
@@ -20,17 +22,18 @@ namespace ap {
 		void key(void);
 		virtual void step();
 		
-	//protected:
-		//virtual void translate();
-		
 		bool guse();
 		
 		speed_ps speed = 1;
+
+		std::string *partname;
+		mesh::Part *part;
 		
 		double orientation;
 		virtual void sx(double);
 		virtual void sy(double);
 	protected:
+		//virtual void translate();
 
 		Emitter *breath;
 		Emitter *spawnplosion;

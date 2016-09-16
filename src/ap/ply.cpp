@@ -20,7 +20,8 @@ ap::Ply::Ply()
 		heading(HEADING_RIGHT),
 		use(false),
 		tbulb(0),
-		orientation(0)
+		orientation(0),
+		part(nullptr)
 	{
 	LOG("ply ctor")
 	//dim(0, 0, 14, 38);

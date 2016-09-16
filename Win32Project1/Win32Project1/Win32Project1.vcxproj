@@ -225,6 +225,7 @@
     <ClCompile Include="..\..\src\ap\loader.cpp" />
     <ClCompile Include="..\..\src\ap\mesh\grid.cpp" />
     <ClCompile Include="..\..\src\ap\mesh\mass.cpp" />
+    <ClCompile Include="..\..\src\ap\mesh\mesh.cpp" />
     <ClCompile Include="..\..\src\ap\mesh\part.cpp" />
     <ClCompile Include="..\..\src\ap\mesh\tile.cpp" />
     <ClCompile Include="..\..\src\ap\mover.cpp" />

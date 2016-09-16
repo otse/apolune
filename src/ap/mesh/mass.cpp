@@ -19,8 +19,10 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	stexture(fbo = obf = new en::FBO(&en::BLACK, r));
 
 	yflip = true;
+
 	sw(r.w);
 	sh(r.h);
+
 	sx(0);
 	sy(0);
 
@@ -63,8 +65,10 @@ void ap::mesh::Mass::add(Part *p) {
 
 	LOG("gnormal " << normal.x << " " << normal.y << " " << normal.w << " " << normal.h)
 
-	int w = normal.w + 1;
-	int h = normal.h + 1;
+	int x = normal.x - 1;
+	int y = normal.y - 1;
+	int w = normal.w + 2;
+	int h = normal.h + 2;
 
 	if (normal.x < 0) w += -normal.x;
 	if (normal.y < 0) h += -normal.y;
@@ -74,11 +78,11 @@ void ap::mesh::Mass::add(Part *p) {
 	w *= factor;
 	h *= factor;
 
-	obf->x = normal.x * factor;
-	obf->y = normal.y * factor;
+	obf->x = x * factor;
+	obf->y = y * factor;
 
-	sx(normal.x * factor);
-	sy(normal.y * factor);
+	sx(x * factor);
+	sy(y * factor);
 	sw(w);
 	sh(h);
 
