@@ -33,14 +33,13 @@ namespace ap {
 			int gx();
 			int gy();
 
-			Grid &ggrid();
+			Grid &grid;
 			Part *gpart();
 			Tile **gneighbors();
 
 		protected:
 			void expand();
 
-			Grid &grid;
 			Part *part;
 			Tile *neighbors[8];
 

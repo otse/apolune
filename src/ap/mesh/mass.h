@@ -21,10 +21,10 @@ namespace ap {
 
 			virtual void clicked(Tile &);
 
-			void add(Part *);
+			Grid grid;
+			Grid grid2;
 
-			Grid &ggrid();
-			Grid &ggrid2();
+			void add(Part *);
 
 			en::FBO *gobf() const;
 
@@ -32,8 +32,6 @@ namespace ap {
 			en::Region r;
 			en::FBO *obf;
 
-			Grid grid;
-			Grid grid2;
 
 			en::Vector<mesh::Part *> parts;
 

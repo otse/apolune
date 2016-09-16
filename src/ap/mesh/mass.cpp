@@ -14,6 +14,8 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	grid(*this, 8, Tile::eight),
 	grid2(*this, 16, Tile::sixteen)
 	{
+
+	Draws::r = &r;
 	fbo = obf = new en::FBO(&en::BLACK, r);
 
 	yflip = true;
@@ -116,17 +118,11 @@ void ap::mesh::Mass::draw() {
 
 	Sprite::draw();
 
-	flat();
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	// flat(); // hmmm
 }
 /* ###########################
    ## Getters & Setters
    ########################### */
 FBO *ap::mesh::Mass::gobf() const { return obf; }
-ap::mesh::Grid &ap::mesh::Mass::ggrid() { return grid; }
-ap::mesh::Grid &ap::mesh::Mass::ggrid2() { return grid2; }
-//const Region &ap::mesh::Grid::gnormal() const { return normal; }
-//int ap::mesh::Grid::gpoints() const { return points; }
-
-//ap::mesh::Ship &ap::mesh::Grid::gcraft() {
-//	return ship;
-//}

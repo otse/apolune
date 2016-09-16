@@ -1,8 +1,8 @@
 #include "stdafx.h"
 
-#include "ship.h"
-
 #include "../../en/fbo.h"
+
+#include "ship.h"
 
 using namespace ap::ship;
 using namespace ap::mesh;

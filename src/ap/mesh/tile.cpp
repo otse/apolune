@@ -3,7 +3,9 @@
 #include "tile.h"
 
 #include "../def.h"
-#include "../ship/all.h" // until ship -> mesh refactor is done
+
+#include "mass.h"
+#include "part.h"
 
 using namespace ap;
 using namespace mesh;
@@ -69,7 +71,7 @@ void ap::mesh::Tile::draw() {
 
 void ap::mesh::Tile::click() {
 	if (grid.enabled)
-		grid.gmass().clicked(*this);
+		grid.mass.clicked(*this);
 }
 
 
@@ -78,7 +80,7 @@ void ap::mesh::Tile::attach(Part *p) {
 	part = p;
 	grid.expandfrom(*this);
 	p->connect();
-	grid.gmass().add(p);
+	grid.mass.add(p);
 }
 
 
@@ -141,11 +143,10 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 /* ###########################
    ## Getters & Setters
    ########################### */
-//Grid &ap::mesh::Tile::ggrid() {
+//Grid &ap::mesh::Tile::grid {
 //	return grid;
 //}
 
-Grid &ap::mesh::Tile::ggrid() { return grid; }
 Part *ap::mesh::Tile::gpart() { return part; }
 
 /*Tile *ap::mesh::Tile::gtop() { return top; }

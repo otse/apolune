@@ -18,13 +18,14 @@ namespace ap {
 
 			virtual void step();
 
+			Mass &mass;
+
 			void expandfrom(Tile &);
 			//void sgrid(int cols, int rows);
 
 			std::unordered_map <std::string, Tile *> tilesum;
 
 			int gpoints() const;
-			Mass &gmass() const;
 			const Region &gnormal() const;
 
 			Tile &mtile(int,int);
@@ -37,7 +38,7 @@ namespace ap {
 
 		protected:
 			int points;
-			Mass &mass;
+			
 			Region normal;
 			const Draws::Model tilemodel;
 
