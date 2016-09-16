@@ -22,10 +22,10 @@ ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :
 	em->sy(gy()+t.grid.gy()+ (t.grid.gpoints()/2));
 	ap::world->add(em);
 
-	// refactorate
 	fbo = t.grid.mass.gobf();
 
-	t.attach(this);
+	// t.attach(this); // commented out until we change Wall to not extend Part, or make a special rule for background-parts
+
 }
 
 ap::mesh::Part::~Part() {

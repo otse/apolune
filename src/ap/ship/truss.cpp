@@ -55,6 +55,8 @@ ap::ship::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
 
 	// if ( !! round(ilrand()) )
 	wall = new Wall(tile);
+
+	t.attach(this);
 }
 
 ap::ship::Truss::~Truss() {
@@ -119,7 +121,7 @@ void ap::ship::Truss::junction(int i, int r) {
 
 	j->sx(gx());
 	j->sy(gy());
-	//j->fbo = craft.gfbo(); // refactorate
+	j->fbo = tile.grid.mass.gobf();
 
 	junctions[i] = j;
 }

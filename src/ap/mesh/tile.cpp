@@ -76,7 +76,6 @@ void ap::mesh::Tile::click() {
 
 
 void ap::mesh::Tile::attach(Part *p) {
-	// refactorate
 	part = p;
 	grid.expandfrom(*this);
 	p->connect();
