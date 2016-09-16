@@ -94,7 +94,7 @@ const Emitter::Model Emitter::placesparks = {
 			15., // emit vary
 			800., // particle kill
 			150, // emitter kill,
-			true, // wait for particle
+			false, // wait for particle
 			32., // fade in
 			600., // fade out
 			.2, // alpha
@@ -122,7 +122,7 @@ ap::Emitter::Emitter(const Model &m) :
 }
 
 ap::Emitter::~Emitter() {
-	LOG("DELETEING EMITTER")
+	//LOG("DELETEING EMITTER")
 }
 
 void ap::Emitter::step() {

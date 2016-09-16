@@ -10,7 +10,7 @@ ap::Sprite::Sprite(en::sort_t g, en::Texture *t, en::Region *r)
 	: en::Draws(g, t, r) ,
 	world(true)
 	{
-	COUNT ++;
+	Sprite::COUNT ++;
 
 	scale = 1;
 	sw(gw()*scale);
@@ -18,7 +18,9 @@ ap::Sprite::Sprite(en::sort_t g, en::Texture *t, en::Region *r)
 }
 
 ap::Sprite::~Sprite() {
-	COUNT --;
+	LOG("DELETEING SPRITE")
+
+	Sprite::COUNT --;
 	// overlay
 }
 

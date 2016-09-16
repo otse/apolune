@@ -118,6 +118,7 @@ void ap::Ply::key() {
 	y = ( (int) ay );
 	
 	if ( nullptr != spawnplosion ) {
+
 		spawnplosion->sx( x + ((regions::ply.w*2)/2) );
 		spawnplosion->sy( y + ((regions::ply.h*2)/2) - 8 );
 	}

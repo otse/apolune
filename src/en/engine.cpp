@@ -238,7 +238,7 @@ void en::oar::poll() {
 
 bool en::nukeif(const Draws *p) {
 	if (p->remove) {
-		//LOG("nukeif a draws to " << en::Draws::GCOUNT())
+		LOG("nukeif a draws to " << en::Draws::GCOUNT())
 		delete p;
 		return true;
 	}
@@ -252,15 +252,8 @@ void en::drawsstep() {
 		Draws *d = *it;
 		d->step();
 	}}
-	
-	// remove
-	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it++ ) {
-		Draws *d = *it;
-	}
 
 	draws.l.remove_if(en::nukeif);
-	}
 	
 	// add late
 	{std::vector<Draws *>::iterator it;

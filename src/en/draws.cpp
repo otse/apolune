@@ -32,11 +32,11 @@ en::Draws::Draws(sort_t g, Texture *t, Region *r) :
 	nodraw(false),
 	fbo(nullptr)
 	{
-		COUNT ++;
+		Draws::COUNT ++;
 	}
 	
 en::Draws::~Draws() {
-	COUNT --;
+	Draws::COUNT --;
 }
 
 void en::Draws::translate() {
