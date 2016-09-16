@@ -5,6 +5,7 @@
 
 #include "h.h"
 
+#include "en/fbo.h"
 #include "ap/cli.h"
 #include "ap/loader.h"
 #include "ap/lua.h"

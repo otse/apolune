@@ -68,17 +68,8 @@ void ap::mesh::Tile::draw() {
 }
 
 void ap::mesh::Tile::click() {
-	if (!grid.enabled)
-		return;
-
-	if ( nullptr != part )
-		return; // invoke partclick?
-
-	if ( &mou::left == mou::active && mou::PRESSED == *mou::active ) {
-		// todo: are we within radius?
-		ship::Truss *p = new ship::Truss(*this);
-		attach(p);
-	}
+	//if (!grid.enabled)
+		//grid.gmass().clicked(*this);
 }
 
 

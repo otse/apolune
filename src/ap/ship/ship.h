@@ -3,7 +3,6 @@
 
 #include "../../h.h"
 
-#include "../../en/fbo.h"
 #include "../sprite.h"
 #include "all.h"
 
@@ -21,27 +20,14 @@ namespace ap {
 			virtual void step();
 			virtual void draw();
 
-			void pose();
+			virtual void clicked(mesh::Tile &t);
 
-			en::FBO *gfbo() const;
-			void add(mesh::Part *);
-
-			mesh::Grid &ggrid();
-			mesh::Grid &ggrid2();
-			
-			void refbo();
 
 			bool crosssection;
 
 		protected:
-			en::Region r;
-			en::FBO *fbo;
-			Sprite *sprite;
+			
 
-			en::Vector<mesh::Part *> parts;
-
-			mesh::Grid grid;
-			mesh::Grid grid2;
 		};
 	}
 }
