@@ -4,6 +4,7 @@
 #include "../../h.h"
 
 #include "../sprite.h"
+
 #include "all.h"
 
 namespace ap {
@@ -18,7 +19,7 @@ namespace ap {
 			virtual void hover(mou::Hover h);
 
 			virtual void step();
-			virtual void draw();
+			//virtual void draw();
 
 			virtual void clicked(mesh::Tile &t);
 

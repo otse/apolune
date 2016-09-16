@@ -189,10 +189,10 @@
     <ClInclude Include="..\..\src\ap\mesh\part.h">
       <Filter>Source Files\mesh</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ap\mesh\mesh.h">
+    <ClInclude Include="..\..\src\ap\mesh\mass.h">
       <Filter>Source Files\mesh</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ap\mesh\mass.h">
+    <ClInclude Include="..\..\src\ap\mesh\mesh.h">
       <Filter>Source Files\mesh</Filter>
     </ClInclude>
   </ItemGroup>

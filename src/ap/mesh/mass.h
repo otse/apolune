@@ -4,7 +4,8 @@
 #include "../../h.h"
 
 #include "../sprite.h"
-#include "mesh.h"
+
+#include "grid.h"
 
 
 namespace ap {
@@ -16,6 +17,7 @@ namespace ap {
 			~Mass();
 
 			virtual void step();
+			virtual void draw();
 
 			virtual void clicked(Tile &);
 

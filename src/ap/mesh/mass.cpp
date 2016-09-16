@@ -1,9 +1,10 @@
 #include "stdafx.h"
 
-#include "mass.h"
-
 #include "../../en/fbo.h"
 #include "../def.h"
+
+#include "mass.h"
+#include "part.h"
 
 
 ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
@@ -11,9 +12,9 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	grid(*this, 8, Tile::eight),
 	grid2(*this, 16, Tile::sixteen)
 	{
-	this->fbo = new en::FBO(&en::BLACK, r);
+	/*this->fbo = new en::FBO(&en::BLACK, r);
 
-	Draws::fbo = nullptr;
+	Draws::fbo = nullptr;*/
 
 	yflip = true;
 	//scale = 3; // ?
@@ -35,6 +36,11 @@ ap::mesh::Mass::~Mass() {
 
 void ap::mesh::Mass::step() {
 
+	std::vector<Part *>::iterator it;
+	for (it = parts.v.begin(); it < parts.v.end(); it++) {
+		Part *p = *it;
+		p->step();
+	}
 }
 
 void ap::mesh::Mass::pose() {
@@ -54,6 +60,8 @@ void ap::mesh::Mass::clicked(Tile &t) {
 }
 
 void ap::mesh::Mass::add(Part *p) {
+	return;
+
 	parts.v.push_back(p);
 
 	// re fbo;
@@ -83,6 +91,45 @@ void ap::mesh::Mass::add(Part *p) {
 
 	fbo->resize(w, h);
 
+}
+
+void ap::mesh::Mass::draw() {
+	return;
+
+	// LOG("gw " << ship->gw() << " " << ship->gh());
+
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, fbo->gfbid());
+
+	glPushAttrib(GL_VIEWPORT_BIT);
+	glViewport(0, 0, fbo->gw(), fbo->gh());
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, fbo->gw(), fbo->gh(), 0, 0, 1);
+	glMatrixMode(GL_MODELVIEW);
+
+	glClearColor(0, 0, 0, 0);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+	std::vector<Part *>::iterator it;
+	for (it = parts.v.begin(); it < parts.v.end(); it++) {
+		Part *p = *it;
+		p->draw();
+	}
+
+	glPopAttrib();
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, en::width, en::height, 0, 0, 1);
+	glMatrixMode(GL_MODELVIEW);
+
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ap::world->foreground->gfbid());
+
+	sprite->draw();
+
+	flat();
 }
 /* ###########################
    ## Getters & Setters
