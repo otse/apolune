@@ -15,15 +15,15 @@ ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :
 	{
 	sx(t.gx()*t.ggrid().gpoints());
 	sy(t.gy()*t.ggrid().gpoints());
-	//world = false;
+	world = false;
 
 	em = new Emitter(Emitter::placesparks);
-	em->sx(gx()+t.ggrid().gx()+ t.ggrid().gpoints());
-	em->sy(gy()+t.ggrid().gy()+ t.ggrid().gpoints());
+	em->sx(gx()+t.ggrid().gx()+ (t.ggrid().gpoints()/2));
+	em->sy(gy()+t.ggrid().gy()+ (t.ggrid().gpoints()/2));
 	ap::world->add(em);
 
 	// refactorate
-	//fbo = ap::world->craft->gfbo();
+	fbo = t.ggrid().gmass().gobf();
 
 	t.attach(this);
 }

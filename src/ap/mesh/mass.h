@@ -26,11 +26,11 @@ namespace ap {
 			Grid &ggrid();
 			Grid &ggrid2();
 
-			en::FBO *gfbo() const;
+			en::FBO *gobf() const;
 
 		protected:
 			en::Region r;
-			en::FBO *fbo;
+			en::FBO *obf;
 
 			Grid grid;
 			Grid grid2;

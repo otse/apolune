@@ -40,7 +40,7 @@ en::Draws::~Draws() {
 }
 
 void en::Draws::translate() {
-if ( nullptr == fbo ) {
+	if ( nullptr == fbo ) {
 		glTranslatef(x, y, 0);
 	} else {
 		glTranslatef(x-fbo->x, y-fbo->y, 0);

@@ -14,9 +14,7 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	grid(*this, 8, Tile::eight),
 	grid2(*this, 16, Tile::sixteen)
 	{
-	this->fbo = new en::FBO(&en::BLACK, r);
-
-	Draws::fbo = this->fbo;
+	fbo = obf = new en::FBO(&en::BLACK, r);
 
 	yflip = true;
 	sw(r.w);
@@ -59,7 +57,7 @@ void ap::mesh::Mass::add(Part *p) {
 
 	// re fbo;
 
-	const Region normal = grid.gnormal();
+	const Region normal = grid2.gnormal();
 
 	LOG("gnormal " << normal.x << " " << normal.y << " " << normal.w << " " << normal.h)
 
@@ -74,31 +72,27 @@ void ap::mesh::Mass::add(Part *p) {
 	w *= factor;
 	h *= factor;
 
-	fbo->x = normal.x * factor;
-	fbo->y = normal.y * factor;
+	obf->x = normal.x * factor;
+	obf->y = normal.y * factor;
 
 	sx(normal.x * factor);
 	sy(normal.y * factor);
 	sw(w);
 	sh(h);
 
-	fbo->resize(w, h);
+	obf->resize(w, h);
 
 }
 
 void ap::mesh::Mass::draw() {
-	return;
-
-	// LOG("gw " << ship->gw() << " " << ship->gh());
-
-	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, fbo->gfbid());
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, obf->gfbid());
 
 	glPushAttrib(GL_VIEWPORT_BIT);
-	glViewport(0, 0, fbo->gw(), fbo->gh());
+	glViewport(0, 0, obf->gw(), obf->gh());
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0, fbo->gw(), fbo->gh(), 0, 0, 1);
+	glOrtho(0, obf->gw(), obf->gh(), 0, 0, 1);
 	glMatrixMode(GL_MODELVIEW);
 
 	glClearColor(0, 0, 0, 0);
@@ -127,7 +121,7 @@ void ap::mesh::Mass::draw() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-FBO *ap::mesh::Mass::gfbo() const { return fbo; }
+FBO *ap::mesh::Mass::gobf() const { return obf; }
 ap::mesh::Grid &ap::mesh::Mass::ggrid() { return grid; }
 ap::mesh::Grid &ap::mesh::Mass::ggrid2() { return grid2; }
 //const Region &ap::mesh::Grid::gnormal() const { return normal; }
