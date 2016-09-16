@@ -24,7 +24,7 @@ namespace ap {
 			std::unordered_map <std::string, Tile *> tilesum;
 
 			int gpoints() const;
-			const Mass &gmass() const;
+			Mass &gmass() const;
 			const Region &gnormal() const;
 
 			Tile &mtile(int,int);

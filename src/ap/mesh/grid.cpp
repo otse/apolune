@@ -83,7 +83,7 @@ void ap::mesh::Grid::step() {
 /* ###########################
    ## Getters & Setters
    ########################### */
-const ap::mesh::Mass &ap::mesh::Grid::gmass() const { return mass; }
+ap::mesh::Mass &ap::mesh::Grid::gmass() const { return mass; }
 const Region &ap::mesh::Grid::gnormal() const { return normal; }
 int ap::mesh::Grid::gpoints() const { return points; }
 

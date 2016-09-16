@@ -68,8 +68,10 @@ void ap::mesh::Tile::draw() {
 }
 
 void ap::mesh::Tile::click() {
-	//if (!grid.enabled)
-		//grid.gmass().clicked(*this);
+	Tile &us = *this;
+
+	if (grid.enabled)
+		grid.gmass().clicked(us);
 }
 
 
