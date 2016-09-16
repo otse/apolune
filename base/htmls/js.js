@@ -47,21 +47,25 @@
   };
 
   js.mstats = function() {
-    var delta, fps;
+    var delta, draws, fps;
     this.jays.stats = $('<div id="stats">');
     fps = $('<div><!--fps: --><div class="value" id="fps">0</div></div>');
     delta = $('<div><!--delta: --><div class="value" id="delta">0</div></div>');
+    draws = $('<div><!--draws: --><div class="value" id="draws">0</div></div>');
     this.jays.stats.append(fps);
     this.jays.stats.append(delta);
+    this.jays.stats.append(draws);
     this.jays.limit.append(this.jays.stats);
     this.jays.fps = $('#fps');
     this.jays.delta = $('#delta');
+    this.jays.draws = $('#draws');
     return 0;
   };
 
   js.second = function() {
     this.jays.fps.html(app.fps);
     this.jays.delta.html(app.delta);
+    this.jays.draws.html(app.draws);
     return 0;
   };
 

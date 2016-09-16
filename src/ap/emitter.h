@@ -42,8 +42,6 @@ namespace ap {
 		
 		std::vector<Particle *> p;
 		
-		void rm(Particle *);
-		
 		virtual void step();
 		virtual void draw();
 		

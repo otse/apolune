@@ -3,7 +3,9 @@
 #include "tile.h"
 
 #include "../def.h"
+#include "../ply.h"
 
+#include "mesh.h"
 #include "mass.h"
 #include "part.h"
 
@@ -69,6 +71,9 @@ void ap::mesh::Tile::step() {
 void ap::mesh::Tile::draw() {
 	if (grid.enabled)
 		Sprite::draw();
+
+	//if (nullptr != seethrough)
+		//seethrough->draw();
 }
 
 void ap::mesh::Tile::click() {
@@ -127,9 +132,12 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 		return;
 
 	if ( mou::HOVER_IN == h ) {
+		seethrough = mesh::partfactory(*this, ply->partname);
+		//attach(seethrough);
 		sregion(&regions::tileover);
 		nodraw = false;
 	} else {
+		delete seethrough;
 		sregion(&regions::tile);
 		if ( part )
 			nodraw = true;

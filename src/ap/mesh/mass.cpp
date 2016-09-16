@@ -6,6 +6,7 @@
 #include "mass.h"
 #include "part.h"
 
+#include "../ply.h"
 #include "../ship/truss.h"
 
 
@@ -49,8 +50,8 @@ void ap::mesh::Mass::clicked(Tile &t) {
 		return; // invoke partclick?
 
 	if (&mou::left == mou::active && mou::PRESSED == *mou::active) {
-		// todo: are we within radius?
-		ship::Truss *p = new ship::Truss(t);
+		Part *p = partfactory(t, ply->partname);
+		t.attach(p);
 	}
 }
 

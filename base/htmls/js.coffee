@@ -37,19 +37,23 @@ js.mstats = ->
 	@jays.stats = $ '<div id="stats">'
 	fps = $ '<div><!--fps: --><div class="value" id="fps">0</div></div>'
 	delta = $ '<div><!--delta: --><div class="value" id="delta">0</div></div>'
+	draws = $ '<div><!--draws: --><div class="value" id="draws">0</div></div>'
 
 	@jays.stats.append fps
 	@jays.stats.append delta
+	@jays.stats.append draws
 
 	@jays.limit.append @jays.stats
 
 	@jays.fps = $ '#fps'
 	@jays.delta = $ '#delta'
+	@jays.draws = $ '#draws'
 	0
 
 js.second = () ->
 	@jays.fps.html app.fps
 	@jays.delta.html app.delta
+	@jays.draws.html app.draws
 
 	0
 

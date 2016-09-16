@@ -26,7 +26,7 @@ namespace ap {
 		
 		speed_ps speed = 1;
 
-		std::string *partname;
+		std::string partname;
 		mesh::Part *part;
 		
 		double orientation;

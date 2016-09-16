@@ -56,7 +56,7 @@ ap::ship::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
 	// if ( !! round(ilrand()) )
 	wall = new Wall(tile);
 
-	t.attach(this);
+	//
 }
 
 ap::ship::Truss::~Truss() {

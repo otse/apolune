@@ -78,12 +78,13 @@ void ap::World::step() {
 		s->step();
 	}}
 
+	// remove
+	sprites.l.remove_if(nukeif);
+
 	camerax = ply->gx() + (26 / 2);
 	cameray = ply->gy() + (34 / 2);
 	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(ply->orientation));
 	
-	// remove
-	sprites.l.remove_if([](const Sprite* p) { return p->remove; });
 	
 	cursorlight->sx(en::mou::mx-75);
 	cursorlight->sy(en::mou::my-75);

@@ -6,6 +6,9 @@
 #include "../world.h"
 #include "../ship/all.h"
 
+#include "mesh.h"
+
+
 using namespace ap::mesh;
 
 ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :

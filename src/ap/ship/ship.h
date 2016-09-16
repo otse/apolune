@@ -5,7 +5,7 @@
 
 #include "../sprite.h"
 
-#include "all.h"
+#include "../mesh/mass.h"
 
 namespace ap {
 	

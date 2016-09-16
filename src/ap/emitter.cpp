@@ -118,17 +118,7 @@ ap::Emitter::Emitter(const Model &m) :
 	timer(0.0),
 	wantsout(false)
 {
-	delete_ = false;
-}
-
-void ap::Emitter::rm(Particle *o) {
-	std::vector<Particle *>::iterator it;
-	for ( it = p.begin(); it < p.end(); it ++) {
-		if ( *it == o ) {
-			p.erase(it);
-			break;
-		}
-	}
+	//delete_ = false;
 }
 
 ap::Emitter::~Emitter() {
@@ -162,13 +152,9 @@ void ap::Emitter::draw() {
 	
 	for ( it = p.begin(); it < p.end(); it ++) {
 		Particle *o = *it;
-		/*if ( o->remove ) {
-			rm(o);
-			delete o;
-		}*/
 	}
 
-	p.erase(std::remove_if(p.begin(), p.end(), [](const Particle* p) { return p->remove; }), p.end());
+	p.erase(std::remove_if(p.begin(), p.end(), nukeif), p.end());
 	
 	for ( it = p.begin(); it < p.end(); it ++)
 		((Particle *)*it) ->draw();

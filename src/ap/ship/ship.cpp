@@ -3,6 +3,7 @@
 #include "../../en/fbo.h"
 
 #include "ship.h"
+#include "truss.h"
 
 using namespace ap::ship;
 using namespace ap::mesh;
@@ -11,7 +12,10 @@ ap::ship::Ship::Ship() : Mass() ,
 	crosssection(true)
 	{
 	
-	Truss *p = new Truss(*grid2.gtile(0,0));
+	Tile &zero = *grid2.gtile(0,0);
+	Truss *p = new Truss(zero);
+	zero.attach(p);
+
 	//t2.attach(p);
 
 	//crosssection = true;

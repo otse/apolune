@@ -136,6 +136,7 @@ bool second() {
 		
 		as::global.SetPropertyAsync(WSLit("fps"), JSValue(ap::fps));
 		as::global.SetPropertyAsync(WSLit("delta"), JSValue(en::delta));
+		as::global.SetPropertyAsync(WSLit("draws"), JSValue(en::Draws::GCOUNT()));
 		as::view->ExecuteJavascript(WSLit("js.second();"), WSLit(""));
 
 		LOG(fps);

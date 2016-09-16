@@ -93,6 +93,9 @@ namespace en {
 	void add(Draws *);
 	void rm(Draws *);
 
+	//typedef(*nukeif)(const Draws *);
+	bool nukeif(const Draws *);
+
 	extern Vector<Draws*> late;
 	void later(Draws *);
 
