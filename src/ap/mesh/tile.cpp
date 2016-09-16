@@ -132,17 +132,13 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 		return;
 
 	if ( mou::HOVER_IN == h ) {
-		//seethrough = mesh::partfactory(*this, ply->partname);
+		seethrough = mesh::partfactory(*this, ply->partname);
 		//attach(seethrough);
-		Emitter *em = new Emitter(Emitter::placesparks);
-		em->sx(gx() + grid.gx() + (grid.gpoints() / 2));
-		em->sy(gy() + grid.gy() + (grid.gpoints() / 2));
-		ap::world->add(em);
 
 		sregion(&regions::tileover);
 		nodraw = false;
 	} else {
-		//delete seethrough;
+		delete seethrough;
 		sregion(&regions::tile);
 		if ( part )
 			nodraw = true;
