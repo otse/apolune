@@ -11,9 +11,8 @@ ap::ship::Ship::Ship() : Mass() ,
 	crosssection(true)
 	{
 	
-	/*
-	Truss *p = new Truss(t2);
-	t2.attach(p);*/
+	Truss *p = new Truss(*grid2.gtile(0,0));
+	//t2.attach(p);
 
 	//crosssection = true;
 }
@@ -26,11 +25,6 @@ void ap::ship::Ship::step() {
 	Mass::step();
 
 	//sprite->rotate += 0.001;
-}
-
-
-void ap::ship::Ship::clicked(Tile &t) {
-	
 }
 
 

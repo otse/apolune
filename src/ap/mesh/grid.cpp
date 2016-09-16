@@ -24,6 +24,17 @@ ap::mesh::Grid::~Grid() {
 	
 }
 
+ap::mesh::Tile *ap::mesh::Grid::gtile(int x, int y) {
+	std::string xy = std::to_string(x) + "," + std::to_string(y);
+
+	std::unordered_map<std::string, Tile *>::const_iterator got = tilesum.find(xy);
+
+	if (got != tilesum.end())
+		return got->second;
+	else
+		return nullptr;
+}
+
 ap::mesh::Tile &ap::mesh::Grid::mtile(int x, int y) {
 
 	Tile *t = new Tile(*this, tilemodel, x, y);

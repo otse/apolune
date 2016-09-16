@@ -68,10 +68,8 @@ void ap::mesh::Tile::draw() {
 }
 
 void ap::mesh::Tile::click() {
-	Tile &us = *this;
-
 	if (grid.enabled)
-		grid.gmass().clicked(us);
+		grid.gmass().clicked(*this);
 }
 
 
@@ -80,7 +78,7 @@ void ap::mesh::Tile::attach(Part *p) {
 	part = p;
 	grid.expandfrom(*this);
 	p->connect();
-	//grid.craft.add(p);
+	grid.gmass().add(p);
 }
 
 

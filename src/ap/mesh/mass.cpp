@@ -6,24 +6,21 @@
 #include "mass.h"
 #include "part.h"
 
+#include "../ship/truss.h"
+
 
 ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	r({ 0,0,16,16 }),
 	grid(*this, 8, Tile::eight),
 	grid2(*this, 16, Tile::sixteen)
 	{
-	/*this->fbo = new en::FBO(&en::BLACK, r);
+	this->fbo = new en::FBO(&en::BLACK, r);
 
-	Draws::fbo = nullptr;*/
+	Draws::fbo = this->fbo;
 
 	yflip = true;
-	//scale = 3; // ?
-
 	sw(r.w);
 	sh(r.h);
-
-	pose();
-
 	sx(0);
 	sy(0);
 
@@ -43,24 +40,20 @@ void ap::mesh::Mass::step() {
 	}
 }
 
-void ap::mesh::Mass::pose() {
-	sx(gx());
-	sy(gy());
-}
 
 void ap::mesh::Mass::clicked(Tile &t) {
+	LOG("CLICKED TILE")
+
 	if ( nullptr != t.gpart() )
 		return; // invoke partclick?
 
 	if (&mou::left == mou::active && mou::PRESSED == *mou::active) {
 		// todo: are we within radius?
-		/*ship::Truss *p = new ship::Truss(*this);
-		t.attach(p);*/
+		ship::Truss *p = new ship::Truss(t);
 	}
 }
 
 void ap::mesh::Mass::add(Part *p) {
-	return;
 
 	parts.v.push_back(p);
 
@@ -70,7 +63,7 @@ void ap::mesh::Mass::add(Part *p) {
 
 	LOG("gnormal " << normal.x << " " << normal.y << " " << normal.w << " " << normal.h)
 
-		int w = normal.w + 1;
+	int w = normal.w + 1;
 	int h = normal.h + 1;
 
 	if (normal.x < 0) w += -normal.x;
@@ -84,10 +77,10 @@ void ap::mesh::Mass::add(Part *p) {
 	fbo->x = normal.x * factor;
 	fbo->y = normal.y * factor;
 
-	sprite->sx(normal.x * factor);
-	sprite->sy(normal.y * factor);
-	sprite->sw(w);
-	sprite->sh(h);
+	sx(normal.x * factor);
+	sy(normal.y * factor);
+	sw(w);
+	sh(h);
 
 	fbo->resize(w, h);
 
@@ -127,7 +120,7 @@ void ap::mesh::Mass::draw() {
 
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, ap::world->foreground->gfbid());
 
-	sprite->draw();
+	Sprite::draw();
 
 	flat();
 }

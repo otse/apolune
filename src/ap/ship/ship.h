@@ -21,8 +21,7 @@ namespace ap {
 			virtual void step();
 			//virtual void draw();
 
-			virtual void clicked(mesh::Tile &t);
-
+			//virtual void clicked(mesh::Tile &t);
 
 			bool crosssection;
 

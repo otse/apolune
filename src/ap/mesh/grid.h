@@ -28,6 +28,7 @@ namespace ap {
 			const Region &gnormal() const;
 
 			Tile &mtile(int,int);
+			Tile *gtile(int, int);
 
 			//Ship &gcraft();
 			int x;

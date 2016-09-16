@@ -13,17 +13,19 @@ ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :
 	tile(t),
 	type(type)
 	{
-	sx(t.gx()*16);
-	sy(t.gy()*16);
+	sx(t.gx()*t.ggrid().gpoints());
+	sy(t.gy()*t.ggrid().gpoints());
 	//world = false;
 
 	em = new Emitter(Emitter::placesparks);
-	em->sx(gx()+t.ggrid().gx()+16);
-	em->sy(gy()+t.ggrid().gy()+16);
+	em->sx(gx()+t.ggrid().gx()+ t.ggrid().gpoints());
+	em->sy(gy()+t.ggrid().gy()+ t.ggrid().gpoints());
 	ap::world->add(em);
 
 	// refactorate
 	//fbo = ap::world->craft->gfbo();
+
+	t.attach(this);
 }
 
 ap::mesh::Part::~Part() {

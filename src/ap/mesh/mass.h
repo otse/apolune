@@ -21,18 +21,16 @@ namespace ap {
 
 			virtual void clicked(Tile &);
 
-			void pose();
+			void add(Part *);
 
 			Grid &ggrid();
 			Grid &ggrid2();
 
 			en::FBO *gfbo() const;
-			void add(Part *);
 
 		protected:
 			en::Region r;
 			en::FBO *fbo;
-			Sprite *sprite;
 
 			Grid grid;
 			Grid grid2;
