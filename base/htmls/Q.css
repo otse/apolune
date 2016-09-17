@@ -6,7 +6,7 @@
     height: 500px;
     padding: 50px;
     background: rgba(84, 96, 111, 0.5);
-    background: rgba(59, 87, 123, 0.5);
+    background: rgba(53, 87, 130, 0.5);
     bborder: 2px solid rgba(255, 255, 255, 0.02);
     bborder-radius: 2px;
 }
@@ -46,6 +46,7 @@
 
 #Q > .knob {
 	display: inline-block;
+	display: none;
     border-radius: 100%;
     bbackground: rgba(0, 0, 0, 0.22);
     padding: 2px;

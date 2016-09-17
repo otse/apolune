@@ -170,10 +170,8 @@
     }
 
     Overlay.prototype.build = function() {
-      js.jays.poppers.append((this.shipping = new Popper('shipping')).element);
-      js.jays.poppers.append((this.view = new Popper('view', 'right')).element);
-      js.jays.poppers.append((this.placeholder = new Popper('placeholder', 'right')).element);
-      this.shipping.add(new BlockChooser(''));
+      js.jays.poppers.append((this.view = new Popper('View', 'right')).element);
+      js.jays.poppers.append((this.placeholder = new Popper('Something', 'right')).element);
       this.view.add(new Clicky({
         name: 'zoom level',
         values: ['3x', '2x', '1x'],

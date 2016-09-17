@@ -41,6 +41,7 @@
     bborder-top: 1px solid gray;
     bborder-bottom: 1px solid gray;
 	background: rgba(98, 153, 255, 0.4);
+    z-index: 1;
 }
 
 .notice {
@@ -79,9 +80,9 @@
     display: inline-block;
     font-family: Courier;
     font-size: 11px;
-    letter-spacing: -1px;
     color: #9e9e9e;
-    mmargin: 1px;
+    margin: 10px;
+    /* margin: 1px; */
 }
 
 .popper > .button {
@@ -91,16 +92,18 @@
     mmargin: 2px;
     ttext-shadow: 0 0 1px rgba(0,0,0,0);
     transform: translateZ(0);
-    background: rgba(255, 255, 255, 0.15);
+    bbackground: rgba(255, 255, 255, 0.15);
     bborder-right: 1px solid #560000;
 }
 
 .popper > .insides {
     position: absolute;
     display: block;
-    wwidth: 110px;
-    background: rgba(255, 255, 255, 1);
-    color: #737373;
+    bbackground: rgba(66, 97, 109, 0.5);
+    bbackground: rgba(255, 255, 255, 0.12);
+    /* border-radius: 2px; */
+    white-space: nowrap;
+    /* border: 1px solid rgba(255, 255, 255, 0.05); */
 }
 
 .popper.right {
@@ -116,14 +119,13 @@
 .insides .item {
 	position: relative;
     display: inline-block;
-    letter-spacing: -1;
     padding: 6px;
-    margin-top: 1px;
     white-space: nowrap;
-    bborder-radius: 2px;
-    bbackground: rgba(255, 255, 255, 0.15);
-    bborder: 1px solid rgba(255, 255, 255, 0.1);
-    bborder-left: 1px solid rgba(255, 255, 255, 0.3);
+    /* border-radius: 2px; */
+    margin: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(66, 97, 109, 0.5);
+    background: rgba(20, 35, 41, 0.5);
 }
 
 .insides .item > .shortcut {

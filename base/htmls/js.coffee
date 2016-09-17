@@ -141,11 +141,11 @@ class Overlay
 		;
 
 	build: ->
-		js.jays.poppers.append (@shipping = new Popper 'shipping').element
-		js.jays.poppers.append (@view = new Popper 'view', 'right').element
-		js.jays.poppers.append (@placeholder = new Popper 'placeholder', 'right').element
+		# js.jays.poppers.append (@shipping = new Popper 'Shipping').element
+		js.jays.poppers.append (@view = new Popper 'View', 'right').element
+		js.jays.poppers.append (@placeholder = new Popper 'Something', 'right').element
 
-		@shipping.add new BlockChooser ''
+		# @shipping.add new BlockChooser ''
 
 		@view.add new Clicky
 				name: 'zoom level'
