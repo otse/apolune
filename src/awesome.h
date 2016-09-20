@@ -26,6 +26,7 @@ namespace ap {
 		extern en::FBO *web;
 
 		extern JSObject global;
+		extern JSObject valuez;
 
 		typedef std::map<std::wstring, JSDelegate> DelegateMap;
 		extern DelegateMap delegateMap;

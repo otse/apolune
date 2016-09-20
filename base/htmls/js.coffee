@@ -177,6 +177,8 @@ class Overlay
 
 class Tooltip
 	constructor: (@o) ->
+		return
+
 		@element = $ "<div class=\"tooltip\">#{@o.o.tooltip}</div>"
 
 		@o.element.append @element
@@ -287,6 +289,8 @@ class Value extends Item
 		
 		super o
 
+		@before = null
+
 		@build()
 
 		@register()
@@ -302,9 +306,15 @@ class Value extends Item
 	update: ->
 		return unless @o.cpp?
 
-		console.log "update app #{@o.cpp} value /w #{app[@o.cpp]}"
+		val = app.valuez[@o.cpp].toFixed 1
 
-		@value.html "#{app[@o.cpp].toFixed 1}#{@o.suffix}"
+		return if val is @before
+
+		@before = val
+
+		console.log "updating #{@o.cpp}"
+
+		@value.html "#{val}#{@o.suffix}"
 		1
 
 class Clicky extends Item
@@ -314,7 +324,9 @@ class Clicky extends Item
 
 		@element = null
 
-		@i = 0
+		@i = o.values.indexOf app?.valuez[o.cpp]
+		@i = 0 if not @i? or -1 is @i
+
 		@build()
 
 		@register()

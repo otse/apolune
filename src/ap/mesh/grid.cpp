@@ -51,7 +51,6 @@ ap::mesh::Tile &ap::mesh::Grid::mtile(int x, int y) {
 }
 
 void ap::mesh::Grid::expandfrom(Tile &t) {
-	LOG("link")
 
 	for (int i = 0; i < 8; i ++) {
 		int x = t.gx(), y = t.gy();

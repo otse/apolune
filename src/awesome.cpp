@@ -22,6 +22,7 @@ MethodDispatcher ap::as::dispatcher;
 en::FBO *ap::as::web;
 
 JSObject ap::as::global;
+JSObject ap::as::valuez;
 
 Load ap::as::load;
 
@@ -140,9 +141,8 @@ void ap::as::mawe() {
 	view->set_load_listener(&load);
 	view->set_js_method_handler(&dispatcher);
 
-	JSValue var(view->CreateGlobalJavascriptObject(WSLit("app")));
-
-	global = var.ToObject();
+	global = view->CreateGlobalJavascriptObject(WSLit("app")).ToObject();
+	valuez = view->CreateGlobalJavascriptObject(WSLit("app.valuez")).ToObject();
 
 	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(0));
 
@@ -206,11 +206,11 @@ void ap::as::crossSection(WebView* caller, const JSArray& args) {
 
 	if (value == WSLit("on")) {
 		ap::world->craft->crosssection = true;
-		LOG("LOL")
+		valuez.SetPropertyAsync(WSLit("crossSection"), JSValue("on"));
 	}
 	else if (value == WSLit("off")) {
 		ap::world->craft->crosssection = false;
-		LOG("NO")
+		valuez.SetPropertyAsync(WSLit("crossSection"), JSValue("off"));
 	}
 	return;
 
@@ -226,6 +226,10 @@ void ap::as::step() {
 		view->InjectMouseDown(kMouseButton_Right);
 	else if (en::mou::RELEASED == en::mou::right)
 		view->InjectMouseUp(kMouseButton_Right);
+
+	if (oar::DOWN == oar::keys[sf::Keyboard::C]) {
+		crossSection(view)
+	}
 
 	if (oar::DOWN == oar::keys[sf::Keyboard::Q]) {
 		LOG("INVOKING QQ")

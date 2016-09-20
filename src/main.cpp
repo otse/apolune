@@ -136,6 +136,7 @@ bool second() {
 		
 		as::global.SetPropertyAsync(WSLit("fps"), JSValue(ap::fps));
 		as::global.SetPropertyAsync(WSLit("delta"), JSValue(en::delta));
+
 		if (ap::world)
 		as::global.SetPropertyAsync(WSLit("draws"), JSValue((int) ap::world->sprites.l.size()));
 		as::view->ExecuteJavascript(WSLit("js.second();"), WSLit(""));

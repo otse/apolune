@@ -85,8 +85,9 @@ void ap::ship::Truss::draw() {
 	if ( nullptr != junctions[2] ) junctions[2]->draw();
 	if ( nullptr != junctions[3] ) junctions[3]->draw();
 
-	//if ( ! craft.crosssection && nullptr != wall )
-		//wall->draw2(false);
+	Ship &ship = dynamic_cast<Ship &>(tile.grid.mass);
+	if ( ! ship.crosssection && nullptr != wall )
+		wall->draw2(false);
 }
 
 void ap::ship::Truss::click() {

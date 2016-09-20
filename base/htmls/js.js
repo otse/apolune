@@ -206,6 +206,7 @@
   Tooltip = (function() {
     function Tooltip(o1) {
       this.o = o1;
+      return;
       this.element = $("<div class=\"tooltip\">" + this.o.o.tooltip + "</div>");
       this.o.element.append(this.element);
       this.o.tooltip = this;
@@ -376,6 +377,7 @@
 
     function Value(o) {
       Value.__super__.constructor.call(this, o);
+      this.before = null;
       this.build();
       this.register();
     }
@@ -387,11 +389,17 @@
     };
 
     Value.prototype.update = function() {
+      var val;
       if (this.o.cpp == null) {
         return;
       }
-      console.log("update app " + this.o.cpp + " value /w " + app[this.o.cpp]);
-      this.value.html("" + (app[this.o.cpp].toFixed(1)) + this.o.suffix);
+      val = app.valuez[this.o.cpp].toFixed(1);
+      if (val === this.before) {
+        return;
+      }
+      this.before = val;
+      console.log("updating " + this.o.cpp);
+      this.value.html("" + val + this.o.suffix);
       return 1;
     };
 
@@ -405,7 +413,10 @@
     function Clicky(o) {
       Clicky.__super__.constructor.call(this, o);
       this.element = null;
-      this.i = 0;
+      this.i = o.values.indexOf(typeof app !== "undefined" && app !== null ? app.valuez[o.cpp] : void 0);
+      if ((this.i == null) || -1 === this.i) {
+        this.i = 0;
+      }
       this.build();
       this.register();
     }

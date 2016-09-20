@@ -122,6 +122,8 @@ void ap::ship::Wall::step() {
 void ap::ship::Wall::draw2(bool rear) {
 	int r = rotate;
 
+	Ship &ship = dynamic_cast<Ship &>(tile.grid.mass); // todo: bad, every mass should be able to dissect
+
 	if ( rear ) {
 		//sregion(model->rear.r);
 		sregion(quad.rear.r);
@@ -129,8 +131,8 @@ void ap::ship::Wall::draw2(bool rear) {
 	}
 
 	// refactorate
-	//else if ( ! craft.crosssection )
-		//sregion(model->m.r);
+	else if ( !ship.crosssection )
+		sregion(model->m.r);
 
 	draw();
 
