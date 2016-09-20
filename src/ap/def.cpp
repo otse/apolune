@@ -12,7 +12,7 @@ using namespace ap;
 // look in ap/bulk.cpp
 
 // # sounds
-sf::SoundBuffer *sounds::placepart;
+sf::SoundBuffer *sounds::torquewrench;
 
 // # textures
 en::Texture textures::spread("spread.png");

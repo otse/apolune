@@ -26,7 +26,7 @@ namespace ap {
 	extern const en::Font clifont;
 
 	namespace sounds {
-		extern sf::SoundBuffer *placepart;
+		extern sf::SoundBuffer *torquewrench;
 	}
 	
 	namespace textures {

@@ -102,8 +102,8 @@ void ap::Loader::step() {
 
 			// -~-~-~- LOADS
 
-			auto a = ap::sounds::placepart = new sf::SoundBuffer();
-			a->loadFromStream(sf::physfs("sounds/placebeep.ogg"));
+			ap::sounds::torquewrench = new sf::SoundBuffer();
+			ap::sounds::torquewrench->loadFromStream(sf::physfs("sounds/torquewrench.ogg"));
 
 			// -~-~-~-
 

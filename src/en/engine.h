@@ -17,6 +17,7 @@
 
 typedef long clock_t;
 typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
+namespace sf { class SoundBuffer; } // fw
 
 #define DEGTORAD 0.0174532925199432957
 #define RADTODEG 57.295779513082320876
@@ -92,6 +93,8 @@ namespace en {
 	void drawsstep();
 	void add(Draws *);
 	void rm(Draws *);
+
+	extern std::vector<sf::Sound *>sounds;
 
 	//typedef(*nukeif)(const Draws *);
 	bool nukeif(const Draws *);

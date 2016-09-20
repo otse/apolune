@@ -10,6 +10,8 @@
 #include "../ply.h"
 #include "../ship/truss.h"
 
+#include <SFML/Audio/Sound.hpp>
+
 
 ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	r({ 0,0,16,16 }),
@@ -57,7 +59,8 @@ void ap::mesh::Mass::clicked(Tile &t) {
 		Part *p = partfactory(t, ply->partname);
 		t.attach(p);
 
-		
+		sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
+		bep->play();
 	}
 }
 
