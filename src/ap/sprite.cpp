@@ -18,7 +18,6 @@ ap::Sprite::Sprite(en::sort_t g, en::Texture *t, en::Region *r)
 }
 
 ap::Sprite::~Sprite() {
-	LOG("DELETEING SPRITE")
 
 	Sprite::COUNT --;
 	// overlay

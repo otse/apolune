@@ -1,6 +1,8 @@
 #include "stdafx.h"
 
 
+#include <SFML/Audio/Sound.hpp>
+
 #include "../../en/fbo.h"
 #include "../def.h"
 
@@ -10,7 +12,6 @@
 #include "../ply.h"
 #include "../ship/truss.h"
 
-#include <SFML/Audio/Sound.hpp>
 
 
 ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
@@ -61,6 +62,7 @@ void ap::mesh::Mass::clicked(Tile &t) {
 
 		sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
 		bep->play();
+		en::sounds.push_back(bep);
 	}
 }
 

@@ -172,6 +172,7 @@ void envars::frame() {
 	if ( world )
 		world->step();
 	
+	en::soundsstep();
 	en::drawsstep();
 
 	glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);

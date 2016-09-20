@@ -9,15 +9,15 @@
 
 #include "Q:/glew-1.11.0/include/GL/glew.h"
 #include "Q:/glew-1.11.0/include/GL/wglew.h"
-#include <SFML/Graphics.hpp>
 #include "Q:/physfs-2.0.3/physfs.h"
+#include <SFML/Graphics.hpp>
 
 //#include "Q:/freeglut/include/GL/freeglut.h"
 //#include "../../../DEPS/openal-soft-1.16.0-bin/include/AL/al.h"
 
 typedef long clock_t;
 typedef struct PHYSFS_File PHYSFS_File; // 'forward declaration'
-namespace sf { class SoundBuffer; } // fw
+namespace sf { class Sound; } // fw
 
 #define DEGTORAD 0.0174532925199432957
 #define RADTODEG 57.295779513082320876
@@ -94,7 +94,8 @@ namespace en {
 	void add(Draws *);
 	void rm(Draws *);
 
-	extern std::vector<sf::Sound *>sounds;
+	extern std::vector<sf::Sound *> sounds;
+	void soundsstep();
 
 	//typedef(*nukeif)(const Draws *);
 	bool nukeif(const Draws *);

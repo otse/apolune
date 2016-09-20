@@ -5,11 +5,13 @@
 #include <time.h> // clock_t, clock, CLOCKS_PER_SEC
 #include <direct.h> // for mkdir
 #include <windows.h>
+#include <SFML/Audio/Sound.hpp>
 
 #include "engine.h"
 #include "draws.h"
 #include "texture.h"
 #include "../ll/stb_image.h"
+
 
 
 //#include "string.h"
@@ -43,6 +45,7 @@ bool en::pixels = false; // to switch between perspective, unused
 int en::WindowHandle = 0;
 bool en::focus = true;
 
+std::vector<sf::Sound *> en::sounds;
 Vector<Draws *> en::late;
 List<Draws *> en::draws;
 
@@ -243,6 +246,19 @@ bool en::nukeif(const Draws *p) {
 		return true;
 	}
 	else return false;
+}
+
+void en::soundsstep() {
+	auto destroy = [](const sf::Sound *sound) {
+		if ( sound->Stopped == sound->getStatus() ) {
+			delete sound;
+			return true;
+		}
+		return false;
+	};
+
+	sounds.erase(std::remove_if(sounds.begin(), sounds.end(), destroy), sounds.end());
+
 }
 
 void en::drawsstep() {
