@@ -8,6 +8,7 @@
 #include "../en/anim.h"
 #include "emitter.h"
 
+namespace sf { class SoundBuffer; } // fw
 
 namespace ap {
 	
@@ -23,6 +24,10 @@ namespace ap {
 	extern const en::Font valuefontchangeable;
 	extern const en::Font noticefont;
 	extern const en::Font clifont;
+
+	namespace sounds {
+		extern sf::SoundBuffer *placepart;
+	}
 	
 	namespace textures {
 		extern en::Texture spread;

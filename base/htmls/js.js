@@ -377,7 +377,7 @@
 
     function Value(o) {
       Value.__super__.constructor.call(this, o);
-      this.before = null;
+      this.after = null;
       this.build();
       this.register();
     }
@@ -394,11 +394,13 @@
         return;
       }
       val = app.valuez[this.o.cpp].toFixed(1);
-      if (val === this.before) {
-        return;
-      }
-      this.before = val;
-      console.log("updating " + this.o.cpp);
+
+      /*return if val is @after
+      
+      		@after = val
+      
+      		console.log "updating #{@o.cpp}"
+       */
       this.value.html("" + val + this.o.suffix);
       return 1;
     };

@@ -31,7 +31,8 @@ namespace ap {
 		protected:
 			en::Region r;
 			en::FBO *obf;
-
+			en::FBO *hull;
+			en::FBO *contiguous;
 
 			en::Vector<mesh::Part *> parts;
 

@@ -99,7 +99,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32s.lib;opengl32.lib;winmm.lib;sfml-system-s-d.lib;gdi32.lib;sfml-window-s-d.lib;freetype.lib;jpeg.lib;physfs.lib;jsoncpp.lib;awesomium.lib;sfml-graphics-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;opengl32.lib;winmm.lib;sfml-system-s-d.lib;gdi32.lib;sfml-window-s-d.lib;freetype.lib;jpeg.lib;sfml-audio-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;physfs.lib;jsoncpp.lib;awesomium.lib;sfml-graphics-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>Q:\built;Q:\built\Debug;Q:\SFML-2.4.0\lib;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\build\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -132,7 +132,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32s.lib;opengl32.lib;winmm.lib;sfml-system-s.lib;gdi32.lib;sfml-window-s.lib;freetype.lib;jpeg.lib;physfs.lib;jsoncpp.lib;awesomium.lib;sfml-graphics-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;opengl32.lib;winmm.lib;sfml-system-s.lib;gdi32.lib;sfml-window-s.lib;freetype.lib;jpeg.lib;physfs.lib;sfml-audio-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;jsoncpp.lib;awesomium.lib;sfml-graphics-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>Q:\built;Q:\built\Release;Q:\SFML-2.4.0\lib;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\build\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

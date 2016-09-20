@@ -41,7 +41,7 @@ sf::physfs::~physfs(){
     }
 }
 
-sf::Int64 sf::physfs::Read(char *data, sf::Int64 size){
+sf::Int64 sf::physfs::read(void *data, sf::Int64 size){
     if (error){
         return 0;}
     sf::Int64 readed = PHYSFS_read(file, data, 1, size);
@@ -52,7 +52,7 @@ sf::Int64 sf::physfs::Read(char *data, sf::Int64 size){
     return readed;
 }
 
-sf::Int64 sf::physfs::Seek(sf::Int64 position){
+sf::Int64 sf::physfs::seek(sf::Int64 position){
     if (error){
         return -1;}
     if ( PHYSFS_seek(file, position) == 0 ){
@@ -62,7 +62,7 @@ sf::Int64 sf::physfs::Seek(sf::Int64 position){
     return position;
 }
 
-sf::Int64 sf::physfs::Tell(){
+sf::Int64 sf::physfs::tell(){
     if (error){
         return -1;}
     sf::Int64 position = PHYSFS_tell(file);
@@ -72,7 +72,7 @@ sf::Int64 sf::physfs::Tell(){
     return position;
 }
 
-sf::Int64 sf::physfs::GetSize(){
+sf::Int64 sf::physfs::getSize(){
     if (error){
         return -1;}
     sf::Int64 size = PHYSFS_fileLength(file);

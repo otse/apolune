@@ -83,7 +83,7 @@ void ap::World::step() {
 
 	camerax = ply->gx() + (26 / 2);
 	cameray = ply->gy() + (34 / 2);
-	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(ply->orientation));
+	as::valuez.SetPropertyAsync(WSLit("orientation"), JSValue(ply->orientation));
 	
 	
 	cursorlight->sx(en::mou::mx-75);

@@ -3,11 +3,16 @@
 #include "def.h"
 #include "../en/engine.h"
 
+#include <SFML/Audio/SoundBuffer.hpp>
+
 
 using namespace ap;
 
 // # fonts
 // look in ap/bulk.cpp
+
+// # sounds
+sf::SoundBuffer *sounds::placepart;
 
 // # textures
 en::Texture textures::spread("spread.png");

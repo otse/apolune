@@ -289,7 +289,7 @@ class Value extends Item
 		
 		super o
 
-		@before = null
+		@after = null
 
 		@build()
 
@@ -308,11 +308,11 @@ class Value extends Item
 
 		val = app.valuez[@o.cpp].toFixed 1
 
-		return if val is @before
+		###return if val is @after
 
-		@before = val
+		@after = val
 
-		console.log "updating #{@o.cpp}"
+		console.log "updating #{@o.cpp}"###
 
 		@value.html "#{val}#{@o.suffix}"
 		1

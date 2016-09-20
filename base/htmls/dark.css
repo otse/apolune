@@ -119,13 +119,13 @@
 .insides .item {
 	position: relative;
     display: inline-block;
-    padding: 6px;
+    padding: 0 1ex;
     white-space: nowrap;
     /* border-radius: 2px; */
     margin: 1px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(66, 97, 109, 0.5);
-    background: rgba(20, 35, 41, 0.5);
+    bborder: 1px solid rgba(255, 255, 255, 0.05);
+    bbackground: rgba(66, 97, 109, 0.5);
+    bbackground: rgba(20, 35, 41, 0.5);
 }
 
 .insides .item > .shortcut {

@@ -144,10 +144,10 @@ void ap::as::mawe() {
 	global = view->CreateGlobalJavascriptObject(WSLit("app")).ToObject();
 	valuez = view->CreateGlobalJavascriptObject(WSLit("app.valuez")).ToObject();
 
-	as::global.SetPropertyAsync(WSLit("orientation"), JSValue(0));
+	valuez.SetPropertyAsync(WSLit("orientation"), JSValue(0));
 
-	as::global.SetPropertyAsync(WSLit("w"), JSValue(en::width/2));
-	as::global.SetPropertyAsync(WSLit("h"), JSValue(en::height/2));
+	global.SetPropertyAsync(WSLit("w"), JSValue(en::width/2));
+	global.SetPropertyAsync(WSLit("h"), JSValue(en::height/2));
 
 	dispatcher.Bind(global, WSLit("start"), JSDelegate(&start));
 	dispatcher.Bind(global, WSLit("scale"), JSDelegate(&scale));
@@ -228,7 +228,7 @@ void ap::as::step() {
 		view->InjectMouseUp(kMouseButton_Right);
 
 	if (oar::DOWN == oar::keys[sf::Keyboard::C]) {
-		crossSection(view)
+
 	}
 
 	if (oar::DOWN == oar::keys[sf::Keyboard::Q]) {

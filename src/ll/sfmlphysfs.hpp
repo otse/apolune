@@ -35,10 +35,10 @@ namespace sf{
         public:
             physfs(const char *);
             ~physfs();
-            sf::Int64 Read(char *, sf::Int64);
-            sf::Int64 Seek(sf::Int64);
-            sf::Int64 Tell();
-            sf::Int64 GetSize();
+            virtual sf::Int64 read(void *, sf::Int64);
+            sf::Int64 seek(sf::Int64);
+            sf::Int64 tell();
+            sf::Int64 getSize();
     };
 
 }

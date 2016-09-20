@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+
 #include "../../en/fbo.h"
 #include "../def.h"
 
@@ -18,6 +19,7 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 
 	Draws::r = &r;
 	stexture(fbo = obf = new en::FBO(&en::BLACK, r));
+	//contiguous = new en::FBO(&en::BLACK, r);
 
 	yflip = true;
 
@@ -54,6 +56,8 @@ void ap::mesh::Mass::clicked(Tile &t) {
 	if (&mou::left == mou::active && mou::PRESSED == *mou::active) {
 		Part *p = partfactory(t, ply->partname);
 		t.attach(p);
+
+		
 	}
 }
 
@@ -89,6 +93,7 @@ void ap::mesh::Mass::add(Part *p) {
 	sh(h);
 
 	obf->resize(w, h);
+	//contiguous->resize(w, h);
 
 }
 

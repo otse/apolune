@@ -17,6 +17,9 @@
 #include "start.h"
 #include "def.h"
 
+#include "ll/sfmlphysfs.hpp"
+#include <SFML/Audio/SoundBuffer.hpp>
+
 
 ap::Loader::Loader()
 	: en::Draws(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
@@ -98,6 +101,9 @@ void ap::Loader::step() {
 			explain("Sounds");
 
 			// -~-~-~- LOADS
+
+			auto a = ap::sounds::placepart = new sf::SoundBuffer();
+			a->loadFromStream(sf::physfs("sounds/placebeep.ogg"));
 
 			// -~-~-~-
 
