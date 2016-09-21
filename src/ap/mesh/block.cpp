@@ -108,7 +108,8 @@ void ap::mesh::Block::refit () {
 
 	Tile **all = tile.gneighbors();
 
-	bool blocks[8] = {false};
+	bool blocks[8];
+	std::fill_n(blocks, 8, false);
 
 	/*for (int i = 0; i < 4; i++) {
 		if (nullptr != junctions[i]) {
@@ -123,7 +124,7 @@ void ap::mesh::Block::refit () {
 		if (t && t->gpart()) {
 			Block* type = dynamic_cast<Block*> (t->gpart());
 
-			LOG("type is " << (nullptr != type) )
+			//LOG("type is " << ((nullptr != type) ? 1 : 0) )
 
 			blocks[i] = nullptr != type;
 		}
