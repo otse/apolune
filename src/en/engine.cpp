@@ -241,7 +241,7 @@ void en::oar::poll() {
 
 bool en::nukeif(const Draws *p) {
 	if (p->remove) {
-		LOG("nukeif a draws to " << en::Draws::GCOUNT())
+		//LOG("nukeif a draws to " << en::Draws::GCOUNT())
 		delete p;
 		return true;
 	}

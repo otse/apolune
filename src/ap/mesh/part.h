@@ -21,7 +21,7 @@ namespace ap {
 		protected:
 
 		public:
-			Part(Tile &, const Model, TYPE);
+			Part(Tile &);
 
 			~Part();
 

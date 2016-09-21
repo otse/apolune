@@ -100,7 +100,7 @@ const Wall::Model Wall::quad2 = {
 		}, 100};
 
 
-ap::ship::Wall::Wall(Tile &t) : Part(t, single.m, WALL) ,
+ap::ship::Wall::Wall(Tile &t) : Part(t) ,
 	model(&single),
 	outline(nullptr)
 	{

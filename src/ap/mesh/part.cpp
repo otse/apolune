@@ -11,8 +11,8 @@
 
 using namespace ap::mesh;
 
-ap::mesh::Part::Part(Tile &t, const Model m, TYPE type) :
-	ap::Sprite(SORT_UNIMPORTANT, m.t, m.r) ,
+ap::mesh::Part::Part(Tile &t) :
+	ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	tile(t),
 	type(type)
 	{

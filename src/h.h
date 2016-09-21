@@ -87,6 +87,7 @@ namespace ap {
 		class Grid;
 		class Tile;
 		class Part;
+		class Block;
 
 	}
 	

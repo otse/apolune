@@ -132,13 +132,13 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 		return;
 
 	if ( mou::HOVER_IN == h ) {
-		seethrough = mesh::partfactory(*this, ply->partname);
+		//seethrough = mesh::partfactory(*this, ply->partname);
 		//attach(seethrough);
 
 		sregion(&regions::tileover);
 		nodraw = false;
 	} else {
-		delete seethrough;
+		//delete seethrough;
 		sregion(&regions::tile);
 		if ( part )
 			nodraw = true;

@@ -57,6 +57,8 @@ namespace ap {
 		extern en::Texture backdrop;
 		extern en::Texture craftgrid;
 		extern en::Texture parts;
+		extern en::Texture hulls;
+		extern en::Texture metal;
 
 		extern en::Texture rocks;		
 		
@@ -95,6 +97,14 @@ namespace ap {
 		extern en::Region clawbase;
 		extern en::Region asteroid;
 		extern en::Region masteroid;
+
+		extern en::Region blocksingle;
+		extern en::Region blockuni;
+		extern en::Region blockduo;
+		extern en::Region blockopposite;
+		extern en::Region blocktri;
+		extern en::Region blockquad;
+		extern en::Region blockjunction;
 
 		extern en::Region trusssingle;
 		extern en::Region trussuni;

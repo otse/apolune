@@ -45,7 +45,7 @@ const Truss::Model Truss::quad = {
 		}, 100, 100};
 
 
-ap::ship::Truss::Truss(Tile &t) : Part(t, single.m, TRUSS) ,
+ap::ship::Truss::Truss(Tile &t) : Part(t) ,
 	model(&single),
 	wall(nullptr),
 	outline(nullptr),
@@ -137,6 +137,8 @@ void ap::ship::Truss::junction(int i, int r) {
 #define TOPLEFT 	trusses[7]
 
 void ap::ship::Truss::refit() {
+	return;
+
 	Tile **all = tile.gneighbors();
 
 	bool trusses[8]; // = {false};

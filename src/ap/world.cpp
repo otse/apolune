@@ -103,7 +103,7 @@ void ap::World::step() {
 	
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, lightmap->gfbid() );
 	
-	glClearColor(0, 0, 0, .40f); // alpha is intensity of the ambient darkness
+	glClearColor(0, 0, 0, .00f); // alpha is intensity of the ambient darkness
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	lighting();

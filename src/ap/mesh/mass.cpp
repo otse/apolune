@@ -16,8 +16,7 @@
 
 ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	r({ 0,0,16,16 }),
-	grid(*this, 8, Tile::eight),
-	grid2(*this, 16, Tile::sixteen)
+	grid(*this, 8, Tile::eight)
 	{
 
 	Draws::r = &r;
@@ -32,7 +31,7 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	sx(0);
 	sy(0);
 
-	grid2.enabled = true;
+	grid.enabled = true;
 }
 
 ap::mesh::Mass::~Mass() {
@@ -57,12 +56,14 @@ void ap::mesh::Mass::clicked(Tile &t) {
 		return; // invoke partclick?
 
 	if (&mou::left == mou::active && mou::PRESSED == *mou::active) {
-		Part *p = partfactory(t, ply->partname);
-		t.attach(p);
+		
+		if ( Part *p = partfactory(t, ply->partname) ) {
+			t.attach(p);
 
-		sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
-		bep->play();
-		en::sounds.push_back(bep);
+			sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
+			bep->play();
+			en::sounds.push_back(bep);
+		}
 	}
 }
 
@@ -72,7 +73,7 @@ void ap::mesh::Mass::add(Part *p) {
 
 	// re fbo;
 
-	const Region normal = grid2.gnormal();
+	const Region normal = grid.gnormal();
 
 	LOG("gnormal " << normal.x << " " << normal.y << " " << normal.w << " " << normal.h)
 

@@ -22,7 +22,6 @@ namespace ap {
 			virtual void clicked(Tile &);
 
 			Grid grid;
-			Grid grid2;
 
 			void add(Part *);
 

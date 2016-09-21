@@ -2,6 +2,7 @@
 
 #include "mesh.h"
 
+#include "block.h"
 #include "../ship/truss.h"
 
 
@@ -11,10 +12,13 @@ Part *ap::mesh::partfactory(Tile &t, std::string &type) {
 
 	Part *part = nullptr;
 
-	if (type.compare("truss")) {
+	if (0 == type.compare("hull")) {
+		part = new Block(t);
+	}
+	else if (0 == type.compare("truss")) {
 		part = new ship::Truss(t);
 	}
-	else if (type.compare("trussangled")) {
+	else if (0 == type.compare("trussangled")) {
 		part = new ship::Truss(t);
 	}
 

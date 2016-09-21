@@ -12,7 +12,7 @@ ap::ship::Ship::Ship() : Mass() ,
 	crosssection(true)
 	{
 	
-	Tile &zero = *grid2.gtile(0,0);
+	Tile &zero = *grid.gtile(0,0);
 	Truss *p = new Truss(zero);
 	zero.attach(p);
 

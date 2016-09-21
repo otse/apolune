@@ -170,6 +170,7 @@
     <ClInclude Include="..\..\src\ap\hangar.h" />
     <ClInclude Include="..\..\src\ap\light.h" />
     <ClInclude Include="..\..\src\ap\loader.h" />
+    <ClInclude Include="..\..\src\ap\mesh\block.h" />
     <ClInclude Include="..\..\src\ap\mesh\grid.h" />
     <ClInclude Include="..\..\src\ap\mesh\mass.h" />
     <ClInclude Include="..\..\src\ap\mesh\mesh.h" />
@@ -223,6 +224,7 @@
     <ClCompile Include="..\..\src\ap\emitter.cpp" />
     <ClCompile Include="..\..\src\ap\light.cpp" />
     <ClCompile Include="..\..\src\ap\loader.cpp" />
+    <ClCompile Include="..\..\src\ap\mesh\block.cpp" />
     <ClCompile Include="..\..\src\ap\mesh\grid.cpp" />
     <ClCompile Include="..\..\src\ap\mesh\mass.cpp" />
     <ClCompile Include="..\..\src\ap\mesh\mesh.cpp" />
