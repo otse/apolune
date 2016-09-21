@@ -38,7 +38,7 @@ const Block::Side Block::quad = {
 };
 
 ap::mesh::Block::Block(Tile &t) : Part(t) ,
-	asd(0)
+	side(&single)
 	{
 	sw(8);
 	sh(8);
@@ -123,8 +123,6 @@ void ap::mesh::Block::refit () {
 
 		if (t && t->gpart()) {
 			Block* type = dynamic_cast<Block*> (t->gpart());
-
-			//LOG("type is " << ((nullptr != type) ? 1 : 0) )
 
 			blocks[i] = nullptr != type;
 		}

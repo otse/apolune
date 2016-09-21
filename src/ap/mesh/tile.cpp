@@ -31,8 +31,9 @@ ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
 	part(nullptr),
 	spawned(0),
 
-	neighbors {nullptr}
+	neighbors{nullptr}
 	{
+	std::fill_n(neighbors, 8, nullptr);
 
 	sw(r->w);
 	sh(r->h);
