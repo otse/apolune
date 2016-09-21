@@ -55,6 +55,9 @@ namespace ap {
 		private:
 			const Side *side;
 
+			void junction(int, int);
+			Sprite *junctions[4];
+
 		protected:
 
 		};

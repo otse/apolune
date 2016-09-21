@@ -40,6 +40,8 @@ const Block::Side Block::quad = {
 ap::mesh::Block::Block(Tile &t) : Part(t) ,
 	side(&single)
 	{
+	std::fill_n(junctions, 4, nullptr);
+
 	sw(8);
 	sh(8);
 
@@ -62,7 +64,9 @@ ap::mesh::Block::Block(Tile &t) : Part(t) ,
 }
 
 ap::mesh::Block::~Block() {
-	
+	for (int i = 0; i < 4; i++)
+		if (nullptr != junctions[i])
+			delete junctions[i];
 }
 
 void ap::mesh::Block::step() {
@@ -71,6 +75,11 @@ void ap::mesh::Block::step() {
 
 void ap::mesh::Block::draw() {
 	Part::draw();
+
+	if (nullptr != junctions[0]) junctions[0]->draw();
+	if (nullptr != junctions[1]) junctions[1]->draw();
+	if (nullptr != junctions[2]) junctions[2]->draw();
+	if (nullptr != junctions[3]) junctions[3]->draw();
 }
 
 void ap::mesh::Block::click() {
@@ -95,6 +104,18 @@ void ap::mesh::Block::connect () {
 	refit();
 }
 
+void ap::mesh::Block::junction(int i, int r) {
+	Sprite *j = new Sprite(SORT_UNIMPORTANT, &textures::hulls, &ap::regions::blockjunction);
+	j->world = false;
+	j->rotate = r;
+
+	j->sx(gx());
+	j->sy(gy());
+	j->fbo = tile.grid.mass.gobf();
+
+	junctions[i] = j;
+}
+
 #define TOP 		blocks[0]
 #define TOPRIGHT 	blocks[1]
 #define RIGHT 		blocks[2]
@@ -111,12 +132,12 @@ void ap::mesh::Block::refit () {
 	bool blocks[8];
 	std::fill_n(blocks, 8, false);
 
-	/*for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++) {
 		if (nullptr != junctions[i]) {
 			delete junctions[i];
 			junctions[i] = nullptr;
 		}
-	}*/
+	}
 
 	for (int i = 0; i < 8; i++) {
 		Tile *t = all[i];
@@ -200,7 +221,7 @@ void ap::mesh::Block::refit () {
 
 	sregion(side->r);
 
-	/*if (side == &quad) {
+	if (side == &quad) {
 		if (!TOPLEFT)
 			junction(0, 0);
 
@@ -238,7 +259,7 @@ void ap::mesh::Block::refit () {
 
 		if (!BOTTOMLEFT && (rotate == 180))
 			junction(3, 270);
-	}*/
+	}
 
 	//if (nullptr != wall)
 		//wall->refit();

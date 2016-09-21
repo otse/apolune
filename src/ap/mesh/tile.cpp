@@ -35,6 +35,8 @@ ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
 	{
 	std::fill_n(neighbors, 8, nullptr);
 
+	nodraw = true;
+
 	sw(r->w);
 	sh(r->h);
 
@@ -141,8 +143,8 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 	} else {
 		//delete seethrough;
 		sregion(&regions::tile);
-		if ( part )
-			nodraw = true;
+		//if ( part )
+		nodraw = true;
 	}
 
 }

@@ -4,6 +4,7 @@
 
 #include "ship.h"
 #include "truss.h"
+#include "../mesh/block.h"
 
 using namespace ap::ship;
 using namespace ap::mesh;
@@ -13,7 +14,7 @@ ap::ship::Ship::Ship() : Mass() ,
 	{
 	
 	Tile &zero = *grid.gtile(0,0);
-	Truss *p = new Truss(zero);
+	Block *p = new Block(zero);
 	zero.attach(p);
 
 	//t2.attach(p);
