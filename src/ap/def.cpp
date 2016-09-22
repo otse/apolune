@@ -15,22 +15,6 @@ using namespace ap;
 sf::SoundBuffer *sounds::torquewrench;
 
 // # textures
-en::Texture textures::spread("spread.png");
-
-en::Texture textures::normal1("fonts/normal1.png");
-en::Texture textures::normal2("fonts/normal2.png");
-en::Texture textures::big1("fonts/sheet.png");
-en::Texture textures::monospace1("fonts/monospace1.png");
-en::Texture textures::monospace2("fonts/monospace2.png");
-en::Texture textures::statfont("fonts/statfont.png");
-en::Texture textures::valuefont("fonts/valuefont.png");
-en::Texture textures::buttonfont("fonts/buttonfont.png");
-en::Texture textures::valuefontchangeable("fonts/valuefontchangeable.png");
-en::Texture textures::noticefont("fonts/noticefont.png");
-en::Texture textures::clifont("fonts/clifont.png");
-
-en::Texture textures::guipieces("guipieces.png");
-
 en::Texture textures::hangar("scenes/hangar.png");
 en::Texture textures::hangarlight("lights/hangarlight.png");
 en::Texture textures::cursorlight("lights/cursorlight.png");
@@ -69,8 +53,6 @@ en::Texture textures::sparkle1("effects/sparkle1.png");
 en::Texture textures::bubbles("effects/bubbles.png");
 
 // # regions
-en::Region regions::clipane = {0,0,800,160};
-en::Region regions::spread = {0,0,512,512};
 en::Region regions::teacup = {0,0,8,8};
 
 en::Region regions::hangar = {0,0,937,497};
@@ -209,8 +191,6 @@ en::Color colors::RED = {1,0,0};
 en::Color colors::GREEN = {0,1,0};
 en::Color colors::BLUE = {0,0,1};
 en::Color colors::YELLOW = {1,1,0};
-
-en::Color colors::CLIPANE = {30/255.f, 33/255.f, 37/255.f};
 
 en::Color colors::BLUEISH = {73/255.f, 83/255.f, 92/255.f};
 en::Color colors::MENUGREY = {31/255.f,31/255.f,31/255.f};
@@ -403,18 +383,6 @@ int ap::yof;
 
 
 void ap::loadtex() {
-	
-	textures::normal2.load();
-	//textures::big1.load();
-	textures::monospace1.load();
-	textures::monospace2.load();
-	textures::statfont.load();
-	textures::valuefont.load();
-	textures::buttonfont.load();
-	textures::valuefontchangeable.load();
-	textures::clifont.load();
-	
-	textures::guipieces.load();
 	
 	textures::hangar.load();
 	textures::hangarlight.load();

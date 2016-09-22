@@ -41,7 +41,6 @@ namespace ap {
 		double tbulb;
 		void bulb();
 		void muse();
-		en::Text *wisdom = nullptr;
 
 	private:
 		bool use;

@@ -33,8 +33,6 @@ namespace envars {
 namespace en {
 
 	class FBO;
-	class Font;
-	class Text;
 	class Draws;
 	class Texture;
 	class Shader;

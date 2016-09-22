@@ -6,10 +6,8 @@
 #include "h.h"
 
 #include "en/fbo.h"
-#include "ap/cli.h"
 #include "ap/loader.h"
 #include "ap/lua.h"
-#include "ap/start.h"
 
 //#include "ap/world.h"
 #include "ap/ply.h"
@@ -194,16 +192,5 @@ void react() {
 	
 	if (nullptr!=world  &&  oar::DOWN==oar::keys[sf::Keyboard::Escape] /* ESC */ ) {
 		
-	}
-
-	if ( oar::DOWN==oar::keys[sf::Keyboard::Tilde] ) {
-		if ( nullptr == cli ) {
-			cli = new CLI();
-			add(cli);
-		}
-		else {
-			cli->remove = true;
-			cli = nullptr;
-		}
 	}
 } 

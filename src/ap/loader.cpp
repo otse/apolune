@@ -11,10 +11,7 @@
 
 #include "../en/engine.h"
 #include "../en/fbo.h"
-#include "../en/font.h"
-#include "../en/text.h"
 
-#include "start.h"
 #include "def.h"
 
 #include "ll/sfmlphysfs.hpp"

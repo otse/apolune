@@ -6,7 +6,6 @@
 #include "../h.h"
 #include "../en/engine.h"
 #include "../en/anim.h"
-#include "../en/text.h"
 #include "ply.h"
 
 
@@ -46,8 +45,7 @@ void ap::Ply::step() {
 		use = false;
 	
 	if ( tbulb > 10 ) {
-		wisdom->remove = true;
-		wisdom = nullptr;
+
 	}
 }
 

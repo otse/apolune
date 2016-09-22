@@ -24,7 +24,6 @@ namespace ap {
 	private:
 		Draws *pane;
 		
-		std::vector<Text *> texts;
 	};
 	
 }

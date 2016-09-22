@@ -42,8 +42,8 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 		}
 	}
 
-	Sprite *light = new Sprite(SORT_HIGH, &textures::cursorlight, &regions::cursorlight);
-	ap::world->add(light);
+	//Sprite *light = new Sprite(SORT_HIGH, &textures::cursorlight, &regions::cursorlight);
+	//ap::world->add(light);
 
 	Sprite *fud = new Sprite(SORT_HIGH, &textures::cursorlight, &regions::cursorlight);
 	ap::world->lights.v.push_back(fud);

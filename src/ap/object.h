@@ -23,9 +23,7 @@ namespace ap {
 		
 		void tryactivate();
 		
-		virtual void tooltipping();
 	protected:
-		en::Text *tooltip;
 		int activaterange;
 		double thovering;
 		

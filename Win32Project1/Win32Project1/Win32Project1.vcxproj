@@ -163,7 +163,6 @@
     <ClInclude Include="..\..\src\ap\asteroid\all.h" />
     <ClInclude Include="..\..\src\ap\asteroid\asteroid.h" />
     <ClInclude Include="..\..\src\ap\asteroid\rock.h" />
-    <ClInclude Include="..\..\src\ap\cli.h" />
     <ClInclude Include="..\..\src\ap\def.h" />
     <ClInclude Include="..\..\src\ap\emitter.h" />
     <ClInclude Include="..\..\src\ap\gui\button.h" />
@@ -192,10 +191,8 @@
     <ClInclude Include="..\..\src\en\draws.h" />
     <ClInclude Include="..\..\src\en\engine.h" />
     <ClInclude Include="..\..\src\en\fbo.h" />
-    <ClInclude Include="..\..\src\en\font.h" />
     <ClInclude Include="..\..\src\en\shader.h" />
     <ClInclude Include="..\..\src\en\stltempl.h" />
-    <ClInclude Include="..\..\src\en\text.h" />
     <ClInclude Include="..\..\src\en\texture.h" />
     <ClInclude Include="..\..\src\h.h" />
     <ClInclude Include="..\..\src\ll\files.h" />
@@ -214,8 +211,6 @@
     <ClCompile Include="..\..\src\ap\ais\tentacle.cpp" />
     <ClCompile Include="..\..\src\ap\asteroid\asteroid.cpp" />
     <ClCompile Include="..\..\src\ap\asteroid\rock.cpp" />
-    <ClCompile Include="..\..\src\ap\bulk.cpp" />
-    <ClCompile Include="..\..\src\ap\cli.cpp" />
     <ClCompile Include="..\..\src\ap\def.cpp" />
     <ClCompile Include="..\..\src\ap\emitter.cpp" />
     <ClCompile Include="..\..\src\ap\light.cpp" />
@@ -242,9 +237,7 @@
     <ClCompile Include="..\..\src\en\draws.cpp" />
     <ClCompile Include="..\..\src\en\engine.cpp" />
     <ClCompile Include="..\..\src\en\fbo.cpp" />
-    <ClCompile Include="..\..\src\en\font.cpp" />
     <ClCompile Include="..\..\src\en\shader.cpp" />
-    <ClCompile Include="..\..\src\en\text.cpp" />
     <ClCompile Include="..\..\src\en\texture.cpp" />
     <ClCompile Include="..\..\src\ll\files.cpp" />
     <ClCompile Include="..\..\src\ll\load.cpp" />

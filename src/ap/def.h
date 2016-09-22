@@ -11,41 +11,12 @@
 namespace sf { class SoundBuffer; } // fw
 
 namespace ap {
-	
-	extern const en::Font normal1;
-	extern const en::Font normal2;
-	extern const en::Font big1;
-	extern const en::Font monospace1;
-	extern const en::Font monospace2;
-	
-	extern const en::Font statfont;
-	extern const en::Font valuefont;
-	extern const en::Font buttonfont;
-	extern const en::Font valuefontchangeable;
-	extern const en::Font noticefont;
-	extern const en::Font clifont;
 
 	namespace sounds {
 		extern sf::SoundBuffer *torquewrench;
 	}
 	
-	namespace textures {
-		extern en::Texture spread;
-		
-		extern en::Texture normal1;
-		extern en::Texture normal2;
-		extern en::Texture big1;
-		extern en::Texture monospace1;
-		extern en::Texture monospace2;
-		extern en::Texture statfont;
-		extern en::Texture valuefont;
-		extern en::Texture buttonfont;
-		extern en::Texture valuefontchangeable;
-		extern en::Texture noticefont;
-		extern en::Texture clifont;
-		
-		extern en::Texture guipieces;
-		
+	namespace textures {		
 		extern en::Texture teacup;
 		
 		extern en::Texture hangar;
@@ -87,12 +58,9 @@ namespace ap {
 	}
 	
 	namespace regions {
-		extern en::Region spread;
-		
 		extern en::Region hangar;
 		extern en::Region hangarlight;
 		
-		extern en::Region clipane;
 		extern en::Region ply;
 		extern en::Region backdrop;
 		
@@ -249,8 +217,6 @@ namespace ap {
 		extern en::Color GREEN;
 		extern en::Color BLUE;
 		extern en::Color YELLOW;
-		
-		extern en::Color CLIPANE;
 		
 		extern en::Color BLUEISH;
 		extern en::Color MENUGREY;
