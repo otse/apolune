@@ -184,10 +184,6 @@
     <ClInclude Include="..\..\src\ap\objects\table.h" />
     <ClInclude Include="..\..\src\ap\planet.h" />
     <ClInclude Include="..\..\src\ap\ply.h" />
-    <ClInclude Include="..\..\src\ap\ship\all.h" />
-    <ClInclude Include="..\..\src\ap\ship\ship.h" />
-    <ClInclude Include="..\..\src\ap\ship\truss.h" />
-    <ClInclude Include="..\..\src\ap\ship\wall.h" />
     <ClInclude Include="..\..\src\ap\sprite.h" />
     <ClInclude Include="..\..\src\ap\world.h" />
     <ClInclude Include="..\..\src\awesome.h" />
@@ -238,9 +234,6 @@
     <ClCompile Include="..\..\src\ap\objects\table.cpp" />
     <ClCompile Include="..\..\src\ap\planet.cpp" />
     <ClCompile Include="..\..\src\ap\ply.cpp" />
-    <ClCompile Include="..\..\src\ap\ship\ship.cpp" />
-    <ClCompile Include="..\..\src\ap\ship\truss.cpp" />
-    <ClCompile Include="..\..\src\ap\ship\wall.cpp" />
     <ClCompile Include="..\..\src\ap\sprite.cpp" />
     <ClCompile Include="..\..\src\ap\world.cpp" />
     <ClCompile Include="..\..\src\awesome.cpp" />

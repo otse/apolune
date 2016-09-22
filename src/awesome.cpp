@@ -5,7 +5,7 @@
 #include "en/draws.h"
 #include "en/fbo.h"
 
-#include "ap/ship/all.h"
+#include "ap/mesh/mass.h"
 
 #include "ll/method_dispatcher.h"
 
@@ -205,11 +205,11 @@ void ap::as::crossSection(WebView* caller, const JSArray& args) {
 	WebString value = args[0].ToString();
 
 	if (value == WSLit("on")) {
-		ap::world->craft->crosssection = true;
+		//ap::world->ship->crosssection = true;
 		valuez.SetPropertyAsync(WSLit("crossSection"), JSValue("on"));
 	}
 	else if (value == WSLit("off")) {
-		ap::world->craft->crosssection = false;
+		//ap::world->ship->crosssection = false;
 		valuez.SetPropertyAsync(WSLit("crossSection"), JSValue("off"));
 	}
 	return;

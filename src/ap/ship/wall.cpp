@@ -120,9 +120,11 @@ void ap::ship::Wall::step() {
 }
 
 void ap::ship::Wall::draw2(bool rear) {
+	return;
+	/*
 	int r = rotate;
 
-	Ship &ship = dynamic_cast<Ship &>(tile.grid.mass); // todo: bad, every mass should be able to dissect
+	//Ship &ship = dynamic_cast<Ship &>(tile.grid.mass); // todo: bad, every mass should be able to dissect
 
 	if ( rear ) {
 		//sregion(model->rear.r);
@@ -136,7 +138,7 @@ void ap::ship::Wall::draw2(bool rear) {
 
 	draw();
 
-	rotate = r;
+	rotate = r;*/
 }
 
 void ap::ship::Wall::click() {
@@ -162,6 +164,8 @@ void ap::ship::Wall::hover(mou::Hover h) {
 #define TOPLEFT 	walls[7]
 
 void ap::ship::Wall::refit() {
+	return;
+	/*
 	Tile **all = tile.gneighbors();
 
 	bool walls[8]; // = {false};
@@ -239,7 +243,7 @@ void ap::ship::Wall::refit() {
 	else if ( LEFT ) {
 		model = &uni;
 		rotate = 270;
-	}
+	}*/
 
 }
 

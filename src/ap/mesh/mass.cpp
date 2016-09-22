@@ -8,6 +8,7 @@
 
 #include "mass.h"
 #include "part.h"
+#include "block.h"
 
 #include "../ply.h"
 #include "../ship/truss.h"
@@ -32,6 +33,17 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	sy(0);
 
 	grid.enabled = true;
+
+	for (int y = 0; y < 20; y++) {
+		for (int x = 0; x < 20; x++) {
+			Tile &t = grid.mtile(x, y);
+
+			if (x == 0 || y == 0 || x == 19 || y == 19) {
+				Block *p = new Block(t);
+				t.attach(p);
+			}
+		}
+	}
 }
 
 ap::mesh::Mass::~Mass() {

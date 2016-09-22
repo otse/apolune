@@ -90,12 +90,6 @@ namespace ap {
 		class Block;
 
 	}
-	
-	namespace ship {
-		class Ship;
-		class Truss;
-		class Wall;
-	}
 
 	extern ais::Chicken *chicken;
 	

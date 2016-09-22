@@ -29,7 +29,7 @@ namespace ap {
 		en::FBO *lightmap;
 		en::FBO *stars;
 
-		ship::Ship *craft;
+		mesh::Mass *ship;
 		
 		Sprite *cursorlight;
 

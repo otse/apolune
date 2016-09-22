@@ -13,9 +13,11 @@ ap::ship::Ship::Ship() : Mass() ,
 	crosssection(true)
 	{
 	
-	Tile &zero = *grid.gtile(0,0);
-	Block *p = new Block(zero);
-	zero.attach(p);
+	//Tile &zero = *grid.gtile(0,0);
+	//Block *p = new Block(zero);
+	//zero.attach(p);
+
+	
 
 	//t2.attach(p);
 

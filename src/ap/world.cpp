@@ -12,7 +12,7 @@
 #include "hangar.h"
 #include "emitter.h"
 
-#include "ship/all.h"
+#include "mesh/mass.h"
 #include "asteroid/all.h"
 
 #include "def.h"
@@ -28,7 +28,7 @@ ap::World::World() :
 	//resort(true),
 	backdrop(nullptr),
 	hangar(nullptr),
-	craft(nullptr),
+	ship(nullptr),
 
 	fboreg( {0,0,en::width,en::height} )
 	{
@@ -247,8 +247,8 @@ void ap::World::load() {
 			&regions::backdrop);
 	// don't add; we render the backdrop last, manually
 	
-	craft = new ship::Ship();
-	add(craft);
+	ship = new mesh::Mass();
+	add(ship);
 
 	//asteroid::Asteroid *ast = new asteroid::Asteroid();
 	//add(ast);

@@ -25,9 +25,6 @@
     <Filter Include="Source Files\ll">
       <UniqueIdentifier>{c68b78b6-0563-4d1f-8475-018a160c6b73}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ship">
-      <UniqueIdentifier>{9b556292-edef-4bc3-8065-c0d152d6c62d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\mesh">
       <UniqueIdentifier>{b20d9546-a27f-402d-8968-87f3b6058798}</UniqueIdentifier>
     </Filter>
@@ -168,18 +165,6 @@
     <ClInclude Include="..\..\src\ll\method_dispatcher.h">
       <Filter>Source Files\ll</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\ap\ship\truss.h">
-      <Filter>Source Files\ship</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\ap\ship\wall.h">
-      <Filter>Source Files\ship</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\ap\ship\ship.h">
-      <Filter>Source Files\ship</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\ap\ship\all.h">
-      <Filter>Source Files\ship</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\ap\mesh\grid.h">
       <Filter>Source Files\mesh</Filter>
     </ClInclude>
@@ -307,15 +292,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\awesome.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\ap\ship\truss.cpp">
-      <Filter>Source Files\ship</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\ap\ship\wall.cpp">
-      <Filter>Source Files\ship</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\ap\ship\ship.cpp">
-      <Filter>Source Files\ship</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\ap\mesh\grid.cpp">
       <Filter>Source Files\mesh</Filter>
