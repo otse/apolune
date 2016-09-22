@@ -23,6 +23,7 @@ namespace ap {
 				en::Region *r;
 			};
 
+
 			static const Side single;
 			static const Side uni;
 			static const Side duo;

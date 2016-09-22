@@ -13,6 +13,7 @@
 
 using namespace ap::mesh;
 
+
 const Block::Side Block::single = {
 	&ap::regions::outlinesingle
 };
@@ -56,7 +57,7 @@ ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
 	sw(8);
 	sh(8);
 
-	sregion(&regions::blocksingle);
+	// sregion(&regions::blocksingle);
 	stexture(&textures::hulls);
 
 	sx(t.gx()*t.grid.gpoints());

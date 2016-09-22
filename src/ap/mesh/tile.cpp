@@ -31,7 +31,7 @@ ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
 	fore(nullptr),
 	aft(nullptr),
 	spawned(0),
-	variation(ceil(ilrand() * 4)),
+	variation(floor(ilrand() * 6)),
 
 	neighbors{nullptr}
 	{
