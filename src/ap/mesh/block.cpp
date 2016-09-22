@@ -14,42 +14,50 @@
 using namespace ap::mesh;
 
 const Block::Side Block::single = {
-	&ap::regions::blocksingle
+	&ap::regions::outlinesingle
 };
 
 const Block::Side Block::uni = {
-	&ap::regions::blockuni
+	&ap::regions::outlineuni
 };
 
 const Block::Side Block::duo = {
-	&ap::regions::blockduo
+	&ap::regions::outlineduo
 };
 
 const Block::Side Block::opposite = {
-	&ap::regions::blockopposite
+	&ap::regions::outlineopposite
 };
 
 const Block::Side Block::tri = {
-	&ap::regions::blocktri
+	&ap::regions::outlinetri
 };
 
 const Block::Side Block::quad = {
-	&ap::regions::blockquad
+	&ap::regions::outlinequad
 };
 
 ap::mesh::Block::Block(Tile &t) : Part(t) ,
-	side(&single)
+	side(&single),
+	outline(SORT_UNIMPORTANT, &textures::outlines, &en::regfluke )
 	{
 	std::fill_n(junctions, 4, nullptr);
 
 	sw(8);
 	sh(8);
 
-	sregion(duo.r);
+	outline.sw(16);
+	outline.sh(16);
+
+	sregion(&regions::blocksingle);
 	stexture(&textures::hulls);
 
 	sx(t.gx()*t.grid.gpoints());
 	sy(t.gy()*t.grid.gpoints());
+
+	outline.sx(gx()-4);
+	outline.sy(gy()-4);
+
 	world = false;
 
 	em = new Emitter(Emitter::placesparks);
@@ -57,7 +65,7 @@ ap::mesh::Block::Block(Tile &t) : Part(t) ,
 	em->sy(gy()+t.grid.gy()+ (t.grid.gpoints()/2));
 	ap::world->add(em);
 
-	fbo = t.grid.mass.gobf();
+	fbo = outline.fbo = t.grid.mass.gobf();
 
 	// t.attach(this);
 
@@ -75,6 +83,7 @@ void ap::mesh::Block::step() {
 
 void ap::mesh::Block::draw() {
 	Part::draw();
+	outline.draw();
 
 	if (nullptr != junctions[0]) junctions[0]->draw();
 	if (nullptr != junctions[1]) junctions[1]->draw();
@@ -152,74 +161,75 @@ void ap::mesh::Block::refit () {
 	// quad
 	if (TOP && RIGHT && BOTTOM && LEFT) {
 		side = &quad;
-		rotate = 0;
+		outline.rotate = 0;
 	}
 
 	// tri
 	else if (TOP && RIGHT && BOTTOM) {
 		side = &tri;
-		rotate = 0;
+		outline.rotate = 0;
 	}
 	else if (RIGHT && BOTTOM && LEFT) {
 		side = &tri;
-		rotate = 90;
+		outline.rotate = 90;
 	}
 	else if (BOTTOM && LEFT && TOP) {
 		side = &tri;
-		rotate = 180;
+		outline.rotate = 180;
 	}
 	else if (LEFT && TOP && RIGHT) {
 		side = &tri;
-		rotate = 270;
+		outline.rotate = 270;
 	}
 
 	// duo
 	else if (TOP && RIGHT) {
 		side = &duo;
-		rotate = 0;
+		outline.rotate = 0;
 	}
 	else if (RIGHT && BOTTOM) {
 		side = &duo;
-		rotate = 90;
+		outline.rotate = 90;
 	}
 	else if (BOTTOM && LEFT) {
 		side = &duo;
-		rotate = 180;
+		outline.rotate = 180;
 	}
 	else if (LEFT && TOP) {
 		side = &duo;
-		rotate = 270;
+		outline.rotate = 270;
 	}
 
 	// opposite
 	else if (TOP && BOTTOM) {
 		side = &opposite;
-		rotate = 0;
+		outline.rotate = 0;
 	}
 	else if (LEFT && RIGHT) {
 		side = &opposite;
-		rotate = 90;
+		outline.rotate = 90;
 	}
 
 	// uni
 	else if (TOP) {
 		side = &uni;
-		rotate = 0;
+		outline.rotate = 0;
 	}
 	else if (RIGHT) {
 		side = &uni;
-		rotate = 90;
+		outline.rotate = 90;
 	}
 	else if (BOTTOM) {
 		side = &uni;
-		rotate = 180;
+		outline.rotate = 180;
 	}
 	else if (LEFT) {
 		side = &uni;
-		rotate = 270;
+		outline.rotate = 270;
 	}
 
-	sregion(side->r);
+	//sregion(side->r);
+	outline.sregion(side->r);
 
 	if (side == &quad) {
 		if (!TOPLEFT)

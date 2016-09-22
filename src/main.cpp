@@ -59,7 +59,6 @@ using namespace en;
 #include "awesome.h"
 #include "boilerplate.h"
 
-#include "ap/ship/all.h"
 #include "ap/ais/chicken.h"
 
 

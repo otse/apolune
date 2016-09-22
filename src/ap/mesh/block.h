@@ -53,10 +53,12 @@ namespace ap {
 			virtual void refit();
 
 		private:
+			Draws outline;
 			const Side *side;
 
 			void junction(int, int);
 			Sprite *junctions[4];
+
 
 		protected:
 

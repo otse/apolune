@@ -13,7 +13,7 @@ ap::mesh::Grid::Grid(Mass &mass, int points, Draws::Model m) : ap::Sprite(SORT_U
 	normal( {0,0,0,0} ),
 	enabled(false)
 	{
-	mtile(0, 0);
+	//mtile(0, 0);
 
 	sx(0);
 	sy(0);

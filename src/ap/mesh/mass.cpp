@@ -34,16 +34,24 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 
 	grid.enabled = true;
 
-	for (int y = 0; y < 20; y++) {
-		for (int x = 0; x < 20; x++) {
+	for (int y = 0; y < 9; y++) {
+		for (int x = 0; x < 9; x++) {
 			Tile &t = grid.mtile(x, y);
+		}
+	}
 
-			if (x == 0 || y == 0 || x == 19 || y == 19) {
+	// cube
+	for (int y = 1; y < 8; y++) {
+		for (int x = 1; x < 8; x++) {
+			Tile &t = *grid.gtile(x, y);
+			
+			if ( (x == 1 || y == 1 || x == 7 || y == 7) ) {
 				Block *p = new Block(t);
 				t.attach(p);
 			}
 		}
 	}
+
 }
 
 ap::mesh::Mass::~Mass() {
@@ -70,7 +78,9 @@ void ap::mesh::Mass::clicked(Tile &t) {
 	if (&mou::left == mou::active && mou::PRESSED == *mou::active) {
 		
 		if ( Part *p = partfactory(t, ply->partname) ) {
+			LOG("ATTACHING")
 			t.attach(p);
+			LOG("AFTER ATTACH")
 
 			sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
 			bep->play();
@@ -97,7 +107,7 @@ void ap::mesh::Mass::add(Part *p) {
 	if (normal.x < 0) w += -normal.x;
 	if (normal.y < 0) h += -normal.y;
 
-	int factor = 16;
+	int factor = 8;
 
 	w *= factor;
 	h *= factor;

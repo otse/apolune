@@ -4,9 +4,8 @@
 
 #include "../def.h"
 #include "../world.h"
-#include "../ship/all.h"
 
-#include "mesh.h"
+#include "mass.h"
 
 
 using namespace ap::mesh;
