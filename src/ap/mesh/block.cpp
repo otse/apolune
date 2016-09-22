@@ -37,12 +37,19 @@ const Block::Side Block::quad = {
 	&ap::regions::outlinequad
 };
 
+static float i = 126.f / 255.f;
+static en::Color aft = { i,i,i };
+
+
 ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
 	side(&single),
 	outline(SORT_UNIMPORTANT, &textures::outlines, &regions::outlinesingle),
 	shadow(SORT_UNIMPORTANT, &textures::shadows, &regions::outlinesingle)
 	{
 	std::fill_n(junctions, 4, nullptr);
+
+	if (AFT == fixture)
+		color = &aft;
 
 	sw(8);
 	sh(8);
@@ -66,6 +73,7 @@ ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
 	ap::world->add(em);
 
 	fbo = outline.fbo = shadow.fbo = t.grid.mass.gobf();
+	//shadow.fbo = t.grid.mass.gshadow();
 
 	// t.attach(this);
 
@@ -84,18 +92,9 @@ void ap::mesh::Block::step() {
 void ap::mesh::Block::draw(PASS p) {
 	switch (p) {
 	case FOREGROUND_PASS:
-		if (FORE==fixture) {
-			Sprite::draw();
-		}
-		break;
-
 	case BACKGROUND_PASS:
-		if (AFT == fixture) {
-			static float i = 126.f / 255.f;
-			static en::Color aft = { i,i,i };
-			color = &aft;
-			Sprite::draw();
-		}
+		Sprite::draw();
+		outline.draw();
 		break;
 
 	case SHADOW_PASS:
@@ -103,12 +102,11 @@ void ap::mesh::Block::draw(PASS p) {
 		break;
 	}
 	
-	outline.draw();
 
-	if (nullptr != junctions[0]) junctions[0]->draw();
+	/*if (nullptr != junctions[0]) junctions[0]->draw();
 	if (nullptr != junctions[1]) junctions[1]->draw();
 	if (nullptr != junctions[2]) junctions[2]->draw();
-	if (nullptr != junctions[3]) junctions[3]->draw();
+	if (nullptr != junctions[3]) junctions[3]->draw();*/
 }
 
 void ap::mesh::Block::click() {
@@ -164,12 +162,12 @@ void ap::mesh::Block::refit () {
 	bool blocks[8];
 	std::fill_n(blocks, 8, false);
 
-	for (int i = 0; i < 4; i++) {
+	/*for (int i = 0; i < 4; i++) {
 		if (nullptr != junctions[i]) {
 			delete junctions[i];
 			junctions[i] = nullptr;
 		}
-	}
+	}*/
 
 	for (int i = 0; i < 8; i++) {
 		Tile *t = all[i];
@@ -181,80 +179,87 @@ void ap::mesh::Block::refit () {
 		blocks[i] = !! type;
 	}
 
+	float ro = 0;
+
 	// quad
 	if (TOP && RIGHT && BOTTOM && LEFT) {
 		side = &quad;
-		outline.rotate = 0;
+		ro = 0;
 	}
 
 	// tri
 	else if (TOP && RIGHT && BOTTOM) {
 		side = &tri;
-		outline.rotate = 0;
+		ro = 0;
 	}
 	else if (RIGHT && BOTTOM && LEFT) {
 		side = &tri;
-		outline.rotate = 90;
+		ro = 90;
 	}
 	else if (BOTTOM && LEFT && TOP) {
 		side = &tri;
-		outline.rotate = 180;
+		ro = 180;
 	}
 	else if (LEFT && TOP && RIGHT) {
 		side = &tri;
-		outline.rotate = 270;
+		ro = 270;
 	}
 
 	// duo
 	else if (TOP && RIGHT) {
 		side = &duo;
-		outline.rotate = 0;
+		ro = 0;
 	}
 	else if (RIGHT && BOTTOM) {
 		side = &duo;
-		outline.rotate = 90;
+		ro = 90;
 	}
 	else if (BOTTOM && LEFT) {
 		side = &duo;
-		outline.rotate = 180;
+		ro = 180;
 	}
 	else if (LEFT && TOP) {
 		side = &duo;
-		outline.rotate = 270;
+		ro = 270;
 	}
 
 	// opposite
 	else if (TOP && BOTTOM) {
 		side = &opposite;
-		outline.rotate = 0;
+		ro = 0;
 	}
 	else if (LEFT && RIGHT) {
 		side = &opposite;
-		outline.rotate = 90;
+		ro = 90;
 	}
 
 	// uni
 	else if (TOP) {
 		side = &uni;
-		outline.rotate = 0;
+		ro = 0;
 	}
 	else if (RIGHT) {
 		side = &uni;
-		outline.rotate = 90;
+		ro = 90;
 	}
 	else if (BOTTOM) {
 		side = &uni;
-		outline.rotate = 180;
+		ro = 180;
 	}
 	else if (LEFT) {
 		side = &uni;
-		outline.rotate = 270;
+		ro = 270;
 	}
 
 	//sregion(side->r);
-	outline.sregion(side->r);
 
-	if (side == &quad) {
+	outline.nodraw = shadow.nodraw = side == &quad;
+	outline.rotate = shadow.rotate = ro;
+
+	outline.sregion(side->r);
+	shadow.sregion(side->r);
+
+	/*if (side == &quad) {
 		if (!TOPLEFT)
 			junction(0, 0);
 
@@ -292,22 +297,11 @@ void ap::mesh::Block::refit () {
 
 		if (!BOTTOMLEFT && (rotate == 180))
 			junction(3, 270);
-	}
+	}*/
 
 	//if (nullptr != wall)
 		//wall->refit();
 }
-
-	/*Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
-	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
-	Part *left = (tile.gleft() && tile.gleft()->gpart()) ? tile.gleft()->gpart() : nullptr;
-	Part *right = (tile.gright() && tile.gright()->gpart()) ? tile.gright()->gpart() : nullptr;*/
-
-	/*if ( !(top && top->gtype() == TRUSS && dynamic_cast<Truss *>(top)->gwall()) ) top = nullptr;
-	if ( !(bottom && bottom->gtype() == TRUSS && dynamic_cast<Truss *>(bottom)->gwall()) ) bottom = nullptr;
-	if ( !(left && left->gtype() == TRUSS && dynamic_cast<Truss *>(left)->gwall()) ) left = nullptr;
-	if ( !(right && right->gtype() == TRUSS && dynamic_cast<Truss *>(right)->gwall()) ) right = nullptr;*/
-
 
 /* ###########################
    ## Getters & Setters

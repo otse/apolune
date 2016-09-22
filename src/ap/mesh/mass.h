@@ -26,6 +26,7 @@ namespace ap {
 			void add(Part *);
 
 			en::FBO *gobf() const;
+			en::FBO *gshadow() const;
 
 		protected:
 			en::Region r;

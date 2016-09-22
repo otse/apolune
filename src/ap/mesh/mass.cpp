@@ -14,7 +14,6 @@
 #include "../ship/truss.h"
 
 
-
 ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	r({ 0,0,16,16 }),
 	grid(*this, 8, Tile::eight)
@@ -24,6 +23,8 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	stexture(fbo = obf = new en::FBO(&en::BLACK, r));
 	
 	shadow = new en::FBO(&en::BLACK, r);
+
+	//shadow->gdraws().fbo = obf;
 
 	yflip = true;
 
@@ -60,16 +61,12 @@ ap::mesh::Mass::~Mass() {
 }
 
 void ap::mesh::Mass::step() {
-
 	std::vector<Part *>::iterator it;
 	for (it = fores.begin(); it < fores.end(); it++) {
 		Part *p = *it;
 		p->step();
 	}
-
-
 }
-
 
 void ap::mesh::Mass::clicked(Tile &t) {
 
@@ -123,8 +120,8 @@ void ap::mesh::Mass::add(Part *p) {
 	w *= factor;
 	h *= factor;
 
-	obf->x = x * factor;
-	obf->y = y * factor;
+	shadow->x = obf->x = x * factor;
+	shadow->y = obf->y = y * factor;
 
 	sx(x * factor);
 	sy(y * factor);
@@ -138,7 +135,7 @@ void ap::mesh::Mass::add(Part *p) {
 }
 
 void ap::mesh::Mass::draw() {
-	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, obf->gfbid());
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, shadow->gfbid());
 
 	glPushAttrib(GL_VIEWPORT_BIT);
 	glViewport(0, 0, obf->gw(), obf->gh());
@@ -152,17 +149,25 @@ void ap::mesh::Mass::draw() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-	{std::vector<Part *>::iterator it;
-	for (it = afts.begin(); it < afts.end(); it++) {
-		Part *p = *it;
-		p->draw(BACKGROUND_PASS);
-	}}
 
 	{std::vector<Part *>::iterator it;
 	for (it = fores.begin(); it < fores.end(); it++) {
 		Part *p = *it;
 		p->draw(SHADOW_PASS);
 	}}
+
+	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, obf->gfbid());
+
+	glClearColor(0, 0, 0, 0);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	{std::vector<Part *>::iterator it;
+	for (it = afts.begin(); it < afts.end(); it++) {
+		Part *p = *it;
+		p->draw(BACKGROUND_PASS);
+	}}
+
+	shadow->gdraws().draw();
 
 	{std::vector<Part *>::iterator it;
 	for (it = fores.begin(); it < fores.end(); it++) {
@@ -190,3 +195,4 @@ void ap::mesh::Mass::draw() {
    ## Getters & Setters
    ########################### */
 FBO *ap::mesh::Mass::gobf() const { return obf; }
+FBO *ap::mesh::Mass::gshadow() const { return shadow; }

@@ -64,6 +64,8 @@ void en::FBO::resize(int w, int h) {
 	region.h = h;
 	sw(w);
 	sh(h);
+	draws.sw(w);
+	draws.sh(h);
 	glBindTexture(GL_TEXTURE_2D, tid);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
 }
