@@ -13,6 +13,8 @@
 
 using namespace ap::mesh;
 
+en::Region Block::variations[6] = { { 0,0,8,8 }, { 8,0,8,8 }, { 16,0,8,8 }, { 24,0,8,8 }, { 32,0,8,8 }, { 40,0,8,8 } };
+
 const Block::Side Block::single = {
 	&ap::regions::outlinesingle
 };
@@ -56,7 +58,8 @@ ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
 	sw(8);
 	sh(8);
 
-	sregion(&regions::blocksingle);
+	// sregion(&regions::blocksingle);
+	sregion( &variations[tile.variation] );
 	stexture(&textures::hulls);
 
 	sx(t.gx()*t.grid.gpoints());
