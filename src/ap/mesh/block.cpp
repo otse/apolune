@@ -60,6 +60,7 @@ ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
 
 	// sregion(&regions::blocksingle);
 	sregion( &variations[tile.variation] );
+
 	stexture(&textures::hulls);
 
 	sx(t.gx()*t.grid.gpoints());
