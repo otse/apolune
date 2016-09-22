@@ -10,10 +10,10 @@
 
 using namespace ap::mesh;
 
-ap::mesh::Part::Part(Tile &t) :
+ap::mesh::Part::Part(FIXTURE f, Tile &t) :
 	ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
-	tile(t),
-	type(type)
+	fixture(f),
+	tile(t)
 	{
 	sx(t.gx()*t.grid.gpoints());
 	sy(t.gy()*t.grid.gpoints());
@@ -38,8 +38,9 @@ void ap::mesh::Part::step() {
 	Sprite::step();
 }
 
-void ap::mesh::Part::draw() {
-	Sprite::draw();
+void ap::mesh::Part::draw(PASS p) {
+	if (p == FOREGROUND_PASS)
+		Sprite::draw();
 }
 
 void ap::mesh::Part::click() {

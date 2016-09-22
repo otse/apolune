@@ -37,17 +37,15 @@ const Block::Side Block::quad = {
 	&ap::regions::outlinequad
 };
 
-ap::mesh::Block::Block(Tile &t) : Part(t) ,
+ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
 	side(&single),
-	outline(SORT_UNIMPORTANT, &textures::outlines, &en::regfluke )
+	outline(SORT_UNIMPORTANT, &textures::outlines, &regions::outlinesingle),
+	shadow(SORT_UNIMPORTANT, &textures::shadows, &regions::outlinesingle)
 	{
 	std::fill_n(junctions, 4, nullptr);
 
 	sw(8);
 	sh(8);
-
-	outline.sw(16);
-	outline.sh(16);
 
 	sregion(&regions::blocksingle);
 	stexture(&textures::hulls);
@@ -57,6 +55,8 @@ ap::mesh::Block::Block(Tile &t) : Part(t) ,
 
 	outline.sx(gx()-4);
 	outline.sy(gy()-4);
+	shadow.sx(gx() - 4);
+	shadow.sy(gy() - 4);
 
 	world = false;
 
@@ -65,7 +65,7 @@ ap::mesh::Block::Block(Tile &t) : Part(t) ,
 	em->sy(gy()+t.grid.gy()+ (t.grid.gpoints()/2));
 	ap::world->add(em);
 
-	fbo = outline.fbo = t.grid.mass.gobf();
+	fbo = outline.fbo = shadow.fbo = t.grid.mass.gobf();
 
 	// t.attach(this);
 
@@ -81,8 +81,28 @@ void ap::mesh::Block::step() {
 	Sprite::step();
 }
 
-void ap::mesh::Block::draw() {
-	Part::draw();
+void ap::mesh::Block::draw(PASS p) {
+	switch (p) {
+	case FOREGROUND_PASS:
+		if (FORE==fixture) {
+			Sprite::draw();
+		}
+		break;
+
+	case BACKGROUND_PASS:
+		if (AFT == fixture) {
+			float i = 126 / 255;
+			static en::Color aft = { i,i,i };
+			color = &aft;
+			Sprite::draw();
+		}
+		break;
+
+	case SHADOW_PASS:
+		shadow.draw();
+		break;
+	}
+	
 	outline.draw();
 
 	if (nullptr != junctions[0]) junctions[0]->draw();
@@ -104,10 +124,13 @@ void ap::mesh::Block::connect () {
 
 	for (int i = 0; i < 8; i++) {
 		Tile *t = all[i];
-		Block* type = dynamic_cast<Block*> (t->gpart());
 
-		if (t && t->gpart() && type)
-			t->gpart()->refit();
+		_ASSERT(t);
+
+		Block* type = dynamic_cast<Block*> (t->gpart(fixture));
+
+		if (type)
+			type->refit();
 	}
 
 	refit();
@@ -151,11 +174,11 @@ void ap::mesh::Block::refit () {
 	for (int i = 0; i < 8; i++) {
 		Tile *t = all[i];
 
-		if (t && t->gpart()) {
-			Block* type = dynamic_cast<Block*> (t->gpart());
+		_ASSERT(t);
 
-			blocks[i] = nullptr != type;
-		}
+		Block* type = dynamic_cast<Block*> (t->gpart(fixture));
+
+		blocks[i] = !! type;
 	}
 
 	// quad

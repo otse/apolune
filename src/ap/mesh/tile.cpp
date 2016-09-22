@@ -28,7 +28,8 @@ ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
 	y(y),
 	grid(grid),
 	seethrough(nullptr),
-	part(nullptr),
+	fore(nullptr),
+	aft(nullptr),
 	spawned(0),
 
 	neighbors{nullptr}
@@ -86,7 +87,7 @@ void ap::mesh::Tile::click() {
 
 
 void ap::mesh::Tile::attach(Part *p) {
-	part = p;
+	(FORE == p->fixture ? fore : aft) = p;
 	grid.expandfrom(*this);
 	p->connect();
 	grid.mass.add(p);
@@ -157,7 +158,9 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 //	return grid;
 //}
 
-Part *ap::mesh::Tile::gpart() { return part; }
+Part *ap::mesh::Tile::gpart(FIXTURE f) { return FORE == f ? fore : aft; }
+Part *ap::mesh::Tile::gaft() { return aft; }
+Part *ap::mesh::Tile::gaft() { return aft; }
 
 /*Tile *ap::mesh::Tile::gtop() { return top; }
 Tile *ap::mesh::Tile::gtopleft() { return topleft; }

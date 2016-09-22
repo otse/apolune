@@ -32,8 +32,7 @@ namespace ap {
 		protected:
 
 		public:
-			Block(Tile &);
-
+			Block(FIXTURE f, Tile &);
 			~Block();
 
 			int asd;
@@ -41,7 +40,7 @@ namespace ap {
 			virtual void click();
 			virtual void hover(mou::Hover h);
 			virtual void step();
-			virtual void draw();
+			virtual void draw(PASS);
 
 			//Ship &craft;
 			Emitter *em;
@@ -54,6 +53,8 @@ namespace ap {
 
 		private:
 			Draws outline;
+			Draws shadow;
+
 			const Side *side;
 
 			void junction(int, int);

@@ -41,6 +41,7 @@ en::Texture textures::backdrop("earth.png");
 en::Texture textures::craftgrid("craft/grid.png");
 en::Texture textures::parts("craft/parts.png");
 en::Texture textures::outlines("craft/outlines.png");
+en::Texture textures::shadows("craft/shadows.png");
 en::Texture textures::hulls("craft/hulls.png");
 
 en::Texture textures::rocks("craft/rocks.png");
@@ -424,6 +425,7 @@ void ap::loadtex() {
 	textures::craftgrid.load();
 	textures::parts.load();
 	textures::outlines.load();
+	textures::shadows.load();
 	textures::hulls.load();
 	
 	textures::apexcoolchair.load();

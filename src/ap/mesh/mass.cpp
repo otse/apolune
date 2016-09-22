@@ -22,7 +22,8 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 
 	Draws::r = &r;
 	stexture(fbo = obf = new en::FBO(&en::BLACK, r));
-	//contiguous = new en::FBO(&en::BLACK, r);
+	
+	shadow = new en::FBO(&en::BLACK, r);
 
 	yflip = true;
 
@@ -46,7 +47,7 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 			Tile &t = *grid.gtile(x, y);
 			
 			if ( (x == 1 || y == 1 || x == 7 || y == 7) ) {
-				Block *p = new Block(t);
+				Block *p = new Block(FORE, t);
 				t.attach(p);
 			}
 		}
@@ -61,7 +62,7 @@ ap::mesh::Mass::~Mass() {
 void ap::mesh::Mass::step() {
 
 	std::vector<Part *>::iterator it;
-	for (it = parts.v.begin(); it < parts.v.end(); it++) {
+	for (it = fores.begin(); it < fores.end(); it++) {
 		Part *p = *it;
 		p->step();
 	}
@@ -75,12 +76,20 @@ void ap::mesh::Mass::clicked(Tile &t) {
 	if ( nullptr != t.gpart() )
 		return; // invoke partclick?
 
+	// todo: the amount of duplication is unfunny
 	if (&mou::left == mou::active && mou::PRESSED == *mou::active) {
 		
-		if ( Part *p = partfactory(t, ply->partname) ) {
-			LOG("ATTACHING")
+		if ( Part *p = partfactory(FORE, t, ply->partname) ) {
 			t.attach(p);
-			LOG("AFTER ATTACH")
+
+			sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
+			bep->play();
+			en::sounds.push_back(bep);
+		}
+	}
+	else if (&mou::right == mou::active && mou::PRESSED == *mou::active) {
+		if (Part *p = partfactory(AFT, t, ply->partname)) {
+			t.attach(p);
 
 			sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
 			bep->play();
@@ -91,7 +100,7 @@ void ap::mesh::Mass::clicked(Tile &t) {
 
 void ap::mesh::Mass::add(Part *p) {
 
-	parts.v.push_back(p);
+	(FORE == p->fixture ? fores : afts).push_back(p);
 
 	// re fbo;
 
@@ -121,6 +130,7 @@ void ap::mesh::Mass::add(Part *p) {
 	sh(h);
 
 	obf->resize(w, h);
+	shadow->resize(w, h);
 	//contiguous->resize(w, h);
 
 }
@@ -140,11 +150,23 @@ void ap::mesh::Mass::draw() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-	std::vector<Part *>::iterator it;
-	for (it = parts.v.begin(); it < parts.v.end(); it++) {
+	{std::vector<Part *>::iterator it;
+	for (it = afts.begin(); it < afts.end(); it++) {
 		Part *p = *it;
-		p->draw();
-	}
+		p->draw(BACKGROUND_PASS);
+	}}
+
+	{std::vector<Part *>::iterator it;
+	for (it = fores.begin(); it < fores.end(); it++) {
+		Part *p = *it;
+		p->draw(SHADOW_PASS);
+	}}
+
+	{std::vector<Part *>::iterator it;
+	for (it = fores.begin(); it < fores.end(); it++) {
+		Part *p = *it;
+		p->draw(FOREGROUND_PASS);
+	}}
 
 	glPopAttrib();
 

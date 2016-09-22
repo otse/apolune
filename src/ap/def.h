@@ -58,6 +58,7 @@ namespace ap {
 		extern en::Texture craftgrid;
 		extern en::Texture parts;
 		extern en::Texture outlines;
+		extern en::Texture shadows;
 		extern en::Texture hulls;
 		extern en::Texture metal;
 

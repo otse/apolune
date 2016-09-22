@@ -2,17 +2,18 @@
 
 #include "mesh.h"
 
+#include "tile.h"
 #include "block.h"
 
 
 using namespace ap::mesh;
 
-Part *ap::mesh::partfactory(Tile &t, std::string &type) {
+Part *ap::mesh::partfactory(FIXTURE f, Tile &t, std::string &type) {
 
 	Part *part = nullptr;
 
 	if (0 == type.compare("hull")) {
-		part = new Block(t);
+		part = new Block(f, t);
 	}
 	else if (0 == type.compare("truss")) {
 	}

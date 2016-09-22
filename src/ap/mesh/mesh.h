@@ -1,9 +1,14 @@
 #pragma once
 
-#include "part.h"
+#include "../../h.h"
 
 namespace ap {
 	namespace mesh {
-		Part *partfactory(Tile &, std::string &);
+		enum FIXTURE {
+			FORE,
+			AFT
+		};
+
+		Part *partfactory(FIXTURE f, Tile &, std::string &);
 	}
 }

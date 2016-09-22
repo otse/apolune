@@ -11,6 +11,13 @@ namespace ap {
 
 	class Sprite : public Draws {
 	public:
+		enum PASS {
+			FOREGROUND_PASS,
+			BACKGROUND_PASS,
+			OUTLINE_PASS,
+			SHADOW_PASS
+		};
+
 		struct Hitbox {
 			int x;
 			int y;
@@ -26,7 +33,6 @@ namespace ap {
 		virtual void hover(mou::Hover);
 		
 		virtual void step();
-		virtual void draw();
 		
 		virtual void translate();
 		

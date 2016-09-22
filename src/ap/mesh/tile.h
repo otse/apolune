@@ -6,6 +6,7 @@
 #include "../sprite.h"
 
 #include "mesh.h"
+#include "part.h"
 #include "grid.h"
 
 namespace ap {
@@ -35,14 +36,18 @@ namespace ap {
 			int gy();
 
 			Grid &grid;
-			Part *gpart();
+			Part *gpart(FIXTURE);
+			Part *gfore();
+			Part *gaft();
+
 			Tile **gneighbors();
 
 		protected:
 			void expand();
 			
 			Part *seethrough;
-			Part *part;
+			Part *fore;
+			Part *aft;
 			Tile *neighbors[8];
 
 			int x;

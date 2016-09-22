@@ -29,11 +29,16 @@ namespace ap {
 
 		protected:
 			en::Region r;
+
 			en::FBO *obf;
-			en::FBO *hull;
+			en::FBO *outside;
+
+			en::FBO *shadow;
+
 			en::FBO *contiguous;
 
-			en::Vector<mesh::Part *> parts;
+			std::vector<mesh::Part *> fores;
+			std::vector<mesh::Part *> afts;
 
 		};
 	}

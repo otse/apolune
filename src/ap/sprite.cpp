@@ -11,16 +11,10 @@ ap::Sprite::Sprite(en::sort_t g, en::Texture *t, en::Region *r)
 	world(true)
 	{
 	Sprite::COUNT ++;
-
-	scale = 1;
-	sw(gw()*scale);
-	sh(gh()*scale);
 }
 
 ap::Sprite::~Sprite() {
-
 	Sprite::COUNT --;
-	// overlay
 }
 
 void ap::Sprite::translate() {
@@ -40,7 +34,6 @@ void ap::Sprite::translate() {
 }
 
 void ap::Sprite::step() { Draws::step(); }
-void ap::Sprite::draw() { Draws::draw(); }
 
 bool ap::Sprite::isinside(en::Region *t) {
 	if ( gx() >= t->x &&
