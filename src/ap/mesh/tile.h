@@ -14,6 +14,9 @@ namespace ap {
 	namespace mesh {
 		class Tile : public Sprite {
 		public:
+			typedef int variation_t;
+			
+			const variation_t variation;
 
 			static const Draws::Model eight;
 			static const Draws::Model sixteen;
