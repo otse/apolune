@@ -73,11 +73,10 @@ void ap::mesh::Mass::step() {
 
 void ap::mesh::Mass::clicked(Tile &t) {
 
-	if ( nullptr != t.gpart() )
-		return; // invoke partclick?
-
 	// todo: the amount of duplication is unfunny
 	if (&mou::left == mou::active && mou::PRESSED == *mou::active) {
+
+		if (t.gpart(FORE)) return;
 		
 		if ( Part *p = partfactory(FORE, t, ply->partname) ) {
 			t.attach(p);
@@ -88,6 +87,9 @@ void ap::mesh::Mass::clicked(Tile &t) {
 		}
 	}
 	else if (&mou::right == mou::active && mou::PRESSED == *mou::active) {
+
+		if (t.gpart(AFT)) return;
+
 		if (Part *p = partfactory(AFT, t, ply->partname)) {
 			t.attach(p);
 

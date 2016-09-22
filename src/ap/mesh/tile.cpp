@@ -159,7 +159,7 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 //}
 
 Part *ap::mesh::Tile::gpart(FIXTURE f) { return FORE == f ? fore : aft; }
-Part *ap::mesh::Tile::gaft() { return aft; }
+Part *ap::mesh::Tile::gfore() { return fore; }
 Part *ap::mesh::Tile::gaft() { return aft; }
 
 /*Tile *ap::mesh::Tile::gtop() { return top; }

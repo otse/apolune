@@ -91,7 +91,7 @@ void ap::mesh::Block::draw(PASS p) {
 
 	case BACKGROUND_PASS:
 		if (AFT == fixture) {
-			float i = 126 / 255;
+			static float i = 126.f / 255.f;
 			static en::Color aft = { i,i,i };
 			color = &aft;
 			Sprite::draw();
