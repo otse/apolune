@@ -31,7 +31,7 @@ ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
 	fore(nullptr),
 	aft(nullptr),
 	spawned(0),
-	variation(floor(ilrand() * 7)),
+	variation(ceil(ilrand() * 4)),
 
 	neighbors{nullptr}
 	{
@@ -39,6 +39,7 @@ ap::mesh::Tile::Tile(Grid &grid, Model m, int x, int y) :
 
 	nodraw = true;
 
+	LOG("variation " << variation)
 	sw(r->w);
 	sh(r->h);
 

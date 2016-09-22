@@ -10,6 +10,7 @@
 #include "part.h"
 #include "block.h"
 
+#include "../world.h"
 #include "../ply.h"
 #include "../ship/truss.h"
 
@@ -40,6 +41,12 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 			Tile &t = grid.mtile(x, y);
 		}
 	}
+
+	Sprite *light = new Sprite(SORT_HIGH, &textures::cursorlight, &regions::cursorlight);
+	ap::world->add(light);
+
+	Sprite *fud = new Sprite(SORT_HIGH, &textures::cursorlight, &regions::cursorlight);
+	ap::world->lights.v.push_back(fud);
 
 	// cube
 	for (int y = 1; y < 8; y++) {

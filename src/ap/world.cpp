@@ -92,7 +92,6 @@ void ap::World::step() {
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
-	
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::list<Sprite *>::iterator it;
@@ -103,7 +102,7 @@ void ap::World::step() {
 	
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, lightmap->gfbid() );
 	
-	glClearColor(0, 0, 0, .00f); // alpha is intensity of the ambient darkness
+	glClearColor(0, 0, 0, .40f); // alpha is intensity of the ambient darkness
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	lighting();
