@@ -38,7 +38,7 @@ const Block::Side Block::opposite = { &outlineopposite };
 const Block::Side Block::tri = { &outlinetri };
 const Block::Side Block::quad = { &outlinequad };
 
-static float i = 135.f / 255.f;
+static float i = 126.f / 255.f;
 static en::Color aft = { i,i,i };
 
 
