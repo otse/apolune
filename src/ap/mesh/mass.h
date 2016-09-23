@@ -24,6 +24,7 @@ namespace ap {
 			Grid grid;
 
 			void add(Part *);
+			void remove(Part *);
 
 			en::FBO *gobf() const;
 			en::FBO *gshadow() const;

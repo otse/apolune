@@ -100,14 +100,15 @@ void ap::mesh::Tile::attach(Part& p) {
 
 void ap::mesh::Tile::detach(FIXTURE f) {
 
-	//Part &p = *(FORE == f ? fore : aft);
+	Part* p = (FORE == f ? fore : aft);
 
 	(FORE == f ? fore : aft) = nullptr;
 
 	//p.connect();
 
-	// todo: put in method
-	// refit surroundings to new emptiness
+	// todo: the code below is duped everywhere
+
+	// Refit palls to new emptiness
 	for (int i = 0; i < 8; i++) {
 		Tile *t = neighbors[i];
 
@@ -116,11 +117,11 @@ void ap::mesh::Tile::detach(FIXTURE f) {
 
 		_ASSERT(t);
 
-		if (auto p = t->gpart(f))
-			p->refit();
+		if (auto a = t->gpart(f))
+			a->refit();
 	}
 
-	// todo: remove from ship
+	grid.mass.remove(p);
 }
 
 void ap::mesh::Tile::hasneighbor(int x, int y) {

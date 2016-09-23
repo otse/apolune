@@ -144,7 +144,13 @@ void ap::mesh::Mass::add(Part *p) {
 }
 
 void ap::mesh::Mass::remove(Part *p) {
+	std::vector<Part*>vec = (FORE == p->fixture ? fores : afts);
 
+	std::vector<Part*>::iterator pos = std::find(vec.begin(), vec.end(), p);
+	if (vec.end() != pos) {
+		LOG("removing Part from Mass")
+		vec.erase(pos);
+	}
 }
 
 void ap::mesh::Mass::draw() {

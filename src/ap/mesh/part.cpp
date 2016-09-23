@@ -42,7 +42,7 @@ void ap::mesh::Part::step() {
 }
 
 void ap::mesh::Part::draw(PASS p) {
-	if (p == FOREGROUND_PASS)
+	if (FORE == fixture && p == FOREGROUND_PASS || AFT == fixture && p == BACKGROUND_PASS )
 		Sprite::draw();
 }
 
