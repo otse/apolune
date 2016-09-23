@@ -24,7 +24,7 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	stexture(fbo = obf = new en::FBO(&en::BLACK, r));
 	
 	shadow = new en::FBO(&en::BLACK, r);
-	shadow->gdraws().sa(.2);
+	shadow->gdraws().sa(.25);
 
 	yflip = true;
 
