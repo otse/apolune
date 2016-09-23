@@ -26,7 +26,10 @@ en::Texture textures::craftgrid("craft/grid.png");
 en::Texture textures::parts("craft/parts.png");
 en::Texture textures::outlines("craft/outlines.png");
 en::Texture textures::shadows("craft/shadows.png");
+
 en::Texture textures::hulls("craft/hulls.png");
+en::Texture textures::aluminium("craft/aluminium.png");
+en::Texture textures::rusty("craft/rusty.png");
 
 en::Texture textures::rocks("craft/rocks.png");
 
@@ -79,21 +82,7 @@ en::Region regions::tileover = {16,0,16,16};
 
 en::Region regions::tile16 = { 0,0,16,16 };
 
-en::Region regions::outlinesingle = { 0,0,16,16 };
-en::Region regions::outlineuni = { 16,0,16,16 };
-en::Region regions::outlineduo = { 32,0,16,16 };
-en::Region regions::outlineopposite = { 48,0,16,16 };
-en::Region regions::outlinetri = { 64,0,16,16 };
-en::Region regions::outlinequad = { 80,0,16,16 };
-en::Region regions::outlinejunction = { 96,0,16,16 };
 
-en::Region regions::blocksingle = { 0,0,8,8 };
-en::Region regions::blockuni = { 8,0,8,8 };
-en::Region regions::blockduo = { 16,0,8,8 };
-en::Region regions::blockopposite = { 24,0,8,8 };
-en::Region regions::blocktri = { 32,0,8,8 };
-en::Region regions::blockquad = { 40,0,8,8 };
-en::Region regions::blockjunction = { 48,0,8,8 };
 
 en::Region regions::trusssingle = {0,0,16,16};
 en::Region regions::trussuni = {16,0,16,16};
@@ -394,7 +383,10 @@ void ap::loadtex() {
 	textures::parts.load();
 	textures::outlines.load();
 	textures::shadows.load();
+
 	textures::hulls.load();
+	textures::aluminium.load();
+	textures::rusty.load();
 	
 	textures::apexcoolchair.load();
 	textures::apexcooltable.load();

@@ -13,31 +13,30 @@
 
 using namespace ap::mesh;
 
-en::Region Block::variations[6] = { { 0,0,8,8 }, { 8,0,8,8 }, { 16,0,8,8 }, { 24,0,8,8 }, { 32,0,8,8 }, { 40,0,8,8 } };
+en::Region Block::variations[6] = { { 0,16,8,8 }, { 8,16,8,8 }, { 16,16,8,8 }, { 24,16,8,8 }, { 32,16,8,8 }, { 40,16,8,8 } };
 
-const Block::Side Block::single = {
-	&ap::regions::outlinesingle
-};
+en::Region Block::outlinesingle = { 0,0,16,16 };
+en::Region Block::outlineuni = { 16,0,16,16 };
+en::Region Block::outlineduo = { 32,0,16,16 };
+en::Region Block::outlineopposite = { 48,0,16,16 };
+en::Region Block::outlinetri = { 64,0,16,16 };
+en::Region Block::outlinequad = { 80,0,16,16 };
+en::Region Block::outlinejunction = { 96,0,16,16 };
 
-const Block::Side Block::uni = {
-	&ap::regions::outlineuni
-};
+en::Region Block::blocksingle = { 0,16,8,8 };
+en::Region Block::blockuni = { 8,16,8,8 };
+en::Region Block::blockduo = { 16,16,8,8 };
+en::Region Block::blockopposite = { 24,16,8,8 };
+en::Region Block::blocktri = { 32,16,8,8 };
+en::Region Block::blockquad = { 40,16,8,8 };
+en::Region Block::blockjunction = { 48,16,8,8 };
 
-const Block::Side Block::duo = {
-	&ap::regions::outlineduo
-};
-
-const Block::Side Block::opposite = {
-	&ap::regions::outlineopposite
-};
-
-const Block::Side Block::tri = {
-	&ap::regions::outlinetri
-};
-
-const Block::Side Block::quad = {
-	&ap::regions::outlinequad
-};
+const Block::Side Block::single = { &outlinesingle };
+const Block::Side Block::uni = { &outlineuni };
+const Block::Side Block::duo = { &outlineduo };
+const Block::Side Block::opposite = { &outlineopposite };
+const Block::Side Block::tri = { &outlinetri };
+const Block::Side Block::quad = { &outlinequad };
 
 static float i = 126.f / 255.f;
 static en::Color aft = { i,i,i };
@@ -45,8 +44,8 @@ static en::Color aft = { i,i,i };
 
 ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
 	side(&single),
-	outline(SORT_UNIMPORTANT, &textures::outlines, &regions::outlinesingle),
-	shadow(SORT_UNIMPORTANT, &textures::shadows, &regions::outlinesingle)
+	outline(SORT_UNIMPORTANT, &textures::rusty, &outlinesingle),
+	shadow(SORT_UNIMPORTANT, &textures::shadows, &outlinesingle)
 	{
 	std::fill_n(junctions, 4, nullptr);
 
@@ -61,7 +60,7 @@ ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
 	// sregion(&regions::blocksingle);
 	sregion( &variations[tile.variation] );
 
-	stexture(&textures::hulls);
+	stexture(&textures::rusty);
 
 	sx(t.gx()*t.grid.gpoints());
 	sy(t.gy()*t.grid.gpoints());
@@ -108,7 +107,6 @@ void ap::mesh::Block::draw(PASS p) {
 		shadow.draw();
 		break;
 	}
-	
 
 	/*if (nullptr != junctions[0]) junctions[0]->draw();
 	if (nullptr != junctions[1]) junctions[1]->draw();
@@ -142,7 +140,7 @@ void ap::mesh::Block::connect () {
 }
 
 void ap::mesh::Block::junction(int i, int r) {
-	Sprite *j = new Sprite(SORT_UNIMPORTANT, &textures::hulls, &ap::regions::blockjunction);
+	Sprite *j = new Sprite(SORT_UNIMPORTANT, &textures::hulls, &blockjunction);
 	j->world = false;
 	j->rotate = r;
 

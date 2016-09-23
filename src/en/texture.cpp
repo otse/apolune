@@ -12,6 +12,7 @@
 #include "../boilerplate.h"
 
 bool en::Texture::NOBIND = false;
+en::Texture *en::Texture::bound = nullptr;
 
 
 en::Texture::Texture(int w, int h) :
@@ -38,15 +39,22 @@ en::Texture::~Texture() {
 void en::Texture::bind() {
 	if ( NOBIND )
 		return;
+
+	if (bound == this)
+		return;
 		
 	//glEnable(GL_TEXTURE_2D);
 	//glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 	glBindTexture( GL_TEXTURE_2D, tid );
+
+	bound = this;
 }
 
 void en::Texture::unbind() {
 	if ( NOBIND )
 		return;
+
+	bound = nullptr;
 		
 	glBindTexture(GL_TEXTURE_2D, 0);
 }

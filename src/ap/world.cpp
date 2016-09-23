@@ -89,6 +89,8 @@ void ap::World::step() {
 	cursorlight->sx(en::mou::mx-75);
 	cursorlight->sy(en::mou::my-75);
 	
+	glEnable(GL_TEXTURE_2D); // ?
+
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);

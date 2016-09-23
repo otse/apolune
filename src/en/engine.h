@@ -32,6 +32,7 @@ namespace envars {
 
 namespace en {
 
+	class VBO;
 	class FBO;
 	class Draws;
 	class Texture;

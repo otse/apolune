@@ -69,7 +69,7 @@ bool en::Draws::onscreen() {
 }
 
 void en::Draws::step() {
-	mousetrigger();
+	//mousetrigger();
 }
 
 //glActiveTexture
@@ -104,29 +104,13 @@ void en::Draws::draw() {
 			glTranslatef(-w/2, -h/2, 0);
 		}
 		
-		glEnable(GL_TEXTURE_2D);
+		//glEnable(GL_TEXTURE_2D);
 		glBegin(GL_QUADS);
-
-		//glTexCoord2f(0, 0);
-		//glTexCoord2f(1, 0);
-		//glTexCoord2f(1, 1);
-		//glTexCoord2f(0, 1);
 		
 		float w_ = gw();
-		float h_ = gh();
-
-		if (!pixels) {
-			w_ = 1;
-			h_ = 1;
-		}
+		float h_ = gh();		
 		
-		if (!pixels) {
-			glVertex3f(0.0f, 1.0f, 0.0f);
-			glVertex3f(-1.0f, -1.0f, 0.0f);
-			glVertex3f(1.0f, -1.0f, 0.0f);
-		}
-		// no flippage today
-		else if ( ! xflip && ! yflip ) {
+		if ( ! xflip && ! yflip ) {
 			glTexCoord2f(ntx, nty); // left top
 			glVertex3f(0, 0, 0);
 
@@ -166,34 +150,12 @@ void en::Draws::draw() {
 			glVertex3f(0, h_, 0);
 		}
 		
-		glDisable(GL_TEXTURE_2D);
-		
 		glEnd();
-		
-		glColor4f(1, 1, 1, 1);
 			
 		if ( program )
 			glUseProgram(0);
 		
-		if ( texture )
-			texture->unbind();
 			
-	} else { // no texture
-		glDisable(GL_TEXTURE_2D);
-		glColor4f(color->r, color->g, color->b, a);
-		
-		glBegin(GL_QUADS);
-		
-		glVertex2d(0, 0);
-		glVertex2d(w, 0);
-		glVertex2d(w, h);
-		glVertex2d(0, h);
-		
-		glEnd();
-		
-		glColor4f(1, 1, 1, 1);
-		
-		glEnable(GL_TEXTURE_2D);
 	}
 	
 	glPopMatrix();

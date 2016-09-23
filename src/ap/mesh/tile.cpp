@@ -59,6 +59,8 @@ ap::mesh::Tile::~Tile() {
 void ap::mesh::Tile::step() {
 	Sprite::step();
 
+	mousetrigger();
+
 	/*if (spawned != -1 ) {
 		spawned += delta;
 		if ( spawned > ((double) n/20)+0.2 ) {

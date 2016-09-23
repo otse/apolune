@@ -194,6 +194,7 @@
     <ClInclude Include="..\..\src\en\shader.h" />
     <ClInclude Include="..\..\src\en\stltempl.h" />
     <ClInclude Include="..\..\src\en\texture.h" />
+    <ClInclude Include="..\..\src\en\vbo.h" />
     <ClInclude Include="..\..\src\h.h" />
     <ClInclude Include="..\..\src\ll\files.h" />
     <ClInclude Include="..\..\src\ll\js_delegate.h" />
@@ -239,6 +240,7 @@
     <ClCompile Include="..\..\src\en\fbo.cpp" />
     <ClCompile Include="..\..\src\en\shader.cpp" />
     <ClCompile Include="..\..\src\en\texture.cpp" />
+    <ClCompile Include="..\..\src\en\vbo.cpp" />
     <ClCompile Include="..\..\src\ll\files.cpp" />
     <ClCompile Include="..\..\src\ll\load.cpp" />
     <ClCompile Include="..\..\src\ll\sfmlphysfs.cpp" />

@@ -13,7 +13,8 @@ en::FBO::FBO(Color *c, Region &r) : en::Texture(r.w, r.h) ,
 	{
 	draws.yflip = true;
 	
-	glDisable(GL_TEXTURE_2D); // necessary?
+	//glDisable(GL_TEXTURE_2D); // necessary?
+
 	glGenFramebuffersEXT( 1, &fb );
 	glBindFramebufferEXT( GL_FRAMEBUFFER_EXT, fb );
 	

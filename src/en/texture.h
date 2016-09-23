@@ -13,6 +13,7 @@ namespace en {
 		virtual ~Texture();
 		
 		static bool NOBIND;
+		static Texture *bound;
 		
 		void create();
 		bool load();

@@ -25,6 +25,22 @@ namespace ap {
 
 			static en::Region variations[6];
 
+			static en::Region outlinesingle;
+			static en::Region outlineuni;
+			static en::Region outlineduo;
+			static en::Region outlineopposite;
+			static en::Region outlinetri;
+			static en::Region outlinequad;
+			static en::Region outlinejunction;
+
+			static en::Region blocksingle;
+			static en::Region blockuni;
+			static en::Region blockduo;
+			static en::Region blockopposite;
+			static en::Region blocktri;
+			static en::Region blockquad;
+			static en::Region blockjunction;
+
 			static const Side single;
 			static const Side uni;
 			static const Side duo;

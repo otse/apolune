@@ -30,7 +30,10 @@ namespace ap {
 		extern en::Texture parts;
 		extern en::Texture outlines;
 		extern en::Texture shadows;
+
 		extern en::Texture hulls;
+		extern en::Texture aluminium;
+		extern en::Texture rusty;
 		extern en::Texture metal;
 
 		extern en::Texture rocks;		
@@ -68,21 +71,7 @@ namespace ap {
 		extern en::Region asteroid;
 		extern en::Region masteroid;
 
-		extern en::Region outlinesingle;
-		extern en::Region outlineuni;
-		extern en::Region outlineduo;
-		extern en::Region outlineopposite;
-		extern en::Region outlinetri;
-		extern en::Region outlinequad;
-		extern en::Region outlinejunction;
 
-		extern en::Region blocksingle;
-		extern en::Region blockuni;
-		extern en::Region blockduo;
-		extern en::Region blockopposite;
-		extern en::Region blocktri;
-		extern en::Region blockquad;
-		extern en::Region blockjunction;
 
 		extern en::Region trusssingle;
 		extern en::Region trussuni;
