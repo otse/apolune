@@ -41,6 +41,8 @@ namespace ap {
 				for (int i = 0; i < 8; i++) {
 					Tile *t = all[i];
 
+					bools[i] = false;
+
 					if (nullptr == t)
 						continue;
 

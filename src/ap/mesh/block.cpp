@@ -217,6 +217,12 @@ void ap::mesh::Block::refit () {
 		ro = 270;
 	}
 
+	// single
+	else {
+		side = &single;
+		ro = 0;
+	}
+
 	//sregion(side->r);
 
 	outline.nodraw = shadow.nodraw = side == &quad;
