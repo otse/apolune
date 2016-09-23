@@ -41,7 +41,7 @@ namespace ap {
 
 					_ASSERT(t);
 
-					T* type = dynamic_cast<T*> (t->gpart(fixture));
+					T* type = static_cast<T*> (t->gpart(fixture));
 
 					bools[i] = !!type;
 				}
