@@ -143,7 +143,7 @@ class Overlay
 	build: ->
 		# js.jays.poppers.append (@shipping = new Popper 'Shipping').element
 		js.jays.poppers.append (@view = new Popper 'View', 'right').element
-		js.jays.poppers.append (@placeholder = new Popper 'Something', 'right').element
+		js.jays.poppers.append (@build = new Popper 'Build', 'right').element
 
 		# @shipping.add new BlockChooser ''
 
@@ -170,6 +170,11 @@ class Overlay
 		@view.add new Clicky
 				name: 'orient'
 				values: ['ship', 'free']
+
+		@build.add new Clicky
+				name: 'part'
+				values: ['hull', 'piston']
+				cpp: 'selectPart'
 
 		# new Notice text: "You arrive in space. The maelstrom in the distance is whirling. Worlds are far apart, but you can build a craft."
 

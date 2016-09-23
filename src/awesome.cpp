@@ -5,6 +5,7 @@
 #include "en/draws.h"
 #include "en/fbo.h"
 
+#include "ap/ply.h"
 #include "ap/mesh/mass.h"
 
 #include "ll/method_dispatcher.h"
@@ -152,6 +153,7 @@ void ap::as::mawe() {
 	dispatcher.Bind(global, WSLit("start"), JSDelegate(&start));
 	dispatcher.Bind(global, WSLit("scale"), JSDelegate(&scale));
 	dispatcher.Bind(global, WSLit("crossSection"), JSDelegate(&crossSection));
+	dispatcher.Bind(global, WSLit("selectPart"), JSDelegate(&selectPart));
 
 	WebURL url(WSLit("asset://baze/htmls/first.html"));
 	view->LoadURL(url);
@@ -212,6 +214,17 @@ void ap::as::crossSection(WebView* caller, const JSArray& args) {
 		//ap::world->ship->crosssection = false;
 		valuez.SetPropertyAsync(WSLit("crossSection"), JSValue("off"));
 	}
+	return;
+
+}
+
+void ap::as::selectPart(WebView* caller, const JSArray& args) {
+	WebString value = args[0].ToString();
+
+	ap::ply->partname = ToString(value);
+
+	LOG("selected part: " << ap::ply->partname);
+	
 	return;
 
 }

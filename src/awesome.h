@@ -64,6 +64,7 @@ namespace ap {
 		void start(WebView* caller, const JSArray& args);
 		void scale(WebView* caller, const JSArray& args);
 		void crossSection(WebView* caller, const JSArray& args);
+		void selectPart(WebView* caller, const JSArray& args);
 
 	}
 }
