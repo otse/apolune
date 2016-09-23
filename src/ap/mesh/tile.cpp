@@ -93,7 +93,6 @@ void ap::mesh::Tile::click() {
 void ap::mesh::Tile::attach(Part& p) {
 	(FORE == p.fixture ? fore : aft) = &p;
 
-	grid.expandfrom(*this);
 	p.connect();
 	grid.mass.add(&p);
 }
@@ -166,17 +165,20 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 		return;
 
 	if ( mou::HOVER_IN == h ) {
-		seethrough = mesh::partfactory(FORE, *this, ply->partname);
-		seethrough->sa(.5f);
+		if (!fore) {
+			seethrough = mesh::partfactory(FORE, *this, ply->partname);
+			seethrough->sa(.5f);
 
-		attach(*seethrough);
+			attach(*seethrough);
+		}
 
 		sregion(&regions::tileover);
 		nodraw = false;
 	} else {
-		detach(FORE);
-
-		delete seethrough;
+		if (seethrough) {
+			detach(FORE);
+			//delete seethrough;
+		}
 
 		sregion(&regions::tile);
 		//if ( part )

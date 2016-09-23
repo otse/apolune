@@ -47,6 +47,11 @@ ap::mesh::Tile &ap::mesh::Grid::mtile(int x, int y) {
 
 	ap::world->add(t);
 
+	if (t->gx() < normal.x) normal.x = t->gx();
+	if (t->gy() < normal.y) normal.y = t->gy();
+	if (t->gx() > normal.w) normal.w = t->gx();
+	if (t->gy() > normal.h) normal.h = t->gy();
+
 	return *t;
 }
 
@@ -76,13 +81,6 @@ void ap::mesh::Grid::expandfrom(Tile &t) {
 			mtile(x, y);
 
 	}
-
-	const Region &n = normal; // alias
-
-	if ( t.gx() < normal.x ) normal.x = t.gx();
-	if ( t.gy() < normal.y ) normal.y = t.gy();
-	if ( t.gx() > normal.w ) normal.w = t.gx();
-	if ( t.gy() > normal.h ) normal.h = t.gy();
 
 	//t.link();
 }

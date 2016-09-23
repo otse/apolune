@@ -86,6 +86,7 @@ void ap::mesh::Mass::clicked(Tile &t) {
 		
 		if ( Part *p = partfactory(FORE, t, ply->partname) ) {
 			t.attach(*p);
+			t.grid.expandfrom(t);
 
 			sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
 			bep->play();
@@ -98,6 +99,7 @@ void ap::mesh::Mass::clicked(Tile &t) {
 
 		if (Part *p = partfactory(AFT, t, ply->partname)) {
 			t.attach(*p);
+			t.grid.expandfrom(t);
 
 			sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
 			bep->play();
