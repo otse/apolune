@@ -141,21 +141,17 @@ void ap::mesh::Block::junction(int i, int r) {
 	junctions[i] = j;
 }
 
-#define TOP 		blocks[0]
-#define TOPRIGHT 	blocks[1]
-#define RIGHT 		blocks[2]
-#define BOTTOMRIGHT blocks[3]
-#define BOTTOM 		blocks[4]
-#define BOTTOMLEFT 	blocks[5]
-#define LEFT 		blocks[6]
-#define TOPLEFT 	blocks[7]
+#define TOP 		bools[0]
+#define TOPRIGHT 	bools[1]
+#define RIGHT 		bools[2]
+#define BOTTOMRIGHT bools[3]
+#define BOTTOM 		bools[4]
+#define BOTTOMLEFT 	bools[5]
+#define LEFT 		bools[6]
+#define TOPLEFT 	bools[7]
 
 void ap::mesh::Block::refit () {
 
-	Tile **all = tile.gneighbors();
-
-	bool blocks[8];
-	std::fill_n(blocks, 8, false);
 
 	/*for (int i = 0; i < 4; i++) {
 		if (nullptr != junctions[i]) {
@@ -164,15 +160,7 @@ void ap::mesh::Block::refit () {
 		}
 	}*/
 
-	for (int i = 0; i < 8; i++) {
-		Tile *t = all[i];
-
-		_ASSERT(t);
-
-		Block* type = dynamic_cast<Block*> (t->gpart(fixture));
-
-		blocks[i] = !! type;
-	}
+	friends<Block>();
 
 	float ro = 0;
 

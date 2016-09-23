@@ -15,6 +15,8 @@ ap::mesh::Part::Part(FIXTURE f, Tile &t) :
 	fixture(f),
 	tile(t)
 	{
+	std::fill_n(bools, 8, false);
+
 	sx(t.gx()*t.grid.gpoints());
 	sy(t.gy()*t.grid.gpoints());
 
@@ -54,19 +56,24 @@ void ap::mesh::Part::hover(mou::Hover h) {
 
 void ap::mesh::Part::connect () {}
 
-void ap::mesh::Part::refit () {}
+void ap::mesh::Part::refit () {
 
-	/*Part *top = (tile.gtop() && tile.gtop()->gpart()) ? tile.gtop()->gpart() : nullptr;
-	Part *bottom = (tile.gbottom() && tile.gbottom()->gpart()) ? tile.gbottom()->gpart() : nullptr;
-	Part *left = (tile.gleft() && tile.gleft()->gpart()) ? tile.gleft()->gpart() : nullptr;
-	Part *right = (tile.gright() && tile.gright()->gpart()) ? tile.gright()->gpart() : nullptr;*/
+}
 
-	/*if ( !(top && top->gtype() == TRUSS && dynamic_cast<Truss *>(top)->gwall()) ) top = nullptr;
-	if ( !(bottom && bottom->gtype() == TRUSS && dynamic_cast<Truss *>(bottom)->gwall()) ) bottom = nullptr;
-	if ( !(left && left->gtype() == TRUSS && dynamic_cast<Truss *>(left)->gwall()) ) left = nullptr;
-	if ( !(right && right->gtype() == TRUSS && dynamic_cast<Truss *>(right)->gwall()) ) right = nullptr;*/
+/*template<class T> void ap::mesh::Part::friends() {
 
+	Tile **all = tile.gneighbors();
 
+	for (int i = 0; i < 8; i++) {
+		Tile *t = all[i];
+
+		_ASSERT(t);
+
+		T* type = dynamic_cast<T*> (t->gpart(fixture));
+
+		bools[i] = !!type;
+	}
+}*/
 /* ###########################
    ## Getters & Setters
    ########################### */

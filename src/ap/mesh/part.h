@@ -31,6 +31,21 @@ namespace ap {
 			virtual void connect();
 			virtual void refit();
 
+			bool bools[8];
+
+			template<class T> void friends() {
+				Tile **all = tile.gneighbors();
+
+				for (int i = 0; i < 8; i++) {
+					Tile *t = all[i];
+
+					_ASSERT(t);
+
+					T* type = dynamic_cast<T*> (t->gpart(fixture));
+
+					bools[i] = !!type;
+				}
+			};
 		protected:
 
 		private:
