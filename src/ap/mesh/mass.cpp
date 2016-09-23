@@ -85,6 +85,7 @@ void ap::mesh::Mass::clicked(Tile &t) {
 		if (t.gpart(FORE) && !t.seethrough) return;
 		
 		if ( Part *p = partfactory(FORE, t, ply->partname) ) {
+
 			if (FORE == p->fixture && t.seethrough) {
 				t.detach(FORE);
 				delete t.seethrough;

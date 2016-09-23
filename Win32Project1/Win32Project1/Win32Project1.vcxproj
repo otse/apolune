@@ -199,7 +199,6 @@
     <ClInclude Include="..\..\src\h.h" />
     <ClInclude Include="..\..\src\ll\files.h" />
     <ClInclude Include="..\..\src\ll\js_delegate.h" />
-    <ClInclude Include="..\..\src\ll\load.h" />
     <ClInclude Include="..\..\src\ll\method_dispatcher.h" />
     <ClInclude Include="..\..\src\ll\sfmlphysfs.hpp" />
     <ClInclude Include="Resource.h" />
@@ -244,7 +243,6 @@
     <ClCompile Include="..\..\src\en\texture.cpp" />
     <ClCompile Include="..\..\src\en\vbo.cpp" />
     <ClCompile Include="..\..\src\ll\files.cpp" />
-    <ClCompile Include="..\..\src\ll\load.cpp" />
     <ClCompile Include="..\..\src\ll\sfmlphysfs.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="stdafx.cpp">
