@@ -112,23 +112,6 @@ void ap::mesh::Block::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {} else {}
 }
 
-void ap::mesh::Block::connect () {
-	Tile **all = tile.gneighbors();
-
-	for (int i = 0; i < 8; i++) {
-		Tile *t = all[i];
-
-		_ASSERT(t);
-
-		Block* type = dynamic_cast<Block*> (t->gpart(fixture));
-
-		if (type)
-			type->refit();
-	}
-
-	refit();
-}
-
 void ap::mesh::Block::junction(int i, int r) {
 	Sprite *j = new Sprite(SORT_UNIMPORTANT, &textures::hulls, &blockjunction);
 	j->world = false;

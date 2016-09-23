@@ -66,7 +66,7 @@ namespace ap {
 			//TYPE gtype();
 			//const TYPE type;
 
-			virtual void connect();
+			//virtual void connect();
 			virtual void refit();
 
 		private:

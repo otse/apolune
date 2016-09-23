@@ -54,7 +54,20 @@ void ap::mesh::Part::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {} else {}
 }
 
-void ap::mesh::Part::connect () {}
+void ap::mesh::Part::connect () {
+	Tile **all = tile.gneighbors();
+
+	for (int i = 0; i < 8; i++) {
+		Tile *t = all[i];
+
+		_ASSERT(t);
+
+		if (auto p = t->gpart(fixture))
+			p->refit();
+	}
+
+	refit();
+}
 
 void ap::mesh::Part::refit () {
 

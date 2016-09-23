@@ -90,13 +90,21 @@ void ap::mesh::Tile::click() {
 }
 
 
-void ap::mesh::Tile::attach(Part *p) {
-	(FORE == p->fixture ? fore : aft) = p;
+void ap::mesh::Tile::attach(Part& p) {
+	(FORE == p.fixture ? fore : aft) = &p;
+
 	grid.expandfrom(*this);
 	p->connect();
 	grid.mass.add(p);
 }
 
+void ap::mesh::Tile::detach(FIXTURE f) {
+	Part &p = *(FORE == f ? fore : aft);
+
+	p.connect();
+
+	// todo: remove from ship
+}
 
 void ap::mesh::Tile::hasneighbor(int x, int y) {
 
@@ -140,13 +148,15 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 		return;
 
 	if ( mou::HOVER_IN == h ) {
-		//seethrough = mesh::partfactory(*this, ply->partname);
-		//attach(seethrough);
+		seethrough = mesh::partfactory(FORE, *this, ply->partname);
+		seethrough->sa(.5f);
+		attach(seethrough);
 
 		sregion(&regions::tileover);
 		nodraw = false;
 	} else {
-		//delete seethrough;
+		delete seethrough;
+
 		sregion(&regions::tile);
 		//if ( part )
 		nodraw = true;

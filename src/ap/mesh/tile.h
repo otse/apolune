@@ -30,7 +30,9 @@ namespace ap {
 
 			virtual void step();
 
-			void attach(Part *);
+			void attach(Part &);
+			void detach(FIXTURE);
+
 			void sneighbor(Tile &, int);
 			void hasneighbor(int,int);
 			void link();
