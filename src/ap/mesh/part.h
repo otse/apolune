@@ -16,7 +16,7 @@ namespace ap {
 		public:
 			bool SEETHROUGH;
 
-			Part(FIXTURE, Tile &);
+			Part(FIXTURE, Tile &, sort_t);
 
 			~Part();
 

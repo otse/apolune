@@ -42,7 +42,7 @@ static float i = 126.f / 255.f;
 static en::Color aft = { i,i,i };
 
 
-ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
+ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t, SORT_BLOCKS) ,
 	side(&single),
 	outline(SORT_UNIMPORTANT, &textures::rusty, &outlinesingle),
 	shadow(SORT_UNIMPORTANT, &textures::shadows, &outlinesingle)

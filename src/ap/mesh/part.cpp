@@ -10,8 +10,8 @@
 
 using namespace ap::mesh;
 
-ap::mesh::Part::Part(FIXTURE f, Tile &t) :
-	ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
+ap::mesh::Part::Part(FIXTURE f, Tile &t, sort_t s) :
+	ap::Sprite(s, nullptr, &en::regfluke) ,
 	fixture(f),
 	tile(t),
 	SEETHROUGH(false)

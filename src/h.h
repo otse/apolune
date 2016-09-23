@@ -134,6 +134,8 @@ namespace ap {
 
 	const static en::sort_t SORT_PLAYER = 11;
 	const static en::sort_t SORT_HIGH = 10;
+	const static en::sort_t SORT_PISTONS = 9;
+	const static en::sort_t SORT_BLOCKS = 6;
 	const static en::sort_t SORT_UNIMPORTANT = 5;
 	const static en::sort_t SORT_BACKGROUND = 4;
 }
