@@ -116,7 +116,7 @@ void ap::mesh::Mass::add(Part *p) {
 
 	const Region normal = grid.gnormal();
 
-	LOG("gnormal " << normal.x << " " << normal.y << " " << normal.w << " " << normal.h)
+	// LOG("gnormal " << normal.x << " " << normal.y << " " << normal.w << " " << normal.h)
 
 	int x = normal.x - 1;
 	int y = normal.y - 1;
@@ -146,7 +146,7 @@ void ap::mesh::Mass::add(Part *p) {
 }
 
 void ap::mesh::Mass::remove(Part *p) {
-	std::vector<Part*>vec = (FORE == p->fixture ? fores : afts);
+	auto& vec = (FORE == p->fixture ? fores : afts);
 
 	std::vector<Part*>::iterator pos = std::find(vec.begin(), vec.end(), p);
 	if (vec.end() != pos) {

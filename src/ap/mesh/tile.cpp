@@ -167,7 +167,6 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {
 		if (!fore) {
 			seethrough = mesh::partfactory(FORE, *this, ply->partname);
-			seethrough->sa(.5f);
 
 			attach(*seethrough);
 		}
@@ -178,6 +177,7 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 		if (seethrough) {
 			detach(FORE);
 			//delete seethrough;
+			//seethrough = nullptr;
 		}
 
 		sregion(&regions::tile);
