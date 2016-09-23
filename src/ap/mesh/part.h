@@ -14,6 +14,8 @@ namespace ap {
 
 		class Part : public Sprite {
 		public:
+			bool SEETHROUGH;
+
 			Part(FIXTURE, Tile &);
 
 			~Part();

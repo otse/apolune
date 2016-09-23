@@ -45,12 +45,13 @@ namespace ap {
 			Part *gfore();
 			Part *gaft();
 
+			Part *seethrough;
+
 			Tile **gneighbors();
 
 		protected:
 			void expand();
 			
-			Part *seethrough;
 			Part *fore;
 			Part *aft;
 			Tile *neighbors[8];

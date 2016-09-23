@@ -13,7 +13,8 @@ using namespace ap::mesh;
 ap::mesh::Part::Part(FIXTURE f, Tile &t) :
 	ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke) ,
 	fixture(f),
-	tile(t)
+	tile(t),
+	SEETHROUGH(false)
 	{
 	std::fill_n(bools, 8, false);
 

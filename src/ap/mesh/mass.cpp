@@ -82,9 +82,15 @@ void ap::mesh::Mass::clicked(Tile &t) {
 	// todo: the amount of duplication is unfunny
 	if (&mou::left == mou::active && mou::PRESSED == *mou::active) {
 
-		if (t.gpart(FORE)) return;
+		if (t.gpart(FORE) && !t.seethrough) return;
 		
 		if ( Part *p = partfactory(FORE, t, ply->partname) ) {
+			if (FORE == p->fixture && t.seethrough) {
+				t.detach(FORE);
+				delete t.seethrough;
+				t.seethrough = nullptr;
+			}
+
 			t.attach(*p);
 			t.grid.expandfrom(t);
 
@@ -149,10 +155,9 @@ void ap::mesh::Mass::remove(Part *p) {
 	auto& vec = (FORE == p->fixture ? fores : afts);
 
 	std::vector<Part*>::iterator pos = std::find(vec.begin(), vec.end(), p);
-	if (vec.end() != pos) {
-		LOG("removing Part from Mass")
+
+	if (vec.end() != pos)
 		vec.erase(pos);
-	}
 }
 
 void ap::mesh::Mass::draw() {

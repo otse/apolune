@@ -99,7 +99,7 @@ void ap::mesh::Tile::attach(Part& p) {
 
 void ap::mesh::Tile::detach(FIXTURE f) {
 
-	Part* p = (FORE == f ? fore : aft);
+	Part* d = (FORE == f ? fore : aft);
 
 	(FORE == f ? fore : aft) = nullptr;
 
@@ -116,11 +116,11 @@ void ap::mesh::Tile::detach(FIXTURE f) {
 
 		_ASSERT(t);
 
-		if (auto a = t->gpart(f))
-			a->refit();
+		if (auto p = t->gpart(f))
+			p->refit();
 	}
 
-	grid.mass.remove(p);
+	grid.mass.remove(d);
 }
 
 void ap::mesh::Tile::hasneighbor(int x, int y) {
@@ -167,7 +167,7 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {
 		if (!fore) {
 			seethrough = mesh::partfactory(FORE, *this, ply->partname);
-
+			seethrough->SEETHROUGH = true;
 			attach(*seethrough);
 		}
 
@@ -176,8 +176,8 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 	} else {
 		if (seethrough) {
 			detach(FORE);
-			//delete seethrough;
-			//seethrough = nullptr;
+			delete seethrough;
+			seethrough = nullptr;
 		}
 
 		sregion(&regions::tile);
