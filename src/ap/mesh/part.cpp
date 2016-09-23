@@ -17,6 +17,7 @@ ap::mesh::Part::Part(FIXTURE f, Tile &t) :
 	{
 	sx(t.gx()*t.grid.gpoints());
 	sy(t.gy()*t.grid.gpoints());
+
 	world = false;
 
 	em = new Emitter(Emitter::placesparks);

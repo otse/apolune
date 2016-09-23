@@ -30,6 +30,7 @@ en::Texture textures::shadows("craft/shadows.png");
 en::Texture textures::hulls("craft/hulls.png");
 en::Texture textures::aluminium("craft/aluminium.png");
 en::Texture textures::rusty("craft/rusty.png");
+en::Texture textures::piston("craft/piston.png");
 
 en::Texture textures::rocks("craft/rocks.png");
 
@@ -387,6 +388,7 @@ void ap::loadtex() {
 	textures::hulls.load();
 	textures::aluminium.load();
 	textures::rusty.load();
+	textures::piston.load();
 	
 	textures::apexcoolchair.load();
 	textures::apexcooltable.load();

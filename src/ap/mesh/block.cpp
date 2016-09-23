@@ -62,21 +62,11 @@ ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t) ,
 
 	stexture(&textures::rusty);
 
-	sx(t.gx()*t.grid.gpoints());
-	sy(t.gy()*t.grid.gpoints());
-
 	outline.sx(gx() - 4);
 	outline.sy(gy() - 4);
 
 	shadow.sx(gx() - 4);
 	shadow.sy(gy() - 4);
-
-	world = false;
-
-	em = new Emitter(Emitter::placesparks);
-	em->sx(gx()+t.grid.gx()+ (t.grid.gpoints()/2));
-	em->sy(gy()+t.grid.gy()+ (t.grid.gpoints()/2));
-	ap::world->add(em);
 
 	fbo = outline.fbo = shadow.fbo = t.grid.mass.gobf();
 	//shadow.fbo = t.grid.mass.gshadow();

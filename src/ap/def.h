@@ -34,7 +34,7 @@ namespace ap {
 		extern en::Texture hulls;
 		extern en::Texture aluminium;
 		extern en::Texture rusty;
-		extern en::Texture metal;
+		extern en::Texture piston;
 
 		extern en::Texture rocks;		
 		

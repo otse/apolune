@@ -28,6 +28,9 @@
     <Filter Include="Source Files\mesh">
       <UniqueIdentifier>{b20d9546-a27f-402d-8968-87f3b6058798}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\parts">
+      <UniqueIdentifier>{ec86020e-fdf1-484a-8654-624f86167d58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -177,6 +180,9 @@
     <ClInclude Include="..\..\src\en\vbo.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\ap\parts\piston.h">
+      <Filter>Source Files\parts</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -295,6 +301,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\en\vbo.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ap\parts\piston.cpp">
+      <Filter>Source Files\parts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

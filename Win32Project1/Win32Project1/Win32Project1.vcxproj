@@ -181,6 +181,7 @@
     <ClInclude Include="..\..\src\ap\objects\chair.h" />
     <ClInclude Include="..\..\src\ap\objects\console.h" />
     <ClInclude Include="..\..\src\ap\objects\table.h" />
+    <ClInclude Include="..\..\src\ap\parts\piston.h" />
     <ClInclude Include="..\..\src\ap\planet.h" />
     <ClInclude Include="..\..\src\ap\ply.h" />
     <ClInclude Include="..\..\src\ap\sprite.h" />
@@ -228,6 +229,7 @@
     <ClCompile Include="..\..\src\ap\objects\chair.cpp" />
     <ClCompile Include="..\..\src\ap\objects\console.cpp" />
     <ClCompile Include="..\..\src\ap\objects\table.cpp" />
+    <ClCompile Include="..\..\src\ap\parts\piston.cpp" />
     <ClCompile Include="..\..\src\ap\planet.cpp" />
     <ClCompile Include="..\..\src\ap\ply.cpp" />
     <ClCompile Include="..\..\src\ap\sprite.cpp" />
