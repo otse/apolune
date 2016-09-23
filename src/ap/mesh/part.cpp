@@ -60,6 +60,9 @@ void ap::mesh::Part::connect () {
 	for (int i = 0; i < 8; i++) {
 		Tile *t = all[i];
 
+		if (nullptr == t)
+			continue;
+
 		_ASSERT(t);
 
 		if (auto p = t->gpart(fixture))

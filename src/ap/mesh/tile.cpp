@@ -107,10 +107,12 @@ void ap::mesh::Tile::detach(FIXTURE f) {
 	//p.connect();
 
 	// todo: put in method
-	
 	// refit surroundings to new emptiness
 	for (int i = 0; i < 8; i++) {
 		Tile *t = neighbors[i];
+
+		if (nullptr == t)
+			continue;
 
 		_ASSERT(t);
 
@@ -171,6 +173,8 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 		sregion(&regions::tileover);
 		nodraw = false;
 	} else {
+		detach(FORE);
+
 		delete seethrough;
 
 		sregion(&regions::tile);

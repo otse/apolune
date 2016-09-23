@@ -143,6 +143,10 @@ void ap::mesh::Mass::add(Part *p) {
 
 }
 
+void ap::mesh::Mass::remove(Part *p) {
+
+}
+
 void ap::mesh::Mass::draw() {
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, shadow->gfbid());
 

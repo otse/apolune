@@ -39,6 +39,9 @@ namespace ap {
 				for (int i = 0; i < 8; i++) {
 					Tile *t = all[i];
 
+					if (nullptr == t)
+						continue;
+
 					_ASSERT(t);
 
 					T* type = static_cast<T*> (t->gpart(fixture));

@@ -265,8 +265,6 @@ void ap::mesh::Block::refit () {
 			junction(3, 270);
 	}*/
 
-	//if (nullptr != wall)
-		//wall->refit();
 }
 
 /* ###########################
