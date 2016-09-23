@@ -54,11 +54,11 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 			Tile &t = *grid.gtile(x, y);
 			
 			Block *p = new Block(AFT, t);
-			t.attach(p);
+			t.attach(*p);
 
 			if ( (x == 1 || y == 1 || x == 7 || y == 7) ) {
 				Block *p = new Block(FORE, t);
-				t.attach(p);
+				t.attach(*p);
 			}
 		}
 	}
@@ -85,7 +85,7 @@ void ap::mesh::Mass::clicked(Tile &t) {
 		if (t.gpart(FORE)) return;
 		
 		if ( Part *p = partfactory(FORE, t, ply->partname) ) {
-			t.attach(p);
+			t.attach(*p);
 
 			sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
 			bep->play();
@@ -97,7 +97,7 @@ void ap::mesh::Mass::clicked(Tile &t) {
 		if (t.gpart(AFT)) return;
 
 		if (Part *p = partfactory(AFT, t, ply->partname)) {
-			t.attach(p);
+			t.attach(*p);
 
 			sf::Sound *bep = new sf::Sound(*sounds::torquewrench);
 			bep->play();

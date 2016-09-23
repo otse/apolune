@@ -94,14 +94,29 @@ void ap::mesh::Tile::attach(Part& p) {
 	(FORE == p.fixture ? fore : aft) = &p;
 
 	grid.expandfrom(*this);
-	p->connect();
-	grid.mass.add(p);
+	p.connect();
+	grid.mass.add(&p);
 }
 
 void ap::mesh::Tile::detach(FIXTURE f) {
-	Part &p = *(FORE == f ? fore : aft);
 
-	p.connect();
+	//Part &p = *(FORE == f ? fore : aft);
+
+	(FORE == f ? fore : aft) = nullptr;
+
+	//p.connect();
+
+	// todo: put in method
+	
+	// refit surroundings to new emptiness
+	for (int i = 0; i < 8; i++) {
+		Tile *t = neighbors[i];
+
+		_ASSERT(t);
+
+		if (auto p = t->gpart(f))
+			p->refit();
+	}
 
 	// todo: remove from ship
 }
@@ -150,7 +165,8 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {
 		seethrough = mesh::partfactory(FORE, *this, ply->partname);
 		seethrough->sa(.5f);
-		attach(seethrough);
+
+		attach(*seethrough);
 
 		sregion(&regions::tileover);
 		nodraw = false;
