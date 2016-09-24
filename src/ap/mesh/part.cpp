@@ -73,7 +73,83 @@ void ap::mesh::Part::connect () {
 	refit();
 }
 
-void* ap::mesh::Part::prefit() { return nullptr; }
+void* ap::mesh::Part::reach() {
+	// quad
+	if (TOP && RIGHT && BOTTOM && LEFT) {
+		static const Attitude attitude{ 0, QUAD };
+		return (void*) &attitude;
+	}
+
+	// tri
+	else if (TOP && RIGHT && BOTTOM) {
+		static const Attitude attitude{ 0, TRI };
+		return (void*) &attitude;
+	}
+	else if (RIGHT && BOTTOM && LEFT) {
+		static const Attitude attitude{ 90, TRI };
+		return (void*) &attitude;
+	}
+	else if (BOTTOM && LEFT && TOP) {
+		static const Attitude attitude{ 180, TRI };
+		return (void*) &attitude;
+	}
+	else if (LEFT && TOP && RIGHT) {
+		static const Attitude attitude{ 270, TRI };
+		return (void*) &attitude;
+	}
+
+	// duo
+	else if (TOP && RIGHT) {
+		static const Attitude attitude{ 0, DUO };
+		return (void*) &attitude;
+	}
+	else if (RIGHT && BOTTOM) {
+		static const Attitude attitude{ 90, DUO };
+		return (void*) &attitude;
+	}
+	else if (BOTTOM && LEFT) {
+		static const Attitude attitude{ 180, DUO };
+		return (void*) &attitude;
+	}
+	else if (LEFT && TOP) {
+		static const Attitude attitude{ 270, DUO };
+		return (void*) &attitude;
+	}
+
+	// opposite
+	else if (TOP && BOTTOM) {
+		static const Attitude attitude{ 0, OPPOSITE };
+		return (void*) &attitude;
+	}
+	else if (LEFT && RIGHT) {
+		static const Attitude attitude{ 90, OPPOSITE };
+		return (void*) &attitude;
+	}
+
+	// uni
+	else if (TOP) {
+		static const Attitude attitude{ 0, UNI };
+		return (void*) &attitude;
+	}
+	else if (RIGHT) {
+		static const Attitude attitude{ 90, UNI };
+		return (void*) &attitude;
+	}
+	else if (BOTTOM) {
+		static const Attitude attitude{ 180, UNI };
+		return (void*) &attitude;
+	}
+	else if (LEFT) {
+		static const Attitude attitude{ 270, UNI };
+		return (void*) &attitude;
+	}
+
+	// single
+	else {
+		static const Attitude attitude{ 0, SINGLE };
+		return (void*) &attitude;
+	}
+}
 
 void ap::mesh::Part::refit () {
 

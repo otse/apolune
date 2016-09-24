@@ -13,12 +13,6 @@ namespace ap {
 
 		class Block : public Part {
 		public:
-			enum TYPE { // hm bad
-				PART,
-				TRUSS,
-				WALL
-			};
-
 			struct Side {
 				en::Region *r;
 			};
@@ -67,12 +61,9 @@ namespace ap {
 			//const TYPE type;
 
 			//virtual void connect();
-			struct FACE {
-				float degrees;
-				const Side& side;
-			};
+			
 
-			virtual void* prefit();
+			//virtual void* prefit();
 			virtual void refit();
 
 		private:

@@ -71,8 +71,11 @@ ap::mesh::Mass::~Mass() {
 
 void ap::mesh::Mass::step() {
 
+	// todo: does the compiler like this inline "lambda function (?)"
+	// why not put just outside method body?
 	auto comp = [](const Part *a, const Part *b) { return a->group < b->group; };
 
+	// todo: unnecessary sorts always sorts
 	std::sort(fores.begin(), fores.end(), comp);
 	std::sort(afts.begin(), afts.end(), comp);
 	
@@ -86,6 +89,7 @@ void ap::mesh::Mass::step() {
 void ap::mesh::Mass::clicked(Tile &t) {
 
 	// todo: the amount of duplication is unfunny
+	// award of ugliest code
 	if (&mou::left == mou::active && mou::PRESSED == *mou::active) {
 
 		if (t.gpart(FORE) && !t.seethrough) return;

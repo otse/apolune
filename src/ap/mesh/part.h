@@ -14,9 +14,14 @@ namespace ap {
 
 		class Part : public Sprite {
 		public:
-			bool SEETHROUGH;
 
-			enum SIDE { SINGLE, UNI, DUO, OPPOSITE, TRI, QUAD, JUNCTION };
+			enum CONNECT { SINGLE, UNI, DUO, OPPOSITE, TRI, QUAD, JUNCTION };
+
+			struct Attitude {
+				float degrees;
+				CONNECT connect;
+				//const Side& side;
+			};
 
 			Part(FIXTURE, Tile &, sort_t);
 
@@ -27,14 +32,16 @@ namespace ap {
 			virtual void step();
 			virtual void draw(PASS);
 
+			bool SEETHROUGH;
 			Tile &tile;
 			Emitter *em;
 
 			const FIXTURE fixture;
 
 			virtual void connect();
-			virtual void* prefit();
 			virtual void refit();
+
+			virtual void* reach();
 
 			bool bools[8];
 
@@ -59,6 +66,27 @@ namespace ap {
 
 				return bools;
 			};
+
+			#define TOP 		bools[0]
+			#define TOPRIGHT 	bools[1]
+			#define RIGHT 		bools[2]
+			#define BOTTOMRIGHT bools[3]
+			#define BOTTOM 		bools[4]
+			#define BOTTOMLEFT 	bools[5]
+			#define LEFT 		bools[6]
+			#define TOPLEFT 	bools[7]
+
+			template<class T>
+			void* prefit() {
+
+				const FACE* pre = nullptr;
+
+				bool* bools = friends<T>();
+
+				reach();
+
+				return nullptr;
+			}
 
 		protected:
 
