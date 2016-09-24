@@ -16,6 +16,7 @@ namespace ap {
 		public:
 
 			enum CONNECT { SINGLE, UNI, DUO, OPPOSITE, TRI, QUAD, JUNCTION };
+			// static const en::Region[7] CONNECTS;
 
 			struct Attitude {
 				float degrees;
@@ -45,8 +46,8 @@ namespace ap {
 			bool bools[8];
 
 			template<class T> bool* friends() {
-				bool bools[8]; // = {!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0};
-				std::fill_n(bools, 8, false);
+				//bool bools[8]; // = {!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0};
+				//std::fill_n(bools, 8, false);
 
 				Tile **all = tile.gneighbors();
 

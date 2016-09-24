@@ -13,34 +13,14 @@ namespace ap {
 
 		class Block : public Part {
 		public:
-			struct Side {
-				en::Region *r;
-			};
+
+			// todo: make unmutable
+			static en::Region BLOCKS[7];
+			static en::Region OUTLINES[7];
+			static en::Region SHADOWS[7];
 
 			static en::Region variations[6];
 
-			static en::Region outlinesingle;
-			static en::Region outlineuni;
-			static en::Region outlineduo;
-			static en::Region outlineopposite;
-			static en::Region outlinetri;
-			static en::Region outlinequad;
-			static en::Region outlinejunction;
-
-			static en::Region blocksingle;
-			static en::Region blockuni;
-			static en::Region blockduo;
-			static en::Region blockopposite;
-			static en::Region blocktri;
-			static en::Region blockquad;
-			static en::Region blockjunction;
-
-			static const Side single;
-			static const Side uni;
-			static const Side duo;
-			static const Side opposite;
-			static const Side tri;
-			static const Side quad;
 		protected:
 
 		public:
@@ -57,17 +37,9 @@ namespace ap {
 			//virtual void connect();
 			virtual void refit();
 
-		private:
+		protected:
 			Draws outline;
 			Draws shadow;
-
-			const Side *side;
-
-			void junction(int, int);
-			Sprite *junctions[4];
-
-
-		protected:
 
 		};
 	}

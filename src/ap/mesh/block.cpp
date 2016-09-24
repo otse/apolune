@@ -15,39 +15,18 @@ using namespace ap::mesh;
 
 en::Region Block::variations[6] = { { 0,16,8,8 }, { 8,16,8,8 }, { 16,16,8,8 }, { 24,16,8,8 }, { 32,16,8,8 }, { 40,16,8,8 } };
 
-en::Region Block::outlinesingle = { 0,0,16,16 };
-en::Region Block::outlineuni = { 16,0,16,16 };
-en::Region Block::outlineduo = { 32,0,16,16 };
-en::Region Block::outlineopposite = { 48,0,16,16 };
-en::Region Block::outlinetri = { 64,0,16,16 };
-en::Region Block::outlinequad = { 80,0,16,16 };
-en::Region Block::outlinejunction = { 96,0,16,16 };
-
-en::Region Block::blocksingle = { 0,16,8,8 };
-en::Region Block::blockuni = { 8,16,8,8 };
-en::Region Block::blockduo = { 16,16,8,8 };
-en::Region Block::blockopposite = { 24,16,8,8 };
-en::Region Block::blocktri = { 32,16,8,8 };
-en::Region Block::blockquad = { 40,16,8,8 };
-en::Region Block::blockjunction = { 48,16,8,8 };
-
-const Block::Side Block::single = { &outlinesingle };
-const Block::Side Block::uni = { &outlineuni };
-const Block::Side Block::duo = { &outlineduo };
-const Block::Side Block::opposite = { &outlineopposite };
-const Block::Side Block::tri = { &outlinetri };
-const Block::Side Block::quad = { &outlinequad };
+en::Region Block::BLOCKS[7] = { { 0,16,8,8 },{ 8,16,8,8 },{ 16,16,8,8 },{ 24,16,8,8 },{ 32,16,8,8 },{ 40,16,8,8 },{ 48,16,8,8 } };
+en::Region Block::OUTLINES[7] = { { 0,0,16,16 },{ 16,0,16,16 },{ 32,0,16,16 },{ 48,0,16,16 },{ 64,0,16,16 },{ 80,0,16,16 },{ 96,0,16,16 } };
+en::Region Block::SHADOWS[7] = { { 0,0,16,16 },{ 16,0,16,16 },{ 32,0,16,16 },{ 48,0,16,16 },{ 64,0,16,16 },{ 80,0,16,16 },{ 96,0,16,16 } };
 
 static float i = 126.f / 255.f;
 static en::Color aft = { i,i,i };
 
 
 ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t, SORT_BLOCKS) ,
-	side(&single),
-	outline(SORT_UNIMPORTANT, &textures::rusty, &outlinesingle),
-	shadow(SORT_UNIMPORTANT, &textures::shadows, &outlinesingle)
+	outline(SORT_UNIMPORTANT, &textures::rusty, &OUTLINES[0]),
+	shadow(SORT_UNIMPORTANT, &textures::shadows, &SHADOWS[0])
 	{
-	std::fill_n(junctions, 4, nullptr);
 
 	if (AFT == fixture) {
 		color = &aft;
@@ -76,9 +55,7 @@ ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t, SORT_BLOCKS) ,
 }
 
 ap::mesh::Block::~Block() {
-	for (int i = 0; i < 4; i++)
-		if (nullptr != junctions[i])
-			delete junctions[i];
+	// does automatic stuff for me
 }
 
 void ap::mesh::Block::step() {
@@ -97,11 +74,6 @@ void ap::mesh::Block::draw(PASS p) {
 		shadow.draw();
 		break;
 	}
-
-	/*if (nullptr != junctions[0]) junctions[0]->draw();
-	if (nullptr != junctions[1]) junctions[1]->draw();
-	if (nullptr != junctions[2]) junctions[2]->draw();
-	if (nullptr != junctions[3]) junctions[3]->draw();*/
 }
 
 void ap::mesh::Block::click() {
@@ -110,18 +82,6 @@ void ap::mesh::Block::click() {
 
 void ap::mesh::Block::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {} else {}
-}
-
-void ap::mesh::Block::junction(int i, int r) {
-	Sprite *j = new Sprite(SORT_UNIMPORTANT, &textures::hulls, &blockjunction);
-	j->world = false;
-	j->rotate = r;
-
-	j->sx(gx());
-	j->sy(gy());
-	j->fbo = tile.grid.mass.gobf();
-
-	junctions[i] = j;
 }
 
 void ap::mesh::Block::refit() {
@@ -134,8 +94,8 @@ void ap::mesh::Block::refit() {
 	outline.rotate = shadow.rotate = attitude->degrees;
 
 	// refactor 
-	// outline.sregion(pre->side.r);
-	// shadow.sregion(pre->side.r);
+	outline.sregion( &OUTLINES[attitude->connect] );
+	shadow.sregion( &SHADOWS[attitude->connect] );
 
 }
 
