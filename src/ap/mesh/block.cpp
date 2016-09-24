@@ -86,9 +86,6 @@ void ap::mesh::Block::hover(mou::Hover h) {
 
 void ap::mesh::Block::refit() {
 
-	Attitude* attitude = (Attitude*) prefit<Block>();
-	
-	//sregion(side->r);
 
 	outline.nodraw = shadow.nodraw = attitude->connect == QUAD;
 	outline.rotate = shadow.rotate = attitude->degrees;

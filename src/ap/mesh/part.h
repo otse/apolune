@@ -78,7 +78,7 @@ namespace ap {
 
 			template<class T>
 			const Attitude* prefit() {
-				bool* bools = friends<T>();
+				friends<T>();
 
 				const Attitude* attitude = entangle();
 
