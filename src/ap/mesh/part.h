@@ -20,11 +20,9 @@ namespace ap {
 			struct Attitude {
 				float degrees;
 				CONNECT connect;
-				//const Side& side;
 			};
 
 			Part(FIXTURE, Tile &, sort_t);
-
 			~Part();
 
 			virtual void click();
@@ -33,20 +31,21 @@ namespace ap {
 			virtual void draw(PASS);
 
 			bool SEETHROUGH;
-			Tile &tile;
-			Emitter *em;
+			Tile& tile;
+			Emitter* em;
 
 			const FIXTURE fixture;
 
 			virtual void connect();
-			virtual void refit();
+			virtual void refit() = 0;
 
-			virtual void* reach();
+			// todo: entangle is a nonsensical word here
+			virtual const Attitude* entangle() const;
 
 			bool bools[8];
 
 			template<class T> bool* friends() {
-				bool bools[8];
+				bool bools[8]; // = {!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0};
 				std::fill_n(bools, 8, false);
 
 				Tile **all = tile.gneighbors();
@@ -77,15 +76,12 @@ namespace ap {
 			#define TOPLEFT 	bools[7]
 
 			template<class T>
-			void* prefit() {
-
-				const FACE* pre = nullptr;
-
+			const Attitude* prefit() {
 				bool* bools = friends<T>();
 
-				reach();
+				const Attitude* attitude = entangle();
 
-				return nullptr;
+				return attitude;
 			}
 
 		protected:

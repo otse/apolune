@@ -124,17 +124,18 @@ void ap::mesh::Block::junction(int i, int r) {
 	junctions[i] = j;
 }
 
-void ap::mesh::Block::refit () {
+void ap::mesh::Block::refit() {
 
-	FACE* pre = (FACE*) prefit<Block>();
+	Attitude* attitude = (Attitude*) prefit<Block>();
 	
 	//sregion(side->r);
 
-	outline.nodraw = shadow.nodraw = &pre->side == &quad;
-	outline.rotate = shadow.rotate = pre->degrees;
+	outline.nodraw = shadow.nodraw = attitude->connect == QUAD;
+	outline.rotate = shadow.rotate = attitude->degrees;
 
-	outline.sregion(pre->side.r);
-	shadow.sregion(pre->side.r);
+	// refactor 
+	// outline.sregion(pre->side.r);
+	// shadow.sregion(pre->side.r);
 
 }
 

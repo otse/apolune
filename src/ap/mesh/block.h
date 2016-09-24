@@ -54,16 +54,7 @@ namespace ap {
 			virtual void step();
 			virtual void draw(PASS);
 
-			//Ship &craft;
-			Emitter *em;
-
-			//TYPE gtype();
-			//const TYPE type;
-
 			//virtual void connect();
-			
-
-			//virtual void* prefit();
 			virtual void refit();
 
 		private:
