@@ -21,13 +21,10 @@ namespace ap {
 			virtual void step();
 			virtual void draw(PASS);
 
-			virtual void connect();
 			virtual void refit();
-			virtual bool preprefit();
+			virtual const Attitude* entangle();
 
-			virtual const Attitude* entangle() const;
-
-			int face;
+			int asd;
 
 		protected:
 

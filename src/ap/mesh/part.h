@@ -37,9 +37,9 @@ namespace ap {
 
 			const FIXTURE fixture;
 
-			virtual void connect();
-			virtual void refit() = 0;
-			virtual bool preprefit() = 0;
+			void connect();
+			virtual void refit() {};
+			virtual const Attitude* entangle(); // todo: entangle is a nonsensical misguided word
 
 			#define TOP 		bools[0]
 			#define TOPRIGHT 	bools[1]
@@ -53,9 +53,6 @@ namespace ap {
 
 		protected:
 			bool bools[8];
-
-			// todo: entangle is a nonsensical word
-			virtual const Attitude* entangle() const;
 
 			template<class T> bool* friends() {
 				//bool bools[8]; // = {!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0};
@@ -78,15 +75,6 @@ namespace ap {
 
 				return bools;
 			};
-
-			template<class T> const Attitude* prefit() {
-				friends<T>();
-
-				const Attitude* attitude = entangle();
-
-				return attitude;
-			}
-
 
 		};
 	}

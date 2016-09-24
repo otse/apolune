@@ -76,21 +76,9 @@ void ap::mesh::Block::draw(PASS p) {
 	}
 }
 
-void ap::mesh::Block::click() {
-	
-}
-
-void ap::mesh::Block::hover(mou::Hover h) {
-	if ( mou::HOVER_IN == h ) {} else {}
-}
-
-bool ap::mesh::Block::preprefit() {
-	return nullptr != prefit<Block>();
-}
-
 void ap::mesh::Block::refit() {
 
-	const Attitude* attitude = prefit<Block>();
+	const Attitude* attitude = entangle();
 
 	outline.nodraw = shadow.nodraw = attitude->connect == QUAD;
 	outline.rotate = shadow.rotate = attitude->degrees;
@@ -100,7 +88,8 @@ void ap::mesh::Block::refit() {
 
 }
 
-const Part::Attitude* ap::mesh::Block::entangle() const {
+const Part::Attitude* ap::mesh::Block::entangle() {
+	friends<Block>();
 
 	// quad
 	if (TOP && RIGHT && BOTTOM && LEFT) {

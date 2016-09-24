@@ -170,7 +170,7 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 			seethrough = mesh::partfactory(FORE, *this, ply->partname);
 			seethrough->SEETHROUGH = true;
 			
-			if ( seethrough->preprefit() )
+			if ( seethrough->entangle() )
 				attach(*seethrough);
 		}
 

@@ -73,7 +73,8 @@ void ap::mesh::Part::connect () {
 	refit();
 }
 
-const Part::Attitude* ap::mesh::Part::entangle() const {
+const Part::Attitude* ap::mesh::Part::entangle() {
+	friends<Part>();
 
 	// quad
 	if (TOP && RIGHT && BOTTOM && LEFT) {

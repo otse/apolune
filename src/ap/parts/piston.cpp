@@ -19,7 +19,7 @@ static en::Color aft = { i,i,i };
 
 
 ap::mesh::Piston::Piston(Tile &t) : Part(FORE, t, SORT_PISTONS) ,
-	face(1)
+	asd(1)
 	{
 	sw(16);
 	sh(16);
@@ -56,46 +56,17 @@ void ap::mesh::Piston::draw(PASS p) {
 
 }
 
-void ap::mesh::Piston::connect () {
-	Tile **all = tile.gneighbors();
+void ap::mesh::Piston::refit() {
 
-	for (int i = 0; i < 8; i++) {
-		Tile *t = all[i];
-
-		if (nullptr == t)
-			continue;
-
-		_ASSERT(t);
-
-		if (auto p = t->gpart(fixture))
-			p->refit();
-	}
-
-	refit();
-}
-
-#define TOP 		bools[0]
-#define TOPRIGHT 	bools[1]
-#define RIGHT 		bools[2]
-#define BOTTOMRIGHT bools[3]
-#define BOTTOM 		bools[4]
-#define BOTTOMLEFT 	bools[5]
-#define LEFT 		bools[6]
-#define TOPLEFT 	bools[7]
-
-bool ap::mesh::Piston::preprefit() {
-	return nullptr != prefit<Block>();
-}
-
-void ap::mesh::Piston::refit () {
-
-	const Attitude* attitude = prefit<Part>();
+	const Attitude* attitude = entangle();
 
 	rotate = attitude->degrees;
 	sregion( &PISTONS[attitude->connect] );
 }
 
-const Part::Attitude* ap::mesh::Piston::entangle() const {
+const Part::Attitude* ap::mesh::Piston::entangle() {
+
+	friends<Part>();
 
 	// quad
 	if (TOP && RIGHT && BOTTOM && LEFT) {

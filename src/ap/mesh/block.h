@@ -29,19 +29,13 @@ namespace ap {
 
 			int asd;
 
-			virtual void click();
-			virtual void hover(mou::Hover h);
 			virtual void step();
 			virtual void draw(PASS);
 
-			//virtual void connect();
 			virtual void refit();
-			virtual bool preprefit();
+			virtual const Attitude* entangle();
 
 		protected:
-
-			virtual const Attitude* entangle() const;
-
 			Draws outline;
 			Draws shadow;
 
