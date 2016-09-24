@@ -80,6 +80,9 @@ void ap::mesh::Block::refit() {
 
 	const Attitude* attitude = entangle();
 
+	if (nullptr == attitude)
+		return;
+
 	outline.nodraw = shadow.nodraw = attitude->connect == QUAD;
 	outline.rotate = shadow.rotate = attitude->degrees;
 

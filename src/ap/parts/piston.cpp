@@ -31,7 +31,6 @@ ap::mesh::Piston::Piston(Tile &t) : Part(FORE, t, SORT_PISTONS) ,
 	sy(gy() - 4);
 
 	fbo = t.grid.mass.gobf();
-	//shadow.fbo = t.grid.mass.gshadow();
 }
 
 ap::mesh::Piston::~Piston() {
@@ -59,6 +58,9 @@ void ap::mesh::Piston::draw(PASS p) {
 void ap::mesh::Piston::refit() {
 
 	const Attitude* attitude = entangle();
+
+	if (nullptr == attitude)
+		return;
 
 	rotate = attitude->degrees;
 	sregion( &PISTONS[attitude->connect] );
