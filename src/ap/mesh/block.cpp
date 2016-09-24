@@ -15,9 +15,9 @@ using namespace ap::mesh;
 
 en::Region Block::variations[6] = { { 0,16,8,8 }, { 8,16,8,8 }, { 16,16,8,8 }, { 24,16,8,8 }, { 32,16,8,8 }, { 40,16,8,8 } };
 
-en::Region Block::BLOCKS[7] = { { 0,16,8,8 },{ 8,16,8,8 },{ 16,16,8,8 },{ 24,16,8,8 },{ 32,16,8,8 },{ 40,16,8,8 },{ 48,16,8,8 } };
-en::Region Block::OUTLINES[7] = { { 0,0,16,16 },{ 16,0,16,16 },{ 32,0,16,16 },{ 48,0,16,16 },{ 64,0,16,16 },{ 80,0,16,16 },{ 96,0,16,16 } };
-en::Region Block::SHADOWS[7] = { { 0,0,16,16 },{ 16,0,16,16 },{ 32,0,16,16 },{ 48,0,16,16 },{ 64,0,16,16 },{ 80,0,16,16 },{ 96,0,16,16 } };
+en::Region Block::BLOCKS[6] = { { 0,16,8,8 },{ 8,16,8,8 },{ 16,16,8,8 },{ 24,16,8,8 },{ 32,16,8,8 },{ 40,16,8,8 } };
+en::Region Block::OUTLINES[6] = { { 0,0,16,16 },{ 16,0,16,16 },{ 32,0,16,16 },{ 48,0,16,16 },{ 64,0,16,16 },{ 80,0,16,16 } };
+en::Region Block::SHADOWS[6] = { { 0,0,16,16 },{ 16,0,16,16 },{ 32,0,16,16 },{ 48,0,16,16 },{ 64,0,16,16 },{ 80,0,16,16 } };
 
 static float i = 126.f / 255.f;
 static en::Color aft = { i,i,i };
@@ -86,6 +86,7 @@ void ap::mesh::Block::hover(mou::Hover h) {
 
 void ap::mesh::Block::refit() {
 
+	const Attitude* attitude = prefit<Block>();
 
 	outline.nodraw = shadow.nodraw = attitude->connect == QUAD;
 	outline.rotate = shadow.rotate = attitude->degrees;
@@ -94,6 +95,85 @@ void ap::mesh::Block::refit() {
 	outline.sregion( &OUTLINES[attitude->connect] );
 	shadow.sregion( &SHADOWS[attitude->connect] );
 
+}
+
+const Part::Attitude* ap::mesh::Block::entangle() const {
+
+	// quad
+	if (TOP && RIGHT && BOTTOM && LEFT) {
+		static const Attitude attitude{ 0, QUAD };
+		return &attitude;
+	}
+
+	// tri
+	else if (TOP && RIGHT && BOTTOM) {
+		static const Attitude attitude{ 0, TRI };
+		return &attitude;
+	}
+	else if (RIGHT && BOTTOM && LEFT) {
+		static const Attitude attitude{ 90, TRI };
+		return &attitude;
+	}
+	else if (BOTTOM && LEFT && TOP) {
+		static const Attitude attitude{ 180, TRI };
+		return &attitude;
+	}
+	else if (LEFT && TOP && RIGHT) {
+		static const Attitude attitude{ 270, TRI };
+		return &attitude;
+	}
+
+	// duo
+	else if (TOP && RIGHT) {
+		static const Attitude attitude{ 0, DUO };
+		return &attitude;
+	}
+	else if (RIGHT && BOTTOM) {
+		static const Attitude attitude{ 90, DUO };
+		return &attitude;
+	}
+	else if (BOTTOM && LEFT) {
+		static const Attitude attitude{ 180, DUO };
+		return &attitude;
+	}
+	else if (LEFT && TOP) {
+		static const Attitude attitude{ 270, DUO };
+		return &attitude;
+	}
+
+	// opposite
+	else if (TOP && BOTTOM) {
+		static const Attitude attitude{ 0, OPPOSITE };
+		return &attitude;
+	}
+	else if (LEFT && RIGHT) {
+		static const Attitude attitude{ 90, OPPOSITE };
+		return &attitude;
+	}
+
+	// uni
+	else if (TOP) {
+		static const Attitude attitude{ 0, UNI };
+		return &attitude;
+	}
+	else if (RIGHT) {
+		static const Attitude attitude{ 90, UNI };
+		return &attitude;
+	}
+	else if (BOTTOM) {
+		static const Attitude attitude{ 180, UNI };
+		return &attitude;
+	}
+	else if (LEFT) {
+		static const Attitude attitude{ 270, UNI };
+		return &attitude;
+	}
+
+	// single
+	else {
+		static const Attitude attitude{ 0, SINGLE };
+		return &attitude;
+	}
 }
 
 /* ###########################

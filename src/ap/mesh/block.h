@@ -15,9 +15,9 @@ namespace ap {
 		public:
 
 			// todo: make unmutable
-			static en::Region BLOCKS[7];
-			static en::Region OUTLINES[7];
-			static en::Region SHADOWS[7];
+			static en::Region BLOCKS[6];
+			static en::Region OUTLINES[6];
+			static en::Region SHADOWS[6];
 
 			static en::Region variations[6];
 
@@ -33,6 +33,8 @@ namespace ap {
 			virtual void hover(mou::Hover h);
 			virtual void step();
 			virtual void draw(PASS);
+
+			virtual const Attitude* entangle() const;
 
 			//virtual void connect();
 			virtual void refit();

@@ -13,13 +13,7 @@ namespace ap {
 
 		class Piston : public Part {
 		public:
-			static en::Region single;
-			static en::Region uni;
-			static en::Region duo;
-			static en::Region opposite;
-			static en::Region tri;
-			static en::Region quad;
-			static en::Region junction;
+			static en::Region PISTONS[6];
 
 			Piston(Tile &);
 			~Piston();
@@ -30,7 +24,7 @@ namespace ap {
 			virtual void connect();
 			virtual void refit();
 
-			en::Region* face;
+			int face;
 
 		protected:
 

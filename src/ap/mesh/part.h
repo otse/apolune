@@ -15,7 +15,7 @@ namespace ap {
 		class Part : public Sprite {
 		public:
 
-			enum CONNECT { SINGLE, UNI, DUO, OPPOSITE, TRI, QUAD, JUNCTION };
+			enum CONNECT { SINGLE, UNI, DUO, OPPOSITE, TRI, QUAD };
 			// static const en::Region[7] CONNECTS;
 
 			struct Attitude {
@@ -43,11 +43,10 @@ namespace ap {
 			// todo: entangle is a nonsensical word here
 			virtual const Attitude* entangle() const;
 
-			bool bools[8];
 
 			template<class T> bool* friends() {
 				//bool bools[8]; // = {!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0};
-				//std::fill_n(bools, 8, false);
+				std::fill_n(bools, 8, false);
 
 				Tile **all = tile.gneighbors();
 
@@ -86,8 +85,7 @@ namespace ap {
 			}
 
 		protected:
-
-		private:
+			bool bools[8];
 
 		};
 	}

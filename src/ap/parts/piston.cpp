@@ -12,25 +12,19 @@
 
 using namespace ap::mesh;
 
-en::Region Piston::single = { 0,0,16,16 };
-en::Region Piston::uni = { 16,0,16,16 };
-en::Region Piston::duo = { 32,0,16,16 };
-en::Region Piston::opposite = { 48,0,16,16 };
-en::Region Piston::tri = { 64,0,16,16 };
-en::Region Piston::quad = { 80,0,16,16 };
-en::Region Piston::junction = { 96,0,16,16 };
+en::Region Piston::PISTONS[6] = { { 0,0,16,16 },{ 16,0,16,16 },{ 32,0,16,16 },{ 48,0,16,16 },{ 64,0,16,16 },{ 80,0,16,16 } };
 
 static float i = 126.f / 255.f;
 static en::Color aft = { i,i,i };
 
 
 ap::mesh::Piston::Piston(Tile &t) : Part(FORE, t, SORT_PISTONS) ,
-	face(&single)
+	face(1)
 	{
 	sw(16);
 	sh(16);
 
-	sregion(&single);
+	sregion( &PISTONS[6] );
 	stexture(&textures::piston);
 
 	sx(gx() - 4);
@@ -91,18 +85,10 @@ void ap::mesh::Piston::connect () {
 
 void ap::mesh::Piston::refit () {
 
-	//FACE* pre = (FACE*)prefit();
+	const Attitude* attitude = prefit<Part>();
 
-	//outline.nodraw = shadow.nodraw = &pre->side == &quad;
-	//outline.rotate = shadow.rotate = pre->degrees;
-
-	//outline.sregion(pre->side.r);
-	//shadow.sregion(pre->side.r);
-
-	friends<Piston>();
-
-	//sregion(face);
-	//rotate = ro;
+	rotate = attitude->degrees;
+	sregion( &PISTONS[attitude->connect] );
 }
 
 /* ###########################

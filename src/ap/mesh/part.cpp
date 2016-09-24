@@ -74,6 +74,7 @@ void ap::mesh::Part::connect () {
 }
 
 const Part::Attitude* ap::mesh::Part::entangle() const {
+
 	// quad
 	if (TOP && RIGHT && BOTTOM && LEFT) {
 		static const Attitude attitude{ 0, QUAD };
