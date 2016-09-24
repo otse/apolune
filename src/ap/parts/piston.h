@@ -23,6 +23,9 @@ namespace ap {
 
 			virtual void connect();
 			virtual void refit();
+			virtual bool preprefit();
+
+			virtual const Attitude* entangle() const;
 
 			int face;
 

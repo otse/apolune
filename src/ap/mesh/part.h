@@ -16,7 +16,7 @@ namespace ap {
 		public:
 
 			enum CONNECT { SINGLE, UNI, DUO, OPPOSITE, TRI, QUAD };
-			// static const en::Region[7] CONNECTS;
+			// static const en::Region[7] E.G
 
 			struct Attitude {
 				float degrees;
@@ -39,10 +39,23 @@ namespace ap {
 
 			virtual void connect();
 			virtual void refit() = 0;
+			virtual bool preprefit() = 0;
 
-			// todo: entangle is a nonsensical word here
+			#define TOP 		bools[0]
+			#define TOPRIGHT 	bools[1]
+			#define RIGHT 		bools[2]
+			#define BOTTOMRIGHT bools[3]
+			#define BOTTOM 		bools[4]
+			#define BOTTOMLEFT 	bools[5]
+			#define LEFT 		bools[6]
+			#define TOPLEFT 	bools[7]
+
+
+		protected:
+			bool bools[8];
+
+			// todo: entangle is a nonsensical word
 			virtual const Attitude* entangle() const;
-
 
 			template<class T> bool* friends() {
 				//bool bools[8]; // = {!!0,!!0,!!0,!!0,!!0,!!0,!!0,!!0};
@@ -66,17 +79,7 @@ namespace ap {
 				return bools;
 			};
 
-			#define TOP 		bools[0]
-			#define TOPRIGHT 	bools[1]
-			#define RIGHT 		bools[2]
-			#define BOTTOMRIGHT bools[3]
-			#define BOTTOM 		bools[4]
-			#define BOTTOMLEFT 	bools[5]
-			#define LEFT 		bools[6]
-			#define TOPLEFT 	bools[7]
-
-			template<class T>
-			const Attitude* prefit() {
+			template<class T> const Attitude* prefit() {
 				friends<T>();
 
 				const Attitude* attitude = entangle();
@@ -84,8 +87,6 @@ namespace ap {
 				return attitude;
 			}
 
-		protected:
-			bool bools[8];
 
 		};
 	}

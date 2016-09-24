@@ -84,6 +84,10 @@ void ap::mesh::Block::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {} else {}
 }
 
+bool ap::mesh::Block::preprefit() {
+	return nullptr != prefit<Block>();
+}
+
 void ap::mesh::Block::refit() {
 
 	const Attitude* attitude = prefit<Block>();
@@ -91,7 +95,6 @@ void ap::mesh::Block::refit() {
 	outline.nodraw = shadow.nodraw = attitude->connect == QUAD;
 	outline.rotate = shadow.rotate = attitude->degrees;
 
-	// refactor 
 	outline.sregion( &OUTLINES[attitude->connect] );
 	shadow.sregion( &SHADOWS[attitude->connect] );
 
@@ -174,6 +177,8 @@ const Part::Attitude* ap::mesh::Block::entangle() const {
 		static const Attitude attitude{ 0, SINGLE };
 		return &attitude;
 	}
+
+	return nullptr;
 }
 
 /* ###########################

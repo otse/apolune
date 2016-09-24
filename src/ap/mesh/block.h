@@ -34,12 +34,14 @@ namespace ap {
 			virtual void step();
 			virtual void draw(PASS);
 
-			virtual const Attitude* entangle() const;
-
 			//virtual void connect();
 			virtual void refit();
+			virtual bool preprefit();
 
 		protected:
+
+			virtual const Attitude* entangle() const;
+
 			Draws outline;
 			Draws shadow;
 

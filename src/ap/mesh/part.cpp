@@ -150,10 +150,8 @@ const Part::Attitude* ap::mesh::Part::entangle() const {
 		static const Attitude attitude{ 0, SINGLE };
 		return &attitude;
 	}
-}
 
-void ap::mesh::Part::refit () {
-
+	return nullptr;
 }
 
 /* ###########################
