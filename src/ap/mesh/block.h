@@ -67,6 +67,12 @@ namespace ap {
 			//const TYPE type;
 
 			//virtual void connect();
+			struct FACE {
+				float degrees;
+				const Side& side;
+			};
+
+			virtual void* prefit();
 			virtual void refit();
 
 		private:

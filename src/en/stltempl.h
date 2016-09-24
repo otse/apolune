@@ -9,7 +9,8 @@
 #define	STLTEMPL_H
 
 template<class T> struct Reorder;
-	
+
+// todo: barf.. burn it.. burn it all to the ground.. Sept 2016
 template<class T> struct Vector {
 public:
 	std::vector<T> v;

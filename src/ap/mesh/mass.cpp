@@ -70,6 +70,12 @@ ap::mesh::Mass::~Mass() {
 }
 
 void ap::mesh::Mass::step() {
+
+	auto comp = [](const Part *a, const Part *b) { return a->group < b->group; };
+
+	std::sort(fores.begin(), fores.end(), comp);
+	std::sort(afts.begin(), afts.end(), comp);
+	
 	std::vector<Part *>::iterator it;
 	for (it = fores.begin(); it < fores.end(); it++) {
 		Part *p = *it;

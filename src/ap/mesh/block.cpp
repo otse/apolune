@@ -133,143 +133,102 @@ void ap::mesh::Block::junction(int i, int r) {
 #define LEFT 		bools[6]
 #define TOPLEFT 	bools[7]
 
-void ap::mesh::Block::refit () {
+void* ap::mesh::Block::prefit() {
 
+	const FACE* pre = nullptr;
 
-	/*for (int i = 0; i < 4; i++) {
-		if (nullptr != junctions[i]) {
-			delete junctions[i];
-			junctions[i] = nullptr;
-		}
-	}*/
-
-	friends<Block>();
-
-	float ro = 0;
+	bool* bools = friends<Block>();
 
 	// quad
 	if (TOP && RIGHT && BOTTOM && LEFT) {
-		side = &quad;
-		ro = 0;
+		static const FACE FACE { 0, quad };
+		return (void *) &FACE;
 	}
 
 	// tri
 	else if (TOP && RIGHT && BOTTOM) {
-		side = &tri;
-		ro = 0;
+		static const FACE FACE{ 0, tri };
+		return (void *) &FACE;
 	}
 	else if (RIGHT && BOTTOM && LEFT) {
-		side = &tri;
-		ro = 90;
+		static const FACE FACE{ 90, tri };
+		return (void *) &FACE;
 	}
 	else if (BOTTOM && LEFT && TOP) {
-		side = &tri;
-		ro = 180;
+		static const FACE FACE{ 180, tri };
+		return (void *) &FACE;
 	}
 	else if (LEFT && TOP && RIGHT) {
-		side = &tri;
-		ro = 270;
+		static const FACE FACE{ 270, tri };
+		return (void *) &FACE;
 	}
 
 	// duo
 	else if (TOP && RIGHT) {
-		side = &duo;
-		ro = 0;
+		static const FACE FACE{ 0, duo };
+		return (void *) &FACE;
 	}
 	else if (RIGHT && BOTTOM) {
-		side = &duo;
-		ro = 90;
+		static const FACE FACE{ 90, duo };
+		return (void *) &FACE;
 	}
 	else if (BOTTOM && LEFT) {
-		side = &duo;
-		ro = 180;
+		static const FACE FACE{ 180, duo };
+		return (void *) &FACE;
 	}
 	else if (LEFT && TOP) {
-		side = &duo;
-		ro = 270;
+		static const FACE FACE{ 270, duo };
+		return (void *) &FACE;
 	}
 
 	// opposite
 	else if (TOP && BOTTOM) {
-		side = &opposite;
-		ro = 0;
+		static const FACE FACE{ 0, opposite };
+		return (void *) &FACE;
 	}
 	else if (LEFT && RIGHT) {
-		side = &opposite;
-		ro = 90;
+		static const FACE FACE{ 90, opposite };
+		return (void *) &FACE;
 	}
 
 	// uni
 	else if (TOP) {
-		side = &uni;
-		ro = 0;
+		static const FACE FACE{ 0, uni };
+		return (void *) &FACE;
 	}
 	else if (RIGHT) {
-		side = &uni;
-		ro = 90;
+		static const FACE FACE{ 90, uni };
+		return (void *) &FACE;
 	}
 	else if (BOTTOM) {
-		side = &uni;
-		ro = 180;
+		static const FACE FACE{ 180, uni };
+		return (void *) &FACE;
 	}
 	else if (LEFT) {
-		side = &uni;
-		ro = 270;
+		static const FACE FACE{ 270, uni };
+		return (void *) &FACE;
 	}
 
 	// single
 	else {
-		side = &single;
-		ro = 0;
+		static const FACE FACE{ 0, single };
+		return (void *) &FACE;
 	}
 
+	return nullptr;
+}
+
+void ap::mesh::Block::refit () {
+
+	FACE* pre = (FACE*) prefit();
+	
 	//sregion(side->r);
 
-	outline.nodraw = shadow.nodraw = side == &quad;
-	outline.rotate = shadow.rotate = ro;
+	outline.nodraw = shadow.nodraw = &pre->side == &quad;
+	outline.rotate = shadow.rotate = pre->degrees;
 
-	outline.sregion(side->r);
-	shadow.sregion(side->r);
-
-	/*if (side == &quad) {
-		if (!TOPLEFT)
-			junction(0, 0);
-
-		if (!TOPRIGHT)
-			junction(1, 90);
-
-		if (!BOTTOMRIGHT)
-			junction(2, 180);
-
-		if (!BOTTOMLEFT)
-			junction(3, 270);
-	}
-	else if (side == &tri) {
-		if (!TOPLEFT && (rotate == 180 || rotate == 270))
-			junction(0, 0);
-
-		if (!TOPRIGHT && (rotate == 0 || rotate == 270))
-			junction(1, 90);
-
-		if (!BOTTOMRIGHT && (rotate == 0 || rotate == 90))
-			junction(2, 180);
-
-		if (!BOTTOMLEFT && (rotate == 90 || rotate == 180))
-			junction(3, 270);
-	}
-	else if (side == &duo) {
-		if (!TOPLEFT && (rotate == 270))
-			junction(0, 0);
-
-		if (!TOPRIGHT && (rotate == 0))
-			junction(1, 90);
-
-		if (!BOTTOMRIGHT && (rotate == 90))
-			junction(2, 180);
-
-		if (!BOTTOMLEFT && (rotate == 180))
-			junction(3, 270);
-	}*/
+	outline.sregion(pre->side.r);
+	shadow.sregion(pre->side.r);
 
 }
 

@@ -16,6 +16,8 @@ namespace ap {
 		public:
 			bool SEETHROUGH;
 
+			enum SIDE { SINGLE, UNI, DUO, OPPOSITE, TRI, QUAD, JUNCTION };
+
 			Part(FIXTURE, Tile &, sort_t);
 
 			~Part();
@@ -31,17 +33,19 @@ namespace ap {
 			const FIXTURE fixture;
 
 			virtual void connect();
+			virtual void* prefit();
 			virtual void refit();
 
 			bool bools[8];
 
-			template<class T> void friends() {
+			template<class T> bool* friends() {
+				bool bools[8];
+				std::fill_n(bools, 8, false);
+
 				Tile **all = tile.gneighbors();
 
 				for (int i = 0; i < 8; i++) {
 					Tile *t = all[i];
-
-					bools[i] = false;
 
 					if (nullptr == t)
 						continue;
@@ -52,7 +56,10 @@ namespace ap {
 
 					bools[i] = !!type;
 				}
+
+				return bools;
 			};
+
 		protected:
 
 		private:

@@ -73,6 +73,8 @@ void ap::mesh::Part::connect () {
 	refit();
 }
 
+void* ap::mesh::Part::prefit() { return nullptr; }
+
 void ap::mesh::Part::refit () {
 
 }

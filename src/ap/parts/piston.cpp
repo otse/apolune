@@ -91,88 +91,18 @@ void ap::mesh::Piston::connect () {
 
 void ap::mesh::Piston::refit () {
 
+	//FACE* pre = (FACE*)prefit();
+
+	//outline.nodraw = shadow.nodraw = &pre->side == &quad;
+	//outline.rotate = shadow.rotate = pre->degrees;
+
+	//outline.sregion(pre->side.r);
+	//shadow.sregion(pre->side.r);
+
 	friends<Piston>();
 
-	float ro = 0;
-
-	// quad
-	if (TOP && RIGHT && BOTTOM && LEFT) {
-		face = &quad;
-		ro = 0;
-	}
-
-	// tri
-	else if (TOP && RIGHT && BOTTOM) {
-		face = &tri;
-		ro = 0;
-	}
-	else if (RIGHT && BOTTOM && LEFT) {
-		face = &tri;
-		ro = 90;
-	}
-	else if (BOTTOM && LEFT && TOP) {
-		face = &tri;
-		ro = 180;
-	}
-	else if (LEFT && TOP && RIGHT) {
-		face = &tri;
-		ro = 270;
-	}
-
-	// duo
-	else if (TOP && RIGHT) {
-		face = &duo;
-		ro = 0;
-	}
-	else if (RIGHT && BOTTOM) {
-		face = &duo;
-		ro = 90;
-	}
-	else if (BOTTOM && LEFT) {
-		face = &duo;
-		ro = 180;
-	}
-	else if (LEFT && TOP) {
-		face = &duo;
-		ro = 270;
-	}
-
-	// opposite
-	else if (TOP && BOTTOM) {
-		face = &opposite;
-		ro = 0;
-	}
-	else if (LEFT && RIGHT) {
-		face = &opposite;
-		ro = 90;
-	}
-
-	// uni
-	else if (TOP) {
-		face = &uni;
-		ro = 0;
-	}
-	else if (RIGHT) {
-		face = &uni;
-		ro = 90;
-	}
-	else if (BOTTOM) {
-		face = &uni;
-		ro = 180;
-	}
-	else if (LEFT) {
-		face = &uni;
-		ro = 270;
-	}
-
-	// single
-	else {
-		face = &single;
-		ro = 0;
-	}
-
-	sregion(face);
-	rotate = ro;
+	//sregion(face);
+	//rotate = ro;
 }
 
 /* ###########################
