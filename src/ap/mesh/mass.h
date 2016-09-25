@@ -21,10 +21,12 @@ namespace ap {
 
 			virtual void clicked(Tile &);
 
-			Grid grid;
-
 			void add(Part *);
 			void remove(Part *);
+
+			bool sleeping;
+
+			Grid grid;
 
 			en::FBO *gobf() const;
 			en::FBO *gshadow() const;

@@ -193,7 +193,6 @@
     <ClInclude Include="..\..\src\en\engine.h" />
     <ClInclude Include="..\..\src\en\fbo.h" />
     <ClInclude Include="..\..\src\en\shader.h" />
-    <ClInclude Include="..\..\src\en\stltempl.h" />
     <ClInclude Include="..\..\src\en\texture.h" />
     <ClInclude Include="..\..\src\en\vbo.h" />
     <ClInclude Include="..\..\src\h.h" />

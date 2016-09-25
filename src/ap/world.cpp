@@ -13,7 +13,6 @@
 #include "emitter.h"
 
 #include "mesh/mass.h"
-#include "asteroid/all.h"
 
 #include "def.h"
 
@@ -69,17 +68,17 @@ void ap::World::step() {
 	// todo: sprites need a late-add vector
 
 	// sort here
-	sprites.l.sort([](const Sprite *a, const Sprite *b) { return a->group < b->group; });
+	//sprites.l.sort([](const Sprite *a, const Sprite *b) { return a->group < b->group; });
 	
 	// step
-	{std::list<Sprite *>::iterator it;
-	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
+	{std::vector<Sprite *>::iterator it;
+	for ( it = sprites.begin(); it != sprites.end(); it ++) {
 		Sprite *s = *it;
 		s->step();
 	}}
 
 	// remove
-	sprites.l.remove_if(nukeif);
+	//sprites.l.remove_if(nukeif);
 
 	camerax = ply->gx() + (26 / 2);
 	cameray = ply->gy() + (34 / 2);
@@ -96,8 +95,8 @@ void ap::World::step() {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
-	{std::list<Sprite *>::iterator it;
-	for ( it = sprites.l.begin(); it != sprites.l.end(); it ++) {
+	{std::vector<Sprite *>::iterator it;
+	for ( it = sprites.begin(); it != sprites.end(); it ++) {
 		Sprite *s = *it;
 		s->draw();
 	}}
@@ -232,7 +231,7 @@ void ap::World::lighting() {
 	glBlendFunc(GL_ZERO, GL_ONE_MINUS_SRC_ALPHA); // lights blending, white creates 'holes' in darkmap
 	
 	std::vector<Sprite *>::iterator it;
-	for ( it = lights.v.begin(); it < lights.v.end(); it ++) {
+	for ( it = lights.begin(); it < lights.end(); it ++) {
 		Sprite *s = *it;
 		s->draw();
 	}
@@ -251,6 +250,9 @@ void ap::World::load() {
 	ship = new mesh::Mass();
 	add(ship);
 
+	mesh::Mass* asteroid = new mesh::Mass();
+	add(asteroid);
+
 	//asteroid::Asteroid *ast = new asteroid::Asteroid();
 	//add(ast);
 	
@@ -258,7 +260,7 @@ void ap::World::load() {
 	cursorlight->world = false;
 	cursorlight->sw(cursorlight->gw()*3);
 	cursorlight->sh(cursorlight->gh()*3);
-	this->lights.v.push_back(cursorlight);
+	this->lights.push_back(cursorlight);
 	
 	ply = new Ply();
 	ply->sx(0);
@@ -273,7 +275,7 @@ void ap::World::load() {
 }
 
 void ap::World::add(Sprite *p) {
-	sprites.l.push_back(p);
+	sprites.push_back(p);
 }
 
 

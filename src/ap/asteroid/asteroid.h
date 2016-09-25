@@ -31,7 +31,7 @@ namespace ap {
 				Sprite *sprite;
 
 				std::unordered_map <std::string, Draws *> tilesum;
-				en::Vector<Rock *> rocks;
+				std::vector<Rock *> rocks;
 
 		};
 	}

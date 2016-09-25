@@ -4,7 +4,6 @@
 
 #include "../def.h"
 #include "../world.h"
-//#include "../ship/all.h"
 
 #include "mass.h"
 #include "tile.h"
@@ -59,7 +58,7 @@ ap::mesh::Block::~Block() {
 }
 
 void ap::mesh::Block::step() {
-	Sprite::step();
+	//Sprite::step();
 }
 
 void ap::mesh::Block::draw(PASS p) {

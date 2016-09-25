@@ -28,7 +28,7 @@ namespace ap {
 
 			virtual void click();
 			virtual void hover(mou::Hover h);
-			virtual void step();
+			// virtual void step();
 			virtual void draw(PASS);
 
 			bool SEETHROUGH;

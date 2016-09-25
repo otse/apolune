@@ -46,9 +46,8 @@ int en::WindowHandle = 0;
 bool en::focus = true;
 
 std::vector<sf::Sound *> en::sounds;
-Vector<Draws *> en::late;
-List<Draws *> en::draws;
-
+std::vector<Draws *> en::late;
+std::vector<Draws *> en::draws;
 
 LARGE_INTEGER en::frequency;
 LARGE_INTEGER en::deltatime;
@@ -263,27 +262,27 @@ void en::soundsstep() {
 
 void en::drawsstep() {
 	// step
-	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
+	{std::vector<Draws *>::iterator it;
+	for ( it = draws.begin(); it != draws.end(); it ++) {
 		Draws *d = *it;
 		d->step();
 	}}
 
-	draws.l.remove_if(en::nukeif);
+	//draws.l.remove_if(en::nukeif);
 	
 	// add late
 	{std::vector<Draws *>::iterator it;
-	for ( it = late.v.begin(); it < late.v.end(); it ++) {
+	for ( it = late.begin(); it < late.end(); it ++) {
 		Draws *d = *it;
 		d->step();
 		add(d);
 		LOG("added late draws")
 	}}
-	late.v.clear();
+	late.clear();
 	
 	// draw
-	{std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
+	{std::vector<Draws *>::iterator it;
+	for ( it = draws.begin(); it != draws.end(); it ++) {
 		Draws *d = *it;
 		d->draw();
 	}}
@@ -291,21 +290,21 @@ void en::drawsstep() {
 
 
 void en::add(Draws *p) {
-	draws.l.push_back(p);
+	draws.push_back(p);
 }
 
 void en::later(Draws *p) {
-	late.v.push_back(p);
+	late.push_back(p);
 }
 
 void en::rm(Draws *s) {
 	if ( nullptr == s )
 		return;
 	
-	std::list<Draws *>::iterator it;
-	for ( it = draws.l.begin(); it != draws.l.end(); it ++) {
+	std::vector<Draws *>::iterator it;
+	for ( it = draws.begin(); it != draws.end(); it ++) {
 		if ( *it == s ) {
-			draws.l.erase(it);
+			draws.erase(it);
 			break;
 		}
 	}

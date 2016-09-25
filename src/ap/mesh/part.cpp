@@ -23,10 +23,10 @@ ap::mesh::Part::Part(FIXTURE f, Tile &t, sort_t s) :
 
 	world = false;
 
-	em = new Emitter(Emitter::placesparks);
+	/*em = new Emitter(Emitter::placesparks);
 	em->sx(gx()+t.grid.gx()+ (t.grid.gpoints()/2));
 	em->sy(gy()+t.grid.gy()+ (t.grid.gpoints()/2));
-	ap::world->add(em);
+	ap::world->add(em);*/
 
 	fbo = t.grid.mass.gobf();
 
@@ -38,9 +38,9 @@ ap::mesh::Part::~Part() {
 	
 }
 
-void ap::mesh::Part::step() {
+/*void ap::mesh::Part::step() {
 	Sprite::step();
-}
+}*/
 
 void ap::mesh::Part::draw(PASS p) {
 	if (FORE == fixture && p == FOREGROUND_PASS || AFT == fixture && p == BACKGROUND_PASS )
@@ -52,7 +52,7 @@ void ap::mesh::Part::click() {
 }
 
 void ap::mesh::Part::hover(mou::Hover h) {
-	if ( mou::HOVER_IN == h ) {} else {}
+	//if ( mou::HOVER_IN == h ) {} else {}
 }
 
 void ap::mesh::Part::connect () {

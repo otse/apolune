@@ -33,9 +33,8 @@ namespace ap {
 		
 		Sprite *cursorlight;
 
-		std::vector<std::list<Sprite *>::iterator> group;
-		en::List<Sprite *> sprites;
-		en::Vector<Sprite *> lights;
+		std::vector<Sprite *> sprites;
+		std::vector<Sprite *> lights;
 		
 		en::Shader *lightshader;
 	

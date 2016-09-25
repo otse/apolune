@@ -57,7 +57,7 @@ ap::mesh::Tile::~Tile() {
 
 
 void ap::mesh::Tile::step() {
-	Sprite::step();
+	//Sprite::step();
 
 	mousetrigger();
 

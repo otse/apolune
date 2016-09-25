@@ -49,8 +49,6 @@ namespace en {
 		double time;
 		bool reverse;
 	};
-
-	#include "stltempl.h"
 	
 	namespace mou {
 		enum Button {LEFT,MIDDLE,RIGHT};
@@ -89,7 +87,7 @@ namespace en {
 	extern PHYSFS_File *base;
 
 	extern bool focus;
-	extern List<Draws*> draws;
+	extern std::vector<Draws*> draws;
 	void drawsstep();
 	void add(Draws *);
 	void rm(Draws *);
@@ -100,7 +98,7 @@ namespace en {
 	//typedef(*nukeif)(const Draws *);
 	bool nukeif(const Draws *);
 
-	extern Vector<Draws*> late;
+	extern std::vector<Draws*> late;
 	void later(Draws *);
 
 	typedef int order_t;

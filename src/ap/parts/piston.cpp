@@ -38,7 +38,7 @@ ap::mesh::Piston::~Piston() {
 }
 
 void ap::mesh::Piston::step() {
-	Sprite::step();
+	//Sprite::step();
 }
 
 void ap::mesh::Piston::draw(PASS p) {
@@ -61,6 +61,8 @@ void ap::mesh::Piston::refit() {
 
 	if (nullptr == attitude)
 		return;
+
+	//if (attitude->connect==TRI && attitude->degrees)
 
 	rotate = attitude->degrees;
 	sregion( &PISTONS[attitude->connect] );

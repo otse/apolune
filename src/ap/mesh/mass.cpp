@@ -17,7 +17,8 @@
 
 ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	r({ 0,0,16,16 }),
-	grid(*this, 8, Tile::eight)
+	grid(*this, 8, Tile::eight),
+	sleeping(false)
 	{
 
 	Draws::r = &r;
@@ -46,7 +47,7 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 	//ap::world->add(light);
 
 	Sprite *fud = new Sprite(SORT_HIGH, &textures::cursorlight, &regions::cursorlight);
-	ap::world->lights.v.push_back(fud);
+	ap::world->lights.push_back(fud);
 
 	// cube
 	for (int y = 1; y < 8; y++) {
@@ -70,6 +71,8 @@ ap::mesh::Mass::~Mass() {
 }
 
 void ap::mesh::Mass::step() {
+
+	return;
 
 	// todo: does the compiler like this inline "lambda function (?)"
 	// why not put just outside method body?
@@ -127,6 +130,11 @@ void ap::mesh::Mass::clicked(Tile &t) {
 
 void ap::mesh::Mass::add(Part *p) {
 
+	if ( nullptr == p )
+		return;
+
+	sleeping = false;
+
 	(FORE == p->fixture ? fores : afts).push_back(p);
 
 	// re fbo;
@@ -163,15 +171,24 @@ void ap::mesh::Mass::add(Part *p) {
 }
 
 void ap::mesh::Mass::remove(Part *p) {
+
 	auto& vec = (FORE == p->fixture ? fores : afts);
 
 	std::vector<Part*>::iterator pos = std::find(vec.begin(), vec.end(), p);
 
-	if (vec.end() != pos)
+	if (vec.end() != pos) {
+		sleeping = false;
 		vec.erase(pos);
+	}
 }
 
 void ap::mesh::Mass::draw() {
+
+	if (sleeping) {
+		Sprite::draw();
+		return;
+	}
+
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, shadow->gfbid());
 
 	glPushAttrib(GL_VIEWPORT_BIT);
@@ -225,6 +242,7 @@ void ap::mesh::Mass::draw() {
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+	sleeping = true;
 	// flat(); // tsts
 }
 

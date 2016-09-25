@@ -14,14 +14,7 @@ template<class T> struct Reorder;
 template<class T> struct Vector {
 public:
 	std::vector<T> v;
-	bool resort = false;
-	void sort() {
-		if ( resort ) {
-			std::sort(v.begin(), v.end(), en::Reorder<T>());
-			
-			resort = false;
-		}
-	}
+	
 };
 
 // Situations where you want to insert a lot of items into the middle of a sequence repeatedly.
