@@ -19,7 +19,7 @@ namespace ap {
 		void rescale();
 		void fbos();
 		
-		void add(Sprite *);
+		//void add(Sprite *);
 		void rm(Sprite *);
 		
 		void lighting();
@@ -33,13 +33,14 @@ namespace ap {
 		
 		Sprite *cursorlight;
 
-		std::vector<Sprite *> sprites;
 		std::vector<Sprite *> lights;
+		std::vector<Sprite *> lates;
 		
 		en::Shader *lightshader;
 	
 		en::Region fboreg;
 	protected:
+		std::vector<Sprite *> sprites;
 	
 	private:
 		//inline void sresort() { resort = true; }

@@ -23,7 +23,7 @@ using namespace ap;
 
 std::ofstream ap::log;
 const char *envars::windowname = "Ap";
-int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close | sf::Style::Fullscreen;
+int envars::windowstyle = sf::Style::Titlebar | sf::Style::Close;// | sf::Style::Fullscreen;
 
 double ap::zoom = 1;
 double ap::zoomto = 1;
@@ -135,7 +135,7 @@ bool second() {
 		as::global.SetPropertyAsync(WSLit("delta"), JSValue(en::delta));
 
 		if (ap::world)
-		as::global.SetPropertyAsync(WSLit("draws"), JSValue((int) ap::world->sprites.size()));
+		as::global.SetPropertyAsync(WSLit("draws"), JSValue((int) Sprite::GCOUNT()));
 		as::view->ExecuteJavascript(WSLit("js.second();"), WSLit(""));
 
 		//LOG(fps);

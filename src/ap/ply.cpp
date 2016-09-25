@@ -28,7 +28,7 @@ ap::Ply::Ply()
 	sworld(true);
 
 	spawnplosion = new Emitter(Emitter::spawnplosion);
-    ap::world->add(spawnplosion);
+    ap::world->lates.push_back(spawnplosion);
 	
 	/*breath = new Emitter(Emitter::breathbubbles);
     ap::world->add(breath);*/

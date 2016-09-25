@@ -45,7 +45,7 @@ ap::mesh::Tile &ap::mesh::Grid::mtile(int x, int y) {
 
 	tilesum.insert(teddybear);
 
-	ap::world->add(t);
+	ap::world->lates.push_back(t);
 
 	if (t->gx() < normal.x) normal.x = t->gx();
 	if (t->gy() < normal.y) normal.y = t->gy();

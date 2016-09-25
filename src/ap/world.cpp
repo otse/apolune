@@ -94,12 +94,16 @@ void ap::World::step() {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	sprites.insert(std::end(sprites), std::begin(lates), std::end(lates));
+	lates.clear();
+
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::vector<Sprite *>::iterator it;
 	for ( it = sprites.begin(); it != sprites.end(); it ++) {
 		Sprite *s = *it;
 		s->draw();
 	}}
+
 	
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, lightmap->gfbid() );
 	
@@ -118,25 +122,8 @@ void ap::World::step() {
 	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // revert to standard blending
 	
-	/*if ( ply->isinside(leasurearea) )
-		zoomto = 1.5;
-	else
-		zoomto = 1;*/
-	
-	ZOOMPART
-	
-	// make zoom vars
-	double w = en::width * zoom;
-	double h = en::height * zoom;
-	double x = -((w - en::width) / 2);
-	double y = -((h - en::height) / 2);
-	
 	// draw backdrop onto default buffer
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
-	//backdrop->sx(x);
-	//backdrop->sy(y);
-	//backdrop->sw(w);
-	//backdrop->sh(h);
 
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -147,7 +134,6 @@ void ap::World::step() {
 	
 	// draw foreground
 	en::Draws &d = foreground->gdraws();
-	d.sall(x,y,w,h);
 	d.draw();
 
 	//glPopMatrix(); // pop scale
@@ -248,10 +234,10 @@ void ap::World::load() {
 	// don't add; we render the backdrop last, manually
 	
 	ship = new mesh::Mass();
-	add(ship);
+	sprites.push_back(ship);
 
 	mesh::Mass* asteroid = new mesh::Mass();
-	add(asteroid);
+	sprites.push_back(asteroid);
 
 	//asteroid::Asteroid *ast = new asteroid::Asteroid();
 	//add(ast);
@@ -266,18 +252,13 @@ void ap::World::load() {
 	ply->sx(0);
 	ply->sy(0);
 	//ply->nodraw = true;
-	this->add( ply );
+	sprites.push_back( ply );
 	
 	ap::xof = (en::width/2)-(ply->gw()/2);
 	ap::yof = (en::height/2)-(ply->gh()/2)+100;
 
 	LOG("made world")
 }
-
-void ap::World::add(Sprite *p) {
-	sprites.push_back(p);
-}
-
 
 void ap::World::steroids() {
 
