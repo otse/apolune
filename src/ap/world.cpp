@@ -6,7 +6,6 @@
 #include "../en/fbo.h"
 
 #include "world.h"
-//#include "planet.h"
 #include "light.h"
 #include "ply.h"
 #include "hangar.h"
@@ -59,15 +58,22 @@ ap::World::~World() {
 		} \
 	}
 
-void ap::World::draw() {
-	//sprites.sort([](const Sprite *a, const Sprite *b) { return a->group < b->group; });
-	
+void ap::World::step() {
 	// step
 	{std::vector<Sprite *>::iterator it;
-	for ( it = sprites.begin(); it != sprites.end(); it ++) {
+	for (it = sprites.begin(); it != sprites.end(); it++) {
 		Sprite *s = *it;
 		s->step();
 	}}
+
+	if (lates.size() > 0) {
+		sprites.insert(std::end(sprites), std::begin(lates), std::end(lates));
+		lates.clear();
+	}
+}
+
+void ap::World::draw() {
+	//sprites.sort([](const Sprite *a, const Sprite *b) { return a->group < b->group; });
 
 	// remove
 	//sprites.remove_if(nukeif);
@@ -78,18 +84,12 @@ void ap::World::draw() {
 	
 	cursorlight->sx(en::mou::mx-75);
 	cursorlight->sy(en::mou::my-75);
-	
-	//glEnable(GL_TEXTURE_2D); // ?
 
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	if (lates.size() > 0) {
-		LOG("size is " << lates.size())
-		sprites.insert(std::end(sprites), std::begin(lates), std::end(lates));
-		lates.clear();
-	}
+	
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::vector<Sprite *>::iterator it;
