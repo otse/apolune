@@ -145,19 +145,15 @@ void ap::Emitter::step() {
 }
 
 void ap::Emitter::draw() {
-	std::vector<Particle *>::iterator it;
-	
-	for ( it = p.begin(); it < p.end(); it ++)
-		((Particle *)*it) ->step();
-	
-	for ( it = p.begin(); it < p.end(); it ++) {
-		Particle *o = *it;
-	}
 
 	p.erase(std::remove_if(p.begin(), p.end(), nukeif), p.end());
 	
-	for ( it = p.begin(); it < p.end(); it ++)
-		((Particle *)*it) ->draw();
+	std::vector<Particle *>::iterator it;
+	for (it = p.begin(); it < p.end(); it++) {
+		Particle* a = *it;
+		a->step();
+		a->draw();
+	}
 }
 
 const Emitter::Model &ap::Emitter::gm() {

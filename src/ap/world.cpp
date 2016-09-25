@@ -60,15 +60,7 @@ ap::World::~World() {
 	}
 
 void ap::World::draw() {
-	//ply->draw();
-	
-	//this->steroids(); // Asteroid
-	//sprites.sort();
-
-	// todo: sprites need a late-add vector
-
-	// sort here
-	//sprites.l.sort([](const Sprite *a, const Sprite *b) { return a->group < b->group; });
+	//sprites.sort([](const Sprite *a, const Sprite *b) { return a->group < b->group; });
 	
 	// step
 	{std::vector<Sprite *>::iterator it;
@@ -78,7 +70,7 @@ void ap::World::draw() {
 	}}
 
 	// remove
-	//sprites.l.remove_if(nukeif);
+	//sprites.remove_if(nukeif);
 
 	camerax = ply->gx() + (26 / 2);
 	cameray = ply->gy() + (34 / 2);
