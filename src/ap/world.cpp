@@ -59,7 +59,7 @@ ap::World::~World() {
 		} \
 	}
 
-void ap::World::step() {
+void ap::World::draw() {
 	//ply->draw();
 	
 	//this->steroids(); // Asteroid
@@ -84,18 +84,20 @@ void ap::World::step() {
 	cameray = ply->gy() + (34 / 2);
 	as::valuez.SetPropertyAsync(WSLit("orientation"), JSValue(ply->orientation));
 	
-	
 	cursorlight->sx(en::mou::mx-75);
 	cursorlight->sy(en::mou::my-75);
 	
-	glEnable(GL_TEXTURE_2D); // ?
+	//glEnable(GL_TEXTURE_2D); // ?
 
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, foreground->gfbid() );
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	sprites.insert(std::end(sprites), std::begin(lates), std::end(lates));
-	lates.clear();
+	if (lates.size() > 0) {
+		LOG("size is " << lates.size())
+		sprites.insert(std::end(sprites), std::begin(lates), std::end(lates));
+		lates.clear();
+	}
 
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::vector<Sprite *>::iterator it;

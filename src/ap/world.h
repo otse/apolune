@@ -15,6 +15,7 @@ namespace ap {
 		
 		void load();
 		void step();
+		void draw();
 		void resize();
 		void rescale();
 		void fbos();

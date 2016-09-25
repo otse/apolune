@@ -167,7 +167,7 @@ void envars::frame() {
 	as::step();
 
 	if ( world )
-		world->step();
+		world->draw();
 	
 	en::soundsstep();
 	en::drawsstep();
