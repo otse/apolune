@@ -21,7 +21,7 @@ ap::Ply::Ply()
 		tbulb(0),
 		orientation(0),
 		part(nullptr),
-		partname("hull") // move to awesome.cpp
+		partname("aluminium") // move to awesome.cpp
 	{
 	LOG("ply ctor")
 	//dim(0, 0, 14, 38);

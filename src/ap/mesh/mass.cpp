@@ -54,11 +54,11 @@ ap::mesh::Mass::Mass() : ap::Sprite(SORT_UNIMPORTANT, nullptr, &en::regfluke ) ,
 		for (int x = 1; x < 8; x++) {
 			Tile &t = *grid.gtile(x, y);
 			
-			Block *p = new Block(AFT, t);
+			Block *p = new Block(AFT, t, Block::Rusty);
 			t.attach(*p);
 
 			if ( (x == 1 || y == 1 || x == 7 || y == 7) ) {
-				Block *p = new Block(FORE, t);
+				Block *p = new Block(FORE, t, Block::Rusty);
 				t.attach(*p);
 			}
 		}

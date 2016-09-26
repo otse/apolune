@@ -167,7 +167,9 @@ void ap::mesh::Tile::hover(mou::Hover h) {
 	if ( mou::HOVER_IN == h ) {
 		if (nullptr==fore) {
 
-			seethrough = mesh::partfactory(FORE, *this, ply->partname);
+			if (! (seethrough = mesh::partfactory(FORE, *this, ply->partname)) )
+				return;
+			
 			seethrough->SEETHROUGH = true;
 			
 			if ( seethrough->entangle() )

@@ -198,7 +198,7 @@
       }));
       this.build.add(new Clicky({
         name: 'part',
-        values: ['hull', 'piston'],
+        values: ['aluminium', 'rusty', 'rock', 'piston'],
         cpp: 'selectPart'
       }));
       return 1;

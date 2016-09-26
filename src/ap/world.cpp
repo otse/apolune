@@ -89,8 +89,6 @@ void ap::World::draw() {
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	
-
 	glBlendFuncSeparate(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA,GL_ONE,GL_ONE_MINUS_SRC_ALPHA);
 	{std::vector<Sprite *>::iterator it;
 	for ( it = sprites.begin(); it != sprites.end(); it ++) {

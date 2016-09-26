@@ -16,9 +16,6 @@
     <Filter Include="Source Files\ai">
       <UniqueIdentifier>{ae4ef4e4-ed5d-49d9-924a-dcc212cdd6ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\asteroid">
-      <UniqueIdentifier>{b58bd0ce-51e3-4b6a-ac3c-91960a6d5b75}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\objects">
       <UniqueIdentifier>{5d453610-dfb3-41a4-9ad5-f3dceeea2f76}</UniqueIdentifier>
     </Filter>
@@ -244,12 +241,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\ap\ais\tentacle.cpp">
       <Filter>Source Files\ai</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\ap\asteroid\asteroid.cpp">
-      <Filter>Source Files\asteroid</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\ap\asteroid\rock.cpp">
-      <Filter>Source Files\asteroid</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\ap\objects\chair.cpp">
       <Filter>Source Files\objects</Filter>

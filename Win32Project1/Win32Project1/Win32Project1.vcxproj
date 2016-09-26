@@ -209,8 +209,6 @@
     <ClCompile Include="..\..\src\ap\ai.cpp" />
     <ClCompile Include="..\..\src\ap\ais\chicken.cpp" />
     <ClCompile Include="..\..\src\ap\ais\tentacle.cpp" />
-    <ClCompile Include="..\..\src\ap\asteroid\asteroid.cpp" />
-    <ClCompile Include="..\..\src\ap\asteroid\rock.cpp" />
     <ClCompile Include="..\..\src\ap\def.cpp" />
     <ClCompile Include="..\..\src\ap\emitter.cpp" />
     <ClCompile Include="..\..\src\ap\light.cpp" />

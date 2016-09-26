@@ -13,6 +13,13 @@ namespace ap {
 
 		class Block : public Part {
 		public:
+			struct Type {
+				en::Texture& t;
+			};
+
+			static const Type Aluminium;
+			static const Type Rock;
+			static const Type Rusty;
 
 			// todo: make unmutable
 			static en::Region BLOCKS[6];
@@ -21,13 +28,11 @@ namespace ap {
 
 			static en::Region variations[6];
 
-		protected:
-
-		public:
-			Block(FIXTURE f, Tile &);
+			Block(FIXTURE f, Tile &, const Type &);
 			~Block();
 
 			int asd;
+			const Type &type;
 
 			virtual void step();
 			virtual void draw(PASS);

@@ -9,8 +9,13 @@
 #include "tile.h"
 #include "block.h"
 
-
+using namespace ap;
 using namespace ap::mesh;
+
+const Block::Type Block::Aluminium = { textures::aluminium };
+const Block::Type Block::Rock = { textures::rocks };
+const Block::Type Block::Rusty = { textures::rusty };
+
 
 en::Region Block::variations[6] = { { 0,16,8,8 }, { 8,16,8,8 }, { 16,16,8,8 }, { 24,16,8,8 }, { 32,16,8,8 }, { 40,16,8,8 } };
 
@@ -22,8 +27,9 @@ static float i = 126.f / 255.f;
 static en::Color aft = { i,i,i };
 
 
-ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t, SORT_BLOCKS) ,
-	outline(SORT_UNIMPORTANT, &textures::rusty, &OUTLINES[0]),
+ap::mesh::Block::Block(FIXTURE f, Tile& t, const Type& ty) : Part(f, t, SORT_BLOCKS) ,
+	type(ty),
+	outline(SORT_UNIMPORTANT, &ty.t, &OUTLINES[0]),
 	shadow(SORT_UNIMPORTANT, &textures::shadows, &SHADOWS[0])
 	{
 
@@ -38,7 +44,7 @@ ap::mesh::Block::Block(FIXTURE f, Tile &t) : Part(f, t, SORT_BLOCKS) ,
 	// sregion(&regions::blocksingle);
 	sregion( &variations[tile.variation] );
 
-	stexture(&textures::rusty);
+	stexture( &type.t );
 
 	outline.sx(gx() - 4);
 	outline.sy(gy() - 4);

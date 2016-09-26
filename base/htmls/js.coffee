@@ -173,7 +173,7 @@ class Overlay
 
 		@build.add new Clicky
 				name: 'part'
-				values: ['hull', 'piston']
+				values: ['aluminium', 'rusty', 'rock', 'piston']
 				cpp: 'selectPart'
 
 		# new Notice text: "You arrive in space. The maelstrom in the distance is whirling. Worlds are far apart, but you can build a craft."
