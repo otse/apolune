@@ -7,8 +7,8 @@
 #include <vector>
 #include <list>
 
-#include "Q:/glew-1.11.0/include/GL/glew.h"
-#include "Q:/glew-1.11.0/include/GL/wglew.h"
+#include "Q:/glew-2.0.0/include/GL/glew.h"
+#include "Q:/glew-2.0.0/include/GL/wglew.h"
 #include "Q:/physfs-2.0.3/physfs.h"
 #include <SFML/Graphics.hpp>
 

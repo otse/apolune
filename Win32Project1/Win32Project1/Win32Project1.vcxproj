@@ -94,13 +94,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;GLEW_STATIC;SFML_STATIC;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>Q:\SFML-2.4.0\include;$(SolutionDir)\..\src\;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Q:\SFML-2.4.1\include;$(SolutionDir)\..\src\;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glew32s.lib;opengl32.lib;winmm.lib;sfml-system-s-d.lib;gdi32.lib;sfml-window-s-d.lib;freetype.lib;jpeg.lib;sfml-audio-s-d.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;physfs.lib;jsoncpp.lib;awesomium.lib;sfml-graphics-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>Q:\built;Q:\built\Debug;Q:\SFML-2.4.0\lib;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\build\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>Q:\make\jsoncpp\src\lib_json\Debug;Q:\make\physfs-2.0.3\Debug;Q:\glew-2.0.0\lib\Release\Win32;Q:\SFML-2.4.1\lib;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\build\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -125,7 +125,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_USE_MATH_DEFINES;GLEW_STATIC;SFML_STATIC;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>Q:\SFML-2.4.0\include;$(SolutionDir)\..\src\;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Q:\SFML-2.4.1\include;$(SolutionDir)\..\src\;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,7 +133,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glew32s.lib;opengl32.lib;winmm.lib;sfml-system-s.lib;gdi32.lib;sfml-window-s.lib;freetype.lib;jpeg.lib;physfs.lib;sfml-audio-s.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;jsoncpp.lib;awesomium.lib;sfml-graphics-s.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>Q:\built;Q:\built\Release;Q:\SFML-2.4.0\lib;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\build\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>Q:\make\physfs-2.0.3\Release;Q:\make\jsoncpp\Release;Q:\glew-2.0.0\lib\Release\Win32;Q:\built;Q:\built\Release;Q:\SFML-2.4.1\lib;C:\Program Files (x86)\Awesomium Technologies LLC\Awesomium SDK\1.7.5.1\build\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

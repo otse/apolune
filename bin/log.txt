@@ -1,29 +1,19 @@
 0.12
 hi ô_ô
-extraction path is C:\Users\Petrus\AppData\Roaming\.apolune
-0
+extraction path is C:\Users\petru\AppData\Roaming\.apolune
 'htmls/first.html' successfully read
 OnBeginLoadingFrame
 'htmls/css.css' successfully read
 'jquery-3.1.0.min.js' successfully read
 'htmls/js.js' successfully read
-explain("System");
 OnDocumentReady
+explain("System");
 OnFinishLoadingFrame
 'Midrash.json' successfully read
 Midrash.json versions 0.12
 explain("Scripts");
 explain("Sounds");
 explain("Textures");
-'fonts/normal2.png' successfully read
-'fonts/monospace1.png' successfully read
-'fonts/monospace2.png' successfully read
-'fonts/statfont.png' successfully read
-'fonts/valuefont.png' successfully read
-'fonts/buttonfont.png' successfully read
-'fonts/valuefontchangeable.png' successfully read
-'fonts/clifont.png' successfully read
-'guipieces.png' successfully read
 'scenes/hangar.png' successfully read
 'lights/hangarlight.png' successfully read
 'lights/cursorlight.png' successfully read
@@ -31,6 +21,12 @@ explain("Textures");
 'earth.png' successfully read
 'craft/grid.png' successfully read
 'craft/parts.png' successfully read
+'craft/outlines.png' successfully read
+'craft/shadows.png' successfully read
+'craft/hulls.png' successfully read
+'craft/aluminium.png' successfully read
+'craft/rusty.png' successfully read
+'craft/piston.png' successfully read
 'objects/apexcoolchair.png' successfully read
 'objects/apexcooltable.png' successfully read
 'objects/bonetable.png' successfully read
@@ -50,20 +46,174 @@ Loading start menu
 OnBeginLoadingFrame
 OnDocumentReady
 OnFinishLoadingFrame
-1087
-2550
 start
 world ctor
 world load
-link
-gnormal 0 0 0 0
+variation 0
+variation 1
+variation 0
+variation 3
+variation 0
+variation 3
+variation 1
+variation 1
+variation 3
+variation 4
+variation 2
+variation 4
+variation 3
+variation 4
+variation 3
+variation 1
+variation 5
+variation 3
+variation 3
+variation 5
+variation 0
+variation 0
+variation 0
+variation 2
+variation 0
+variation 0
+variation 1
+variation 3
+variation 3
+variation 2
+variation 2
+variation 4
+variation 0
+variation 1
+variation 0
+variation 5
+variation 3
+variation 0
+variation 4
+variation 1
+variation 3
+variation 4
+variation 1
+variation 3
+variation 5
+variation 0
+variation 0
+variation 5
+variation 1
+variation 2
+variation 1
+variation 2
+variation 2
+variation 0
+variation 1
+variation 0
+variation 2
+variation 5
+variation 5
+variation 5
+variation 2
+variation 1
+variation 5
+variation 4
+variation 1
+variation 4
+variation 2
+variation 2
+variation 1
+variation 3
+variation 1
+variation 5
+variation 4
+variation 1
+variation 4
+variation 2
+variation 4
+variation 4
+variation 2
+variation 1
+variation 0
+variation 1
+variation 5
+variation 4
+variation 5
+variation 0
+variation 5
+variation 3
+variation 0
+variation 3
+variation 1
+variation 0
+variation 4
+variation 2
+variation 1
+variation 3
+variation 3
+variation 4
+variation 1
+variation 1
+variation 0
+variation 0
+variation 2
+variation 2
+variation 1
+variation 0
+variation 5
+variation 4
+variation 0
+variation 3
+variation 5
+variation 3
+variation 0
+variation 4
+variation 3
+variation 0
+variation 0
+variation 3
+variation 5
+variation 1
+variation 4
+variation 3
+variation 3
+variation 2
+variation 4
+variation 3
+variation 1
+variation 1
+variation 1
+variation 5
+variation 2
+variation 4
+variation 1
+variation 3
+variation 3
+variation 4
+variation 2
+variation 3
+variation 5
+variation 3
+variation 3
+variation 3
+variation 3
+variation 5
+variation 2
+variation 0
+variation 3
+variation 2
+variation 5
+variation 4
+variation 1
+variation 5
+variation 3
+variation 3
+variation 4
+variation 1
+variation 2
+variation 5
+variation 4
+variation 4
+variation 0
+variation 3
 ply ctor
 made world
 'htmls/ui.html' successfully read
-nukeif a draws to 28
-DELETEING SPRITE
-nukeif a draws to 27
-DELETEING SPRITE
 OnBeginLoadingFrame
 'htmls/dark.css' successfully read
 'htmls/Q.css' successfully read
@@ -71,714 +221,455 @@ OnBeginLoadingFrame
 OnDocumentReady
 webview 1:1 for ui
 OnFinishLoadingFrame
-748
-nukeif a draws to 27
-DELETEING SPRITE
-1376
-nukeif a draws to 27
-DELETEING SPRITE
-nukeif a draws to 27
-DELETEING SPRITE
-1388
-nukeif a draws to 27
-DELETEING SPRITE
-1313
-nukeif a draws to 26
-DELETEING SPRITE
-1364
-1389
-1408
-1396
-1383
-1359
-1382
-1397
-1367
-NO
-1375
-1354
-1359
-1372
-1357
-1357
-scale 2x
-scale 1x
-1385
-scale 3x
-LOL
-1373
-NO
-1365
-1392
-1399
-1346
-1379
-1351
-1337
-1384
-1375
+variation 3
+variation 3
+variation 5
+variation 1
+variation 0
+variation 1
+variation 4
+variation 1
+variation 5
+variation 4
+variation 2
+variation 0
+variation 4
+variation 3
+variation 3
+variation 1
+variation 0
+variation 0
+variation 5
+variation 3
+variation 0
+variation 5
+variation 2
+variation 5
+variation 0
+variation 4
 INVOKING QQ
-1358
-1345
-1359
-1376
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 47
-DELETEING SPRITE
-nukeif a draws to 46
-DELETEING SPRITE
-nukeif a draws to 45
-DELETEING SPRITE
-nukeif a draws to 44
-DELETEING SPRITE
-1330
-DELETEING SPRITE
-nukeif a draws to 65
-DELETEING SPRITE
-nukeif a draws to 64
-DELETEING SPRITE
-nukeif a draws to 64
-DELETEING SPRITE
-nukeif a draws to 63
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 111
-DELETEING SPRITE
-nukeif a draws to 110
-DELETEING SPRITE
-nukeif a draws to 112
-DELETEING SPRITE
-nukeif a draws to 111
-DELETEING SPRITE
-nukeif a draws to 110
-DELETEING SPRITE
-nukeif a draws to 109
-DELETEING SPRITE
-nukeif a draws to 110
-DELETEING SPRITE
-nukeif a draws to 109
-DELETEING SPRITE
-nukeif a draws to 108
-DELETEING SPRITE
-nukeif a draws to 107
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 117
-DELETEING SPRITE
-nukeif a draws to 116
-DELETEING SPRITE
-1172
-1354
-1339
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 146
-DELETEING SPRITE
-nukeif a draws to 145
-DELETEING SPRITE
-nukeif a draws to 145
-DELETEING SPRITE
-nukeif a draws to 144
-DELETEING SPRITE
-nukeif a draws to 144
-DELETEING SPRITE
-nukeif a draws to 143
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 190
-DELETEING SPRITE
-nukeif a draws to 189
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 195
-DELETEING SPRITE
-nukeif a draws to 194
-DELETEING SPRITE
-nukeif a draws to 193
-DELETEING SPRITE
-nukeif a draws to 192
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 196
-DELETEING SPRITE
-nukeif a draws to 195
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 216
-DELETEING SPRITE
-nukeif a draws to 215
-DELETEING SPRITE
-nukeif a draws to 214
-DELETEING SPRITE
-nukeif a draws to 213
-DELETEING SPRITE
-nukeif a draws to 214
-DELETEING SPRITE
-nukeif a draws to 213
-DELETEING SPRITE
-1167
-nukeif a draws to 216
-DELETEING SPRITE
-nukeif a draws to 215
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-1370
-nukeif a draws to 245
-DELETEING SPRITE
-nukeif a draws to 244
-DELETEING SPRITE
-nukeif a draws to 250
-DELETEING SPRITE
-nukeif a draws to 249
-DELETEING SPRITE
-nukeif a draws to 249
-DELETEING SPRITE
-nukeif a draws to 248
-DELETEING SPRITE
-nukeif a draws to 253
-DELETEING SPRITE
-nukeif a draws to 252
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 282
-DELETEING SPRITE
-nukeif a draws to 281
-DELETEING SPRITE
-nukeif a draws to 280
-DELETEING SPRITE
-nukeif a draws to 279
-DELETEING SPRITE
-nukeif a draws to 280
-DELETEING SPRITE
-nukeif a draws to 279
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 289
-DELETEING SPRITE
-nukeif a draws to 288
-DELETEING SPRITE
-1252
-DELETEING SPRITE
-nukeif a draws to 298
-DELETEING SPRITE
-nukeif a draws to 297
-DELETEING SPRITE
-DELETEING SPRITE
-1331
-nukeif a draws to 307
-DELETEING SPRITE
-nukeif a draws to 306
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 316
-DELETEING SPRITE
-nukeif a draws to 315
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 325
-DELETEING SPRITE
-nukeif a draws to 324
-DELETEING SPRITE
-1346
-DELETEING SPRITE
-nukeif a draws to 334
-DELETEING SPRITE
-nukeif a draws to 333
-DELETEING SPRITE
-DELETEING SPRITE
-1384
-nukeif a draws to 343
-DELETEING SPRITE
-nukeif a draws to 342
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 352
-DELETEING SPRITE
-nukeif a draws to 351
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 368
-DELETEING SPRITE
-nukeif a draws to 367
-DELETEING SPRITE
-nukeif a draws to 370
-DELETEING SPRITE
-nukeif a draws to 369
-DELETEING SPRITE
-DELETEING SPRITE
-1349
-nukeif a draws to 379
-DELETEING SPRITE
-nukeif a draws to 378
-DELETEING SPRITE
-link
-gnormal -1 0 0 0
-nukeif a draws to 392
-DELETEING SPRITE
-nukeif a draws to 391
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 409
-DELETEING SPRITE
-nukeif a draws to 408
-DELETEING SPRITE
-nukeif a draws to 410
-DELETEING SPRITE
-nukeif a draws to 409
-DELETEING SPRITE
-1300
-link
-gnormal -1 0 0 1
-DELETEING SPRITE
-nukeif a draws to 431
-DELETEING SPRITE
-nukeif a draws to 430
-DELETEING SPRITE
-nukeif a draws to 433
-DELETEING SPRITE
-nukeif a draws to 432
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -1 0 0 1
-nukeif a draws to 443
-DELETEING SPRITE
-nukeif a draws to 442
-DELETEING SPRITE
-DELETEING SPRITE
-1274
-nukeif a draws to 452
-DELETEING SPRITE
-nukeif a draws to 451
-DELETEING SPRITE
-link
-gnormal -2 0 0 1
-nukeif a draws to 466
-DELETEING SPRITE
-nukeif a draws to 465
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-link
-gnormal -3 0 0 1
-nukeif a draws to 494
-DELETEING SPRITE
-nukeif a draws to 493
-DELETEING SPRITE
-nukeif a draws to 496
-DELETEING SPRITE
-nukeif a draws to 495
-DELETEING SPRITE
-nukeif a draws to 498
-DELETEING SPRITE
-nukeif a draws to 497
-DELETEING SPRITE
-1114
-DELETEING SPRITE
-nukeif a draws to 507
-DELETEING SPRITE
-nukeif a draws to 506
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 0 0 1
-nukeif a draws to 517
-DELETEING SPRITE
-nukeif a draws to 516
-DELETEING SPRITE
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -1 0 1
-nukeif a draws to 538
-DELETEING SPRITE
-nukeif a draws to 537
-DELETEING SPRITE
-nukeif a draws to 541
-DELETEING SPRITE
-nukeif a draws to 540
-DELETEING SPRITE
-1070
-DELETEING SPRITE
-nukeif a draws to 550
-DELETEING SPRITE
-nukeif a draws to 549
-DELETEING SPRITE
-link
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-gnormal -3 -1 0 1
-nukeif a draws to 560
-DELETEING SPRITE
-nukeif a draws to 559
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 569
-DELETEING SPRITE
-nukeif a draws to 568
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 578
-DELETEING SPRITE
-nukeif a draws to 577
-DELETEING SPRITE
-1030
-link
-DELETEING SPRITE
-DELETEING SPRITE
-gnormal -3 -1 0 1
-nukeif a draws to 588
-DELETEING SPRITE
-nukeif a draws to 587
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 597
-DELETEING SPRITE
-nukeif a draws to 596
-DELETEING SPRITE
-1016
-link
-gnormal -3 -1 0 2
-nukeif a draws to 611
-DELETEING SPRITE
-nukeif a draws to 610
-DELETEING SPRITE
-1031
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -1 0 2
-nukeif a draws to 632
-DELETEING SPRITE
-nukeif a draws to 631
-DELETEING SPRITE
-nukeif a draws to 631
-DELETEING SPRITE
-nukeif a draws to 630
-DELETEING SPRITE
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -1 0 2
-nukeif a draws to 649
-DELETEING SPRITE
-nukeif a draws to 648
-DELETEING SPRITE
-917
-nukeif a draws to 651
-DELETEING SPRITE
-nukeif a draws to 650
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 660
-DELETEING SPRITE
-nukeif a draws to 659
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -1 0 2
-nukeif a draws to 670
-DELETEING SPRITE
-nukeif a draws to 669
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 686
-DELETEING SPRITE
-nukeif a draws to 685
-DELETEING SPRITE
-891
-nukeif a draws to 688
-DELETEING SPRITE
-nukeif a draws to 687
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 710
-DELETEING SPRITE
-nukeif a draws to 709
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 722
-DELETEING SPRITE
-nukeif a draws to 721
-DELETEING SPRITE
-nukeif a draws to 722
-DELETEING SPRITE
-nukeif a draws to 721
-DELETEING SPRITE
-nukeif a draws to 724
-DELETEING SPRITE
-nukeif a draws to 723
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -1 0 2
-nukeif a draws to 735
-DELETEING SPRITE
-nukeif a draws to 734
-DELETEING SPRITE
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -1 0 2
-nukeif a draws to 752
-DELETEING SPRITE
-nukeif a draws to 751
-DELETEING SPRITE
-828
-nukeif a draws to 754
-DELETEING SPRITE
-nukeif a draws to 753
-DELETEING SPRITE
-DELETEING SPRITE
-link
-gnormal -3 -1 1 2
-nukeif a draws to 773
-DELETEING SPRITE
-nukeif a draws to 772
-DELETEING SPRITE
-nukeif a draws to 777
-DELETEING SPRITE
-nukeif a draws to 776
-DELETEING SPRITE
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -1 1 2
-nukeif a draws to 793
-DELETEING SPRITE
-nukeif a draws to 792
-DELETEING SPRITE
-nukeif a draws to 797
-DELETEING SPRITE
-nukeif a draws to 796
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 806
-DELETEING SPRITE
-nukeif a draws to 805
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -1 1 2
-779
-nukeif a draws to 817
-DELETEING SPRITE
-nukeif a draws to 816
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 826
-DELETEING SPRITE
-nukeif a draws to 825
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -1 1 2
-nukeif a draws to 836
-DELETEING SPRITE
-nukeif a draws to 835
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 863
-DELETEING SPRITE
-nukeif a draws to 862
-DELETEING SPRITE
-nukeif a draws to 863
-DELETEING SPRITE
-nukeif a draws to 862
-DELETEING SPRITE
-nukeif a draws to 863
-DELETEING SPRITE
-nukeif a draws to 862
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-link
-gnormal -3 -2 1 2
-nukeif a draws to 892
-DELETEING SPRITE
-nukeif a draws to 891
-DELETEING SPRITE
-697
-nukeif a draws to 894
-DELETEING SPRITE
-nukeif a draws to 893
-DELETEING SPRITE
-nukeif a draws to 896
-DELETEING SPRITE
-nukeif a draws to 895
-DELETEING SPRITE
-DELETEING SPRITE
-link
-DELETEING SPRITE
-DELETEING SPRITE
-gnormal -3 -2 1 2
-nukeif a draws to 911
-DELETEING SPRITE
-nukeif a draws to 910
-DELETEING SPRITE
-nukeif a draws to 915
-DELETEING SPRITE
-nukeif a draws to 914
-DELETEING SPRITE
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 931
-DELETEING SPRITE
-nukeif a draws to 930
-DELETEING SPRITE
-nukeif a draws to 933
-DELETEING SPRITE
-nukeif a draws to 932
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -2 1 2
-697
-nukeif a draws to 944
-DELETEING SPRITE
-nukeif a draws to 943
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 953
-DELETEING SPRITE
-nukeif a draws to 952
-DELETEING SPRITE
-link
-DELETEING SPRITE
-gnormal -3 -2 1 2
-nukeif a draws to 964
-DELETEING SPRITE
-nukeif a draws to 963
-DELETEING SPRITE
-DELETEING SPRITE
-nukeif a draws to 973
-DELETEING SPRITE
-nukeif a draws to 972
-DELETEING SPRITE
-664
-link
-DELETEING SPRITE
-gnormal -3 -2 1 2
-nukeif a draws to 983
-DELETEING SPRITE
-nukeif a draws to 982
-DELETEING SPRITE
-731
-DELETEING SPRITE
-nukeif a draws to 992
-DELETEING SPRITE
-nukeif a draws to 991
-DELETEING SPRITE
-732
-DELETEING SPRITE
-725
-728
+INVOKING QQ
+selected part: rusty
+variation 0
+variation 0
+variation 1
+variation 3
+variation 5
+variation 0
+variation 4
+variation 5
+variation 3
+variation 5
+variation 4
+variation 0
+variation 1
+variation 3
+variation 4
+variation 1
+variation 4
+variation 3
+variation 2
+variation 2
+variation 0
+variation 5
+variation 0
+variation 3
+variation 3
+variation 0
+variation 4
+variation 1
+variation 0
+variation 1
+variation 0
+variation 4
+variation 1
+variation 5
+variation 0
+variation 5
+variation 4
+variation 0
+variation 2
+variation 4
+variation 2
+variation 5
+variation 0
+variation 2
+variation 3
+variation 4
+variation 3
+variation 0
+variation 1
+variation 5
+variation 4
+variation 5
+variation 1
+variation 0
+variation 1
+variation 1
+variation 0
+variation 0
+variation 5
+variation 5
+variation 1
+variation 2
+variation 2
+variation 3
+variation 1
+variation 1
+variation 5
+variation 2
+variation 1
+variation 0
+variation 0
+variation 4
+variation 5
+variation 1
+variation 2
+variation 2
+variation 5
+variation 2
+variation 4
+variation 4
+variation 3
+variation 5
+variation 3
+variation 5
+selected part: rock
+selected part: piston
+variation 0
+variation 4
+variation 3
+variation 5
+variation 3
+variation 0
+variation 3
+variation 2
+variation 5
+variation 4
+variation 4
+variation 0
+variation 1
+variation 5
+variation 5
+variation 4
+variation 1
+variation 5
+variation 1
+variation 2
+variation 1
+variation 5
+variation 2
+variation 0
+variation 2
+variation 4
+variation 3
+variation 3
+variation 3
+variation 2
+variation 5
+variation 3
+variation 3
+variation 1
+variation 1
+variation 3
+variation 5
+variation 1
+variation 4
+variation 4
+variation 1
+variation 5
+variation 5
+variation 0
+variation 0
+variation 5
+variation 0
+variation 0
+variation 3
+variation 0
+variation 5
+variation 4
+variation 4
+variation 5
+variation 0
+variation 1
+variation 5
+variation 0
+variation 1
+variation 4
+selected part: aluminium
+variation 4
+variation 3
+variation 2
+variation 2
+variation 3
+variation 0
+variation 1
+variation 4
+variation 2
+variation 1
+variation 3
+variation 4
+variation 4
+variation 5
+variation 1
+variation 0
+variation 3
+variation 1
+variation 4
+variation 4
+variation 2
+variation 0
+variation 3
+variation 2
+variation 2
+variation 5
+variation 3
+variation 3
+variation 1
+variation 5
+variation 0
+variation 3
+variation 2
+variation 3
+variation 0
+variation 5
+variation 4
+variation 5
+variation 4
+variation 1
+variation 4
+variation 5
+variation 2
+variation 5
+variation 3
+variation 3
+variation 3
+variation 2
+variation 2
+variation 3
+variation 4
+variation 3
+variation 3
+variation 5
+variation 0
+variation 0
+variation 2
+variation 0
+variation 4
+variation 0
+variation 3
+variation 5
+variation 5
+variation 5
+variation 2
+variation 3
+variation 3
+variation 3
+variation 0
+variation 3
+variation 4
+variation 1
+variation 2
+variation 4
+variation 4
+variation 5
+variation 5
+variation 5
+variation 0
+variation 2
+variation 2
+variation 3
+variation 4
+variation 2
+variation 1
+variation 1
+variation 2
+variation 3
+variation 5
+variation 5
+variation 0
+variation 3
+variation 1
+variation 3
+variation 1
+variation 5
+variation 3
+variation 4
+variation 1
+variation 3
+variation 2
+variation 4
 scale 2x
 scale 1x
-642
+variation 3
+variation 1
+variation 0
+variation 3
+variation 3
+variation 4
+variation 0
+variation 5
+variation 4
+variation 2
+variation 0
+variation 4
+variation 2
+variation 5
+variation 3
+variation 3
+variation 0
+variation 0
+variation 0
+variation 0
+variation 1
+variation 3
+variation 1
+variation 2
+variation 5
+variation 1
+variation 3
+variation 0
+variation 4
+variation 2
+variation 1
+variation 1
+variation 3
+variation 5
+variation 1
+variation 2
+variation 2
+variation 0
+variation 4
+variation 4
+variation 0
+variation 3
+variation 2
+variation 0
+variation 2
+variation 4
+variation 1
+variation 4
+variation 2
+variation 2
+variation 2
+variation 5
+variation 5
+variation 0
+variation 0
+variation 1
+variation 2
+variation 0
+variation 2
+variation 2
+variation 5
+variation 2
+variation 2
+variation 5
+variation 4
+variation 1
+variation 0
+variation 1
+variation 3
+variation 0
+variation 3
+variation 4
+variation 3
+variation 3
+variation 1
+variation 1
+variation 1
+variation 3
+variation 0
+variation 5
+variation 4
+variation 3
+variation 2
+variation 3
 scale 3x
-LOL
-724
-736
-749
+variation 0
+variation 0
+variation 2
+variation 4
+variation 2
+variation 5
+variation 2
+variation 5
+variation 3
+variation 3
+variation 1
+variation 1
+variation 1
+variation 1
+variation 0
+variation 3
+variation 0
+variation 5
+variation 3
+variation 2
+variation 5
+variation 3
+variation 5
+variation 5
+variation 5
+variation 2
+variation 5
+variation 2
+variation 4
+variation 5
+variation 4
+variation 5
+variation 0
+variation 1
+variation 2
+variation 3
+variation 3
+variation 5
+variation 1
+variation 3
+variation 4
+variation 3
+variation 3
+variation 4
+variation 2
+variation 0
+variation 0
+variation 5
+variation 0
+variation 5
+variation 3
+variation 0
+variation 5
+variation 1
+variation 5
+variation 3
+variation 4
+variation 3
+variation 5
+variation 0
+variation 2
+variation 0
+variation 1
+variation 5
+variation 1
+variation 0
+variation 2
+variation 5
+variation 1
+variation 2
+INVOKING QQ
+INVOKING QQ
 scale 2x
 scale 1x
-scale 3x
-741
-NO
-LOL
-NO
-732
-LOL
-NO
-732
-scale 2x
-733
-scale 1x
-scale 3x
-scale 2x
-scale 1x
-738
 scale 3x
 scale 2x
 scale 1x
 scale 3x
 scale 2x
-740
 scale 1x
 scale 3x
 scale 2x
 scale 1x
-728
-scale 3x
-scale 2x
-scale 1x
-scale 3x
-681
-684
-690
-710
-736
-701
-735
-744
-742
-763
-scale 2x
-742
-scale 1x
-701
-715
-scale 3x
-740
-scale 2x
-719
-scale 1x
-scale 3x
-730
-683
-728
-681
-703
-714
-669
-696
-683
-749
-737
-750
-697
-711
-725
-719
-710
-742
-713
-736
-755
-742
-727
-715
+selected part: rusty
+selected part: rock
+selected part: piston
+selected part: aluminium
